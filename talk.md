@@ -90,6 +90,14 @@ Journals ...
 
 ---
 
+## Community
+
+- You want to create a *community*, and tools of this course help do that
+- There are certain conditions for *taking from the community*
+- There are certain ways to *give to the community*
+
+---
+
 ## Conclusions and discussion
 
 ...
