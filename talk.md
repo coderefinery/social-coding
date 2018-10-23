@@ -77,6 +77,8 @@ Why share
 
 Derivative work
 
+CV
+
 ---
 
 ## Sharing is scary
