@@ -531,4 +531,9 @@ Journals ...
 
 ## Conclusions and discussion
 
-...
+- Track code using version control, learn Git: https://uit-no.github.io/2018-11-08-uit/
+- Use code review: review each other's code changes
+- Make it easy to reproduce your computational results
+- Open source your code and make it accessible (GitHub, GitLab, Bitbucket)
+- Make it easy to cite your code (Zenodo)
+- Check out the CodeRefinery project: https://coderefinery.org
