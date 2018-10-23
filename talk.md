@@ -125,13 +125,7 @@ where to place your code
 
 ---
 
-## Software licensing
-
-Overview
-
----
-
-## Copyright vs. patent vs. trademark
+## Software licensing: Copyright vs. patent vs. trademark
 
 <img src="img/printing_press.jpg" style="width: 50%;"/>
 
