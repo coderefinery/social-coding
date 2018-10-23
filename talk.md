@@ -9,6 +9,7 @@
 - Why software matters in research
 - Why open software
 - How to do open software
+- How to create a community around your code
 
 ---
 
