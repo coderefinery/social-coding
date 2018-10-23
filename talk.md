@@ -427,6 +427,19 @@ a huge community of firmware modders.  -->
 
 ---
 
+## Why is allowing derivative work good for you as researcher?
+
+- **Quality** control: groups depending on your code will find bugs.
+- More applications.
+- Globally probably more papers (**more impact**).
+- If you make your code citeable, you can measure this impact and use this
+  in grant applications.
+- Long-term probably also **more papers** for you: new collaborations and projects.
+- Groups depending on your code will not want your code to die: they might **support**
+  you, send improvements, and share maintenance load.
+
+---
+
 ## Who owns the copyright for software you write?
 
 - You? Your university?
