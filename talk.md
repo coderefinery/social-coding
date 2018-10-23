@@ -72,6 +72,8 @@ where to place your code
 
 ## Software licensing
 
+Why licenses matter; X11 vs. SunView: https://lwn.net/Articles/26608/
+
 Derivative work
 
 Also distill https://github.com/coderefinery/software-licensing
