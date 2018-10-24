@@ -84,7 +84,7 @@ Challenge:
 - Others can submit features/improvements
 - Others can fix bugs
 - Many tools and apps are free for open source
-  ([GitHub](https://github.com/), [Travis CI](https://travis-ci.org),
+  ([GitHub](https://github.com), [Travis CI](https://travis-ci.org),
   [Appveyor](https://www.appveyor.com), [Read the Docs](https://readthedocs.org))
 - Good for your CV: you can show what you built
 
@@ -161,21 +161,65 @@ Challenge:
 
 ## Version control
 
+Have you heard these?
+
+- *“I will just finish my work and then you can start with your changes.”*
+- *“Can you please send me the latest version?”*
+- *“Where is the latest version?”*
+- *“Which version are you using?”*
+- *“Which version have the authors used in the paper I am trying to reproduce?”*
+- *“Hmmm... I wonder when this bug got introduced.”*
+
+### The essence of version control
+
+- System which .blue[records snapshots] of a project
+- Implements .blue[branching]
+- Implements .blue[merging]
+
+### [Git](https://git-scm.com) is the most popular version control system
+
 ---
 
+.left-column[
 ## GitHub and friends
+]
 
-where to place your code
+.right-column[
+We take a quick tour on [GitHub](https://github.com) and [GitLab](https://gitlab.com) ...
 
-2 slides
+On these I show and discuss:
+- Commits
+- Branches
+- Annotation
+]
+
+---
+
+## Forking and derivative projects
+
+<img src="img/forking-overview.svg" style="width: 60%;"/>
 
 ---
 
 ## Code review
 
-- collaboration and peer review using GitHub/GitLab
+## Like .blue[peer review] for code changes
 
-2 slides
+- Changes are reviewed and discussed **before** they are integrated (merged)
+- Proposals for non-trivial changes
+- Feedback on WIP-changes
+- Typically coupled with automated testing
+
+
+### Benefits
+
+- Quality
+- Team members know what others are doing
+- Amazing learning opportunity
+- Thought process behind changes can be tracked
+
+
+### Yes, code review takes time - peer review also takes time
 
 ---
 
@@ -591,3 +635,9 @@ Journals ...
 - Open source your code and make it accessible (GitHub, GitLab, Bitbucket)
 - Make it easy to cite your code (Zenodo)
 - Check out the CodeRefinery project: https://coderefinery.org
+
+### Where to place your code
+
+- https://github.com: public repositories
+- https://gitlab.com: public or private repositories
+- https://source.coderefinery.org: public or private repositories
