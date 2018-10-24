@@ -21,12 +21,16 @@ Based on material with contributions by:
 
 layout: false
 
+.left-column[
 # Plan for this talk
+]
 
+.right-column[
 ## - Why software matters in research
 ## - Why open software
 ## - How to do open software
 ## - How to grow a community around your code
+]
 
 ---
 
@@ -36,7 +40,7 @@ layout: false
 
 - Funding agencies often ask for a data management plan
 
-**Software** is part of research output:
+**Software** is part of research output
 
 - Simulations which generate data
 - Control software for instruments
@@ -46,11 +50,10 @@ layout: false
 - Spreadsheets
 - Scripts and tools which produce graphs and compute statistics
 - Across disciplines
-- Machine learning everywhere
 
 Curiosity: Not too many projects consider a software management plan.
 
-.blue[The big keyword here is **reproducibility**.]
+.blue[The big keyword in this talk is **reproducibility**.]
 
 ---
 
