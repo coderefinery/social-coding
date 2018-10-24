@@ -83,8 +83,10 @@ Challenge:
 - Enables others to build on top of your code (derivative work, provided the license allows it)
 - Others can submit features/improvements
 - Others can fix bugs
-- Many tools and apps are free for open source (GitHub, Travis CI, Appveyor, Read the Docs)
-- Good for your CV: you can show what you did
+- Many tools and apps are free for open source
+  ([GitHub](https://github.com/), [Travis CI](https://travis-ci.org),
+  [Appveyor](https://www.appveyor.com), [Read the Docs](https://readthedocs.org))
+- Good for your CV: you can show what you built
 
 ---
 
@@ -110,7 +112,7 @@ Challenge:
 - Others may require support and ask too many questions
 > .blue[More about this later.]
 - Fear of losing control over the direction of the project
-> .blue[Open source does not mean everybody has write permissions.]
+> .blue[Open source does not mean everybody can change **your** code.]
 - "Bad" derivative projects may appear
 > .blue[Use non-endorsement licenses. It will be clear which is your official version.]
 
