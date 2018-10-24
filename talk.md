@@ -12,10 +12,10 @@ Text is free to share and remix under
 [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 
 Based on material with contributions by:
-- Jyry Suvilehto
 - Richard Darst
 - Sabry Razick
 - Oxana Smirnova
+- Jyry Suvilehto
 
 ---
 
