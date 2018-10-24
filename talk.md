@@ -146,13 +146,14 @@ Challenge:
 
 ## Reproducibility - practically speaking (2/2)
 
-- Document dependencies **with versions**.
+- Document dependencies **with versions** (use [Pipenv](https://pipenv.readthedocs.io) in Python projects).
 - If your code needs to be built/compiled, document how.
 - Consider sharing a Docker file.
 - Your output files, output data, output images should contain information about input files and **code versions**.
 - Prefer scripts over graphical point-and-click solutions.
 - Document your data processing workflow with a script or Makefile or similar.
-- Share your data - e.g. using https://dataverse.no
+- Consider collecting and sharing your scripts in a Jupyter notebook.
+- Share your data - e.g. using https://dataverse.no.
 
 ---
 
