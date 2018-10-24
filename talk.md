@@ -116,19 +116,35 @@ Challenge:
 
 ---
 
-## Reproducibility
+## Reproducibility - generally speaking
 
-- general
+<img src="img/research_comic_phd.gif" style="width: 80%;"/>
 
-https://www.softwareheritage.org
+- "The public" should be able to **find your code**
+- It should be possible to locate the same **version** that you have used in your paper
+- Document the **dependencies**
+- Document the **environment** (possibly using a Docker file)
+- Provide **install instructions**
+- Make it possible to **test and verify** the installation
 
 ---
 
-## Reproducibility
+<img src="img/reproducibility_nature.png" style="width: 100%;"/>
 
-- practical
+---
 
-2 slides
+## Reproducibility - practically speaking
+
+- Use version control (track changes to your code, more about it below).
+- In the published paper note the **precise version** which you have used.
+- If possible, make the sources available.
+- At the minimum move them from a dusty hard-drive to a place with backup.
+- Placing your code on [GitHub](https://github.com) is very good but it is not enough (https://www.softwareheritage.org).
+- Get a [DOI](https://en.wikipedia.org/wiki/Digital_object_identifier) using [Zenodo](https://zenodo.org).
+- Document dependencies **with versions**.
+- If your code needs to be built/compiled, document how.
+- Consider sharing a Docker file.
+- Your output files, output data, output images should contain information about input files and **code versions**.
 
 ---
 
