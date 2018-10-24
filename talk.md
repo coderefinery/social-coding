@@ -76,19 +76,43 @@ Challenge:
 
 ## Sharing is caring
 
-Why share
+### .blue[What are the benefits of sharing software?]
 
-Derivative work
-
-CV
+- Easier to find and reproduce (.blue[scientific reproducibility])
+- Others can verify correctness and find and report bugs
+- Enables others to build on top of your code (derivative work, provided the license allows it)
+- Others can submit features/improvements
+- Others can fix bugs
+- Many tools and apps are free for open source (GitHub, Travis CI, Appveyor, Read the Docs)
+- Good for your CV: you can show what you did
 
 ---
 
 ## Sharing is scary
 
-Why some researchers prefer not to share
+### .blue[Why do some researchers prefer not to share?]
 
-2 slides
+- Fear of being scooped
+- Exposes possibly "ugly code"
+- Others may find bugs
+- Others may require support and ask too many questions
+- Fear of losing control over the direction of the project
+- "Bad" derivative projects may appear - fear that this will harm the reputation
+
+---
+
+- Fear of being scooped
+> .blue[Very unlikely that others will understand your code and publish before you without involving you in a collaboration.]
+- Exposes possibly "ugly code"
+> .blue[In practice almost nobody will care/judge.]
+- Others may find bugs
+> .blue[Isn't this good? Would you not like to use a code which gives people the chance to locate bugs?]
+- Others may require support and ask too many questions
+> .blue[More about this later.]
+- Fear of losing control over the direction of the project
+> .blue[Open source does not mean everybody has write permissions.]
+- "Bad" derivative projects may appear
+> .blue[Use non-endorsement licenses. It will be clear which is your official version.]
 
 ---
 
