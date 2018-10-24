@@ -133,7 +133,7 @@ Challenge:
 
 ---
 
-## Reproducibility - practically speaking
+## Reproducibility - practically speaking (1/2)
 
 - Use version control (track changes to your code, more about it below).
 - In the published paper note the **precise version** which you have used.
@@ -141,10 +141,18 @@ Challenge:
 - At the minimum move them from a dusty hard-drive to a place with backup.
 - Placing your code on [GitHub](https://github.com) is very good but it is not enough (https://www.softwareheritage.org).
 - Get a [DOI](https://en.wikipedia.org/wiki/Digital_object_identifier) using [Zenodo](https://zenodo.org).
+
+---
+
+## Reproducibility - practically speaking (2/2)
+
 - Document dependencies **with versions**.
 - If your code needs to be built/compiled, document how.
 - Consider sharing a Docker file.
 - Your output files, output data, output images should contain information about input files and **code versions**.
+- Prefer scripts over graphical point-and-click solutions.
+- Document your data processing workflow with a script or Makefile or similar.
+- Share your data - e.g. using https://dataverse.no
 
 ---
 
