@@ -607,23 +607,33 @@ their internal rights to do their work! -->
 
 - Open source license can't demand citation, but it is required by science ethics anyway.
 - Make it as easy as possible! Clearly say what you want cited.
-- [Citation file format](https://github.com/citation-file-format/citation-file-format)
-- DOI
-- Zenodo
+- Make it easy for scripts and tools: [Citation file format](https://github.com/citation-file-format/citation-file-format)
+- Get a [DOI](https://en.wikipedia.org/wiki/Digital_object_identifier) using [Zenodo](https://zenodo.org).
 
----
+### Publishing papers about software
 
-## Publishing papers about software
-
-Journals ...
+- [The Journal of Open Source Software](https://joss.theoj.org/about)
+- [In which journals should I publish my software?](https://www.software.ac.uk/resources/guides/which-journals-should-i-publish-my-software)
 
 ---
 
 ## Community
 
-- You want to create a *community*, and tools of this course help do that
 - There are certain conditions for *taking from the community*
 - There are certain ways to *give to the community*
+
+
+### Considerations
+
+- Give credit
+- Welcoming environment
+- Code of conduct
+- Nobody is more equal
+- Openness and transparency
+- Share a contribution guide
+- Document whether/how/where you want to be asked questions
+- Chat or mailing list
+- If the project grows, agree on a decision process for controversial changes
 
 ---
 
