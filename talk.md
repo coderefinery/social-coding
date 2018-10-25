@@ -80,7 +80,7 @@ Challenge:
 
 - Easier to find and reproduce (.blue[scientific reproducibility])
 - Others can verify correctness and find and report bugs
-- Enables others to build on top of your code (derivative work, provided the license allows it)
+- Enables others to build on top of your code (derivative work, provided the **license** allows it)
 - Others can submit features/improvements
 - Others can fix bugs
 - Many tools and apps are free for open source
@@ -128,10 +128,13 @@ Challenge:
 - Document the **environment** (possibly using a Docker file)
 - Provide **install instructions**
 - Make it possible to **test and verify** the installation
+- .blue[Make it possible to reproduce your results 10 years later]
 
 ---
 
 <img src="img/reproducibility_nature.png" style="width: 100%;"/>
+
+https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.1997
 
 ---
 
@@ -141,8 +144,9 @@ Challenge:
 - In the published paper note the **precise version** which you have used.
 - If possible, make the sources available.
 - At the minimum move them from a dusty hard-drive to a place with backup.
-- Placing your code on [GitHub](https://github.com) is very good but it is not enough (https://www.softwareheritage.org).
+- Placing your code on [GitHub](https://github.com) is very good but it is not enough.
 - Get a [DOI](https://en.wikipedia.org/wiki/Digital_object_identifier) using [Zenodo](https://zenodo.org).
+- https://www.softwareheritage.org
 
 ---
 
@@ -154,14 +158,14 @@ Challenge:
 - Your output files, output data, output images should contain information about input files and **code versions**.
 - Prefer scripts over graphical point-and-click solutions.
 - Document your data processing workflow with a script or Makefile or similar.
-- Consider collecting and sharing your scripts in a Jupyter notebook.
+- Consider collecting and sharing your scripts in a [Jupyter notebook](http://jupyter.org).
 - Share your data - e.g. using https://dataverse.no.
 
 ---
 
 ## Version control
 
-Have you heard these?
+Does this sound familiar?
 
 - *“I will just finish my work and then you can start with your changes.”*
 - *“Can you please send me the latest version?”*
@@ -187,10 +191,13 @@ Have you heard these?
 .right-column[
 We take a quick tour on [GitHub](https://github.com) and [GitLab](https://gitlab.com) ...
 
+These are web services where you can host and share your Git repositories.
+
 On these I show and discuss:
 - Commits
 - Branches
 - Annotation
+- Issue tracking
 ]
 
 ---
@@ -203,11 +210,11 @@ On these I show and discuss:
 
 ## Code review
 
-## Like .blue[peer review] for code changes
+## .blue[Peer review] for code changes
 
 - Changes are reviewed and discussed **before** they are integrated (merged)
 - Proposals for non-trivial changes
-- Feedback on WIP-changes
+- Feedback on WIP (work in progress) changes
 - Typically coupled with automated testing
 
 
@@ -223,7 +230,7 @@ On these I show and discuss:
 
 ---
 
-## Software licensing: Copyright vs. patent vs. trademark
+## Software licensing: copyright vs. patent vs. trademark
 
 <img src="img/printing_press.jpg" style="width: 50%;"/>
 
@@ -244,7 +251,7 @@ and the question was should it go all to the printer or some also to the writer.
 
 ---
 
-## We will focus on copyright and creative expression
+## We will focus on .blue[copyright and creative expression]
 
 - **Facts are always free**
 - Copyright protects the **creative expression** of an idea
@@ -527,7 +534,7 @@ a huge community of firmware modders.  -->
 - If you make your code citeable, you can measure this impact and use this
   in grant applications.
 - Long-term probably also **more papers** for you: new collaborations and projects.
-- Groups depending on your code will not want your code to die: they might **support**
+- Groups depending on your code will not want your code to disappear: they might **support**
   you, send improvements, and share maintenance load.
 
 ---
@@ -634,6 +641,8 @@ their internal rights to do their work! -->
 - Document whether/how/where you want to be asked questions
 - Chat or mailing list
 - If the project grows, agree on a decision process for controversial changes
+- Maintenance takes time, whether open or closed
+- Your license might determine external contributions
 
 ---
 
@@ -643,7 +652,7 @@ their internal rights to do their work! -->
 - Use code review: review each other's code changes
 - Make it easy to reproduce your computational results
 - Open source your code and make it accessible (GitHub, GitLab, Bitbucket)
-- Make it easy to cite your code (Zenodo)
+- Make it easy to cite your code ([Zenodo](https://zenodo.org))
 - Check out the CodeRefinery project: https://coderefinery.org
 
 ### Where to place your code
