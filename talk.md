@@ -118,6 +118,19 @@ Challenge:
 
 ---
 
+## FAIR principles
+
+The FAIR Guiding Principles for scientific **data** management and stewardship (https://www.nature.com/articles/sdata201618):
+
+- To be .blue[Findable]
+- To be .blue[Accessible]
+- To be .blue[Interoperable]
+- To be .blue[Reusable]
+
+For a discussion of FAIR in the context of software, see https://softdev4research.github.io/4OSS-lesson/.
+
+---
+
 ## Reproducibility - generally speaking
 
 <img src="img/research_comic_phd.gif" style="width: 80%;"/>
