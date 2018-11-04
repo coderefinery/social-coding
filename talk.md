@@ -526,6 +526,7 @@ a huge community of firmware modders.  -->
 
 ### Is derivative work
 
+- Changing the code
 - Extending the code
 - Completely rewriting the code
 - Rewriting the code to a different programming language
