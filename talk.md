@@ -572,7 +572,8 @@ their internal rights to do their work! -->
 
 - You *can't* ignore licensing: default is "no one can make copies or
   derivative works".
-- License your code **very early** in the project.
+- License your code **very early** in the project:
+  ideally develop publicly accessible open source code **from day one**.
 - Take an [OSI](https://opensource.org/licenses)-approved license: makes it easier to evaluate
   [compatibility](https://en.wikipedia.org/wiki/License_compatibility).
 - **Do not use custom licenses** for open source: compatibility not clear.
@@ -587,11 +588,6 @@ their internal rights to do their work! -->
   - You should check that GitHub can automatically detect the license.
 - License your supporting information (images) under
   creative commons (use [Zenodo](https://zenodo.org) or [Figshare](https://figshare.com)).
-
-
-### Citations and credit
-
-- More about this in a moment ...
 
 ---
 
