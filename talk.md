@@ -249,12 +249,9 @@ On these I show and discuss:
 
 <img src="img/printing_press.jpg" style="width: 50%;"/>
 
-- Copyright: You are Goethe and your writings are widely published, you are
-  given a right to some of the proceeds from selling copies (.blue[expression of an idea])
-- Patent: You invented a better printing press and are given the exclusive
-  to manufacture printing presses that use the technique (.blue[invention])
-- Trademark: You start selling the printing press with the name AutoPress, which
-  distinguishes your press from others (.blue[ownership]).
+- Patent: protects an .blue[invention] (e.g. a printing press).
+- Copyright: protects an .blue[expression of an idea] (e.g. a novel).
+- Trademark: protects a .blue[name] (e.g. "AutoPress").
 
 <!--
 Printing press was the reason copyright was necessary in the first place.
