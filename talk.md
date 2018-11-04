@@ -79,7 +79,7 @@ Challenge:
 ### .blue[What are the benefits of sharing software?]
 
 - Easier to find and reproduce (.blue[scientific reproducibility])
-- Others can verify correctness and find and report bugs
+- More trustworthy: others can verify correctness and find and report bugs
 - Enables others to build on top of your code (derivative work, provided the **license** allows it)
 - Others can submit features/improvements
 - Others can fix bugs
@@ -360,7 +360,6 @@ make an impact.
 
 ## In practice you need to choose a license
 
-- Without a license it is not clear what use breaks copyright.
 - Code without license is not useful for reuse or derivative work.
 - Example why choice of license matters, X vs. SunView: https://lwn.net/Articles/26608/
 
@@ -608,10 +607,22 @@ their internal rights to do their work! -->
 
 ## Software citation
 
+- Get a [DOI](https://en.wikipedia.org/wiki/Digital_object_identifier) using [Zenodo](https://zenodo.org).
 - Open source license can't demand citation, but it is required by science ethics anyway.
 - Make it as easy as possible! Clearly say what you want cited.
-- Make it easy for scripts and tools: [Citation file format](https://github.com/citation-file-format/citation-file-format)
-- Get a [DOI](https://en.wikipedia.org/wiki/Digital_object_identifier) using [Zenodo](https://zenodo.org).
+- Make it easy for scripts and tools, use the [Citation file format](https://citation-file-format.github.io):
+
+```
+cff-version: 1.0.3
+message: If you use numgrid, please cite it as below.
+authors:
+  - family-names: Bast
+    given-names: Radovan
+title: numgrid
+version: 1.0.2
+doi: 10.5281/zenodo.1470277
+date-released: 2018-10-24
+```
 
 ### Publishing papers about software
 
