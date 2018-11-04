@@ -668,6 +668,20 @@ date-released: 2018-10-24
 
 ---
 
+## How to attract users and developers
+
+### As a .blue[developer] or .blue[user] what are you looking at when discovering a new package?
+
+These are the things I look at:
+
+- Date of last code change
+- Release history
+- Number of open pull requests and issues - are they followed-up?
+- Example
+- Installation instructions
+
+---
+
 ## Conclusions and discussion
 
 - Track code using version control, learn Git: https://uit-no.github.io/2018-11-08-uit/
