@@ -549,6 +549,9 @@ a huge community of firmware modders.  -->
 - Groups depending on your code will not want your code to disappear: they might **support**
   you, send improvements, and share maintenance load.
 
+.blue[*Wouldn't it make sense to share your favourite cake recipe with
+your friends and colleagues?*]
+
 ---
 
 ## Who owns the copyright for software you write?
