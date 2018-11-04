@@ -660,3 +660,9 @@ their internal rights to do their work! -->
 - https://github.com: public repositories
 - https://gitlab.com: public or private repositories
 - https://source.coderefinery.org: public or private repositories
+
+### Great resources
+
+- http://rkd.zgib.net/scicomp/open-science/open-science.html
+- https://softdev4research.github.io/4OSS-lesson/
+- https://softdev4research.github.io/recommendations/

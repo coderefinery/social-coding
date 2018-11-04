@@ -11,3 +11,5 @@
 
 - http://rkd.zgib.net/scicomp/open-science/open-science.html
 - https://github.com/coderefinery/software-licensing
+- https://softdev4research.github.io/4OSS-lesson/
+- https://softdev4research.github.io/recommendations/
