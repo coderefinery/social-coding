@@ -51,7 +51,7 @@ layout: false
 - Scripts and tools which produce graphs and compute statistics
 - Across disciplines
 
-Curiosity: Not too many projects consider a software management plan.
+Curiosity: Not too many projects consider a software management plan **yet**.
 
 .blue[The big keyword in this talk is **reproducibility**.]
 
@@ -114,7 +114,7 @@ Challenge:
 - Fear of losing control over the direction of the project
 > .blue[Open source does not mean everybody can change **your** code.]
 - "Bad" derivative projects may appear
-> .blue[Use non-endorsement licenses. It will be clear which is your official version.]
+> .blue[It will be clear which is the official version.]
 
 ---
 
