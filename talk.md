@@ -51,6 +51,8 @@ layout: false
 - Scripts and tools which produce graphs and compute statistics
 - Across disciplines
 
+*Anybody in the audience who does not produce software?*
+
 Curiosity: Not too many projects consider a software management plan **yet**.
 
 .blue[The big keyword in this talk is **reproducibility**.]
