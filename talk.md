@@ -51,8 +51,6 @@ layout: false
 - Scripts and tools which produce graphs and compute statistics
 - Across disciplines
 
-*Anybody in the audience who does not produce software?*
-
 Curiosity: Not too many projects consider a software management plan **yet**.
 
 .blue[The big keyword in this talk is **reproducibility**.]
@@ -95,13 +93,13 @@ For a discussion of FAIR in the context of software, see https://softdev4researc
 
 - Easier to find and reproduce (.blue[scientific reproducibility])
 - More trustworthy: others can verify correctness and find and report bugs
-- Enables others to build on top of your code (derivative work, provided the **license** allows it)
+- Enables others to build on top of your code (derivative work, .blue[provided the license allows it])
 - Others can submit features/improvements
 - Others can fix bugs
 - Many tools and apps are free for open source
   ([GitHub](https://github.com), [Travis CI](https://travis-ci.org),
   [Appveyor](https://www.appveyor.com), [Read the Docs](https://readthedocs.org))
-- Good for your CV: you can show what you built
+- Good for your CV: you can show what you have built
 
 ---
 
@@ -127,7 +125,7 @@ For a discussion of FAIR in the context of software, see https://softdev4researc
 - Others may require support and ask too many questions
 > .blue[More about this later.]
 - Fear of losing control over the direction of the project
-> .blue[Open source does not mean everybody can change **your** code.]
+> .blue[Open source does not mean everybody can change **your version**.]
 - "Bad" derivative projects may appear
 > .blue[It will be clear which is the official version.]
 
@@ -174,7 +172,7 @@ https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.1
 - Prefer scripts over graphical point-and-click solutions.
 - Document your data processing workflow with a script or Makefile or similar.
 - Consider collecting and sharing your scripts in a [Jupyter notebook](http://jupyter.org).
-- Share your data - e.g. using https://dataverse.no.
+- Share your data (in Norway e.g. using https://dataverse.no).
 
 ---
 
@@ -204,7 +202,7 @@ Does this sound familiar?
 ]
 
 .right-column[
-We take a quick tour on [GitHub](https://github.com) and [GitLab](https://gitlab.com) ...
+We take a quick tour of [GitHub](https://github.com) and [GitLab](https://gitlab.com) ...
 
 These are web services where you can host and share your Git repositories.
 
