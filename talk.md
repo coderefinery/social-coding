@@ -679,11 +679,13 @@ date-released: 2018-10-24
 
 These are the things I look at:
 
-- Date of last code change
+- Date of last code change .remark[... is the project abandoned?]
 - Release history
+- Versioning .remark[... will it be painful to upgrade?]
 - Number of open pull requests and issues - are they followed-up?
-- Example
 - Installation instructions
+- Example .remark[... will it be difficult to get started?]
+- License .remark[... am I allowed to use it?]
 
 ---
 
