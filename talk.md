@@ -36,11 +36,11 @@ layout: false
 
 ## Why software matters in research
 
-**Data** is part of research output
+.emph[**Data** is part of research output]
 
 - Funding agencies often ask for a data management plan
 
-**Software** is part of research output
+.emph[**Software** is part of research output]
 
 - Simulations which generate data
 - Control software for instruments
@@ -49,11 +49,10 @@ layout: false
 - Portals and apps
 - Spreadsheets
 - Scripts and tools which produce graphs and compute statistics
-- Across disciplines
 
 Curiosity: Not too many projects consider a software management plan **yet**.
 
-.blue[The big keyword in this talk is **reproducibility**.]
+.emph[The big keyword in this talk is **reproducibility**.]
 
 ---
 
@@ -78,10 +77,10 @@ Challenge:
 
 The FAIR Guiding Principles for scientific **data** management and stewardship (https://www.nature.com/articles/sdata201618):
 
-- To be .blue[Findable]
-- To be .blue[Accessible]
-- To be .blue[Interoperable]
-- To be .blue[Reusable]
+- To be .emph[**F**indable]
+- To be .emph[**A**ccessible]
+- To be .emph[**I**nteroperable]
+- To be .emph[**R**eusable]
 
 For a discussion of FAIR in the context of software, see https://softdev4research.github.io/4OSS-lesson/.
 
@@ -89,11 +88,11 @@ For a discussion of FAIR in the context of software, see https://softdev4researc
 
 ## Sharing is caring
 
-### .blue[What are the benefits of sharing software?]
+### What are the benefits of sharing software?
 
-- Easier to find and reproduce (.blue[scientific reproducibility])
+- Easier to find and reproduce (.emph[scientific reproducibility])
 - More trustworthy: others can verify correctness and find and report bugs
-- Enables others to build on top of your code (derivative work, .blue[provided the license allows it])
+- Enables others to build on top of your code (derivative work, .emph[provided the license allows it])
 - Others can submit features/improvements
 - Others can fix bugs
 - Many tools and apps are free for open source
@@ -105,7 +104,7 @@ For a discussion of FAIR in the context of software, see https://softdev4researc
 
 ## Sharing is scary
 
-### .blue[Why do some researchers prefer not to share?]
+### Why do some researchers prefer not to share?
 
 - Fear of being scooped
 - Exposes possibly "ugly code"
@@ -117,17 +116,17 @@ For a discussion of FAIR in the context of software, see https://softdev4researc
 ---
 
 - Fear of being scooped
-> .blue[Very unlikely that others will understand your code and publish before you without involving you in a collaboration.]
+> .remark[Very unlikely that others will understand your code and publish before you without involving you in a collaboration.]
 - Exposes possibly "ugly code"
-> .blue[In practice almost nobody will care/judge.]
+> .remark[In practice almost nobody will care/judge.]
 - Others may find bugs
-> .blue[Isn't this good? Would you not like to use a code which gives people the chance to locate bugs?]
+> .remark[Isn't this good? Would you not like to use a code which gives people the chance to locate bugs?]
 - Others may require support and ask too many questions
-> .blue[More about this later.]
+> .remark[More about this later.]
 - Fear of losing control over the direction of the project
-> .blue[Open source does not mean everybody can change **your version**.]
+> .remark[Open source does not mean everybody can change **your version**.]
 - "Bad" derivative projects may appear
-> .blue[It will be clear which is the official version.]
+> .remark[It will be clear which is the official version.]
 
 ---
 
@@ -135,13 +134,13 @@ For a discussion of FAIR in the context of software, see https://softdev4researc
 
 <img src="img/research_comic_phd.gif" style="width: 80%;"/>
 
-- "The public" should be able to **find your code**
-- It should be possible to locate the same **version** that you have used in your paper
-- Document the **dependencies**
-- Document the **environment** (possibly using a Docker file)
-- Provide **install instructions**
-- Make it possible to **test and verify** the installation
-- .blue[Make it possible to reproduce your results 10 years later]
+- "The public" should be able to .emph[find your code]
+- It should be possible to locate the .emph[same version] that you have used in your paper
+- Document the .emph[dependencies]
+- Document the .emph[environment] (possibly using a Docker file)
+- Provide .emph[install instructions]
+- Make it possible to .emph[test and verify] the installation
+- .emph[Make it possible to reproduce your results 10 years later]
 
 ---
 
@@ -154,7 +153,7 @@ https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.1
 ## Reproducibility - practically speaking (1/2)
 
 - Use version control (track changes to your code, more about it below).
-- In the published paper note the **precise version** which you have used.
+- In the published paper note the .emph[precise version] which you have used.
 - If possible, make the sources available.
 - At the minimum move them from a dusty hard-drive to a place with backup.
 - Placing your code on [GitHub](https://github.com) is very good but it is not enough.
@@ -165,10 +164,10 @@ https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.1
 
 ## Reproducibility - practically speaking (2/2)
 
-- Document dependencies **with versions** (use [Pipenv](https://pipenv.readthedocs.io) in Python projects).
+- Document dependencies .emph[with versions] (use [Pipenv](https://pipenv.readthedocs.io) in Python projects).
 - If your code needs to be built/compiled, document how.
 - Consider sharing a Docker file.
-- Your output files, output data, output images should contain information about input files and **code versions**.
+- Your output files, output data, output images should contain information about .emph[input files and code versions].
 - Prefer scripts over graphical point-and-click solutions.
 - Document your data processing workflow with a script or Makefile or similar.
 - Consider collecting and sharing your scripts in a [Jupyter notebook](http://jupyter.org).
@@ -189,9 +188,9 @@ Does this sound familiar?
 
 ### The essence of version control
 
-- System which .blue[records snapshots] of a project
-- Implements .blue[branching]
-- Implements .blue[merging]
+- System which .emph[records snapshots] of a project
+- Implements .emph[branching]
+- Implements .emph[merging]
 
 ### [Git](https://git-scm.com) is the most popular version control system
 
@@ -223,9 +222,9 @@ On these I show and discuss:
 
 ## Code review
 
-## .blue[Peer review] for code changes
+## .emph[Peer review] for code changes
 
-- Changes are reviewed and discussed **before** they are integrated (merged)
+- Changes are reviewed and discussed .emph[before they are integrated (merged)]
 - Proposals for non-trivial changes
 - Feedback on WIP (work in progress) changes
 - Typically coupled with automated testing
@@ -247,9 +246,9 @@ On these I show and discuss:
 
 <img src="img/printing_press.jpg" style="width: 50%;"/>
 
-- Patent: protects an .blue[invention] (e.g. a printing press).
-- Copyright: protects an .blue[expression of an idea] (e.g. a novel).
-- Trademark: protects a .blue[name] (e.g. "AutoPress").
+- Patent: protects an .emph[invention] (e.g. a printing press).
+- Copyright: protects an .emph[expression of an idea] (e.g. a novel).
+- Trademark: protects a .emph[name] (e.g. "AutoPress").
 
 <!--
 Printing press was the reason copyright was necessary in the first place.
@@ -261,20 +260,26 @@ and the question was should it go all to the printer or some also to the writer.
 
 ---
 
-## We will focus on .blue[copyright and creative expression]
+## We will focus on .emph[copyright and creative expression]
 
-- **Facts are always free**
-- Copyright protects the **creative expression** of an idea
-- Automatically attached to every *novel* expression (certain amount of years)
-- Software that you write is **copyrighted by default** (comparable to
+- Facts are always free
+- Copyright protects the .emph[creative expression of an idea]
+- Software that you write is .emph[copyrighted by default] (comparable to
   literature or poetry)
-- The owner of copyright has the right to dictate *distribution and creation of copies*
-- No-one besides copyright holder has the right to create "derivative works" (unless the license permits it)
-- Who is the copyright owner? It depends!
-- "Fair use rules" are an exception:
-  - Parody
-  - Criticism
-  - Quotation
+
+
+### Who is the copyright owner?
+
+- It depends!
+- The owner of copyright has the right to dictate distribution and creation of copies
+- No-one besides copyright holder has the right to create .emph["derivative works"] (unless the license permits it)
+
+
+### "Fair use rules" are an exception
+
+- Parody
+- Criticism
+- Quotation
 
 <!---
 This talk is mostly about copyright.  Patents are a much more
@@ -287,14 +292,14 @@ focus on copyright, as you should too.
 
 ## Relation to scientists
 
-- You come up with **ideas**
-- Ideas are published in **papers**
-  - Papers might have limited access, but *anyone* can use the ideas in them
+- You come up with .emph[ideas]
+- Ideas are published in .emph[papers]
+  - Papers might have limited access, but .emph[anyone can use the ideas] in them
   - Your goal is to get citations for your paper by people using or improving your ideas
-- Your **software** may implement an idea in your paper
+- Your .emph[software] may implement an idea in your paper
   - For your ideas to be used, software should be usable
-  - If people can use or **improve your software**, they can more easily use your ideas
-  - If people cannot reuse and extend your software, **its impact will be limited**
+  - If people can use or .emph[improve your software] they can more easily use your ideas
+  - If people cannot reuse and extend your software, .emph[its impact will be limited]
 
 <!---
 Maybe scientists aren't the only audience, but may be useful to start here anyway.
@@ -339,10 +344,10 @@ Is the freedom to ...
 
 Is the freedom to ...
 
-- ... run the software for any purpose .blue[-> new applications]
-- ... study how the software works and to adapt it to your needs .blue[-> new applications, less reinventing wheels]
-- ... redistribute copies of the software .blue[-> more users, more citations]
-- ... improve the software and distribute your improvements to the public .blue[-> fix bugs, new science]
+- ... run the software for any purpose: .emph[new applications]
+- ... study how the software works and to adapt it to your needs: .emph[new applications, less reinventing wheels]
+- ... redistribute copies of the software: .emph[more users, more citations]
+- ... improve the software and distribute your improvements to the public: .emph[fix bugs, new science]
 
 ### Typical confusion
 
@@ -424,7 +429,7 @@ protectable.  However, your description *is* protectable. -->
 <img src="img/cake-2.svg" style="width: 15%;"/>
 
 - It becomes part of the restaurant menu.
-- Or does it? Depends on your license!
+- Or does it? .emph[Depends on your license!]
 
 <!--- What is most important is *how are the changes handled*.  Since
 you are giving the recipe out yourself, people can use it "personally"
@@ -480,7 +485,8 @@ fictitious example though. -->
 
 ### License: GNU GPL or GNU Affero GPL
 
-- If the cake is a part of the menu, the famous restaurant has to share the recipes of the **entire menu**.
+- If the cake is a part of the menu, the famous restaurant has to
+  .emph[share the recipes of the entire menu].
 - You can use their improved recipe and improve it further:
 
 <img src="img/cake-2.svg" style="width: 15%;"/>
@@ -538,16 +544,16 @@ a huge community of firmware modders.  -->
 
 ## Why is allowing derivative work good for you as researcher?
 
-- **Quality** control: groups depending on your code will find bugs.
+- .emph[Quality] control: groups depending on your code will find bugs.
 - More applications.
-- Globally probably more papers (**more impact**).
+- Globally probably more papers (.emph[more impact]).
 - If you make your code citeable, you can measure this impact and use this
   in grant applications.
-- Long-term probably also **more papers** for you: new collaborations and projects.
-- Groups depending on your code will not want your code to disappear: they might **support**
-  you, send improvements, and share maintenance load.
+- Long-term probably also .emph[more papers] for you: new collaborations and projects.
+- Groups depending on your code will not want your code to disappear: they might .emph[support you],
+  send improvements, and share maintenance load.
 
-.blue[*Wouldn't it make sense to share your favourite cake recipe with
+.remark[*Wouldn't it make sense to share your favourite cake recipe with
 your friends and colleagues?*]
 
 ---
@@ -555,7 +561,7 @@ your friends and colleagues?*]
 ## Who owns the copyright for software you write?
 
 - You? Your university?
-- .blue[Intellectual property depends on the country and the employer!]
+- .emph[Intellectual property depends on the country and the employer!]
 - So-called works made for hire.
 
 ### If you own your software:
@@ -583,13 +589,13 @@ their internal rights to do their work! -->
 
 ### Starting and contributing to a project
 
-- You *can't* ignore licensing: default is "no one can make copies or
+- .emph[You cannot ignore licensing]: default is "no one can make copies or
   derivative works".
-- License your code **very early** in the project:
-  ideally develop publicly accessible open source code **from day one**.
+- License your code .emph[very early] in the project:
+  ideally develop publicly accessible open source code .emph[from day one].
 - Take an [OSI](https://opensource.org/licenses)-approved license: makes it easier to evaluate
   [compatibility](https://en.wikipedia.org/wiki/License_compatibility).
-- **Do not use custom licenses** for open source: compatibility not clear.
+- .emph[Do not use custom licenses] for open source: compatibility not clear.
 - Open source your code to make sure you are not locked out of your own code
   once you change affiliation.
 
@@ -655,7 +661,7 @@ date-released: 2018-10-24
 
 - Give credit
 - Welcoming environment
-- Code of conduct
+- Code of conduct: https://www.contributor-covenant.org
 - Nobody is more equal
 - Openness and transparency
 - Share a contribution guide
@@ -669,7 +675,7 @@ date-released: 2018-10-24
 
 ## How to attract users and developers
 
-### As a .blue[developer] or .blue[user] what are you looking at when discovering a new package?
+### As a .emph[developer] or .emph[user] what are you looking at when discovering a new package?
 
 These are the things I look at:
 
@@ -683,12 +689,11 @@ These are the things I look at:
 
 ## Conclusions and discussion
 
-- Track code using version control, learn Git: https://uit-no.github.io/2018-11-08-uit/
+- Track code using version control, learn Git
 - Use code review: review each other's code changes
 - Make it easy to reproduce your computational results
 - Open source your code and make it accessible (GitHub, GitLab, Bitbucket)
 - Make it easy to cite your code ([Zenodo](https://zenodo.org))
-- Check out the CodeRefinery project: https://coderefinery.org
 
 ### Where to place your code
 
