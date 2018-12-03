@@ -512,7 +512,7 @@ a huge community of firmware modders.  -->
 ### 2. Permissive
 
 - Attractive for commercial software companies
-- No guaranteed access to **derivative work**
+- No guaranteed access to **derivative work**, but typically not a problem in practice
 
 ### 3. Share-alike
 
