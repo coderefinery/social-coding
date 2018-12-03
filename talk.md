@@ -506,8 +506,7 @@ a huge community of firmware modders.  -->
 
 ### 1. Custom/closed
 
-- Others have to reimplement the wheel
-- No improvement or **derivative work**
+- Others have to reimplement the wheel, **no derivative work possible**
 
 ### 2. Permissive
 
