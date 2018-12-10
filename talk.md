@@ -173,13 +173,27 @@ you are seeing now?
 
 ---
 
+## Why is allowing derivative work good for you as researcher?
+
+- .emph[Quality] control: groups depending on your code will find bugs.
+- More applications.
+- Globally probably more papers (.emph[more impact]).
+- If you make your code citeable, you can measure this impact and use this
+  in grant applications.
+- Long-term probably also .emph[more papers] for you: new collaborations and projects.
+- Groups depending on your code will not want your code to disappear: they might .emph[support you],
+  send improvements, and share maintenance load.
+
+---
+
 ## Derivative work examples
 
 Is a derivative work:
--
+- Download some code from a website and add on to it
+- Download some code from a website and use a function in your code
 
 Not a derivative work:
--
+- You read a paper, understand algorithm, write own code.
 
 
 ---
@@ -309,11 +323,13 @@ method.  Don't think that copyright gives you magic protection.
 1. Contrast Matlab vs Octave from a derivative work, intellectual
    property, and open science standpoint.
 
-2. (something with understanding derivative works)
+3. Do you form derivative works of your groupmates' work?  Colleagues
+   who came before you?  What have you done that isn't a derivative
+   work?
 
-3. Do you form derivative works of your groupmates?  Colleagues who
-   came before you?
-
+2. Try to trace and think of the derivative work history of this
+   lesson.  How many inputs are there?  What happens if you think of
+   more than copyright?
 
 ---
 
@@ -515,6 +531,7 @@ a huge community of firmware modders.  -->
 
 - Attractive for commercial software companies
 - No guaranteed access to **derivative work**, but typically not a problem in practice
+- .emph[You still have access, even if someone else buys your business.]
 
 ### 3. Share-alike
 
@@ -525,6 +542,7 @@ a huge community of firmware modders.  -->
 
 - You have to share the **derivative work** and cannot restrict access
 - Not attractive for commercial software companies.
+- .emph[You always have access if someone improves and re-shares.]
 
 ---
 
@@ -752,311 +770,4 @@ date-released: 2018-10-24
 - https://tldrlegal.com/
 - https://hintjens.gitbooks.io/social-architecture/content/chapter2.html
 - https://users.aalto.fi/~darstr1/cheatsheets/ipr-cheatsheet.pdf
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
----
-
-## Examples
-
-- Discovery of gravitational waves
-  - Tutorials: https://www.gw-openscience.org/tutorials/
-  - Software: https://www.gw-openscience.org/software/
-
-- Stanford Activity Inequality study
-  - Overview: http://activityinequality.stanford.edu
-  - Code is on GitHub: https://github.com/timalthoff/activityinequality
-
-Challenge:
-1. Think of a recent major scientific discovery
-2. Imagine it without software
-3. Imagine it without open source software
-
----
-
-## FAIR principles
-
-The FAIR Guiding Principles for scientific **data** management and stewardship (https://www.nature.com/articles/sdata201618):
-
-- To be .emph[**F**indable]
-- To be .emph[**A**ccessible]
-- To be .emph[**I**nteroperable]
-- To be .emph[**R**eusable]
-
-For a discussion of FAIR in the context of software, see https://softdev4research.github.io/4OSS-lesson/.
-
----
-
-## Sharing is caring
-
-### What are the benefits of sharing software?
-
-- Easier to find and reproduce (.emph[scientific reproducibility])
-- More trustworthy: others can verify correctness and find and report bugs
-- Enables others to build on top of your code (derivative work, .emph[provided the license allows it])
-- Others can submit features/improvements
-- Others can fix bugs
-- Many tools and apps are free for open source
-  ([GitHub](https://github.com), [Travis CI](https://travis-ci.org),
-  [Appveyor](https://www.appveyor.com), [Read the Docs](https://readthedocs.org))
-- Good for your CV: you can show what you have built
-
----
-
-## Sharing is scary
-
-### Why do some researchers prefer not to share?
-
-- Fear of being scooped
-- Exposes possibly "ugly code"
-- Others may find bugs
-- Others may require support and ask too many questions
-- Fear of losing control over the direction of the project
-- "Bad" derivative projects may appear - fear that this will harm the reputation
-
----
-
-- Fear of being scooped
-> .remark[Very unlikely that others will understand your code and publish before you without involving you in a collaboration.]
-- Exposes possibly "ugly code"
-> .remark[In practice almost nobody will care/judge.]
-- Others may find bugs
-> .remark[Isn't this good? Would you not like to use a code which gives people the chance to locate bugs?]
-- Others may require support and ask too many questions
-> .remark[More about this later.]
-- Fear of losing control over the direction of the project
-> .remark[Open source does not mean everybody can change **your version**.]
-- "Bad" derivative projects may appear
-> .remark[It will be clear which is the official version.]
-
----
-
-## Reproducibility - generally speaking
-
-<img src="img/research_comic_phd.gif" style="width: 80%;"/>
-
-- "The public" should be able to .emph[find your code]
-- It should be possible to locate the .emph[same version] that you have used in your paper
-- Document the .emph[dependencies]
-- Document the .emph[environment] (possibly using a Docker file)
-- Provide .emph[install instructions]
-- Make it possible to .emph[test and verify] the installation
-- .emph[Make it possible to reproduce your results 10 years later]
-
----
-
-<img src="img/reproducibility_nature.png" style="width: 100%;"/>
-
-https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.1997
-
----
-
-## Reproducibility - practically speaking (1/2)
-
-- Use version control (track changes to your code, more about it below).
-- In the published paper note the .emph[precise version] which you have used.
-- If possible, make the sources available.
-- At the minimum move them from a dusty hard-drive to a place with backup.
-- Placing your code on [GitHub](https://github.com) is very good but it is not enough.
-- Get a [DOI](https://en.wikipedia.org/wiki/Digital_object_identifier) using [Zenodo](https://zenodo.org).
-- https://www.softwareheritage.org
-
----
-
-## Reproducibility - practically speaking (2/2)
-
-- Document dependencies .emph[with versions] (use [Pipenv](https://pipenv.readthedocs.io) in Python projects).
-- If your code needs to be built/compiled, document how.
-- Consider sharing a Docker file.
-- Your output files, output data, output images should contain information about .emph[input files and code versions].
-- Prefer scripts over graphical point-and-click solutions.
-- Document your data processing workflow with a script or Makefile or similar.
-- Consider collecting and sharing your scripts in a [Jupyter notebook](http://jupyter.org).
-- Share your data (in Norway e.g. using https://dataverse.no).
-
----
-
-## Version control
-
-Does this sound familiar?
-
-- *“I will just finish my work and then you can start with your changes.”*
-- *“Can you please send me the latest version?”*
-- *“Where is the latest version?”*
-- *“Which version are you using?”*
-- *“Which version have the authors used in the paper I am trying to reproduce?”*
-- *“Hmmm... I wonder when this bug got introduced.”*
-
-### The essence of version control
-
-- System which .emph[records snapshots] of a project
-- Implements .emph[branching]
-- Implements .emph[merging]
-
-### [Git](https://git-scm.com) is the most popular version control system
-
----
-
-.left-column[
-## GitHub and friends
-]
-
-.right-column[
-We take a quick tour of [GitHub](https://github.com) and [GitLab](https://gitlab.com) ...
-
-These are web services where you can host and share your Git repositories.
-
-On these I show and discuss:
-- Commits
-- Branches
-- Annotation
-- Issue tracking
-]
-
----
-
-## Forking and derivative projects
-
-<img src="img/forking-overview.svg" style="width: 60%;"/>
-
----
-
-## Code review
-
-## .emph[Peer review] for code changes
-
-- Changes are reviewed and discussed .emph[before they are integrated (merged)]
-- Proposals for non-trivial changes
-- Feedback on WIP (work in progress) changes
-- Typically coupled with automated testing
-
-
-### Benefits
-
-- Quality
-- Team members know what others are doing
-- Amazing learning opportunity
-- Thought process behind changes can be tracked
-
-
-### Yes, code review takes time - peer review also takes time
-
----
-
-## Software licensing: copyright vs. patent vs. trademark
-
-<img src="img/printing_press.jpg" style="width: 50%;"/>
-
-- Patent: protects an .emph[invention] (e.g. a printing press).
-- Copyright: protects an .emph[expression of an idea] (e.g. a novel).
-- Trademark: protects a .emph[name] (e.g. "AutoPress").
-
-<!--
-Printing press was the reason copyright was necessary in the first place.
-Before the printing press copying anything was manual labour and the cost of
-copies was mainly in the act of copying. After the printing press copying
-became so simple that it was no longer a major cost: there was money left over
-and the question was should it go all to the printer or some also to the writer.
--->
-
----
-
-## We will focus on .emph[copyright and creative expression]
-
-- Facts are always free
-- Copyright protects the .emph[creative expression of an idea]
-- Software that you write is .emph[copyrighted by default] (comparable to
-  literature or poetry)
-
-
-### Who is the copyright owner?
-
-- It depends!
-- The owner of copyright has the right to dictate distribution and creation of copies
-- No-one besides copyright holder has the right to create .emph["derivative works"] (unless the license permits it)
-
-
-### "Fair use rules" are an exception
-
-- Parody
-- Criticism
-- Quotation
-
-<!---
-This talk is mostly about copyright.  Patents are a much more
-complex and limited concept.  Most software can't be patentatable, and
-after you publish your ideas, patenting is impossible.  So, we
-focus on copyright, as you should too.
--->
-
----
-
-## Derivative work
-
-### Is derivative work
-
-- Changing the code
-- Extending the code
-- Completely rewriting the code
-- Rewriting the code to a different programming language
-
-### Typically not derivative work
-
-- Linking to libraries (static or dynamic), plug-ins, and drivers
-- Clean room design
-
----
-
-## Why is allowing derivative work good for you as researcher?
-
-- .emph[Quality] control: groups depending on your code will find bugs.
-- More applications.
-- Globally probably more papers (.emph[more impact]).
-- If you make your code citeable, you can measure this impact and use this
-  in grant applications.
-- Long-term probably also .emph[more papers] for you: new collaborations and projects.
-- Groups depending on your code will not want your code to disappear: they might .emph[support you],
-  send improvements, and share maintenance load.
-
-.remark[*Wouldn't it make sense to share your favourite cake recipe with
-your friends and colleagues?*]
-
-
-
-
-
-
 
