@@ -24,20 +24,21 @@ layout: false
 .left-column[
 # Plan for this talk
 
-<img src="img/in-out.svg" style="width: 50%;"/>
-
-- Things .emph[go in], things .emph[come out].  You can't survive
-  without both.
+### - Why software and what you make matters
+### - When can you take from others?
+### - How can you give to others?
+### - How to grow a community around your code
+### - ... and how does this relate to CodeRefinery?
 
 ]
 
 .right-column[
-## - Why software and what you make matters
-## - When can you take from others?
-## - How can you give to others?
-## - How to grow a community around your code
 
-... and how does this relate to CodeRefinery?
+<img src="img/in-out.png" style="width: 100%;"/>
+
+Things .emph[go in], things .emph[come out].  You can't survive
+without both.
+
 ]
 
 <!-- Tell an anecdote: we were working on this talk, and wondered this
