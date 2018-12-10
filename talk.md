@@ -23,6 +23,12 @@ layout: false
 
 .left-column[
 # Plan for this talk
+
+<img src="img/in-out.svg" style="width: 50%;"/>
+
+- Things .emph[go in], things .emph[come out].  You can't survive
+  without both.
+
 ]
 
 .right-column[
@@ -33,17 +39,6 @@ layout: false
 
 ... and how does this relate to CodeRefinery?
 ]
-
----
-
-## The scientific community
-
-<img src="img/in-out.svg" style="width: 30%;"/>
-
-- Things go in, things come out
-- What do you need in the end?  Citations are modern currency
-  - But also open source portfolio is valuable.
-
 
 <!-- Tell an anecdote: we were working on this talk, and wondered this
 talk was originally about software licensing, but why do you care?  Do
@@ -74,7 +69,7 @@ on you, you won't get followers to give you citations. -->
 Curiosity: Not too many projects consider a software management plan **yet**.
 
 Data/software should make science completely **shareable** and
-**reproducible**... .emph[but is it?
+**reproducible**... .emph[but is it?]
 
 ---
 
@@ -153,48 +148,39 @@ Data/software should make science completely **shareable** and
 
 ---
 
-## Reproducibility - generally speaking
+## Derivative works
 
-<img src="img/research_comic_phd.gif" style="width: 80%;"/>
+- If you build on something, you form a **derivative work**
+- Then, the original creator may have rights to what you make
+- .emph[The whole point of this talk is to make sure that *you can
+  make derivative works* and *others can make derivative works from
+  you*]
 
-- "The public" should be able to .emph[find your code]
-- It should be possible to locate the .emph[same version] that you have used in your paper
-- Document the .emph[dependencies]
-- Document the .emph[environment] (possibly using a Docker file)
-- Provide .emph[install instructions]
-- Make it possible to .emph[test and verify] the installation
-- .emph[Make it possible to reproduce your results 10 years later]
+### Is derivative work
 
----
+- Changing the code
+- Extending the code
+- Completely rewriting the code
+- Rewriting the code to a different programming language
 
-<img src="img/reproducibility_nature.png" style="width: 100%;"/>
+### Typically not derivative work
 
-https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.1997
+- Linking to libraries (static or dynamic), plug-ins, and drivers
+- Clean room design
 
----
-
-## Reproducibility - practically speaking (1/2)
-
-- Use version control (track changes to your code, more about it below).
-- In the published paper note the .emph[precise version] which you have used.
-- If possible, make the sources available.
-- At the minimum move them from a dusty hard-drive to a place with backup.
-- Placing your code on [GitHub](https://github.com) is very good but it is not enough.
-- Get a [DOI](https://en.wikipedia.org/wiki/Digital_object_identifier) using [Zenodo](https://zenodo.org).
-- https://www.softwareheritage.org
+Exercise: what *is* and *is not* a derivative work of the presentation
+you are seeing now?
 
 ---
 
-## Reproducibility - practically speaking (2/2)
+## Derivative work examples
 
-- Document dependencies .emph[with versions] (use [Pipenv](https://pipenv.readthedocs.io) in Python projects).
-- If your code needs to be built/compiled, document how.
-- Consider sharing a Docker file.
-- Your output files, output data, output images should contain information about .emph[input files and code versions].
-- Prefer scripts over graphical point-and-click solutions.
-- Document your data processing workflow with a script or Makefile or similar.
-- Consider collecting and sharing your scripts in a [Jupyter notebook](http://jupyter.org).
-- Share your data (in Norway e.g. using https://dataverse.no).
+Is a derivative work:
+-
+
+Not a derivative work:
+-
+
 
 ---
 
@@ -232,25 +218,6 @@ this presentation. *Very broad.*
 
 ---
 
-## Copyright: Derivative works
-
-### Is derivative work
-
-- Changing the code
-- Extending the code
-- Completely rewriting the code
-- Rewriting the code to a different programming language
-
-### Typically not derivative work
-
-- Linking to libraries (static or dynamic), plug-ins, and drivers
-- Clean room design
-
-Exercise: what *is* and *is not* a derivative work of the presentation
-you are seeing now?
-
----
-
 ## Patents
 
 - Protects a *novel, non-obvious, technical invention*
@@ -262,7 +229,7 @@ you are seeing now?
 When you can use:
 - Get expert advice
 
-Examples: RSA cryptography, Amazon 1-click.
+Examples: RSA cryptography (possibly good), Amazon 1-click (probably bad).
 
 ---
 
@@ -286,10 +253,10 @@ What:
   databases.
 - Has a somewhat similar effect to copyright, because copyright would
   not apply to data mining.
+- A good license also gives rights to data mine.  So not a major concern.
 
 When you can use datasets:
-- The license allows (all good copyright licenses also grant license
-  to mine data)
+- The license allows
 - Your country has exceptions for research
 - The data doesn't come from the EU
 
@@ -342,11 +309,10 @@ method.  Don't think that copyright gives you magic protection.
 1. Contrast Matlab vs Octave from a derivative work, intellectual
    property, and open science standpoint.
 
-2. Discuss the 1-click and RSA software patents.  What do you make of
-   them?
+2. (something with understanding derivative works)
 
-3. Study the "Mozilla Firefox" trademark and Debian controversy.  What
-   happened.  What was the temporary fix?
+3. Do you form derivative works of your groupmates?  Colleagues who
+   came before you?
 
 
 ---
@@ -575,10 +541,12 @@ a huge community of firmware modders.  -->
 
 ### If you accept contributions (pull requests), you may not be the only owner anymore!
 
-- Clarify licensing strategy .emph[before].
+- Clarify licensing strategy .emph[before] - otherwise you won't have
+  all rights to your code.
 
 ### If you do not own your software, you can:
 
+- Request open-sourcing directly (preserves your rights!).
 - Request a transfer of ownership (check with your university).
 
 <!--- Fun story: I once had a friend who worked at IBM.  In their
@@ -626,6 +594,8 @@ The second half of CodeRefinery can be considered to be strategies to
 make your software more usable by others (and you six months from
 now!).
 
+Here we summarize what is to come...
+
 ---
 
 ## Version control
@@ -643,7 +613,7 @@ distributed version control, etc.
 
 ---
 
-## Reproducible and build systems
+## Reproducibility and build systems
 
 - Can someone duplicate your results easily?
 - Can someone actually install your software and use it?
@@ -759,12 +729,14 @@ date-released: 2018-10-24
 
 ## Exercises (2/2)
 
-1. Find the package "Omnet++" and study its license.  Compare to the
+
+1. What is the StackOverflow license for code you copy and paste?
+
+2. Name some software or work you have created that should be
+   non-open, licensed permissively, and licensed virally.
+
+3. (advanced) Find the package "Omnet++" and study its license.  Compare to the
    GPL.  What do you think?
-
-2. What is the StackOverflow license for code?
-
-
 
 ---
 
