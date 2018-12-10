@@ -753,7 +753,12 @@ date-released: 2018-10-24
 2. Name some software or work you have created that should be
    non-open, licensed permissively, and licensed virally.
 
-3. (advanced) Find the package "Omnet++" and study its license.  Compare to the
+3. What can you do with CodeRefinery lessons?  present
+   them?  copy them?  modify them and present them?  send changes back
+   to us?  find them in 20 years?  present them and call them a
+   CodeRefinery workshop?
+
+4. (advanced) Find the package "Omnet++" and study its license.  Compare to the
    GPL.  What do you think?
 
 ---
