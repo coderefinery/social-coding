@@ -760,7 +760,7 @@ date-released: 2018-10-24
 ## Good resources for software licensing
 
 - https://www.software.ac.uk/choosing-open-source-licence
-- https://choosealicense.com
+- https://choosealicense.com (can send automatic pull request to your GitHub repo)
 - http://oss-watch.ac.uk/resources/ipr
 - http://www.rosenlaw.com/oslbook.htm
 - http://depth-first.com/articles/2006/12/29/dispelling-open-source-confusion-an-introduction-to-licenses/
