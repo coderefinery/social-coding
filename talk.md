@@ -136,7 +136,7 @@ For a discussion of FAIR in the context of software, see https://softdev4researc
 - Fear of being scooped
 > .remark[Very unlikely that others will understand your code and publish before you without involving you in a collaboration.]
 - Exposes possibly "ugly code"
-> .remark[In practice almost nobody will care/judge.]
+> .remark[In practice almost nobody will judge the quality of your code.]
 - Others may find bugs
 > .remark[Isn't this good? Would you not like to use a code which gives people the chance to locate bugs?]
 - Others may require support and ask too many questions
