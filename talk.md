@@ -6,16 +6,18 @@ class: middle, inverse
 
 # Social coding and open software
 
-## [Radovan Bast](https://bast.fr) (NeIC, UiT-The Arctic University of Norway)
-
 Text is free to share and remix under
 [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 
-Based on material with contributions by:
+Authors:
+- Radovan Bast
 - Richard Darst
 - Sabry Razick
-- Oxana Smirnova
 - Jyry Suvilehto
+
+With contributions by:
+- Anne Fouilloux
+- Oxana Smirnova
 
 ---
 
