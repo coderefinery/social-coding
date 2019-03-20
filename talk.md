@@ -67,7 +67,8 @@ on you, you won't get followers to give you citations. -->
 
 Curiosity: Not too many projects consider a software management plan **yet**.
 
-.emph[The big keyword in this talk is **reproducibility**.]
+Data/software should make science completely **shareable** and
+**reproducible**... .emph[but is it?]
 
 ---
 
