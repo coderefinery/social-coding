@@ -21,16 +21,31 @@ Based on material with contributions by:
 
 layout: false
 
-.left-column[
 # Plan for this talk
+
+.left-column[
+### - Why software and what you make matters
+### - When can you take from others?
+### - How can you give to others?
+### - How to grow a community around your code
+### - ... and how does this relate to CodeRefinery?
+
 ]
 
 .right-column[
-## - Why software matters in research
-## - Why open software
-## - How to do open software
-## - How to grow a community around your code
+<img src="img/in-out.png" style="width: 100%;"/>
+
+Things .emph[go in], things .emph[come out]. You can't survive
+without both.
 ]
+
+<!-- Tell an anecdote: we were working on this talk, and wondered this
+talk was originally about software licensing, but why do you care?  Do
+you use software you find online regardless of license status?  The
+answer is that you yourself can effectively do whatever you
+want... but if you want to build on others, you have to care.  If you
+want others to build on you, you have to care. If others can't build
+on you, you won't get followers to give you citations. -->
 
 ---
 
