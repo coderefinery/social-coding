@@ -50,7 +50,7 @@ on you, you won't get followers to give you citations. -->
 
 ---
 
-## Why software matters in research
+## Software matters in research
 
 .emph[**Data** is part of research output]
 
@@ -68,25 +68,7 @@ on you, you won't get followers to give you citations. -->
 
 Curiosity: Not too many projects consider a software management plan **yet**.
 
-Data/software should make science completely **shareable** and
-**reproducible**... .emph[but is it?]
-
----
-
-## Examples
-
-- Discovery of gravitational waves
-  - Tutorials: https://www.gw-openscience.org/tutorials/
-  - Software: https://www.gw-openscience.org/software/
-
-- Stanford Activity Inequality study
-  - Overview: http://activityinequality.stanford.edu
-  - Code is on GitHub: https://github.com/timalthoff/activityinequality
-
-Challenge:
-1. Think of a recent major scientific discovery
-2. Imagine it without software
-3. Imagine it without open source software
+Software development should consider .emph[FAIR principles, ideally from the start].
 
 ---
 
