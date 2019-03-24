@@ -742,6 +742,21 @@ date-released: 2018-10-24
 
 ---
 
+## Good resources for software licensing
+
+- https://www.software.ac.uk/choosing-open-source-licence
+- https://choosealicense.com (can send automatic pull request to your GitHub repo)
+- http://oss-watch.ac.uk/resources/ipr
+- http://www.rosenlaw.com/oslbook.htm
+- http://depth-first.com/articles/2006/12/29/dispelling-open-source-confusion-an-introduction-to-licenses/
+- http://blog.milkingthegnu.org/2008/03/10-answers-for.html
+- http://www.oreilly.com/openbook/osfreesoft/
+- https://tldrlegal.com/
+- https://hintjens.gitbooks.io/social-architecture/content/chapter2.html
+- https://users.aalto.fi/~darstr1/cheatsheets/ipr-cheatsheet.pdf
+
+---
+
 ## Exercises (2/2)
 
 1. What is the StackOverflow license for code you copy and paste?
@@ -756,18 +771,3 @@ date-released: 2018-10-24
 
 4. (advanced) Find the package "Omnet++" and study its license.  Compare to the
    GPL.  What do you think?
-
----
-
-## Good resources for software licensing
-
-- https://www.software.ac.uk/choosing-open-source-licence
-- https://choosealicense.com (can send automatic pull request to your GitHub repo)
-- http://oss-watch.ac.uk/resources/ipr
-- http://www.rosenlaw.com/oslbook.htm
-- http://depth-first.com/articles/2006/12/29/dispelling-open-source-confusion-an-introduction-to-licenses/
-- http://blog.milkingthegnu.org/2008/03/10-answers-for.html
-- http://www.oreilly.com/openbook/osfreesoft/
-- https://tldrlegal.com/
-- https://hintjens.gitbooks.io/social-architecture/content/chapter2.html
-- https://users.aalto.fi/~darstr1/cheatsheets/ipr-cheatsheet.pdf
