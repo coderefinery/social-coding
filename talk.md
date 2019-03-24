@@ -15,7 +15,7 @@ Authors:
 - Sabry Razick
 - Jyry Suvilehto
 
-With contributions by:
+With contributions from:
 - Anne Fouilloux
 - Oxana Smirnova
 
@@ -26,19 +26,18 @@ layout: false
 # Plan for this talk
 
 .left-column[
-### - Why software and what you make matters
+### - What you make matters
 ### - When can you take from others?
 ### - How can you give to others?
 ### - How to grow a community around your code
 ### - ... and how does this relate to CodeRefinery?
-
 ]
 
 .right-column[
 <img src="img/in-out.png" style="width: 100%;"/>
 
-Things .emph[go in], things .emph[come out]. You can't survive
-without both.
+Things .emph[go in], things .emph[come out]. If you want to build
+on others, you have to care about both directions.
 ]
 
 <!-- Tell an anecdote: we were working on this talk, and wondered this
