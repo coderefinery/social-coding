@@ -565,8 +565,9 @@ their internal rights to do their work! -->
 - Add a `LICENSE` file to your repository (GitHub understands it):
   - Use GitHub web to add file named `LICENSE` and it helps you select!
   - You should check that GitHub can automatically detect the license.
-- License your supporting information (images) under
-  creative commons (use [Zenodo](https://zenodo.org) or [Figshare](https://figshare.com)).
+- License text, slides, images, and supporting information under a
+  [Creative Commons license](https://creativecommons.org/licenses/), and get a DOI using
+  [Zenodo](https://zenodo.org) or [Figshare](https://figshare.com).
 
 ---
 
