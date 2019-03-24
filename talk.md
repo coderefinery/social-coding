@@ -693,11 +693,10 @@ date-released: 2018-10-24
 
 ## Conclusions and discussion
 
-- Track code using version control, learn Git
-- Use code review: review each other's code changes
-- Make it easy to reproduce your computational results
-- Open source your code and make it accessible (GitHub, GitLab, Bitbucket)
+- License your code .emph[very early] in the project:
+  ideally develop publicly accessible open source code .emph[from day one].
 - Make it easy to cite your code ([Zenodo](https://zenodo.org))
+- Please help us to improve this material: https://github.com/coderefinery/social-coding
 
 ### Where to place your code
 
