@@ -594,8 +594,11 @@ Somewhat related: project management/issue system:
 - Included as part of GitLab/GitHub/etc.
 - Allows communication, issue tracking, and community.
 
-CodeRefinery lessons: Introduction to version control, Collaborative
-distributed version control, etc.
+CodeRefinery lessons:
+
+- https://coderefinery.github.io/git-refresher/
+- https://coderefinery.github.io/git-solo/
+- https://coderefinery.github.io/git-collaborative/
 
 ---
 
@@ -605,7 +608,7 @@ distributed version control, etc.
 - Can someone actually install your software and use it?
 - If they can't, there is a high barrier to use.
 
-CodeRefinery lesson: Reproducible Research
+CodeRefinery lesson: [Reproducible research](https://coderefinery.github.io/reproducible-research/)
 
 ---
 
@@ -618,7 +621,7 @@ CodeRefinery lesson: Reproducible Research
 - Software tests allow others (.emph[and you!]) to modify and improve software with
   more confidence.
 
-CodeRefinery lessons: Software testing
+CodeRefinery lesson: [Automated testing](https://coderefinery.github.io/testing/)
 
 ---
 
@@ -629,7 +632,7 @@ CodeRefinery lessons: Software testing
 - Are there clear contributor instructions?  How to get started, how
   to submit first pull request, how to test, etc?
 
-CodeRefinery lessons: Documentation
+CodeRefinery lesson: [Code documentation](https://coderefinery.github.io/documentation/)
 
 ---
 
