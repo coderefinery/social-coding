@@ -16,7 +16,11 @@ There are three main acts:
 
 - A bit of details on free software and choosing a license. There are many
   online resources, and the biggest
-  question is permissive vs. share-alike vs. viral.
+  question is permissive vs. share-alike vs. viral. The cake analogy
+  for licenses can be skipped and does not have to be discussed in detail.
+  We can consider turning that part into a blog post instead.
+  If you skip the cake examples, please do discuss the
+  "What outcomes did we have?" slide.
 
 - A final act on how just licensing isn't enough.  If you want people
   to use your work, you need to do more to make your work easily

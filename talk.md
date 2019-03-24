@@ -26,7 +26,7 @@ layout: false
 # Plan for this talk
 
 .left-column[
-### - What you make matters
+### - Software you create, matters
 ### - When can you take from others?
 ### - How can you give to others?
 ### - How to grow a community around your code
@@ -133,7 +133,7 @@ For a discussion of FAIR in the context of software, see https://softdev4researc
 
 ---
 
-## Derivative works
+## Derivative work
 
 - If you build on something, you form a **derivative work**
 - Then, the original creator may have rights to what you make
@@ -146,7 +146,7 @@ For a discussion of FAIR in the context of software, see https://softdev4researc
 ### Is a derivative work
 
 - Download some code from a website and add on to it
-- Download some code from a website and use a function in your code
+- Download some code and use a function in your code
 - Changing the code
 - Extending the code
 - Completely rewriting the code
@@ -179,7 +179,7 @@ For a discussion of FAIR in the context of software, see https://softdev4researc
 - Registered after the fact in other cases (patents)
 - Does not allow you to do something: allows you to prevent others
   from doing something.
-- Understanding IP is important for social science.
+- Understanding IP is important for social coding.
 
 Next slides: **Types of IP** and **When can you use it?**
 
@@ -192,7 +192,6 @@ What:
 - Protects creative expression
 - Automatically created
 - **Derivative works** usually inherits copyright of the thing derived
-  (next slide)
 - Time frame: essentially forever (lifetime + X years)
 
 When can you use:
@@ -209,14 +208,14 @@ this presentation. *Very broad.*
 
 ## Patents
 
-- Protects a *novel, non-obvious, technical invention*
+- Protects a *novel, non-obvious, technical invention*.
 - Must be registered *before revealed*.  Registration involves full
   disclosure.
 - Can an algorithm be patented?  Software?
 - Patents are a minefield and often used to troll ("patent troll").
 
 When you can use:
-- Get expert advice
+- Get expert advice.
 
 Examples: RSA cryptography (possibly good), Amazon 1-click (probably bad).
 
@@ -253,9 +252,7 @@ When you can use datasets:
 
 ## Ideas
 
-What:
-- An idea
-- **is not be protected** by IP: you can always use
+.emph[Are not be protected by IP]: you can always use them.
 
 Example: You read a paper, understand the algorithm, and write your
 own software to do it.
@@ -308,11 +305,7 @@ method.  Don't think that copyright gives you magic protection.
 
 ---
 
-## Software licensing
-
----
-
-## What is free software?
+## Software licensing: What is free software?
 
 ### Free as in beer or free as in speech?
 
@@ -325,10 +318,10 @@ method.  Don't think that copyright gives you magic protection.
 
 Is the freedom to ...
 
-- ... run the software for any purpose
-- ... study how the software works and to adapt it to your needs
-- ... redistribute copies of the software
-- ... improve the software and distribute your improvements to the public
+- ... run the software for .emph[any purpose]
+- ... .emph[study] how the software works and to adapt it to your needs
+- ... .emph[redistribute] copies of the software
+- ... .emph[improve] the software and distribute your improvements to the public
 
 ---
 
@@ -407,7 +400,7 @@ protectable.  However, your description *is* protectable. -->
 - Put your recipe on GitHub.
 - Start the OpenCake organization.
 - Get feedback / start a mailing list.
-- More people will be able to enjoy the cake (increase impact).
+- More people will be able to enjoy the cake (.emph[increase impact]).
 - Maybe somebody will find ways to improve the recipe.
 - Everyone will know that it was your idea even though somebody else bakes it.
 
@@ -500,28 +493,26 @@ a huge community of firmware modders.  -->
 
 ### 1. Custom/closed
 
-- Others have to reimplement the wheel, **no derivative work possible**
+- **Derivative work typically not possible**: others have to reimplement the wheel
 
 ### 2. Permissive
 
-- Attractive for commercial software companies
-- No guaranteed access to **derivative work**, but typically not a problem in practice
-- .emph[You still have access, even if someone else buys your business.]
+- You may lose access to **derivative work**
+- Attractive for companies with proprietary software
 
 ### 3. Share-alike
 
-- Compatible with proprietary software
 - You can reuse **derivative work**
+- Compatible with proprietary software
 
 ### 4. Viral
 
-- You have to share the **derivative work** and cannot restrict access
-- Not attractive for commercial software companies.
-- .emph[You always have access if someone improves and re-shares.]
+- .emph[You always have access if someone improves and re-shares]
+- Not attractive for companies with proprietary software
 
 ---
 
-## Who owns the copyright for software you write?
+## Who owns the copyright for software you write? (1/2)
 
 - You? Your university?
 - .emph[Intellectual property depends on the country and the employer!]
@@ -531,6 +522,10 @@ a huge community of firmware modders.  -->
 
 - You can change the license.
 - You can dual-license (e.g. GPL for anyone, but you can pay for commercial non-GPL).
+
+---
+
+## Who owns the copyright for software you write? (2/2)
 
 ### If you accept contributions (pull requests), you may not be the only owner anymore!
 
@@ -581,7 +576,7 @@ their internal rights to do their work! -->
 - Too much use is rarely a problem.  What if you want people to use
   your work and .emph[make you the leader?]
 
-The second half of CodeRefinery can be considered to be strategies to
+In the CodeRefinery workshop we will discuss strategies to
 make your software more usable by others (and you six months from
 now!).
 
@@ -591,12 +586,12 @@ Here we summarize what is to come...
 
 ## Version control
 
-- Minimum requirement to share software with others
-- The basis of everything everything else
+- Minimum requirement to share software with others.
+- The basis of everything else.
 
 Somewhat related: project management/issue system:
 
-- Included as part of Gitlab/Github/etc.
+- Included as part of GitLab/GitHub/etc.
 - Allows communication, issue tracking, and community.
 
 CodeRefinery lessons: Introduction to version control, Collaborative
@@ -608,7 +603,7 @@ distributed version control, etc.
 
 - Can someone duplicate your results easily?
 - Can someone actually install your software and use it?
-- If they can't, there is a high barrier to use
+- If they can't, there is a high barrier to use.
 
 CodeRefinery lesson: Reproducible Research
 
@@ -620,9 +615,8 @@ CodeRefinery lesson: Reproducible Research
   it?
 - Software tests are verification that your software works the right
   way before and after.
-- Software tests allow others to modify and improve software with
-  confidence.
-  - .emph[And you!]
+- Software tests allow others (.emph[and you!]) to modify and improve software with
+  more confidence.
 
 CodeRefinery lessons: Software testing
 
@@ -630,7 +624,7 @@ CodeRefinery lessons: Software testing
 
 ## Documentation
 
-- Code alone is not
+- Code alone is often not enough.
 - Is there a more modern solution than README files?
 - Are there clear contributor instructions?  How to get started, how
   to submit first pull request, how to test, etc?
@@ -649,7 +643,7 @@ These are common things to check:
 - Release history
 - Versioning .remark[... will it be painful to upgrade?]
 - Number of open pull requests and issues - are they followed-up?
-- Installation instructions
+- Installation instructions .remark[... will it be difficult to get it running?]
 - Example .remark[... will it be difficult to get started?]
 - License .remark[... am I allowed to use it?]
 
