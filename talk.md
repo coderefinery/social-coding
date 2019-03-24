@@ -99,6 +99,8 @@ For a discussion of FAIR in the context of software, see https://softdev4researc
   [Appveyor](https://www.appveyor.com), [Read the Docs](https://readthedocs.org))
 - Good for your CV: you can show what you have built
 
+... can you think of reasons not to share?
+
 ---
 
 ## Sharing is scary
@@ -117,7 +119,7 @@ For a discussion of FAIR in the context of software, see https://softdev4researc
 ---
 
 - Fear of being scooped
-> .remark[Very unlikely that others will understand your code and publish before you without involving you in a collaboration.]
+> .remark[Very unlikely that others will understand your code and publish before you without involving you in a collaboration. Sharing is a form of publishing.]
 - Exposes possibly "ugly code"
 > .remark[In practice almost nobody will judge the quality of your code.]
 - Others may find bugs
@@ -135,12 +137,16 @@ For a discussion of FAIR in the context of software, see https://softdev4researc
 
 - If you build on something, you form a **derivative work**
 - Then, the original creator may have rights to what you make
-- .emph[The whole point of this talk is to make sure that *you can
-  make derivative works* and *others can make derivative works from
-  you*]
+- The whole point of this talk is to make sure that .emph[you can make derivative works] and .emph[others can make derivative works from you]
 
-### Is derivative work
+---
 
+## Derivative work examples
+
+### Is a derivative work
+
+- Download some code from a website and add on to it
+- Download some code from a website and use a function in your code
 - Changing the code
 - Extending the code
 - Completely rewriting the code
@@ -150,13 +156,11 @@ For a discussion of FAIR in the context of software, see https://softdev4researc
 
 - Linking to libraries (static or dynamic), plug-ins, and drivers
 - Clean room design
-
-Exercise: what *is* and *is not* a derivative work of the presentation
-you are seeing now?
+- You read a paper, understand algorithm, write own code
 
 ---
 
-## Why is allowing derivative work good for you as researcher?
+## Why could allowing derivative work be good for you as researcher?
 
 - .emph[Quality] control: groups depending on your code will find bugs.
 - More applications.
@@ -166,17 +170,6 @@ you are seeing now?
 - Long-term probably also .emph[more papers] for you: new collaborations and projects.
 - Groups depending on your code will not want your code to disappear: they might .emph[support you],
   send improvements, and share maintenance load.
-
----
-
-## Derivative work examples
-
-Is a derivative work:
-- Download some code from a website and add on to it
-- Download some code from a website and use a function in your code
-
-Not a derivative work:
-- You read a paper, understand algorithm, write own code.
 
 ---
 
