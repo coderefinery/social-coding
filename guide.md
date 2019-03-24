@@ -31,7 +31,7 @@ There are three main acts:
 In the source code, in HTML comments, are various hints and stories
 you can give.  These can help to motivate reasons to license.
 Especially note the ones about:
-- why this is called "social coding", not "software licensing"
+- why this is called "social coding and open software", not "software licensing"
 - the one about IBM software.
 
 Before you begin, it's worth thinking about some particular good or
