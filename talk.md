@@ -598,7 +598,7 @@ Somewhat related: project management/issue system:
 CodeRefinery lessons:
 
 - https://coderefinery.github.io/git-refresher/
-- https://coderefinery.github.io/git-solo/
+- https://coderefinery.github.io/git-intro/
 - https://coderefinery.github.io/git-collaborative/
 
 ---
