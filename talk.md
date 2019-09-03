@@ -6,8 +6,7 @@ class: middle, inverse
 
 # Social coding and open software
 
-Text is free to share and remix under
-[CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+Text is free to share and remix under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
 
 Authors:
 - Radovan Bast
