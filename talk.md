@@ -6,7 +6,7 @@ Text is free to share and remix under [CC-BY-4.0](https://creativecommons.org/li
 
 Radovan Bast, Richard Darst, Sabry Razick, Jyry Suvilehto
 
-Thanks for great suggestions/corrections: Anne Fouilloux, Oxana Smirnova
+Thanks for great suggestions/corrections: Anne Fouilloux, Oxana Smirnova, Lucy Whalley
 
 ---
 
@@ -16,6 +16,17 @@ Thanks for great suggestions/corrections: Anne Fouilloux, Oxana Smirnova
 
 - We want maximum visibility and maximum reuse.
 - The more interesting science is done referencing my paper, the better for me.
+
+---
+
+## Group work before we go on
+
+Discuss in pairs or groups (5-10 minutes):
+
+- Come up with .emph[reasons for sharing] your scripts/code/data
+- Also think about .emph[reasons for not sharing]
+
+We will discuss our findings as a class.
 
 ---
 
