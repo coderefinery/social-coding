@@ -1,22 +1,58 @@
-name: inverse
-layout: true
-class: middle, inverse
-
----
+class: center, middle
 
 # Social coding and open software
 
-Text is free to share and remix under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
+Text is free to share and remix under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)
 
-Authors:
-- Radovan Bast
-- Richard Darst
-- Sabry Razick
-- Jyry Suvilehto
+Radovan Bast, Richard Darst, Sabry Razick, Jyry Suvilehto
 
-With contributions from:
-- Anne Fouilloux
-- Oxana Smirnova
+Thanks for great suggestions/corrections: Anne Fouilloux, Oxana Smirnova
+
+---
+
+## Sharing papers and academic credit
+
+<img src="img/sharing-papers.jpg" style="width: 80%;"/>
+
+- We want maximum visibility and maximum reuse.
+- The more interesting science is done referencing my paper, the better for me.
+
+---
+
+## Sharing code
+
+<img src="img/sharing-code.jpg" style="width: 80%;"/>
+
+.quote["I did all the ground work and they get to do the interesting science?"]
+
+- Sharing code and encouraging derivative work may boost your academic impact.
+
+---
+
+## Social coding
+
+<img src="img/in-out.jpg" style="width: 100%;"/>
+
+.cite[Idea: R. Darst, adapted]
+
+- Whether you can share your output depends on how you obtained your input.
+- Software licenses matter.
+- Sometimes "OTHERS" are you yourself in the future.
+
+---
+
+## Practical recommendations for licenses
+
+- .emph[You cannot ignore licensing]: default is "no one can make copies or
+  derivative works".
+- License your code .emph[very early] in the project:
+  ideally develop publicly accessible open source code .emph[from day one].
+- Take an [OSI](https://opensource.org/licenses)-approved license: makes it easier to evaluate
+  [compatibility](https://en.wikipedia.org/wiki/License_compatibility).
+- Add a `LICENSE` file to your repository.
+- .emph[Do not design your own custom licenses] for open source/ open use: compatibility not clear.
+- Open source your code to make sure you are not locked out of your own code
+  once you change affiliation.
 
 ---
 
