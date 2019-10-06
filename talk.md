@@ -560,7 +560,6 @@ date-released: 2018-10-24
 - http://oss-watch.ac.uk/resources/ipr
 - http://rkd.zgib.net/scicomp/open-science/open-science.html
 - https://choosealicense.com (can send automatic pull request to your GitHub repo)
-- https://github.com/coderefinery/software-licensing
 - https://hintjens.gitbooks.io/social-architecture/content/chapter2.html
 - https://softdev4research.github.io/4OSS-lesson/
 - https://softdev4research.github.io/recommendations/
