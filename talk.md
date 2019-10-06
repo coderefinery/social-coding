@@ -82,35 +82,6 @@ We will discuss our findings as a class.
 
 ---
 
-layout: false
-
-# Plan for this talk
-
-.left-column[
-### - Software you create, matters
-### - When can you take from others?
-### - How can you give to others?
-### - How to grow a community around your code
-### - ... and how does this relate to CodeRefinery?
-]
-
-.right-column[
-<img src="img/in-out.png" style="width: 100%;"/>
-
-Things .emph[go in], things .emph[come out]. If you want to build
-on others, you have to care about both directions.
-]
-
-<!-- Tell an anecdote: we were working on this talk, and wondered this
-talk was originally about software licensing, but why do you care?  Do
-you use software you find online regardless of license status?  The
-answer is that you yourself can effectively do whatever you
-want... but if you want to build on others, you have to care.  If you
-want others to build on you, you have to care. If others can't build
-on you, you won't get followers to give you citations. -->
-
----
-
 ## Software matters in research
 
 .emph[**Data** is part of research output]
