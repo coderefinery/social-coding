@@ -10,6 +10,21 @@ Thanks for great suggestions/corrections: Anne Fouilloux, Oxana Smirnova, Lucy W
 
 ---
 
+## Target audience
+
+- Someone writing their own relatively small material
+- Someone who wants to incorporate other code/libraries into their own stuff
+- Group leader who wants to decide how to balance openness and long-term strategy
+
+### Plan
+
+- Social coding
+- Licensing
+- Openness
+- Software citation
+
+---
+
 ## Sharing papers and academic credit
 
 <img src="img/sharing-papers.jpg" style="width: 80%;"/>
