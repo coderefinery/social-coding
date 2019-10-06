@@ -656,23 +656,21 @@ date-released: 2018-10-24
 - https://gitlab.com: public or private repositories
 - https://source.coderefinery.org: public or private repositories
 
-### Great resources
-
-- http://rkd.zgib.net/scicomp/open-science/open-science.html
-- https://softdev4research.github.io/4OSS-lesson/
-- https://softdev4research.github.io/recommendations/
-
 ---
 
-## Good resources for software licensing
+## Great resources
 
-- https://www.software.ac.uk/choosing-open-source-licence
-- https://choosealicense.com (can send automatic pull request to your GitHub repo)
-- http://oss-watch.ac.uk/resources/ipr
-- http://www.rosenlaw.com/oslbook.htm
-- http://depth-first.com/articles/2006/12/29/dispelling-open-source-confusion-an-introduction-to-licenses/
 - http://blog.milkingthegnu.org/2008/03/10-answers-for.html
-- http://www.oreilly.com/openbook/osfreesoft/
-- https://tldrlegal.com/
+- http://depth-first.com/articles/2006/12/29/dispelling-open-source-confusion-an-introduction-to-licenses/
+- http://oss-watch.ac.uk/resources/ipr
+- http://rkd.zgib.net/scicomp/open-science/open-science.html
+- https://choosealicense.com (can send automatic pull request to your GitHub repo)
+- https://github.com/coderefinery/software-licensing
 - https://hintjens.gitbooks.io/social-architecture/content/chapter2.html
+- https://softdev4research.github.io/4OSS-lesson/
+- https://softdev4research.github.io/recommendations/
+- https://tldrlegal.com/
 - https://users.aalto.fi/~darstr1/cheatsheets/ipr-cheatsheet.pdf
+- https://www.software.ac.uk/choosing-open-source-licence
+- http://www.oreilly.com/openbook/osfreesoft/
+- http://www.rosenlaw.com/oslbook.htm
