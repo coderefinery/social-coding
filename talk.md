@@ -13,7 +13,7 @@ Thanks for great suggestions/corrections: Anne Fouilloux, Oxana Smirnova, Lucy W
 ## Target audience
 
 - Someone writing their own relatively small material
-- Someone who wants to incorporate other code/libraries into their own stuff
+- Someone who wants to incorporate other code/libraries into their own projects
 - Group leader who wants to decide how to balance openness and long-term strategy
 
 ### Plan
@@ -46,36 +46,13 @@ Discuss in pairs or groups (5-10 minutes):
 
 - Come up with .emph[reasons for sharing] your scripts/code/data
 - Also think about .emph[reasons for not sharing]
+- Why is software often treated differently from papers
 
 We will discuss our findings as a class.
 
 ---
 
-## Sharing code
-
-<img src="img/sharing-code.jpg" style="width: 80%;"/>
-
-.quote["I did all the ground work and they get to do the interesting science?"]
-
-- Sharing code and encouraging derivative work may boost your academic impact.
-
----
-
-## Social coding
-
-<img src="img/in-out.jpg" style="width: 100%;"/>
-
-.cite[Idea: R. Darst, adapted]
-
-- Whether you can share your output depends on how you obtained your input.
-- Software licenses matter.
-- Sometimes "OTHERS" are you yourself in the future.
-
----
-
-## Sharing is caring
-
-### What are the benefits of sharing software?
+## What are the benefits of sharing software?
 
 - Easier to find and reproduce (.emph[scientific reproducibility])
 - More trustworthy: others can verify correctness and find and report bugs
@@ -87,24 +64,9 @@ We will discuss our findings as a class.
   [Appveyor](https://www.appveyor.com), [Read the Docs](https://readthedocs.org))
 - Good for your CV: you can show what you have built
 
-... can you think of reasons not to share?
-
 ---
 
-## Sharing is scary
-
-### Why do some researchers prefer not to share?
-
-- Fear of being scooped
-- Exposes possibly "ugly code"
-- Others may find bugs
-- Others may require support and ask too many questions
-- Fear of losing control over the direction of the project
-- "Bad" derivative projects may appear - fear that this will harm the reputation
-
-... we will discuss these in this talk and during this week.
-
----
+## Sharing is scary (1/2)
 
 - Fear of being scooped
 > .remark[Very unlikely that others will understand your code and publish before you without involving you in a collaboration. Sharing is a form of publishing.]
@@ -112,8 +74,13 @@ We will discuss our findings as a class.
 > .remark[In practice almost nobody will judge the quality of your code.]
 - Others may find bugs
 > .remark[Isn't this good? Would you not like to use a code which gives people the chance to locate bugs?]
+
+---
+
+## Sharing is scary (2/2)
+
 - Others may require support and ask too many questions
-> .remark[More about this later.]
+> .remark[This can become a problem: use tools and community and protect your time.]
 - Fear of losing control over the direction of the project
 > .remark[Open source does not mean everybody can change **your version**.]
 - "Bad" derivative projects may appear
@@ -121,120 +88,74 @@ We will discuss our findings as a class.
 
 ---
 
+## Sharing code
+
+<img src="img/sharing-code.jpg" style="width: 80%;"/>
+
+.quote["I did all the ground work and they get to do the interesting science?"]
+
+- Sharing code and encouraging .emph[derivative work] may boost your academic impact.
+
+---
+
 ## Social coding
 
-- Licensing is one thing... but will anyone ever use it?
-- Too much use is rarely a problem.  What if you want people to use
-  your work and .emph[make you the leader?]
+<img src="img/in-out.jpg" style="width: 100%;"/>
 
-In the CodeRefinery workshop we will discuss strategies to
-make your software more usable by others (and you six months from
-now!).
-
-Here we summarize what is to come...
+- Whether you can share your output depends on how you obtained your input.
+- .emph[Software licenses] matter.
+- Sometimes "OTHERS" are you yourself in the future in a different group/job.
 
 ---
 
-## Version control
+## Code reuse
 
-- Minimum requirement to share software with others.
-- The basis of everything else.
+Should you reuse things that others have done?
 
-Somewhat related: project management/issue system:
+Types of things that can be reused:
+- Main libraries (e.g. numpy, scipy)
+- Special scientific libs
+- Random code from website
+- Copying from Stack Overflow
 
-- Included as part of GitLab/GitHub/etc.
-- Allows communication, issue tracking, and community.
+Do you want others to reuse what you make?
 
-CodeRefinery lessons:
-
-- https://coderefinery.github.io/git-refresher/
-- https://coderefinery.github.io/git-intro/
-- https://coderefinery.github.io/git-collaborative/
+How do you turn your own small project into the next numpy? Do you want to?
 
 ---
 
-## Reproducibility and build systems
+## What contributes to reuse?
 
-- Can someone duplicate your results easily?
-- Can someone actually install your software and use it?
-- If they can't, there is a high barrier to use.
+What contributes to you being able to reuse stuff that others make, and others (or you) being able to reuse your stuff?
 
-CodeRefinery lesson: [Reproducible research](https://coderefinery.github.io/reproducible-research/)
+As a .emph[developer] or .emph[user] what are you looking at when discovering a new package?
 
----
-
-## Software testing
-
-- How can someone modify your software and make sure they don't break
-  it?
-- Software tests are verification that your software works the right
-  way before and after.
-- Software tests allow others (.emph[and you!]) to modify and improve software with
-  more confidence.
-
-CodeRefinery lesson: [Automated testing](https://coderefinery.github.io/testing/)
+Discuss in groups ...
 
 ---
-
-## Documentation
-
-- Code alone is often not enough.
-- Is there a more modern solution than README files?
-- Are there clear contributor instructions?  How to get started, how
-  to submit first pull request, how to test, etc?
-
-CodeRefinery lesson: [Code documentation](https://coderefinery.github.io/documentation/)
-
----
-
-## Does this look like a serious project?
 
 ### As a .emph[developer] or .emph[user] what are you looking at when discovering a new package?
 
 These are common things to check:
 
 - Date of last code change .remark[... is the project abandoned?]
-- Release history
+- Release history .remark[... how about stability and backwards-compatibility?]
 - Versioning .remark[... will it be painful to upgrade?]
 - Number of open pull requests and issues - are they followed-up?
 - Installation instructions .remark[... will it be difficult to get it running?]
 - Example .remark[... will it be difficult to get started?]
 - License .remark[... am I allowed to use it?]
+- Contribution guide .remark[... how to contribute and decision process?]
 
----
+### This is what we teach in [CodeRefinery](https://coderefinery.org):
 
-## Communication and atmosphere
-
-- Do you welcome people to your project?
-- Do you give credit?
-- Do you respond to issues and pull requests?
-- Do you have a Code of Conduct? https://www.contributor-covenant.org
-- Openness and transparency
-- Document whether/how/where you want to be asked questions
-- Chat or mailing list
-- If the project grows, agree on a decision process for controversial changes
-
----
-
-## Software matters in research
-
-.emph[**Data** is part of research output]
-
-- Funding agencies often ask for a data management plan
-
-.emph[**Software** is part of research output]
-
-- Simulations which generate data
-- Control software for instruments
-- Post-processing of measurements
-- Data processing
-- Portals and apps
-- Spreadsheets
-- Scripts and tools which produce graphs and compute statistics
-
-Curiosity: Not too many projects consider a software management plan **yet**.
-
-Software development should consider .emph[FAIR principles, ideally from the start].
+- Version control including project management
+- Testing
+- Documentation
+- Reproducibility
+- Code citations
+- Being findable
+- License
 
 ---
 
@@ -249,36 +170,10 @@ The FAIR Guiding Principles for scientific **data** management and stewardship (
 
 For a discussion of FAIR in the context of software, see https://softdev4research.github.io/4OSS-lesson/.
 
----
+Software development should consider .emph[FAIR principles, ideally from the start].
 
-## Social coding: what is relevant to scientists?
-
-- You come up with .emph[ideas]
-- Ideas are published in .emph[papers]
-  - Papers might have limited access, but .emph[anyone can use the ideas] in them
-  - Your goal is to get citations for your paper by people using or improving your ideas
-- Your .emph[software] may implement an idea in your paper
-  - For your ideas to be used, software should be usable
-  - If people can use or .emph[improve your software] they can more easily use your ideas
-  - If people cannot reuse and extend your software, .emph[its impact will be limited]
-
-The middle part of this talk is about how to allow others to use your
-.emph[copyright (and data)]
-
-<!---
-Maybe scientists aren't the only audience, but may be useful to start here anyway.
-
-- Emphasize that trying to protect your code usually doesn't do you
-  that much good: your ideas are purposely put out there when you
-  publish.
-- If your code isn't free software, people might take your code and
-  run it, but not reuse it.  Following up on your work becomes much
-  harder, since they have to re-create everything.
-
-Copyright protects a certain expression.  If you publish a paper on
-your idea, someone can always read that paper and re-create your
-method.  Don't think that copyright gives you magic protection.
--->
+- .remark[Have you written a data management plan?]
+- .remark[How about a software management plan?]
 
 ---
 
