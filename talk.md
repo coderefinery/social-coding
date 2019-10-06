@@ -25,6 +25,12 @@ Thanks for great suggestions/corrections: Anne Fouilloux, Oxana Smirnova, Lucy W
 
 ---
 
+class: center, middle
+
+## Part 1/4: Social coding
+
+---
+
 ## Sharing papers and academic credit
 
 <img src="img/sharing-papers.jpg" style="width: 80%;"/>
@@ -64,56 +70,6 @@ We will discuss our findings as a class.
 - Whether you can share your output depends on how you obtained your input.
 - Software licenses matter.
 - Sometimes "OTHERS" are you yourself in the future.
-
----
-
-## Practical recommendations for licenses
-
-- .emph[You cannot ignore licensing]: default is "no one can make copies or
-  derivative works".
-- License your code .emph[very early] in the project:
-  ideally develop publicly accessible open source code .emph[from day one].
-- Take an [OSI](https://opensource.org/licenses)-approved license: makes it easier to evaluate
-  [compatibility](https://en.wikipedia.org/wiki/License_compatibility).
-- Add a `LICENSE` file to your repository.
-- .emph[Do not design your own custom licenses] for open source/ open use: compatibility not clear.
-- Open source your code to make sure you are not locked out of your own code
-  once you change affiliation.
-
----
-
-## Software matters in research
-
-.emph[**Data** is part of research output]
-
-- Funding agencies often ask for a data management plan
-
-.emph[**Software** is part of research output]
-
-- Simulations which generate data
-- Control software for instruments
-- Post-processing of measurements
-- Data processing
-- Portals and apps
-- Spreadsheets
-- Scripts and tools which produce graphs and compute statistics
-
-Curiosity: Not too many projects consider a software management plan **yet**.
-
-Software development should consider .emph[FAIR principles, ideally from the start].
-
----
-
-## FAIR principles
-
-The FAIR Guiding Principles for scientific **data** management and stewardship (https://www.nature.com/articles/sdata201618):
-
-- To be .emph[**F**indable]
-- To be .emph[**A**ccessible]
-- To be .emph[**I**nteroperable]
-- To be .emph[**R**eusable]
-
-For a discussion of FAIR in the context of software, see https://softdev4research.github.io/4OSS-lesson/.
 
 ---
 
@@ -162,6 +118,205 @@ For a discussion of FAIR in the context of software, see https://softdev4researc
 > .remark[Open source does not mean everybody can change **your version**.]
 - "Bad" derivative projects may appear
 > .remark[It will be clear which is the official version.]
+
+---
+
+## Social coding
+
+- Licensing is one thing... but will anyone ever use it?
+- Too much use is rarely a problem.  What if you want people to use
+  your work and .emph[make you the leader?]
+
+In the CodeRefinery workshop we will discuss strategies to
+make your software more usable by others (and you six months from
+now!).
+
+Here we summarize what is to come...
+
+---
+
+## Version control
+
+- Minimum requirement to share software with others.
+- The basis of everything else.
+
+Somewhat related: project management/issue system:
+
+- Included as part of GitLab/GitHub/etc.
+- Allows communication, issue tracking, and community.
+
+CodeRefinery lessons:
+
+- https://coderefinery.github.io/git-refresher/
+- https://coderefinery.github.io/git-intro/
+- https://coderefinery.github.io/git-collaborative/
+
+---
+
+## Reproducibility and build systems
+
+- Can someone duplicate your results easily?
+- Can someone actually install your software and use it?
+- If they can't, there is a high barrier to use.
+
+CodeRefinery lesson: [Reproducible research](https://coderefinery.github.io/reproducible-research/)
+
+---
+
+## Software testing
+
+- How can someone modify your software and make sure they don't break
+  it?
+- Software tests are verification that your software works the right
+  way before and after.
+- Software tests allow others (.emph[and you!]) to modify and improve software with
+  more confidence.
+
+CodeRefinery lesson: [Automated testing](https://coderefinery.github.io/testing/)
+
+---
+
+## Documentation
+
+- Code alone is often not enough.
+- Is there a more modern solution than README files?
+- Are there clear contributor instructions?  How to get started, how
+  to submit first pull request, how to test, etc?
+
+CodeRefinery lesson: [Code documentation](https://coderefinery.github.io/documentation/)
+
+---
+
+## Does this look like a serious project?
+
+### As a .emph[developer] or .emph[user] what are you looking at when discovering a new package?
+
+These are common things to check:
+
+- Date of last code change .remark[... is the project abandoned?]
+- Release history
+- Versioning .remark[... will it be painful to upgrade?]
+- Number of open pull requests and issues - are they followed-up?
+- Installation instructions .remark[... will it be difficult to get it running?]
+- Example .remark[... will it be difficult to get started?]
+- License .remark[... am I allowed to use it?]
+
+---
+
+## Communication and atmosphere
+
+- Do you welcome people to your project?
+- Do you give credit?
+- Do you respond to issues and pull requests?
+- Do you have a Code of Conduct? https://www.contributor-covenant.org
+- Openness and transparency
+- Document whether/how/where you want to be asked questions
+- Chat or mailing list
+- If the project grows, agree on a decision process for controversial changes
+
+---
+
+## Software matters in research
+
+.emph[**Data** is part of research output]
+
+- Funding agencies often ask for a data management plan
+
+.emph[**Software** is part of research output]
+
+- Simulations which generate data
+- Control software for instruments
+- Post-processing of measurements
+- Data processing
+- Portals and apps
+- Spreadsheets
+- Scripts and tools which produce graphs and compute statistics
+
+Curiosity: Not too many projects consider a software management plan **yet**.
+
+Software development should consider .emph[FAIR principles, ideally from the start].
+
+---
+
+## FAIR principles
+
+The FAIR Guiding Principles for scientific **data** management and stewardship (https://www.nature.com/articles/sdata201618):
+
+- To be .emph[**F**indable]
+- To be .emph[**A**ccessible]
+- To be .emph[**I**nteroperable]
+- To be .emph[**R**eusable]
+
+For a discussion of FAIR in the context of software, see https://softdev4research.github.io/4OSS-lesson/.
+
+---
+
+## Social coding: what is relevant to scientists?
+
+- You come up with .emph[ideas]
+- Ideas are published in .emph[papers]
+  - Papers might have limited access, but .emph[anyone can use the ideas] in them
+  - Your goal is to get citations for your paper by people using or improving your ideas
+- Your .emph[software] may implement an idea in your paper
+  - For your ideas to be used, software should be usable
+  - If people can use or .emph[improve your software] they can more easily use your ideas
+  - If people cannot reuse and extend your software, .emph[its impact will be limited]
+
+The middle part of this talk is about how to allow others to use your
+.emph[copyright (and data)]
+
+<!---
+Maybe scientists aren't the only audience, but may be useful to start here anyway.
+
+- Emphasize that trying to protect your code usually doesn't do you
+  that much good: your ideas are purposely put out there when you
+  publish.
+- If your code isn't free software, people might take your code and
+  run it, but not reuse it.  Following up on your work becomes much
+  harder, since they have to re-create everything.
+
+Copyright protects a certain expression.  If you publish a paper on
+your idea, someone can always read that paper and re-create your
+method.  Don't think that copyright gives you magic protection.
+-->
+
+---
+
+class: center, middle
+
+## Part 2/4: Licensing
+
+---
+
+## Exercises
+
+1. What is the StackOverflow license for code you copy and paste?
+
+2. Name some software or work you have created that should be
+   non-open, licensed permissively, and licensed virally.
+
+3. What can you do with CodeRefinery lessons?  present
+   them?  copy them?  modify them and present them?  send changes back
+   to us?  find them in 20 years?  present them and call them a
+   CodeRefinery workshop?
+
+4. (advanced) Find the package "Omnet++" and study its license.  Compare to the
+   GPL.  What do you think?
+
+---
+
+## Practical recommendations for licenses
+
+- .emph[You cannot ignore licensing]: default is "no one can make copies or
+  derivative works".
+- License your code .emph[very early] in the project:
+  ideally develop publicly accessible open source code .emph[from day one].
+- Take an [OSI](https://opensource.org/licenses)-approved license: makes it easier to evaluate
+  [compatibility](https://en.wikipedia.org/wiki/License_compatibility).
+- Add a `LICENSE` file to your repository.
+- .emph[Do not design your own custom licenses] for open source/ open use: compatibility not clear.
+- Open source your code to make sure you are not locked out of your own code
+  once you change affiliation.
 
 ---
 
@@ -291,38 +446,7 @@ own software to do it.
 
 ---
 
-## Social coding: what is relevant to scientists?
-
-- You come up with .emph[ideas]
-- Ideas are published in .emph[papers]
-  - Papers might have limited access, but .emph[anyone can use the ideas] in them
-  - Your goal is to get citations for your paper by people using or improving your ideas
-- Your .emph[software] may implement an idea in your paper
-  - For your ideas to be used, software should be usable
-  - If people can use or .emph[improve your software] they can more easily use your ideas
-  - If people cannot reuse and extend your software, .emph[its impact will be limited]
-
-The middle part of this talk is about how to allow others to use your
-.emph[copyright (and data)]
-
-<!---
-Maybe scientists aren't the only audience, but may be useful to start here anyway.
-
-- Emphasize that trying to protect your code usually doesn't do you
-  that much good: your ideas are purposely put out there when you
-  publish.
-- If your code isn't free software, people might take your code and
-  run it, but not reuse it.  Following up on your work becomes much
-  harder, since they have to re-create everything.
-
-Copyright protects a certain expression.  If you publish a paper on
-your idea, someone can always read that paper and re-create your
-method.  Don't think that copyright gives you magic protection.
--->
-
----
-
-## Exercises (1/2)
+## Exercises
 
 1. Contrast Matlab vs Octave from a derivative work, intellectual
    property, and open science standpoint.
@@ -481,98 +605,15 @@ their internal rights to do their work! -->
 
 ---
 
-## Social coding
+class: center, middle
 
-- Licensing is one thing... but will anyone ever use it?
-- Too much use is rarely a problem.  What if you want people to use
-  your work and .emph[make you the leader?]
-
-In the CodeRefinery workshop we will discuss strategies to
-make your software more usable by others (and you six months from
-now!).
-
-Here we summarize what is to come...
+## Part 3/4: Openness
 
 ---
 
-## Version control
+class: center, middle
 
-- Minimum requirement to share software with others.
-- The basis of everything else.
-
-Somewhat related: project management/issue system:
-
-- Included as part of GitLab/GitHub/etc.
-- Allows communication, issue tracking, and community.
-
-CodeRefinery lessons:
-
-- https://coderefinery.github.io/git-refresher/
-- https://coderefinery.github.io/git-intro/
-- https://coderefinery.github.io/git-collaborative/
-
----
-
-## Reproducibility and build systems
-
-- Can someone duplicate your results easily?
-- Can someone actually install your software and use it?
-- If they can't, there is a high barrier to use.
-
-CodeRefinery lesson: [Reproducible research](https://coderefinery.github.io/reproducible-research/)
-
----
-
-## Software testing
-
-- How can someone modify your software and make sure they don't break
-  it?
-- Software tests are verification that your software works the right
-  way before and after.
-- Software tests allow others (.emph[and you!]) to modify and improve software with
-  more confidence.
-
-CodeRefinery lesson: [Automated testing](https://coderefinery.github.io/testing/)
-
----
-
-## Documentation
-
-- Code alone is often not enough.
-- Is there a more modern solution than README files?
-- Are there clear contributor instructions?  How to get started, how
-  to submit first pull request, how to test, etc?
-
-CodeRefinery lesson: [Code documentation](https://coderefinery.github.io/documentation/)
-
----
-
-## Does this look like a serious project?
-
-### As a .emph[developer] or .emph[user] what are you looking at when discovering a new package?
-
-These are common things to check:
-
-- Date of last code change .remark[... is the project abandoned?]
-- Release history
-- Versioning .remark[... will it be painful to upgrade?]
-- Number of open pull requests and issues - are they followed-up?
-- Installation instructions .remark[... will it be difficult to get it running?]
-- Example .remark[... will it be difficult to get started?]
-- License .remark[... am I allowed to use it?]
-
----
-
-## Communication and atmosphere
-
-- Do you welcome people to your project?
-- Do you give credit?
-- Do you respond to issues and pull requests?
-- Do you have a Code of Conduct? https://www.contributor-covenant.org
-- Openness and transparency
-- Document whether/how/where you want to be asked questions
-- Chat or mailing list
-- If the project grows, agree on a decision process for controversial changes
+## Part 4/4: Software citation
 
 ---
 
@@ -635,20 +676,3 @@ date-released: 2018-10-24
 - https://tldrlegal.com/
 - https://hintjens.gitbooks.io/social-architecture/content/chapter2.html
 - https://users.aalto.fi/~darstr1/cheatsheets/ipr-cheatsheet.pdf
-
----
-
-## Exercises (2/2)
-
-1. What is the StackOverflow license for code you copy and paste?
-
-2. Name some software or work you have created that should be
-   non-open, licensed permissively, and licensed virally.
-
-3. What can you do with CodeRefinery lessons?  present
-   them?  copy them?  modify them and present them?  send changes back
-   to us?  find them in 20 years?  present them and call them a
-   CodeRefinery workshop?
-
-4. (advanced) Find the package "Omnet++" and study its license.  Compare to the
-   GPL.  What do you think?
