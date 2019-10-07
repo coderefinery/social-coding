@@ -356,6 +356,7 @@ their internal rights to do their work! -->
   derivative works".
 - License your code .emph[very early] in the project:
   ideally develop publicly accessible open source code .emph[from day one]. Start with a `README.md` and a `LICENSE`.
+- Add also the files `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`. Good example: https://github.com/KirstieJane/STEMMRoleModels
 - Emphasize open source nature of the code output in your research proposal.
 - Take an [OSI](https://opensource.org/licenses)-approved license: makes it easier to evaluate
   [compatibility](https://en.wikipedia.org/wiki/License_compatibility).
