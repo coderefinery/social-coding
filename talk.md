@@ -20,14 +20,13 @@ Thanks for great suggestions/corrections: Anne Fouilloux, Oxana Smirnova, Lucy W
 
 - Social coding
 - Licensing
-- Openness
 - Software citation
 
 ---
 
 class: center, middle
 
-## Part 1/4: Social coding
+## Part 1/3: Social coding
 
 ---
 
@@ -179,7 +178,7 @@ Software development should consider .emph[FAIR principles, ideally from the sta
 
 class: center, middle
 
-## Part 2/4: Licensing
+## Part 2/3: Licensing
 
 ---
 
@@ -362,7 +361,7 @@ their internal rights to do their work! -->
   [compatibility](https://en.wikipedia.org/wiki/License_compatibility).
 - Add a `LICENSE` file to your repository.
 - .emph[Do not design your own custom licenses] for open source/ open use: compatibility not clear.
-- Open source your code to make sure you are not locked out of your own code
+- Open source your code to make sure you are not locked out of your own code if you don't own it
   once you change affiliation.
 
 ---
@@ -405,13 +404,7 @@ License text, slides, images, and supporting information under a
 
 class: center, middle
 
-## Part 3/4: Openness
-
----
-
-class: center, middle
-
-## Part 4/4: Software citation
+## Part 3/3: Software citation
 
 ---
 
