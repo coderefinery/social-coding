@@ -183,49 +183,57 @@ class: center, middle
 
 ---
 
-## Exercises
+## Intellectual property (IP)
 
-1. What is the StackOverflow license for code you copy and paste?
+<img src="img/tate.jpg" style="width: 40%;"/>
 
-2. Name some software or work you have created that should be
-   non-open, licensed permissively, and licensed virally.
-
-3. What can you do with CodeRefinery lessons?  present
-   them?  copy them?  modify them and present them?  send changes back
-   to us?  find them in 20 years?  present them and call them a
-   CodeRefinery workshop?
-
-4. (advanced) Find the package "Omnet++" and study its license.  Compare to the
-   GPL.  What do you think?
+- Patent: .remark[Protects a *novel, non-obvious, technical invention*.]
+- .emph[Copyright]: .remark[Protects creative expression: software, writing, graphics, photos, certain datasets, this presentation.]
+- Trademark: .remark[Protects a name/brand from impersonation.]
 
 ---
 
-## Practical recommendations for licenses
+## Copyright
 
-- .emph[You cannot ignore licensing]: default is "no one can make copies or
-  derivative works".
-- License your code .emph[very early] in the project:
-  ideally develop publicly accessible open source code .emph[from day one].
-- Take an [OSI](https://opensource.org/licenses)-approved license: makes it easier to evaluate
-  [compatibility](https://en.wikipedia.org/wiki/License_compatibility).
-- Add a `LICENSE` file to your repository.
-- .emph[Do not design your own custom licenses] for open source/ open use: compatibility not clear.
-- Open source your code to make sure you are not locked out of your own code
-  once you change affiliation.
+- Protects creative expression
+- Automatically created
+- .emph[Derivative works] usually inherit copyright of the thing derived
+- Time frame: essentially forever (lifetime + X years)
+
+When can you use:
+
+- When there is a .emph[license] saying you can
+- Limited other cases (private use, fair use: context dependent)
+- In practice: people do many things, but then can't share their
+  output if copyright
+
+### When we write or use software then copyright, licenses, and derivative works are important concepts
+
+---
+
+## Derivative work: Changing, remixing, covering
+
+Is this derivative work?
+
+<img src="img/rubik.jpg" style="width: 70%;"/>
+
+.cite["Distillery District 26", CC-BY, https://www.flickr.com/photos/dgriebeling/3851273590]
 
 ---
 
 ## Derivative work
 
-- If you build on something, you form a **derivative work**
-- Then, the original creator may have rights to what you make
-- The whole point of this talk is to make sure that .emph[you can make derivative works] and .emph[others can make derivative works from you]
+### If you build on something, you form a derivative work
+
+- The original creator may have rights to what you make
+- The whole point of this talk is to make sure that .emph[you can make and publish derivative works]
+  and .emph[others can make and publish derivative works from you]
 
 ---
 
-## Derivative work examples
+## Which of these is derivative work?
 
-### Is a derivative work
+### Discuss in groups
 
 - Download some code from a website and add on to it
 - Download some code and use a function in your code
@@ -233,11 +241,8 @@ class: center, middle
 - Extending the code
 - Completely rewriting the code
 - Rewriting the code to a different programming language
-
-### Typically not derivative work
-
 - Linking to libraries (static or dynamic), plug-ins, and drivers
-- Clean room design
+- Clean room design (somebody explains you the code but you have never seen it)
 - You read a paper, understand algorithm, write own code
 
 ---
@@ -255,142 +260,19 @@ class: center, middle
 
 ---
 
-## Types of intellectual property (IP)
-
-- Created automatically in certain circumstances (copyright)
-- Registered after the fact in other cases (patents)
-- Does not allow you to do something: allows you to prevent others
-  from doing something.
-- Understanding IP is important for social coding.
-
-Next slides: **Types of IP** and **When can you use it?**
-
----
-
-## Copyright
-
-What:
-
-- Protects creative expression
-- Automatically created
-- **Derivative works** usually inherits copyright of the thing derived
-- Time frame: essentially forever (lifetime + X years)
-
-When can you use:
-
-- When there is a license saying you can
-- Limited other cases (private use, fair use: context dependent)
-- In practice: people do many things, but then can't share their
-  output if copyright
-
-Applicable to: software, writing, graphics, photos, certain datasets,
-this presentation. *Very broad.*
-
----
-
-## Patents
-
-- Protects a *novel, non-obvious, technical invention*.
-- Must be registered *before revealed*.  Registration involves full
-  disclosure.
-- Can an algorithm be patented?  Software?
-- Patents are a minefield and often used to troll ("patent troll").
-
-When you can use:
-- Get expert advice.
-
-Examples: RSA cryptography (possibly good), Amazon 1-click (probably bad).
-
----
-
-## Trademarks
-
-What:
-- Protects a name/brand from impersonation.
-
-When you can use:
-- To factually refer to something.
-- In general, just don't use an existing name in order to deceive.
-
-Examples: "Mozilla Firefox", "Apple", "Linux".
-
----
-
-## Datasets
-
-What:
-- The EU has a database directive which restricts data mining on
-  databases.
-- Has a somewhat similar effect to copyright, because copyright would
-  not apply to data mining.
-- A good license also gives rights to data mine.  So not a major concern.
-
-When you can use datasets:
-- The license allows
-- Your country has exceptions for research
-- The data doesn't come from the EU
-
----
-
-## Ideas
-
-.emph[Are not be protected by IP]: you can always use them.
-
-Example: You read a paper, understand the algorithm, and write your
-own software to do it.
-
----
-
-## Exercises
-
-1. Contrast Matlab vs Octave from a derivative work, intellectual
-   property, and open science standpoint.
-
-3. Do you form derivative works of your groupmates' work?  Colleagues
-   who came before you?  What have you done that isn't a derivative
-   work?
-
-2. Try to trace and think of the derivative work history of this
-   lesson.  How many inputs are there?  What happens if you think of
-   more than copyright?
-
----
-
-## Software licensing: What is free software?
-
-### Free as in beer or free as in speech?
-
-<img src="img/beer.png" style="width: 15%;"/>
-<img src="img/speaker.png" style="width: 15%;"/>
-
-(Emoji icons provided free by [EmojiOne](https://www.emojione.com))
-
-### Software freedom
-
-Is the freedom to ...
-
-- ... run the software for .emph[any purpose]
-- ... .emph[study] how the software works and to adapt it to your needs
-- ... .emph[redistribute] copies of the software
-- ... .emph[improve] the software and distribute your improvements to the public
-
----
-
 ## What is free software?
 
-### Software freedom and research
+### Software freedom is the freedom to ...
 
-Is the freedom to ...
-
-- ... run the software for any purpose: .emph[new applications]
-- ... study how the software works and to adapt it to your needs: .emph[new applications, less reinventing wheels]
-- ... redistribute copies of the software: .emph[more users, more citations]
-- ... improve the software and distribute your improvements to the public: .emph[fix bugs, new science]
+- ... run the software for .emph[any purpose]: .remark[new applications]
+- ... .emph[study] how the software works and to adapt it to your needs: .remark[new applications, less reinventing wheels]
+- ... .emph[redistribute] copies of the software: .remark[more users, more citations]
+- ... .emph[improve] the software and distribute your improvements to the public: .remark[fix bugs, new science]
 
 ### Typical confusion
 
 - Free software does not mean that software is for free
-- Open source license does not mean you need to share everything immediately
+- Open source license does not mean you need to share everything immediately (share master branch, put unpublished code on a fork)
 - Open source does not mean public domain: software in the public domain has no owner
 - Open source does not mean non-commercial: plenty of companies produce and support it
 
@@ -411,39 +293,36 @@ make an impact.
 
 ---
 
-## In practice you need to choose a license
-
-- Code without license is not useful for reuse or derivative work.
-- Example why choice of license matters, X vs. SunView: https://lwn.net/Articles/26608/
-
----
-
-## What outcomes did we have?
+## Taxonomy of software licenses
 
 ### 1. Custom/closed
 
-- **Derivative work typically not possible**: others have to reimplement the wheel
+- Derivative work typically not possible
 
-### 2. Permissive
+### 2. Permissive (MIT, BSD, Apache)
 
-- You may lose access to **derivative work**
-- Attractive for companies with proprietary software
+- Derivative work does not have to be shared
 
-### 3. Share-alike
+### 3. Weak copyleft share-alike (LGPL, MPL)
 
-- You can reuse **derivative work**
-- Compatible with proprietary software
+- Derivative work is free software but is limited to the component
 
-### 4. Viral
+### 4. Strong copyleft share-alike (GPL, AGPL)
 
-- .emph[You always have access if someone improves and re-shares]
-- Not attractive for companies with proprietary software
+- Derivative work is free software and derivative work extends to the combined project
 
 ---
 
-## Who owns the copyright for software you write? (1/2)
+### If you would like to learn more
 
-- You? Your university?
+- [Software licensing and open source explained with cakes](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-coding/radovan-lesson-redesign/licensing-and-cakes.md/)
+
+### Who can decide about or change a license?
+
+- The copyright holder
+
+### Who owns the copyright for software you write?
+
 - .emph[Intellectual property depends on the country and the employer!]
 - So-called works made for hire.
 
@@ -454,17 +333,15 @@ make an impact.
 
 ---
 
-## Who owns the copyright for software you write? (2/2)
+### If you do not own your software, you can:
+
+- Request open-sourcing directly (preserves your rights!).
+- Request a transfer of ownership (check with your university).
 
 ### If you accept contributions (pull requests), you may not be the only owner anymore!
 
 - Clarify licensing strategy .emph[before] - otherwise you won't have
   all rights to your code.
-
-### If you do not own your software, you can:
-
-- Request open-sourcing directly (preserves your rights!).
-- Request a transfer of ownership (check with your university).
 
 <!--- Fun story: I once had a friend who worked at IBM.  In their
 division, they always tried to open-source what they worked on,
@@ -474,29 +351,55 @@ their internal rights to do their work! -->
 
 ---
 
-## Practical recommendations
-
-### Starting and contributing to a project
+## Practical recommendations for licenses
 
 - .emph[You cannot ignore licensing]: default is "no one can make copies or
   derivative works".
 - License your code .emph[very early] in the project:
-  ideally develop publicly accessible open source code .emph[from day one].
+  ideally develop publicly accessible open source code .emph[from day one]. Start with a `README.md` and a `LICENSE`.
+- Emphasize open source nature of the code output in your research proposal.
 - Take an [OSI](https://opensource.org/licenses)-approved license: makes it easier to evaluate
   [compatibility](https://en.wikipedia.org/wiki/License_compatibility).
-- .emph[Do not use custom licenses] for open source: compatibility not clear.
+- Add a `LICENSE` file to your repository.
+- .emph[Do not design your own custom licenses] for open source/ open use: compatibility not clear.
 - Open source your code to make sure you are not locked out of your own code
   once you change affiliation.
 
+---
 
-### Licensing
+## Datasets
 
-- Add a `LICENSE` file to your repository (GitHub understands it):
-  - Use GitHub web to add file named `LICENSE` and it helps you select!
-  - You should check that GitHub can automatically detect the license.
-- License text, slides, images, and supporting information under a
-  [Creative Commons license](https://creativecommons.org/licenses/), and get a DOI using
-  [Zenodo](https://zenodo.org) or [Figshare](https://figshare.com).
+What:
+- The EU has a database directive which restricts data mining on
+  databases.
+- Has a somewhat similar effect to copyright, because copyright would
+  not apply to data mining.
+- A good license also gives rights to data mine. So not a major concern.
+
+When you can use datasets:
+- The license allows
+- Your country has exceptions for research
+- The data doesn't come from the EU
+
+License text, slides, images, and supporting information under a
+[Creative Commons license](https://creativecommons.org/licenses/), and get a DOI using
+[Zenodo](https://zenodo.org) or [Figshare](https://figshare.com).
+
+---
+
+## Exercises
+
+1. What is the StackOverflow license for code you copy and paste?
+2. A journal requests that you release your software during publication. You have
+   copied a portion of the code from another package, which you have forgotten.
+   Can you satisfy the journal's request?
+3. You want to fix a bug in a project someone else has released, but there is no license. What risks are there?
+4. How would you ask someone to add a license?
+5. There is some code written in Matlab (proprietary) which is non-open.
+6. You incorporate MIT, GPL, and BSD3 licensed code into your project. What possible licenses can you pick for your project?
+7. You do the same as above but add in another license that looks viral. What possible licenses can you use now?
+8. Do licenses apply if you don't distribute your code? Why or why not?
+9. Which licenses are most/least attractive for companies with proprietary software?
 
 ---
 
