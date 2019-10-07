@@ -97,6 +97,37 @@ We will discuss our findings as a class.
 
 ---
 
+## Journal policy as motivation for sharing
+
+[From Science editorial policy:](https://www.sciencemag.org/authors/science-journals-editorial-policies)
+> "We require that all computer code used for modeling and/or data analysis
+> that is not commercially available be deposited in a publicly accessible
+> repository upon publication. In rare exceptional cases where security
+> concerns or competing commercial interests pose a conflict, code-sharing
+> arrangements that still facilitate reproduction of the work should be
+> discussed with your Editor no later than the revision stage."
+
+ [From Nature editorial policy:](https://www.nature.com/authors/policies/availability.html)
+> "An inherent principle of publication is that others should be able to
+> replicate and build upon the authors' published claims. A condition of
+> publication in a Nature Research journal is that authors are required to make
+> materials, data, code, and associated protocols promptly available to readers
+> without undue qualifications. Any restrictions on the availability of
+> materials or information must be disclosed to the editors at the time of
+> submission. Any restrictions must also be disclosed in the submitted
+> manuscript."
+
+---
+
+## Journal policy as motivation for sharing
+
+However a study showed that despite these policies, many people still do not share their code 😞 : [https://www.pnas.org/content/115/11/2584](https://www.pnas.org/content/115/11/2584). This paper includes samples of charming author responses such as
+> "When you approach a PI for the source codes and raw data, you better explain
+> who you are, whom you work for, why you need the data and what you are going
+> to do with it."
+
+---
+
 ## Social coding
 
 <img src="img/in-out.jpg" style="width: 100%;"/>
