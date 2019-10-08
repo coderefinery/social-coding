@@ -11,7 +11,7 @@ h3 {
 }
 
 a {
-  color: #1162ff;
+  color: #3498db;
 }
 
 .inverse {
@@ -29,13 +29,26 @@ a {
 }
 
 .left-column {
-  width: 40%;
+  width: 50%;
   float: left;
 }
 
 .right-column {
-  width: 60%;
+  width: 50%;
   float: right;
+}
+
+.footnote {
+  position: absolute;
+  bottom: 3em;
+  font-size: 14px;
+  color: #505050;
+}
+.footnote:before {
+  content: "[";
+}
+.footnote:after {
+  content: "]";
 }
 
 .emph {
@@ -45,4 +58,21 @@ a {
 .remark {
   color: #8e44ad;
   font-style: italic;
+}
+
+.quote {
+  color: #ff0000;
+  font-style: italic;
+  font-size: 30px;
+}
+
+.cite {
+  font-size: 14px;
+  color: #505050;
+}
+.cite:before {
+  content: "[";
+}
+.cite:after {
+  content: "]";
 }

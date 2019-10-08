@@ -1,73 +1,191 @@
-name: inverse
-layout: true
-class: middle, inverse
-
----
+class: center, middle
 
 # Social coding and open software
 
-Text is free to share and remix under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
+Text is free to share and remix under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)
 
-Authors:
-- Radovan Bast
-- Richard Darst
-- Sabry Razick
-- Jyry Suvilehto
+Radovan Bast, Richard Darst, Sabry Razick, Jyry Suvilehto
 
-With contributions from:
-- Anne Fouilloux
-- Oxana Smirnova
+Thanks for great suggestions/corrections: Anne Fouilloux, Oxana Smirnova, Lucy Whalley
 
 ---
 
-layout: false
+## Target audience
 
-# Plan for this talk
+- Someone writing their own relatively small material
+- Someone who wants to incorporate other code/libraries into their own projects
+- Group leader who wants to decide how to balance openness and long-term strategy
 
-.left-column[
-### - Software you create, matters
-### - When can you take from others?
-### - How can you give to others?
-### - How to grow a community around your code
-### - ... and how does this relate to CodeRefinery?
-]
+### Plan
 
-.right-column[
-<img src="img/in-out.png" style="width: 100%;"/>
-
-Things .emph[go in], things .emph[come out]. If you want to build
-on others, you have to care about both directions.
-]
-
-<!-- Tell an anecdote: we were working on this talk, and wondered this
-talk was originally about software licensing, but why do you care?  Do
-you use software you find online regardless of license status?  The
-answer is that you yourself can effectively do whatever you
-want... but if you want to build on others, you have to care.  If you
-want others to build on you, you have to care. If others can't build
-on you, you won't get followers to give you citations. -->
+- Social coding
+- Licensing
+- Software citation
 
 ---
 
-## Software matters in research
+class: center, middle
 
-.emph[**Data** is part of research output]
+## Part 1/3: Social coding
 
-- Funding agencies often ask for a data management plan
+---
 
-.emph[**Software** is part of research output]
+## Sharing papers and academic credit
 
-- Simulations which generate data
-- Control software for instruments
-- Post-processing of measurements
-- Data processing
-- Portals and apps
-- Spreadsheets
-- Scripts and tools which produce graphs and compute statistics
+<img src="img/sharing-papers.jpg" style="width: 80%;"/>
 
-Curiosity: Not too many projects consider a software management plan **yet**.
+- We want maximum visibility and maximum reuse.
+- The more interesting science is done referencing my paper, the better for me.
 
-Software development should consider .emph[FAIR principles, ideally from the start].
+---
+
+## Group work before we go on
+
+Discuss in pairs or groups (5-10 minutes):
+
+- Come up with .emph[reasons for sharing] your scripts/code/data
+- Also think about .emph[reasons for not sharing]
+- Why is software often treated differently from papers
+
+We will discuss our findings as a class.
+
+---
+
+## What are the benefits of sharing software?
+
+- Easier to find and reproduce (.emph[scientific reproducibility])
+- More trustworthy: others can verify correctness and find and report bugs
+- Enables others to build on top of your code (derivative work, .emph[provided the license allows it])
+- Others can submit features/improvements
+- Others can fix bugs
+- Many tools and apps are free for open source
+  ([GitHub](https://github.com), [Travis CI](https://travis-ci.org),
+  [Appveyor](https://www.appveyor.com), [Read the Docs](https://readthedocs.org))
+- Good for your CV: you can show what you have built
+
+---
+
+## Sharing is scary (1/2)
+
+- Fear of being scooped
+> .remark[Very unlikely that others will understand your code and publish before you without involving you in a collaboration. Sharing is a form of publishing.]
+- Exposes possibly "ugly code"
+> .remark[In practice almost nobody will judge the quality of your code.]
+- Others may find bugs
+> .remark[Isn't this good? Would you not like to use a code which gives people the chance to locate bugs?]
+
+---
+
+## Sharing is scary (2/2)
+
+- Others may require support and ask too many questions
+> .remark[This can become a problem: use tools and community and protect your time.]
+- Fear of losing control over the direction of the project
+> .remark[Open source does not mean everybody can change **your version**.]
+- "Bad" derivative projects may appear
+> .remark[It will be clear which is the official version.]
+
+---
+
+## Sharing code
+
+<img src="img/sharing-code.jpg" style="width: 80%;"/>
+
+.quote["I did all the ground work and they get to do the interesting science?"]
+
+- Sharing code and encouraging .emph[derivative work] may boost your academic impact.
+
+---
+
+## Journal policy as motivation for sharing
+
+[From Science editorial policy:](https://www.sciencemag.org/authors/science-journals-editorial-policies)
+> "We require that all computer code used for modeling and/or data analysis
+> that is not commercially available be deposited in a publicly accessible
+> repository upon publication. In rare exceptional cases where security
+> concerns or competing commercial interests pose a conflict, code-sharing
+> arrangements that still facilitate reproduction of the work should be
+> discussed with your Editor no later than the revision stage."
+
+ [From Nature editorial policy:](https://www.nature.com/authors/policies/availability.html)
+> "An inherent principle of publication is that others should be able to
+> replicate and build upon the authors' published claims. A condition of
+> publication in a Nature Research journal is that authors are required to make
+> materials, data, code, and associated protocols promptly available to readers
+> without undue qualifications. Any restrictions on the availability of
+> materials or information must be disclosed to the editors at the time of
+> submission. Any restrictions must also be disclosed in the submitted
+> manuscript."
+
+---
+
+## Journal policy as motivation for sharing
+
+However a study showed that despite these policies, many people still do not share their code 😞 : [https://www.pnas.org/content/115/11/2584](https://www.pnas.org/content/115/11/2584). This paper includes samples of charming author responses such as
+> "When you approach a PI for the source codes and raw data, you better explain
+> who you are, whom you work for, why you need the data and what you are going
+> to do with it."
+
+---
+
+## Social coding
+
+<img src="img/in-out.jpg" style="width: 100%;"/>
+
+- Whether you can share your output depends on how you obtained your input.
+- .emph[Software licenses] matter.
+- Sometimes "OTHERS" are you yourself in the future in a different group/job.
+
+---
+
+## Code reuse
+
+Should you reuse things that others have done?
+
+Types of things that can be reused:
+- Main libraries (e.g. numpy, scipy)
+- Special scientific libs
+- Random code from website
+- Copying from Stack Overflow
+
+Do you want others to reuse what you make?
+
+How do you turn your own small project into the next numpy? Do you want to?
+
+---
+
+## What contributes to reuse?
+
+What contributes to you being able to reuse stuff that others make, and others (or you) being able to reuse your stuff?
+
+As a .emph[developer] or .emph[user] what are you looking at when discovering a new package?
+
+Discuss in groups ...
+
+---
+
+### As a .emph[developer] or .emph[user] what are you looking at when discovering a new package?
+
+These are common things to check:
+
+- Date of last code change .remark[... is the project abandoned?]
+- Release history .remark[... how about stability and backwards-compatibility?]
+- Versioning .remark[... will it be painful to upgrade?]
+- Number of open pull requests and issues - are they followed-up?
+- Installation instructions .remark[... will it be difficult to get it running?]
+- Example .remark[... will it be difficult to get started?]
+- License .remark[... am I allowed to use it?]
+- Contribution guide .remark[... how to contribute and decision process?]
+
+### This is what we teach in [CodeRefinery](https://coderefinery.org):
+
+- Version control including project management
+- Testing
+- Documentation
+- Reproducibility
+- Code citations
+- Being findable
+- License
 
 ---
 
@@ -82,67 +200,70 @@ The FAIR Guiding Principles for scientific **data** management and stewardship (
 
 For a discussion of FAIR in the context of software, see https://softdev4research.github.io/4OSS-lesson/.
 
----
+Software development should consider .emph[FAIR principles, ideally from the start].
 
-## Sharing is caring
-
-### What are the benefits of sharing software?
-
-- Easier to find and reproduce (.emph[scientific reproducibility])
-- More trustworthy: others can verify correctness and find and report bugs
-- Enables others to build on top of your code (derivative work, .emph[provided the license allows it])
-- Others can submit features/improvements
-- Others can fix bugs
-- Many tools and apps are free for open source
-  ([GitHub](https://github.com), [Travis CI](https://travis-ci.org),
-  [Appveyor](https://www.appveyor.com), [Read the Docs](https://readthedocs.org))
-- Good for your CV: you can show what you have built
-
-... can you think of reasons not to share?
+- .remark[Have you written a data management plan?]
+- .remark[How about a software management plan?]
 
 ---
 
-## Sharing is scary
+class: center, middle
 
-### Why do some researchers prefer not to share?
-
-- Fear of being scooped
-- Exposes possibly "ugly code"
-- Others may find bugs
-- Others may require support and ask too many questions
-- Fear of losing control over the direction of the project
-- "Bad" derivative projects may appear - fear that this will harm the reputation
-
-... we will discuss these in this talk and during this week.
+## Part 2/3: Licensing
 
 ---
 
-- Fear of being scooped
-> .remark[Very unlikely that others will understand your code and publish before you without involving you in a collaboration. Sharing is a form of publishing.]
-- Exposes possibly "ugly code"
-> .remark[In practice almost nobody will judge the quality of your code.]
-- Others may find bugs
-> .remark[Isn't this good? Would you not like to use a code which gives people the chance to locate bugs?]
-- Others may require support and ask too many questions
-> .remark[More about this later.]
-- Fear of losing control over the direction of the project
-> .remark[Open source does not mean everybody can change **your version**.]
-- "Bad" derivative projects may appear
-> .remark[It will be clear which is the official version.]
+## Intellectual property (IP)
+
+<img src="img/tate.jpg" style="width: 40%;"/>
+
+- Patent: .remark[Protects a *novel, non-obvious, technical invention*.]
+- .emph[Copyright]: .remark[Protects creative expression: software, writing, graphics, photos, certain datasets, this presentation.]
+- Trademark: .remark[Protects a name/brand from impersonation.]
+
+---
+
+## Copyright
+
+- Protects creative expression
+- Automatically created
+- .emph[Derivative works] usually inherit copyright of the thing derived
+- Time frame: essentially forever (lifetime + X years)
+
+When can you use:
+
+- When there is a .emph[license] saying you can
+- Limited other cases (private use, fair use: context dependent)
+- In practice: people do many things, but then can't share their
+  output if copyright
+
+### When we write or use software then copyright, licenses, and derivative works are important concepts
+
+---
+
+## Derivative work: Changing, remixing, covering
+
+Is this derivative work?
+
+<img src="img/rubik.jpg" style="width: 70%;"/>
+
+.cite["Distillery District 26", CC-BY, https://www.flickr.com/photos/dgriebeling/3851273590]
 
 ---
 
 ## Derivative work
 
-- If you build on something, you form a **derivative work**
-- Then, the original creator may have rights to what you make
-- The whole point of this talk is to make sure that .emph[you can make derivative works] and .emph[others can make derivative works from you]
+### If you build on something, you form a derivative work
+
+- The original creator may have rights to what you make
+- The whole point of this talk is to make sure that .emph[you can make and publish derivative works]
+  and .emph[others can make and publish derivative works from you]
 
 ---
 
-## Derivative work examples
+## Which of these is derivative work?
 
-### Is a derivative work
+### Discuss in groups
 
 - Download some code from a website and add on to it
 - Download some code and use a function in your code
@@ -150,11 +271,8 @@ For a discussion of FAIR in the context of software, see https://softdev4researc
 - Extending the code
 - Completely rewriting the code
 - Rewriting the code to a different programming language
-
-### Typically not derivative work
-
 - Linking to libraries (static or dynamic), plug-ins, and drivers
-- Clean room design
+- Clean room design (somebody explains you the code but you have never seen it)
 - You read a paper, understand algorithm, write own code
 
 ---
@@ -172,173 +290,19 @@ For a discussion of FAIR in the context of software, see https://softdev4researc
 
 ---
 
-## Types of intellectual property (IP)
-
-- Created automatically in certain circumstances (copyright)
-- Registered after the fact in other cases (patents)
-- Does not allow you to do something: allows you to prevent others
-  from doing something.
-- Understanding IP is important for social coding.
-
-Next slides: **Types of IP** and **When can you use it?**
-
----
-
-## Copyright
-
-What:
-
-- Protects creative expression
-- Automatically created
-- **Derivative works** usually inherits copyright of the thing derived
-- Time frame: essentially forever (lifetime + X years)
-
-When can you use:
-
-- When there is a license saying you can
-- Limited other cases (private use, fair use: context dependent)
-- In practice: people do many things, but then can't share their
-  output if copyright
-
-Applicable to: software, writing, graphics, photos, certain datasets,
-this presentation. *Very broad.*
-
----
-
-## Patents
-
-- Protects a *novel, non-obvious, technical invention*.
-- Must be registered *before revealed*.  Registration involves full
-  disclosure.
-- Can an algorithm be patented?  Software?
-- Patents are a minefield and often used to troll ("patent troll").
-
-When you can use:
-- Get expert advice.
-
-Examples: RSA cryptography (possibly good), Amazon 1-click (probably bad).
-
----
-
-## Trademarks
-
-What:
-- Protects a name/brand from impersonation.
-
-When you can use:
-- To factually refer to something.
-- In general, just don't use an existing name in order to deceive.
-
-Examples: "Mozilla Firefox", "Apple", "Linux".
-
----
-
-## Datasets
-
-What:
-- The EU has a database directive which restricts data mining on
-  databases.
-- Has a somewhat similar effect to copyright, because copyright would
-  not apply to data mining.
-- A good license also gives rights to data mine.  So not a major concern.
-
-When you can use datasets:
-- The license allows
-- Your country has exceptions for research
-- The data doesn't come from the EU
-
----
-
-## Ideas
-
-.emph[Are not be protected by IP]: you can always use them.
-
-Example: You read a paper, understand the algorithm, and write your
-own software to do it.
-
----
-
-## Social coding: what is relevant to scientists?
-
-- You come up with .emph[ideas]
-- Ideas are published in .emph[papers]
-  - Papers might have limited access, but .emph[anyone can use the ideas] in them
-  - Your goal is to get citations for your paper by people using or improving your ideas
-- Your .emph[software] may implement an idea in your paper
-  - For your ideas to be used, software should be usable
-  - If people can use or .emph[improve your software] they can more easily use your ideas
-  - If people cannot reuse and extend your software, .emph[its impact will be limited]
-
-The middle part of this talk is about how to allow others to use your
-.emph[copyright (and data)]
-
-<!---
-Maybe scientists aren't the only audience, but may be useful to start here anyway.
-
-- Emphasize that trying to protect your code usually doesn't do you
-  that much good: your ideas are purposely put out there when you
-  publish.
-- If your code isn't free software, people might take your code and
-  run it, but not reuse it.  Following up on your work becomes much
-  harder, since they have to re-create everything.
-
-Copyright protects a certain expression.  If you publish a paper on
-your idea, someone can always read that paper and re-create your
-method.  Don't think that copyright gives you magic protection.
--->
-
----
-
-## Exercises (1/2)
-
-1. Contrast Matlab vs Octave from a derivative work, intellectual
-   property, and open science standpoint.
-
-3. Do you form derivative works of your groupmates' work?  Colleagues
-   who came before you?  What have you done that isn't a derivative
-   work?
-
-2. Try to trace and think of the derivative work history of this
-   lesson.  How many inputs are there?  What happens if you think of
-   more than copyright?
-
----
-
-## Software licensing: What is free software?
-
-### Free as in beer or free as in speech?
-
-<img src="img/beer.png" style="width: 15%;"/>
-<img src="img/speaker.png" style="width: 15%;"/>
-
-(Emoji icons provided free by [EmojiOne](https://www.emojione.com))
-
-### Software freedom
-
-Is the freedom to ...
-
-- ... run the software for .emph[any purpose]
-- ... .emph[study] how the software works and to adapt it to your needs
-- ... .emph[redistribute] copies of the software
-- ... .emph[improve] the software and distribute your improvements to the public
-
----
-
 ## What is free software?
 
-### Software freedom and research
+### Software freedom is the freedom to ...
 
-Is the freedom to ...
-
-- ... run the software for any purpose: .emph[new applications]
-- ... study how the software works and to adapt it to your needs: .emph[new applications, less reinventing wheels]
-- ... redistribute copies of the software: .emph[more users, more citations]
-- ... improve the software and distribute your improvements to the public: .emph[fix bugs, new science]
+- ... run the software for .emph[any purpose]: .remark[new applications]
+- ... .emph[study] how the software works and to adapt it to your needs: .remark[new applications, less reinventing wheels]
+- ... .emph[redistribute] copies of the software: .remark[more users, more citations]
+- ... .emph[improve] the software and distribute your improvements to the public: .remark[fix bugs, new science]
 
 ### Typical confusion
 
 - Free software does not mean that software is for free
-- Open source license does not mean you need to share everything immediately
+- Open source license does not mean you need to share everything immediately (share master branch, put unpublished code on a fork)
 - Open source does not mean public domain: software in the public domain has no owner
 - Open source does not mean non-commercial: plenty of companies produce and support it
 
@@ -359,161 +323,36 @@ make an impact.
 
 ---
 
-## In practice you need to choose a license
-
-- Code without license is not useful for reuse or derivative work.
-- Example why choice of license matters, X vs. SunView: https://lwn.net/Articles/26608/
-
-
-## Software licensing and open source explained with cakes
-
-<img src="img/cake-1.svg" style="width: 15%;"/>
-
-- Imagine you compose a recipe for a really tasty cake (a great idea).
-- In regular intervals you distribute cakes (release binaries).
-- Your family and friends love it.
-- But you can only bake so many.
-
-(cake emoji licensed under CC-BY-SA-4.0, attribution: [EmojiOne](https://www.emojione.com))
-
-<!--- Perhaps may be worth saying that this is a metaphor - the
-ingredients list and basic instructions simply facts, so not
-protectable.  However, your description *is* protectable. -->
-
----
-
-## Possible outcomes 0/4: closed
-
-### Closed source (recipe never released)
-
-- Your cake is celebrated by The New Yorker magazine.
-- People will have difficulties to reproduce your celebrated recipe.
-- Nobody else will improve your recipe.
-- Bad copycats might appear, you don't get any credit.
-- Fewer tasty cakes will get consumed.
-
----
-
-## A friend tells you: why not distribute the recipe?
-
-- Put your recipe on GitHub.
-- Start the OpenCake organization.
-- Get feedback / start a mailing list.
-- More people will be able to enjoy the cake (.emph[increase impact]).
-- Maybe somebody will find ways to improve the recipe.
-- Everyone will know that it was your idea even though somebody else bakes it.
-
----
-
-## Mrs. X (running a famous restaurant) finds your cake recipe on GitHub
-
-<img src="img/cake-1.svg" style="width: 15%;"/>
-
-- The chef tries it and it is great.
-- The chef suggests improvements (derivative work):
-
-<img src="img/cake-2.svg" style="width: 15%;"/>
-
-- It becomes part of the restaurant menu.
-- Or does it? .emph[Depends on your license!]
-
-<!--- What is most important is *how are the changes handled*.  Since
-you are giving the recipe out yourself, people can use it "personally"
-however they want.  But if they want to improve/reuse/redistribute it,
-then what?  -->
-
----
-
-## Possible outcomes 1/4: custom
-
-### No license or custom license
-
-- No restaurant chef will touch it: too much hassle to employ a lawyer to be sure
-  that the cake can be served to customers.
-- But maybe they will bake it and eat it and not distribute it and that is OK
-  ("fair use" provision permits the making of copies for own use).
-
-<!--- The restaurant industry is infamous for copying recipes and there are
-very few published court cases. Let's skim over this fact and stay in the
-fictitious example though. -->
-
----
-
-## Possible outcomes 2/4: permissive
-
-### License: MIT or Apache or BSD-2
-
-- It is OK to use the recipe and sell the cake.
-- It is OK to not share the improved recipe.
-- If somebody becomes sick, it is not the fault of the OpenCake organization (limit of liability).
-- You may not get the improvements back to use yourself.
-
-### License: BSD-3
-
-- In addition to the above it is understood that the updated recipe are not endorsed by the OpenCake organization.
-
----
-
-## Possible outcomes 3/4: share-alike
-
-### License: GNU Lesser GPL (LGPL)
-
-- The famous restaurant has to share only the improved cake recipe but can keep the rest of the menu closed.
-- The restaurant guests have to be able to exchange the cake from the menu by improved cakes from other restaurants (dynamic relinking).
-
-### License: Mozilla Public License v2.0
-
-- Like LGPL but do not require that the modified cake can be exchanged by the restaurant guest.
-
----
-
-## Possible outcomes 4/4: viral
-
-### License: GNU GPL or GNU Affero GPL
-
-- If the cake is a part of the menu, the famous restaurant has to
-  .emph[share the recipes of the entire menu].
-- You can use their improved recipe and improve it further:
-
-<img src="img/cake-2.svg" style="width: 15%;"/>
-<img src="img/cake-3.svg" style="width: 15%;"/>
-
-- Other restaurants can then reuse and improve the full menu and the hope is that we will all eat better food.
-- You support open restaurants. You can use everything they do, too.
-
-<!--- Example of benefits of virality in software: Linksys routers and
-GPL's kernel image. Some company used linux, didn't distribute source.
-They were fourced to distribute it, and that has directly led to
-a huge community of firmware modders.  -->
-
----
-
-## What outcomes did we have?
+## Taxonomy of software licenses
 
 ### 1. Custom/closed
 
-- **Derivative work typically not possible**: others have to reimplement the wheel
+- Derivative work typically not possible
 
-### 2. Permissive
+### 2. Permissive (MIT, BSD, Apache)
 
-- You may lose access to **derivative work**
-- Attractive for companies with proprietary software
+- Derivative work does not have to be shared
 
-### 3. Share-alike
+### 3. Weak copyleft share-alike (LGPL, MPL)
 
-- You can reuse **derivative work**
-- Compatible with proprietary software
+- Derivative work is free software but is limited to the component
 
-### 4. Viral
+### 4. Strong copyleft share-alike (GPL, AGPL)
 
-- .emph[You always have access if someone improves and re-shares]
-- Not attractive for companies with proprietary software
+- Derivative work is free software and derivative work extends to the combined project
 
 ---
 
-## Who owns the copyright for software you write? (1/2)
+### If you would like to learn more
 
-- You? Your university?
+- [Software licensing and open source explained with cakes](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-coding/radovan-lesson-redesign/licensing-and-cakes.md/)
+
+### Who can decide about or change a license?
+
+- The copyright holder
+
+### Who owns the copyright for software you write?
+
 - .emph[Intellectual property depends on the country and the employer!]
 - So-called works made for hire.
 
@@ -524,17 +363,15 @@ a huge community of firmware modders.  -->
 
 ---
 
-## Who owns the copyright for software you write? (2/2)
+### If you do not own your software, you can:
+
+- Request open-sourcing directly (preserves your rights!).
+- Request a transfer of ownership (check with your university).
 
 ### If you accept contributions (pull requests), you may not be the only owner anymore!
 
 - Clarify licensing strategy .emph[before] - otherwise you won't have
   all rights to your code.
-
-### If you do not own your software, you can:
-
-- Request open-sourcing directly (preserves your rights!).
-- Request a transfer of ownership (check with your university).
 
 <!--- Fun story: I once had a friend who worked at IBM.  In their
 division, they always tried to open-source what they worked on,
@@ -544,124 +381,80 @@ their internal rights to do their work! -->
 
 ---
 
-## Practical recommendations
-
-### Starting and contributing to a project
+## Practical recommendations for licenses
 
 - .emph[You cannot ignore licensing]: default is "no one can make copies or
   derivative works".
 - License your code .emph[very early] in the project:
-  ideally develop publicly accessible open source code .emph[from day one].
+  ideally develop publicly accessible open source code .emph[from day one]. Start with a `README.md` and a `LICENSE`.
+- Add also the files `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`. Good example: https://github.com/KirstieJane/STEMMRoleModels
+- Emphasize open source nature of the code output in your research proposal.
 - Take an [OSI](https://opensource.org/licenses)-approved license: makes it easier to evaluate
   [compatibility](https://en.wikipedia.org/wiki/License_compatibility).
-- .emph[Do not use custom licenses] for open source: compatibility not clear.
-- Open source your code to make sure you are not locked out of your own code
+- Add a `LICENSE` file to your repository.
+- .emph[Do not design your own custom licenses] for open source/ open use: compatibility not clear.
+- Open source your code to make sure you are not locked out of your own code if you don't own it
   once you change affiliation.
 
+---
 
-### Licensing
+## Datasets
 
-- Add a `LICENSE` file to your repository (GitHub understands it):
-  - Use GitHub web to add file named `LICENSE` and it helps you select!
-  - You should check that GitHub can automatically detect the license.
-- License text, slides, images, and supporting information under a
-  [Creative Commons license](https://creativecommons.org/licenses/), and get a DOI using
-  [Zenodo](https://zenodo.org) or [Figshare](https://figshare.com).
+What:
+- The EU has a database directive which restricts data mining on
+  databases.
+- Has a somewhat similar effect to copyright, because copyright would
+  not apply to data mining.
+- A good license also gives rights to data mine. So not a major concern.
+
+When you can use datasets:
+- The license allows
+- Your country has exceptions for research
+- The data doesn't come from the EU
+
+License text, slides, images, and supporting information under a
+[Creative Commons license](https://creativecommons.org/licenses/), and get a DOI using
+[Zenodo](https://zenodo.org) or [Figshare](https://figshare.com).
 
 ---
 
-## Social coding
+## Exercises
 
-- Licensing is one thing... but will anyone ever use it?
-- Too much use is rarely a problem.  What if you want people to use
-  your work and .emph[make you the leader?]
-
-In the CodeRefinery workshop we will discuss strategies to
-make your software more usable by others (and you six months from
-now!).
-
-Here we summarize what is to come...
-
----
-
-## Version control
-
-- Minimum requirement to share software with others.
-- The basis of everything else.
-
-Somewhat related: project management/issue system:
-
-- Included as part of GitLab/GitHub/etc.
-- Allows communication, issue tracking, and community.
-
-CodeRefinery lessons:
-
-- https://coderefinery.github.io/git-refresher/
-- https://coderefinery.github.io/git-intro/
-- https://coderefinery.github.io/git-collaborative/
+1. What is the StackOverflow license for code you copy and paste?
+2. A journal requests that you release your software during publication. You have
+   copied a portion of the code from another package, which you have forgotten.
+   Can you satisfy the journal's request?
+3. You want to fix a bug in a project someone else has released, but there is no license. What risks are there?
+4. How would you ask someone to add a license?
+5. There is some code written in Matlab (proprietary) which is non-open.
+6. You incorporate MIT, GPL, and BSD3 licensed code into your project. What possible licenses can you pick for your project?
+7. You do the same as above but add in another license that looks viral. What possible licenses can you use now?
+8. Do licenses apply if you don't distribute your code? Why or why not?
+9. Which licenses are most/least attractive for companies with proprietary software?
 
 ---
 
-## Reproducibility and build systems
+## Great resources
 
-- Can someone duplicate your results easily?
-- Can someone actually install your software and use it?
-- If they can't, there is a high barrier to use.
-
-CodeRefinery lesson: [Reproducible research](https://coderefinery.github.io/reproducible-research/)
-
----
-
-## Software testing
-
-- How can someone modify your software and make sure they don't break
-  it?
-- Software tests are verification that your software works the right
-  way before and after.
-- Software tests allow others (.emph[and you!]) to modify and improve software with
-  more confidence.
-
-CodeRefinery lesson: [Automated testing](https://coderefinery.github.io/testing/)
+- http://blog.milkingthegnu.org/2008/03/10-answers-for.html
+- http://depth-first.com/articles/2006/12/29/dispelling-open-source-confusion-an-introduction-to-licenses/
+- http://oss-watch.ac.uk/resources/ipr
+- http://rkd.zgib.net/scicomp/open-science/open-science.html
+- https://choosealicense.com (can send automatic pull request to your GitHub repo)
+- https://hintjens.gitbooks.io/social-architecture/content/chapter2.html
+- https://softdev4research.github.io/4OSS-lesson/
+- https://softdev4research.github.io/recommendations/
+- https://tldrlegal.com/
+- https://users.aalto.fi/~darstr1/cheatsheets/ipr-cheatsheet.pdf
+- https://www.software.ac.uk/choosing-open-source-licence
+- http://www.oreilly.com/openbook/osfreesoft/
+- http://www.rosenlaw.com/oslbook.htm
 
 ---
 
-## Documentation
+class: center, middle
 
-- Code alone is often not enough.
-- Is there a more modern solution than README files?
-- Are there clear contributor instructions?  How to get started, how
-  to submit first pull request, how to test, etc?
-
-CodeRefinery lesson: [Code documentation](https://coderefinery.github.io/documentation/)
-
----
-
-## Does this look like a serious project?
-
-### As a .emph[developer] or .emph[user] what are you looking at when discovering a new package?
-
-These are common things to check:
-
-- Date of last code change .remark[... is the project abandoned?]
-- Release history
-- Versioning .remark[... will it be painful to upgrade?]
-- Number of open pull requests and issues - are they followed-up?
-- Installation instructions .remark[... will it be difficult to get it running?]
-- Example .remark[... will it be difficult to get started?]
-- License .remark[... am I allowed to use it?]
-
----
-
-## Communication and atmosphere
-
-- Do you welcome people to your project?
-- Do you give credit?
-- Do you respond to issues and pull requests?
-- Do you have a Code of Conduct? https://www.contributor-covenant.org
-- Openness and transparency
-- Document whether/how/where you want to be asked questions
-- Chat or mailing list
-- If the project grows, agree on a decision process for controversial changes
+## Part 3/3: Software citation
 
 ---
 
@@ -703,41 +496,3 @@ date-released: 2018-10-24
 - https://github.com: public (unlimited) or private (up to 3 collaborators or unlimited educational) repositories
 - https://gitlab.com: public or private repositories
 - https://source.coderefinery.org: public or private repositories
-
-### Great resources
-
-- http://rkd.zgib.net/scicomp/open-science/open-science.html
-- https://softdev4research.github.io/4OSS-lesson/
-- https://softdev4research.github.io/recommendations/
-
----
-
-## Good resources for software licensing
-
-- https://www.software.ac.uk/choosing-open-source-licence
-- https://choosealicense.com (can send automatic pull request to your GitHub repo)
-- http://oss-watch.ac.uk/resources/ipr
-- http://www.rosenlaw.com/oslbook.htm
-- http://depth-first.com/articles/2006/12/29/dispelling-open-source-confusion-an-introduction-to-licenses/
-- http://blog.milkingthegnu.org/2008/03/10-answers-for.html
-- http://www.oreilly.com/openbook/osfreesoft/
-- https://tldrlegal.com/
-- https://hintjens.gitbooks.io/social-architecture/content/chapter2.html
-- https://users.aalto.fi/~darstr1/cheatsheets/ipr-cheatsheet.pdf
-
----
-
-## Exercises (2/2)
-
-1. What is the StackOverflow license for code you copy and paste?
-
-2. Name some software or work you have created that should be
-   non-open, licensed permissively, and licensed virally.
-
-3. What can you do with CodeRefinery lessons?  present
-   them?  copy them?  modify them and present them?  send changes back
-   to us?  find them in 20 years?  present them and call them a
-   CodeRefinery workshop?
-
-4. (advanced) Find the package "Omnet++" and study its license.  Compare to the
-   GPL.  What do you think?
