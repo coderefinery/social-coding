@@ -506,11 +506,13 @@ date-released: 2018-10-24
 
 ---
 
-### Where to place your code
+## Where to place your code
 
 - https://github.com: public (unlimited) or private (up to 3 collaborators or unlimited educational) repositories
 - https://gitlab.com: public or private repositories
 - https://source.coderefinery.org: public or private repositories
+
+### Making code public is not enough! Why? Get a DOI in addition.
 
 ---
 
