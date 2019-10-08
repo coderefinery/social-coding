@@ -484,15 +484,17 @@ date-released: 2018-10-24
 
 ---
 
+### Where to place your code
+
+- https://github.com: public (unlimited) or private (up to 3 collaborators or unlimited educational) repositories
+- https://gitlab.com: public or private repositories
+- https://source.coderefinery.org: public or private repositories
+
+---
+
 ## Conclusions and discussion
 
 - License your code .emph[very early] in the project:
   ideally develop publicly accessible open source code .emph[from day one].
 - Make it easy to cite your code ([Zenodo](https://zenodo.org))
 - Please help us to improve this material: https://github.com/coderefinery/social-coding
-
-### Where to place your code
-
-- https://github.com: public (unlimited) or private (up to 3 collaborators or unlimited educational) repositories
-- https://gitlab.com: public or private repositories
-- https://source.coderefinery.org: public or private repositories
