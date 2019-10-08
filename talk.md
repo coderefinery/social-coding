@@ -460,6 +460,9 @@ License text, slides, images, and supporting information under a
 - https://www.software.ac.uk/choosing-open-source-licence
 - http://www.oreilly.com/openbook/osfreesoft/
 - http://www.rosenlaw.com/oslbook.htm
+- http://lib.tkk.fi/Diss/2005/isbn9529187793/isbn9529187793.pdf
+- https://www.software.ac.uk/resources/guides/adopting-open-source-licence
+- https://jacobian.org/2009/sep/17/contributor-license-agreements/
 
 ---
 
