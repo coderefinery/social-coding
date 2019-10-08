@@ -502,6 +502,7 @@ date-released: 2018-10-24
 
 - [The Journal of Open Source Software](https://joss.theoj.org/about)
 - [In which journals should I publish my software?](https://www.software.ac.uk/resources/guides/which-journals-should-i-publish-my-software)
+- https://www.force11.org/software-citation-principles
 
 ---
 
