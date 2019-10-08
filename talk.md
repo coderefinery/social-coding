@@ -471,6 +471,13 @@ class: center, middle
 
 ## Software citation
 
+- Do you cite software that you use? How?
+- If I wanted to cite your code/scripts, what would I need to do?
+
+---
+
+## Software citation
+
 - Get a [DOI](https://en.wikipedia.org/wiki/Digital_object_identifier) using [Zenodo](https://zenodo.org).
 - Open source license can't demand citation, but it is required by science ethics anyway.
 - Make it as easy as possible! Clearly say what you want cited.
@@ -503,9 +510,17 @@ date-released: 2018-10-24
 
 ---
 
-## Conclusions and discussion
+## Conclusions
 
 - License your code .emph[very early] in the project:
   ideally develop publicly accessible open source code .emph[from day one].
 - Make it easy to cite your code ([Zenodo](https://zenodo.org))
 - Please help us to improve this material: https://github.com/coderefinery/social-coding
+
+### Discussion
+
+- Who owns the code that you write?
+- Does your code/script have a license?
+- Can you take your own code with you after the PhD?
+- Are you using open source software in your work?
+- What are your thoughts about sharing software with your colleagues or competitors?
