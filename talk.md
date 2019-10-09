@@ -196,7 +196,7 @@ These are common things to check:
 - Reproducibility
 - Code citations
 - Being findable
-- License
+- Licensing
 
 ---
 
@@ -437,11 +437,10 @@ License text, slides, images, and supporting information under a
    Can you satisfy the journal's request?
 3. You want to fix a bug in a project someone else has released, but there is no license. What risks are there?
 4. How would you ask someone to add a license?
-5. There is some code written in Matlab (proprietary) which is non-open.
-6. You incorporate MIT, GPL, and BSD3 licensed code into your project. What possible licenses can you pick for your project?
-7. You do the same as above but add in another license that looks viral. What possible licenses can you use now?
-8. Do licenses apply if you don't distribute your code? Why or why not?
-9. Which licenses are most/least attractive for companies with proprietary software?
+5. You incorporate MIT, GPL, and BSD3 licensed code into your project. What possible licenses can you pick for your project?
+6. You do the same as above but add in another license that looks viral. What possible licenses can you use now?
+7. Do licenses apply if you don't distribute your code? Why or why not?
+8. Which licenses are most/least attractive for companies with proprietary software?
 
 ---
 
