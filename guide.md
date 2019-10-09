@@ -7,36 +7,33 @@
 This is basically presented as-is - not much technical presentation is
 needed.
 
-There are three main acts:
+There are the following main acts:
+
+- First section is about social coding and sharing code and motivation for
+  sharing code with a discussion that licensing alone isn't enough. If you want
+  people to use your work, you need to do more to make your work easily reusable.
+  Use this as an entry point to tell people what is coming up in the rest of
+  CodeRefinery (if this talk is on day 1 of a CodeRefinery workshop) or
+  re-emphasize how past lessons all fit together (if on the last day).
 
 - Emphasis of the concept of derivative work and that everything is
-  based on other things.  And if your goal is citations, you want as
+  based on other things. And if your goal is citations, you want as
   many people using your work as possible, because then they can cite
   you.
 
 - A bit of details on free software and choosing a license. There are many
   online resources, and the biggest
-  question is permissive vs. share-alike vs. viral. The cake analogy
-  for licenses can be skipped and does not have to be discussed in detail.
-  We can consider turning that part into a blog post instead.
-  If you skip the cake examples, please do discuss the
-  "What outcomes did we have?" slide.
+  question is permissive vs. weak copyleft vs. strong copyleft. The cake analogy
+  for licenses is only linked can be skipped and does not have to be discussed in detail.
 
-- A final act on how just licensing isn't enough.  If you want people
-  to use your work, you need to do more to make your work easily
-  reusable.  Use this as an entry point to tell people what is coming
-  up in the rest of CodeRefinery (if this talk is on day 1) or
-  re-emphasize how past lessons all fit together (if on the last
-  day).
+- Finally a brief section on code citations. It's good if you manage to start a discussion
+  around this topic.
 
 
 ## Hints
 
 In the source code, in HTML comments, are various hints and stories
-you can give.  These can help to motivate reasons to license.
-Especially note the ones about:
-- why this is called "social coding and open software", not "software licensing"
-- the one about IBM software.
+you can give. These can help to motivate reasons to license.
 
 Before you begin, it's worth thinking about some particular good or
 bad cases you know about from your experience.
@@ -48,8 +45,3 @@ This talk used to be called "software licensing".  You could mention
 that to make it more interesting, we have adopted the current broader
 name, and our emphasis is not just licensing, but why licensing is
 needed.
-
-Don't emphasize the different forms of intellectual property that
-much - you should go quickly through that section.  The main point is
-to be able to say that copyright is not the only form of protection,
-and not one that you must keep to yourself.

@@ -138,6 +138,17 @@ However a study showed that despite these policies, many people still do not sha
 
 ---
 
+## Motivation for open source software
+
+- Enable derivative work
+- Do not lock yourself out of own code
+- Attract developers who want to be able to show the coding work on their CVs
+- Tightly regulated domains require open source
+- OSS can lead to more engagement from industry which may lead to more impact
+- If it's not open, it is not likely to become standard
+
+---
+
 ## Code reuse
 
 Should you reuse things that others have done?
@@ -185,7 +196,7 @@ These are common things to check:
 - Reproducibility
 - Code citations
 - Being findable
-- License
+- Licensing
 
 ---
 
@@ -426,11 +437,10 @@ License text, slides, images, and supporting information under a
    Can you satisfy the journal's request?
 3. You want to fix a bug in a project someone else has released, but there is no license. What risks are there?
 4. How would you ask someone to add a license?
-5. There is some code written in Matlab (proprietary) which is non-open.
-6. You incorporate MIT, GPL, and BSD3 licensed code into your project. What possible licenses can you pick for your project?
-7. You do the same as above but add in another license that looks viral. What possible licenses can you use now?
-8. Do licenses apply if you don't distribute your code? Why or why not?
-9. Which licenses are most/least attractive for companies with proprietary software?
+5. You incorporate MIT, GPL, and BSD3 licensed code into your project. What possible licenses can you pick for your project?
+6. You do the same as above but add in another license that looks viral. What possible licenses can you use now?
+7. Do licenses apply if you don't distribute your code? Why or why not?
+8. Which licenses are most/least attractive for companies with proprietary software?
 
 ---
 
@@ -449,12 +459,22 @@ License text, slides, images, and supporting information under a
 - https://www.software.ac.uk/choosing-open-source-licence
 - http://www.oreilly.com/openbook/osfreesoft/
 - http://www.rosenlaw.com/oslbook.htm
+- http://lib.tkk.fi/Diss/2005/isbn9529187793/isbn9529187793.pdf
+- https://www.software.ac.uk/resources/guides/adopting-open-source-licence
+- https://jacobian.org/2009/sep/17/contributor-license-agreements/
 
 ---
 
 class: center, middle
 
 ## Part 3/3: Software citation
+
+---
+
+## Software citation
+
+- Do you cite software that you use? How?
+- If I wanted to cite your code/scripts, what would I need to do?
 
 ---
 
@@ -481,18 +501,31 @@ date-released: 2018-10-24
 
 - [The Journal of Open Source Software](https://joss.theoj.org/about)
 - [In which journals should I publish my software?](https://www.software.ac.uk/resources/guides/which-journals-should-i-publish-my-software)
+- https://www.force11.org/software-citation-principles
 
 ---
 
-## Conclusions and discussion
+## Where to place your code
+
+- https://github.com: public (unlimited) or private (up to 3 collaborators or unlimited educational) repositories
+- https://gitlab.com: public or private repositories
+- https://source.coderefinery.org: public or private repositories
+
+### Making code public is not enough! Why? Get a DOI in addition.
+
+---
+
+## Conclusions
 
 - License your code .emph[very early] in the project:
   ideally develop publicly accessible open source code .emph[from day one].
 - Make it easy to cite your code ([Zenodo](https://zenodo.org))
 - Please help us to improve this material: https://github.com/coderefinery/social-coding
 
-### Where to place your code
+### Discussion
 
-- https://github.com: public (unlimited) or private (up to 3 collaborators or unlimited educational) repositories
-- https://gitlab.com: public or private repositories
-- https://source.coderefinery.org: public or private repositories
+- Who owns the code that you write?
+- Does your code/script have a license?
+- Can you take your own code with you after the PhD?
+- Are you using open source software in your work?
+- What are your thoughts about sharing software with your colleagues or competitors?
