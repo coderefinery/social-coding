@@ -446,7 +446,6 @@ License text, slides, images, and supporting information under a
 
 ## Great resources
 
-- http://blog.milkingthegnu.org/2008/03/10-answers-for.html
 - http://depth-first.com/articles/2006/12/29/dispelling-open-source-confusion-an-introduction-to-licenses/
 - http://oss-watch.ac.uk/resources/ipr
 - http://rkd.zgib.net/scicomp/open-science/open-science.html
