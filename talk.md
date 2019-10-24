@@ -356,7 +356,7 @@ make an impact.
 
 ### If you would like to learn more
 
-- [Software licensing and open source explained with cakes](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-coding/radovan-lesson-redesign/licensing-and-cakes.md/)
+- [Software licensing and open source explained with cakes](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-coding/master/licensing-and-cakes.md/)
 
 ### Who can decide about or change a license?
 
