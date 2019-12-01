@@ -427,6 +427,8 @@ License text, slides, images, and supporting information under a
 [Creative Commons license](https://creativecommons.org/licenses/), and get a DOI using
 [Zenodo](https://zenodo.org) or [Figshare](https://figshare.com).
 
+Services for sharing and collaborating on research data: https://coderefinery.github.io/reproducible-research/03-sharing/#services-for-sharing-and-collaborating-on-research-data
+
 ---
 
 ## Exercises
