@@ -187,6 +187,7 @@ These are common things to check:
 - Example .remark[... will it be difficult to get started?]
 - License .remark[... am I allowed to use it?]
 - Contribution guide .remark[... how to contribute and decision process?]
+- Trust and community .remark[... somebody you trust recommended it?]
 
 ### This is what we teach in [CodeRefinery](https://coderefinery.org):
 
