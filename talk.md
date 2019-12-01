@@ -203,19 +203,11 @@ These are common things to check:
 
 ## FAIR principles
 
-The FAIR Guiding Principles for scientific **data** management and stewardship (https://www.nature.com/articles/sdata201618):
+<img src="img/turing-way/8-fair-principles.jpg" style="width: 70%;"/>
 
-- To be .emph[**F**indable]
-- To be .emph[**A**ccessible]
-- To be .emph[**I**nteroperable]
-- To be .emph[**R**eusable]
+.cite[(c) [Scriberia](http://www.scriberia.co.uk) for [The Turing Way](https://the-turing-way.netlify.com), CC-BY.]
 
 For a discussion of FAIR in the context of software, see https://softdev4research.github.io/4OSS-lesson/.
-
-Software development should consider .emph[FAIR principles, ideally from the start].
-
-- .remark[Have you written a data management plan?]
-- .remark[How about a software management plan?]
 
 ---
 
