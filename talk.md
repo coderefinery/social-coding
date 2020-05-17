@@ -44,9 +44,9 @@ class: center, middle
 During this lecture when we say .emph[sharing], we mean in the context of .emph[openness]. 
 
 - Anyone can legally inspect, modify, fix errors and provide enhancements. 
-- Sharing the underlying source code of software, Thus this differs from sharing a 
+- Sharing the underlying source code of software, Thus, this differs from sharing a 
   copy of an executable (Discuss this in connection with different scripting and 
-  programing languages (e.g. Python, R ,Java, C , Fortran, Bash). 
+  programing languages e.g. Python, R ,Java, C , Fortran, Bash). 
 
 
 ---
