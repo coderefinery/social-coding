@@ -459,7 +459,7 @@ Services for sharing and collaborating on research data: https://coderefinery.gi
 - http://depth-first.com/articles/2006/12/29/dispelling-open-source-confusion-an-introduction-to-licenses/
 - http://oss-watch.ac.uk/resources/ipr
 - http://rkd.zgib.net/scicomp/open-science/open-science.html
-- https://choosealicense.com (can send automatic pull request to your GitHub repo)
+- https://choosealicense.com (Send automatic pull request GitHub repo)
 - https://hintjens.gitbooks.io/social-architecture/content/chapter2.html
 - https://softdev4research.github.io/4OSS-lesson/
 - https://softdev4research.github.io/recommendations/
@@ -472,6 +472,9 @@ Services for sharing and collaborating on research data: https://coderefinery.gi
 - https://www.software.ac.uk/resources/guides/adopting-open-source-licence
 - https://jacobian.org/2009/sep/17/contributor-license-agreements/
 - https://github.com/DEGoodmanWilson/Ethical-Resources
+- https://opensource.google/docs/patching/#forbidden
+- https://opensource.google/docs/
+
 ---
 
 class: center, middle
