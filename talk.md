@@ -43,6 +43,7 @@ class: center, middle
 
 Discuss in pairs or groups (5-10 minutes):
 
+- What is .emph[software sharing] ?  
 - Come up with .emph[reasons for sharing] your scripts/code/data
 - Also think about .emph[reasons for not sharing]
 - Why is software often treated differently from papers
