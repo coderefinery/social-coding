@@ -83,7 +83,7 @@ We will discuss our findings as a class.
 ## Sharing is scary (1/2)
 
 - Fear of being scooped
-> .remark[Correct license this could be avoided. Sharing is a form of publishing.]
+> .remark[With correct license, this could be avoided. Sharing is a form of publishing.]
 - Exposes possibly "ugly code"
 > .remark[In practice almost nobody will judge the quality of your code.]
 - Others may find bugs
