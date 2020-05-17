@@ -39,6 +39,10 @@ class: center, middle
 
 ---
 
+## What do we mean by sharing, in this presentation
+
+
+
 ## Group work before we go on
 
 Discuss in pairs or groups (5-10 minutes):
