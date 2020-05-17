@@ -67,7 +67,8 @@ We will discuss our findings as a class.
 
 - Easier to find and reproduce (.emph[scientific reproducibility])
 - More trustworthy: others can verify correctness and find and report bugs
-- Enables others to build on top of your code (derivative work, .emph[provided the license allows it])
+- Enables others to build on top of your code (derivative work, 
+  .emph[provided the license allows it])
 - Others can submit features/improvements
 - Others can fix bugs
 - Many tools and apps are free for open source
