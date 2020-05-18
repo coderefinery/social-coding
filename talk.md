@@ -32,7 +32,7 @@ class: center, middle
 
 ## Sharing papers and academic credit
 
-<img src="img/sharing-papers.jpg" style="width: 80%;"/>
+<img src="img/sharing-papers-upright.jpg" style="width: 80%;"/>
 
 - We want maximum visibility and maximum reuse.
 - The more interesting science is done referencing my paper, the better for me.
@@ -89,7 +89,7 @@ We will discuss our findings as a class.
 
 ## Sharing code
 
-<img src="img/sharing-code.jpg" style="width: 80%;"/>
+<img src="img/sharing-code-upright.jpg" style="width: 80%;"/>
 
 .quote["I did all the ground work and they get to do the interesting science?"]
 
@@ -130,7 +130,7 @@ However a study showed that despite these policies, many people still do not sha
 
 ## Social coding
 
-<img src="img/in-out.jpg" style="width: 100%;"/>
+<img src="img/in-out-upright.jpg" style="width: 100%;"/>
 
 - Whether you can share your output depends on how you obtained your input.
 - .emph[Software licenses] matter.
