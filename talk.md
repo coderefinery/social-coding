@@ -41,7 +41,7 @@ class: center, middle
 
 ## Group work before we go on
 
-Discuss in pairs or groups (5-10 minutes):
+Discuss/pool in pairs or groups (5-10 minutes):
 
 - Come up with .emph[reasons for sharing] your scripts/code/data
 - Also think about .emph[reasons for not sharing]
@@ -390,8 +390,8 @@ their internal rights to do their work! -->
 - .emph[You cannot ignore licensing]: default is "no one can make copies or
   derivative works".
 - License your code .emph[very early] in the project:
-  ideally develop publicly accessible open source code .emph[from day one]. Start with a `README.md` and a `LICENSE`.
-- Add also the files `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`. Good example: https://github.com/KirstieJane/STEMMRoleModels
+  ideally develop publicly accessible open source code .emph[from day one]. Start with a `README.md` and a `LICENSE`. Use github recommendation or/and [Choose an open source license](https://choosealicense.com/)
+- Add also the files `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`. See [Mozilla Introduction to Contributor Guidelines](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-contributor-guidelines/) and/or good example: https://github.com/KirstieJane/STEMMRoleModels
 - Emphasize open source nature of the code output in your research proposal.
 - Take an [OSI](https://opensource.org/licenses)-approved license: makes it easier to evaluate
   [compatibility](https://en.wikipedia.org/wiki/License_compatibility).
@@ -420,7 +420,7 @@ License text, slides, images, and supporting information under a
 [Creative Commons license](https://creativecommons.org/licenses/), and get a DOI using
 [Zenodo](https://zenodo.org) or [Figshare](https://figshare.com).
 
-Services for sharing and collaborating on research data: https://coderefinery.github.io/reproducible-research/03-sharing/#services-for-sharing-and-collaborating-on-research-data
+Services for sharing and collaborating on research data: https://coderefinery.github.io/reproducible-research/06-sharing/#services-for-sharing-and-collaborating-on-research-data
 
 ---
 
