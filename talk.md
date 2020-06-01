@@ -456,6 +456,8 @@ Services for sharing and collaborating on research data: https://coderefinery.gi
 - http://lib.tkk.fi/Diss/2005/isbn9529187793/isbn9529187793.pdf
 - https://www.software.ac.uk/resources/guides/adopting-open-source-licence
 - https://jacobian.org/2009/sep/17/contributor-license-agreements/
+- https://opensource.google/docs/patching/#forbidden
+- https://opensource.google/docs/
 
 ---
 
