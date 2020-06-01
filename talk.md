@@ -457,6 +457,8 @@ Services for sharing and collaborating on research data: https://coderefinery.gi
 - https://www.software.ac.uk/resources/guides/adopting-open-source-licence
 - https://jacobian.org/2009/sep/17/contributor-license-agreements/
 - https://github.com/DEGoodmanWilson/Ethical-Resources
+- https://opensource.google/docs/patching/#forbidden
+- https://opensource.google/docs/
 
 ---
 
