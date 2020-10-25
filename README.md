@@ -22,7 +22,7 @@ Answer 9:  When publicly shared usually we timestamp or set a version, so it is 
 
 
 ```
-Quesion 2: The most concerning thing for me, If I share my software now ( Single Choice)
+## Quesion 2: The most concerning thing for me, If I share my software now ( Single Choice)
 Answer 1: It will be scooped by someone else
 Answer 2: It will expose my "ugly code"
 Answer 3: Others may find bugs and mistakes, what if the algorithm is wrong
@@ -35,7 +35,7 @@ Answer 9: Worried about licensing and legal matters as they are very complicated
 ```
 
 ```
-Question 3
+## Question 3
 Why is software often treated differently from papers?
 
 ```
