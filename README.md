@@ -54,8 +54,21 @@ Answer 7: Linking to libraries (static or dynamic), plug-ins, and drivers
 Answer 8: Clean room design (somebody explains you the code but you have never seen it)
 Answer 9: You read a paper, understand algorithm, write own code
 
+```
 
 ```
+## Exercises
+1. What is the StackOverflow license for code you copy and paste?
+2. A journal requests that you release your software during publication. You have copied a portion of the code from another package, which you have forgotten. Can you satisfy the journal's request?
+3. You want to fix a bug in a project someone else has released, but there is no license. What risks are there?
+4. How would you ask someone to add a license?
+5. You incorporate MIT, GPL, and BSD3 licensed code into your project. What possible licenses can you pick for your project?
+6. You do the same as above but add in another license that looks viral. What possible licenses can you use now?
+7. Do licenses apply if you don't distribute your code? Why or why not?
+8. Which licenses are most/least attractive for companies with proprietary software?
+
+```
+
 
 
 - Text: free to share and remix under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
