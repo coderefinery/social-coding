@@ -40,6 +40,23 @@ Why is software often treated differently from papers?
 
 ```
 
+```
+## Question 4
+
+Which of these is derivative work?
+Answer 1: Download some code from a website and add on to it
+Answer 2: Download some code and use a function in your code
+Answer 3: Changing the code
+Answer 4: Extending the code
+Answer 5: Completely rewriting the code
+Answer 6: Rewriting the code to a different programming language
+Answer 7: Linking to libraries (static or dynamic), plug-ins, and drivers
+Answer 8: Clean room design (somebody explains you the code but you have never seen it)
+Answer 9: You read a paper, understand algorithm, write own code
+
+
+```
+
 
 - Text: free to share and remix under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
 - These slides are served by [Cicero](https://github.com/bast/cicero).
