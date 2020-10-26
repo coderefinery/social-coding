@@ -67,8 +67,16 @@ You read a paper, understand algorithm, write own code
 8. Which licenses are most/least attractive for companies with proprietary software?
 ```
 
+## Notes:
+- https://choosealicense.com/
+- https://opensource.guide/legal/#which-open-source-license-is-appropriate-for-my-project
+- Permissive: gives the public permission to use, modify, and share, without any condition for downstream licensing
+- If the licenses of dependencies are permissive, one may use any open license they want
+- If the licenses of dependencies are strong copyleft - must use the same use the same license.
 
 
 - Text: free to share and remix under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
 - These slides are served by [Cicero](https://github.com/bast/cicero).
 - [Instructor's guide](guide.md)
+
+
