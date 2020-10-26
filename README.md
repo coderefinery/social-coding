@@ -40,7 +40,7 @@ Worried about licensing and legal matters as they are very complicated'
 
 Free entry of answers
 
-## Question 4: Which of these is derivative work?
+## Question 4: Which of these are derivative work?
 Choose many
 
 ```
