@@ -62,7 +62,7 @@ We will discuss our findings as a class.
   ([GitHub](https://github.com), [Travis CI](https://travis-ci.org),
   [Appveyor](https://www.appveyor.com), [Read the Docs](https://readthedocs.org))
 - Good for your CV: you can show what you have built
-- Discourages competitors. If others can't build on your work, they will make competing work,
+- Discourages competitors. If others can't build on your work, they will make competing work
 
 
 
@@ -408,7 +408,7 @@ their internal rights to do their work! -->
 ## Datasets
 
 What:
-- The EU has a database directive which restricts data mining on
+- The EU has a [database directive](https://en.wikipedia.org/wiki/Database_Directive) which restricts data mining on
   databases.
 - Has a somewhat similar effect to copyright, because copyright would
   not apply to data mining.

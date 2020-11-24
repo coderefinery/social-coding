@@ -17,7 +17,7 @@ Others can help fixing bugs
 Many tools and apps are free for open source, so no financial cost for this (GitHub, Travis CI, Appveyor, Read the Docs)
 Good for your CV: you can show what you have built
 Discourages competitors. If others can't build on your work, they will make competing work
-When publicly shared usually we timestamp or set a version, so it is easier to refer to a spcefic version or when.
+When publicly shared, usually we timestamp or set a version, so it is easier to refer to a specific version
 ```
 
 
@@ -25,15 +25,15 @@ When publicly shared usually we timestamp or set a version, so it is easier to r
 Choose one
 
 ```
-It will be scooped by someone else
+It will be scooped (stolen) by someone else
 It will expose my "ugly code"
-Others may find bugs and mistakes, what if the algorithm is wrong
+Others may find bugs and mistakes. What if the algorithm is wrong?
 I will get too many questions, I do not have time for that
 Losing control over the direction of the project
 Low quality copies will appear
-I want be able to sell this later, Someone else will make money from this
+I won't be able to sell this later. Someone else will make money from it
 It is too early, I am just prototyping, I will write version to distribute later
-Worried about licensing and legal matters as they are very complicated'
+Worried about licensing and legal matters, as they are very complicated
 ```
 
 ## Question 3: Why is software often treated differently from papers?
@@ -71,8 +71,8 @@ You read a paper, understand algorithm, write own code
 - https://choosealicense.com/
 - https://opensource.guide/legal/#which-open-source-license-is-appropriate-for-my-project
 - Permissive: gives the public permission to use, modify, and share, without any condition for downstream licensing
-- If the licenses of dependencies are permissive, one may use any open license they want
-- If the licenses of dependencies are strong copyleft - must use the same use the same license.
+- If the licenses of dependencies are permissive, one may use any open license they want.
+- If the licenses of dependencies are strong copyleft, one must use the same license.
 
 
 - Text: free to share and remix under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
