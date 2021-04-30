@@ -98,17 +98,28 @@ Is this derivative work?
 
 **2. Permissive (MIT, BSD, Apache)**
 
+<img src="../img/MIT.png" style="width: 70%;"/>
+Image unchanged from https://choosealicense.com/
+
 - Derivative work does not have to be shared
 
 **3. Weak copyleft share-alike (LGPL, MPL)**
+
+<img src="../img/GNU_LGPL_v3.png" style="width: 70%;"/>
+Image unchanged from https://choosealicense.com/
 
 - Derivative work is free software but is limited to the component
 
 **4. Strong copyleft share-alike (GPL, AGPL)**
 
+<img src="../img/GNU_GPL_v3.png" style="width: 70%;"/>
+Image unchanged from https://choosealicense.com/
+
 - Derivative work is free software and derivative work extends to the combined project
 
 If you would like to learn more check out [Software licensing and open source explained with cakes](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-coding/master/licensing-and-cakes.md/)
+
+## Licencing and ownership
 
 **Who can decide about or change a license?**
 
