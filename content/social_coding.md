@@ -121,7 +121,7 @@ What contributes to you being able to reuse stuff that others make, and others (
 
 ```{discussion} Discussion
 
-As a **developer** or .emph[user] what are you looking at when discovering a new package?
+As a **developer** or user what are you looking at when discovering a new package?
 
 ```
 
@@ -148,13 +148,7 @@ As a **developer** or .emph[user] what are you looking at when discovering a new
 - Being findable
 - Licensing
 
-## FAIR principles
 
-<img src="../img/turing-way/8-fair-principles.jpg" style="width: 70%;"/>
-
-(c) [Scriberia](http://www.scriberia.co.uk) for [The Turing Way](https://the-turing-way.netlify.com), CC-BY.
-
-For a discussion of FAIR in the context of software, see https://softdev4research.github.io/4OSS-lesson/.
 
 ```{keypoints}
 - Share your software, if you can
