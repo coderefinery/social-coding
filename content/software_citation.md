@@ -58,4 +58,5 @@ date-released: 2018-10-24
 - License your code **very early** in the project:
   ideally develop publicly accessible open source code **from day one**.
 - Make it easy to cite your code ([Zenodo](https://zenodo.org))
+- Do not forget to cite code you use.
 ```
