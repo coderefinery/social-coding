@@ -98,17 +98,28 @@ Is this derivative work?
 
 **2. Permissive (MIT, BSD, Apache)**
 
+<img src="../img/MIT.png" style="width: 70%;"/>
+Image unchanged from https://choosealicense.com/
+
 - Derivative work does not have to be shared
 
 **3. Weak copyleft share-alike (LGPL, MPL)**
+
+<img src="../img/GNU_LGPL_v3.png" style="width: 70%;"/>
+Image unchanged from https://choosealicense.com/
 
 - Derivative work is free software but is limited to the component
 
 **4. Strong copyleft share-alike (GPL, AGPL)**
 
+<img src="../img/GNU_GPL_v3.png" style="width: 70%;"/>
+Image unchanged from https://choosealicense.com/
+
 - Derivative work is free software and derivative work extends to the combined project
 
 If you would like to learn more check out [Software licensing and open source explained with cakes](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-coding/master/licensing-and-cakes.md/)
+
+## Licencing and ownership
 
 **Who can decide about or change a license?**
 
@@ -180,27 +191,6 @@ Services for sharing and collaborating on research data: https://coderefinery.gi
 6. You do the same as above but add in another license that looks viral. What possible licenses can you use now?
 7. Do licenses apply if you don't distribute your code? Why or why not?
 8. Which licenses are most/least attractive for companies with proprietary software?
-```
-
-```{callout} Great resources
-- http://depth-first.com/articles/2006/12/29/dispelling-open-source-confusion-an-introduction-to-licenses/
-- http://oss-watch.ac.uk/resources/ipr
-- http://rkd.zgib.net/scicomp/open-science/open-science.html
-- https://choosealicense.com (can send automatic pull request to your GitHub repo)
-- https://hintjens.gitbooks.io/social-architecture/content/chapter2.html
-- https://softdev4research.github.io/4OSS-lesson/
-- https://softdev4research.github.io/recommendations/
-- https://tldrlegal.com/
-- https://users.aalto.fi/~darstr1/cheatsheets/ipr-cheatsheet.pdf
-- https://www.software.ac.uk/choosing-open-source-licence
-- http://www.oreilly.com/openbook/osfreesoft/
-- http://www.rosenlaw.com/oslbook.htm
-- http://lib.tkk.fi/Diss/2005/isbn9529187793/isbn9529187793.pdf
-- https://www.software.ac.uk/resources/guides/adopting-open-source-licence
-- https://jacobian.org/2009/sep/17/contributor-license-agreements/
-- https://github.com/DEGoodmanWilson/Ethical-Resources
-- https://opensource.google/docs/patching/#forbidden
-- https://opensource.google/docs/
 ```
 
 ```{keypoints}
