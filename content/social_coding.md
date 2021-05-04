@@ -155,7 +155,7 @@ When online, this exercise is done in breakout rooms where we encourage learners
 ```
 ````{solution} Solution
 - Add a license: it is usually advisable to add a license at the creation of your repository but if you haven't, [https://choosealicense.com/](https://choosealicense.com/) can guide you through the process. Once you have selected a license, it can be added in your repo by entering the link to your repo in the section **Suggest this license**.
-- Add a Code of Conduct: it is often complex to define your own code of conduct but you usually can reuse (or at least get inspired) by existing code of conduct; for instance, the [CodeRefinery Code of Conduct](https://coderefinery.org/about/code-of-conduct/). One important aspect of the code of conduct, is how you plan to deal with indicdents.
+- Add a Code of Conduct: it is often complex to define your own code of conduct but you usually can reuse (or at least get inspired) by existing code of conduct; for instance, the [CodeRefinery Code of Conduct](https://coderefinery.org/about/code-of-conduct/). One important aspect of the code of conduct, is how you plan to deal with incidents.
 - Add installation instructions and examples, etc. See for instance [CodeRefinery installation instructions](https://coderefinery.github.io/installation/).
 ```
 
