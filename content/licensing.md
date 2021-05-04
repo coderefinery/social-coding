@@ -160,7 +160,7 @@ If you would like to learn more check out [Software licensing and open source ex
 - Open source your code to make sure you are not locked out of your own code if you don't own it
   once you change affiliation.
 
-## Datasets
+```{discussion} Datasets
 
 What:
 - The EU has a [database directive](https://en.wikipedia.org/wiki/Database_Directive) which restricts data mining on
@@ -178,7 +178,8 @@ License text, slides, images, and supporting information under a
 [Creative Commons license](https://creativecommons.org/licenses/), and get a DOI using
 [Zenodo](https://zenodo.org) or [Figshare](https://figshare.com).
 
-Services for sharing and collaborating on research data: https://coderefinery.github.io/reproducible-research/06-sharing/#services-for-sharing-and-collaborating-on-research-data
+Services for sharing and collaborating on research data: [https://coderefinery.github.io/reproducible-research/06-sharing/#services-for-sharing-and-collaborating-on-research-data](https://coderefinery.github.io/reproducible-research/06-sharing/#services-for-sharing-and-collaborating-on-research-data)
+```
 
 ```{challenge} Exercises
 1. What is the StackOverflow license for code you copy and paste?
