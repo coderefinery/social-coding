@@ -146,9 +146,12 @@ When you find a repository with code you would like to reuse, you may look at th
 
 ... most of which you have or will learn during this [CodeRefinery](https://coderefinery.org) workshop!
 
-```{challenge} Exercises
-Let's go back to the repository `recipe` we have created at the beginning og this CodeRefinery workshop. This repository contains a guacamole recipe and we would like you to think about what to add in your repository to improve its reusability and encourage external contributions (use the list given above). 
+```{challenge} Exercises (15 mn)
+Let's go back to the repository `recipe` we have created at the beginning og this CodeRefinery workshop. This repository contains a guacamole recipe and we would like you to think about what to add in your repository to improve its reusability and encourage external contributions. Using the list given above, pick the items (one or two) you think are the most important. 
+
 If you have not created this repository, you can fork the coderefinery [recipe](https://github.com/coderefinery/recipe).
+
+When online, this exercise is done in breakout rooms where we encourage learners to take 2-3 minutes at the end (before returning to the main room) to exchange on their choices and have a look at your colleagues' repositories. Did you all pick the same items? 
 ```
 ````{solution} Solution
 - Add a license: it is usually advisable to add a license at the creation of your repository but if you haven't, [https://choosealicense.com/](https://choosealicense.com/) can guide you through the process. Once you have selected a license, it can be added in your repo by entering the link to your repo in the section **Suggest this license**.
