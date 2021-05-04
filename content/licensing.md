@@ -52,15 +52,20 @@ Is this derivative work?
   and **others can make and publish derivative works from you**
 
 ```{discussion} Which of these is derivative work?
-- Download some code from a website and add on to it
-- Download some code and use a function in your code
-- Changing the code
-- Extending the code
-- Completely rewriting the code
-- Rewriting the code to a different programming language
-- Linking to libraries (static or dynamic), plug-ins, and drivers
-- Clean room design (somebody explains you the code but you have never seen it)
-- You read a paper, understand algorithm, write own code
+1. Download some code from a website and add on to it
+2. Download some code and use one of the functions in your code
+3. Changing code you got from somewhere
+4. Extending code you got from somewhere
+5. Completely rewriting code you got from somewhere
+6. Rewriting code to a different programming language
+7. Linking to libraries (static or dynamic), plug-ins, and drivers
+8. Clean room design (somebody explains you the code but you have never seen it)
+9. You read a paper, understand algorithm, write own code
+```
+```{solution} Solution
+Derivative work: 1-6
+Not derivative work: 7,8 and 9.
+6 (and 5): This depends on how you do it, see clean room design.
 ```
 
 ## Why could allowing derivative work be good for you as researcher?
