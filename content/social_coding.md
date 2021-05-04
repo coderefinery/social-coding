@@ -1,8 +1,9 @@
 # Social Coding
 
 ```{questions}
-* What are the benefits of sharing code?
-* What are FAIR principles?
+- What are the benefits of sharing code?
+- What is social coding?
+
 ```
 
 ```{objectives}
@@ -14,16 +15,18 @@ Get an overview of motivations and benefits for sharing and reusing code.
 
 <img src="../img/sharing-papers-upright.jpg" style="width: 80%;"/>
 
-- We want maximum visibility and maximum reuse.
+- The goal is maximum visibility and maximum reuse.
 - The more interesting science is done referencing my paper, the better for me.
 
-```{discussion} Discussion
+```{discussion} Discussion in HackMD
+- Did you ever share your code? If yes, what motivated you?
 - Come up with **reasons for sharing** your scripts/code/data
 - Also think about **reasons for not sharing**
-- Why is software often treated differently from papers
 ```
 
-## What are the benefits of sharing software?
+## Sharing software
+
+### Benefits
 
 - Easier to find and reproduce (**scientific reproducibility**)
 - More trustworthy: others can verify correctness and find and report bugs
@@ -36,7 +39,7 @@ Get an overview of motivations and benefits for sharing and reusing code.
 - Good for your CV: you can show what you have built
 - Discourages competitors. If others can't build on your work, they will make competing work
 
-## Sharing is scary
+### Sharing is scary
 
 - Fear of being scooped
 > A license can avoid it. Anyway, it is very unlikely that others will understand your code and publish before you without involving you in a collaboration. Sharing is a form of publishing.
@@ -51,8 +54,6 @@ Get an overview of motivations and benefits for sharing and reusing code.
 - "Bad" derivative projects may appear
 > It will be clear which is the official version.
 
-## Sharing code
-
 <img src="../img/sharing-code-upright.jpg" style="width: 80%;"/>
 
 > "I did all the ground work and they get to do the interesting science?"
@@ -62,9 +63,9 @@ Get an overview of motivations and benefits for sharing and reusing code.
 ## Journal policy as motivation for sharing
 
 [From Science editorial policy:](https://www.sciencemag.org/authors/science-journals-editorial-policies)
-> "We require that all computer code used for modeling and/or data analysis
-> that is not commercially available be deposited in a publicly accessible
-> repository upon publication. In rare exceptional cases where security
+> "We require that **all computer code used for modeling and/or data analysis**
+> that is not commercially available be deposited in a **publicly accessible repository** 
+> upon publication. In rare exceptional cases where security
 > concerns or competing commercial interests pose a conflict, code-sharing
 > arrangements that still facilitate reproduction of the work should be
 > discussed with your Editor no later than the revision stage."
@@ -73,7 +74,7 @@ Get an overview of motivations and benefits for sharing and reusing code.
 > "An inherent principle of publication is that others should be able to
 > replicate and build upon the authors' published claims. A condition of
 > publication in a Nature Research journal is that authors are required to make
-> materials, data, code, and associated protocols promptly available to readers
+> **materials, data, code, and associated protocols promptly available** to readers
 > without undue qualifications. Any restrictions on the availability of
 > materials or information must be disclosed to the editors at the time of
 > submission. Any restrictions must also be disclosed in the submitted
@@ -89,7 +90,7 @@ However a study showed that despite these policies, many people still do not sha
 <img src="../img/in-out-upright.jpg" style="width: 100%;"/>
 
 - Whether you can share your output depends on how you obtained your input.
-- .emph[Software licenses] matter.
+- **Software licenses** matter.
 - Sometimes "OTHERS" are you yourself in the future in a different group/job.
 
 ## Motivation for open source software
@@ -101,7 +102,7 @@ However a study showed that despite these policies, many people still do not sha
 - OSS can lead to more engagement from industry which may lead to more impact
 - If it's not open, it is not likely to become standard
 
-## Code reuse
+## Code reusability
 
 Should you reuse things that others have done?
 
@@ -115,48 +116,36 @@ Do you want others to reuse what you make?
 
 How do you turn your own small project into the next numpy? Do you want to?
 
-## What contributes to reuse?
+### What contributes to reusability?
 
 What contributes to you being able to reuse stuff that others make, and others (or you) being able to reuse your stuff?
 
-```{discussion} Discussion
+When you find a repository with code you would like to reuse, you may look at the following things to determine its reusability:
 
-As a **developer** or .emph[user] what are you looking at when discovering a new package?
+- Date of last code change 
+> ... is the project abandoned?
+- Release history 
+> ... how about stability and backwards-compatibility?
+- Versioning 
+> ... will it be painful to upgrade?
+- Number of open pull requests and issues 
+> ... are they followed-up?
+- Installation instructions 
+> ... will it be difficult to get it running?
+- Example 
+> ... will it be difficult to get started?
+- License 
+> ... am I allowed to use it?
+- Contribution guide 
+> ... how to contribute and decision process?
+- Trust and community 
+> ... somebody you trust recommended it?
 
-```
 
-```{solution} These are common things to check:
+... most of which you have or will learn during this [CodeRefinery](https://coderefinery.org) workshop!
 
-- Date of last code change ... is the project abandoned?
-- Release history ... how about stability and backwards-compatibility?
-- Versioning ... will it be painful to upgrade?
-- Number of open pull requests and issues - are they followed-up?
-- Installation instructions ... will it be difficult to get it running?
-- Example ... will it be difficult to get started?
-- License ... am I allowed to use it?
-- Contribution guide ... how to contribute and decision process?
-- Trust and community ... somebody you trust recommended it?
-```
-
-## This is what we teach in [CodeRefinery](https://coderefinery.org):
-
-- Version control including project management
-- Testing
-- Documentation
-- Reproducibility
-- Code citations
-- Being findable
-- Licensing
-
-## FAIR principles
-
-<img src="../img/turing-way/8-fair-principles.jpg" style="width: 70%;"/>
-
-(c) [Scriberia](http://www.scriberia.co.uk) for [The Turing Way](https://the-turing-way.netlify.com), CC-BY.
-
-For a discussion of FAIR in the context of software, see https://softdev4research.github.io/4OSS-lesson/.
 
 ```{keypoints}
 - Share your software, if you can
-- Reuse other peoples software
+- Learn to identify whether you can use other peoples software
 ```
