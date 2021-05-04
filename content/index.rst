@@ -14,9 +14,9 @@ how software can be cited.
    :widths: auto
    :delim: ;
 
-   5 min ; :doc:`social_coding`
-   5 min ; :doc:`licensing`
-   5 min ; :doc:`software_citation`
+   25 min ; :doc:`social_coding`
+   25 min ; :doc:`licensing`
+   25 min ; :doc:`software_citation`
 
 
 
