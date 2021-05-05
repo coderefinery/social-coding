@@ -138,12 +138,26 @@ When you find a repository with code you would like to reuse, you may look at th
 > ... am I allowed to use it?
 - Contribution guide 
 > ... how to contribute and decision process?
+- Code of Conduct
+> ... how to make clear which behaviors are unacceptable and discouraged? How violations of Code of Conduct will be handled?
 - Trust and community 
 > ... somebody you trust recommended it?
 
 
 ... most of which you have or will learn during this [CodeRefinery](https://coderefinery.org) workshop!
 
+```{challenge} Exercises (15 min)
+Let's go back to the repository `recipe` we have created at the beginning of this CodeRefinery workshop. This repository contains a guacamole recipe and we would like you to think about what you could add in your repository to improve its reusability and encourage external contributions. Using the list given above, pick the items (one or two) you think are the most important. 
+
+If you have not created this repository, you can fork the coderefinery [recipe](https://github.com/coderefinery/recipe).
+
+When online, this exercise is done in breakout rooms where we encourage learners to take 2-3 minutes at the end (before returning to the main room) to exchange on their choices and have a look at your colleagues' repositories. Did you all pick the same items? 
+```
+````{solution} Solution
+- Add a license: it is usually advisable to add a license at the creation of your repository but if you haven't, [https://choosealicense.com/](https://choosealicense.com/) can guide you through the process. You may add the license by copying the license text into a LICENSE file in your repository or use the Suggest this license section on choosealicense.com by entering the link to your repository on the website.
+- Add a Code of Conduct: it is often complex to define your own code of conduct but you usually can reuse (or at least get inspired) by existing code of conduct; for instance, the [CodeRefinery Code of Conduct](https://coderefinery.org/about/code-of-conduct/). One important aspect of the code of conduct, is how you plan to deal with incidents.
+- Add installation instructions and examples, etc. See for instance [CodeRefinery installation instructions](https://coderefinery.github.io/installation/).
+```
 
 ```{keypoints}
 - Share your software, if you can
