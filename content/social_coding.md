@@ -54,11 +54,13 @@ Get an overview of motivations and benefits for sharing and reusing code.
 - "Bad" derivative projects may appear
 > It will be clear which is the official version.
 
+## Sharing is caring
+
 <img src="../img/sharing-code-upright.jpg" style="width: 80%;"/>
 
 > "I did all the ground work and they get to do the interesting science?"
 
-- Sharing code and encouraging .emph[derivative work] may boost your academic impact.
+- Sharing code and encouraging *derivative work* may boost your academic impact.
 
 ## Journal policy as motivation for sharing
 
