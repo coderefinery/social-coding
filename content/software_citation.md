@@ -40,7 +40,7 @@ date-released: 2018-10-24
 
 ## Where to place your code
 
-- <https://github.com>: public (unlimited) or private (up to 3 collaborators or unlimited educational) repositories
+- <https://github.com>: public or private repositories
 - <https://gitlab.com>: public or private repositories
 - <https://source.coderefinery.org>: public or private repositories
 
