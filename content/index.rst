@@ -56,11 +56,6 @@ About the course
 * Licensing
 * Software citation
 
-See also
---------
-
--
-
 Credits
 -------
 Radovan Bast, Richard Darst, Sabry Razick, Jyry Suvilehto
