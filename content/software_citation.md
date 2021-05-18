@@ -36,7 +36,7 @@ date-released: 2018-10-24
 
 - [The Journal of Open Source Software](https://joss.theoj.org/about)
 - [In which journals should I publish my software?](https://www.software.ac.uk/resources/guides/which-journals-should-i-publish-my-software)
-- https://www.force11.org/software-citation-principles
+- <https://www.force11.org/software-citation-principles>
 
 ## Where to place your code
 
@@ -53,7 +53,7 @@ date-released: 2018-10-24
 
 (c) [Scriberia](http://www.scriberia.co.uk) for [The Turing Way](https://the-turing-way.netlify.com), CC-BY.
 
-For a discussion of FAIR in the context of software, see https://softdev4research.github.io/4OSS-lesson/.
+For a discussion of FAIR in the context of software, see <https://softdev4research.github.io/4OSS-lesson/>.
 
 
 ```{discussion}
@@ -70,7 +70,6 @@ For a discussion of FAIR in the context of software, see https://softdev4researc
 - Make it easy to cite your code ([Zenodo](https://zenodo.org))
 - Do not forget to cite code you use.
 ```
-
 
 ```{callout} Further reading
 - <http://depth-first.com/articles/2006/12/29/dispelling-open-source-confusion-an-introduction-to-licenses/>
