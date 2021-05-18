@@ -159,7 +159,7 @@ When online, this exercise is done in breakout rooms where we encourage learners
 - Add a license: it is usually advisable to add a license at the creation of your repository but if you haven't, [https://choosealicense.com/](https://choosealicense.com/) can guide you through the process. You may add the license by copying the license text into a LICENSE file in your repository or use the Suggest this license section on choosealicense.com by entering the link to your repository on the website.
 - Add a Code of Conduct: it is often complex to define your own code of conduct but you usually can reuse (or at least get inspired) by existing code of conduct; for instance, the [CodeRefinery Code of Conduct](https://coderefinery.org/about/code-of-conduct/). One important aspect of the code of conduct, is how you plan to deal with incidents.
 - Add installation instructions and examples, etc. See for instance [CodeRefinery installation instructions](https://coderefinery.github.io/installation/).
-```
+````
 
 ```{keypoints}
 - Share your software, if you can
