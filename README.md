@@ -1,4 +1,4 @@
-
+[![DOI](https://sandbox.zenodo.org/badge/394669802.svg)](https://sandbox.zenodo.org/badge/latestdoi/394669802)
 
 # Talk: Social coding and open software
 
