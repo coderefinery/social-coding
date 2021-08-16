@@ -5,6 +5,13 @@
 - Slides: [Social coding and open software](http://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-coding/master/talk.md/)
 - The following poll can be used by for example [mentimeter](https://www.mentimeter.com/) or Zoom's poll function (for online workshop).
 
+## Question -1: ASDF
+Choose many
+```
+ASDF
+FGHJ
+```
+
 ## Question 0: ASDF
 Choose many
 ```
