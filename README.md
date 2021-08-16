@@ -6,6 +6,13 @@
 - The following poll can be used by for example [mentimeter](https://www.mentimeter.com/) or Zoom's poll function (for online workshop).
 
 
+## Question -2: ASDF
+Choose many
+```
+ASDF
+FGHJ
+```
+
 ## Question -1: ASDF
 Choose many
 ```
