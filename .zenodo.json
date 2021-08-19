@@ -1,0 +1,38 @@
+{
+    "creators": [
+        {   
+            "orcid": "0000-0003-0210-4340",
+            "affiliation": "KTH Royal Institute of Technology, Sweden",
+            "name": "Hellsvik, Johan"
+        },
+        {   
+            "orcid": "0000-0002-0049-1634",
+            "affiliation": "University of Oslo, Norway",
+            "name": "Tatara, Naoe"
+        }
+    ],    
+  
+    "license": "Creative Commons Attribution 4.0 International",
+
+    "title": "Talk: Social coding and open software",
+
+    #"related_identifiers": [
+    #    {
+    #        "scheme": "doi",
+    #        "identifier": "10.1234/software.paper.5678",
+    #        "relation": "isDocumentedBy",
+    #        "resource_type": {
+    #            "type": "publication",
+    #            "subtype": "article"
+    #        }
+    #    }
+    #],
+
+    "keywords": ["Programming", "Computer Science"],
+
+    #"communities": [
+    #    {"identifier": "software-cats"}
+    #],
+
+    #"grants": [{"id":"777541"}]
+}
