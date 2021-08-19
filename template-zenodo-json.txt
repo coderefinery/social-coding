@@ -2,12 +2,12 @@
     "creators": [
         {   
             "orcid": "0000-0002-1825-0097",
-            "affiliation": "Feline reasearch institute",
+            "affiliation": "Feline research institute",
             "name": "Field, Gar"
         },
         {   
             "orcid": "0000-0002-1825-0097",
-            "affiliation": "Feline reasearch institute",
+            "affiliation": "Feline research institute",
             "name": "Cat, Felix"
         }
     ],    
