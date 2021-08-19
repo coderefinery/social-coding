@@ -16,23 +16,5 @@
 
     "title": "Talk: Social coding and open software",
 
-    #"related_identifiers": [
-    #    {
-    #        "scheme": "doi",
-    #        "identifier": "10.1234/software.paper.5678",
-    #        "relation": "isDocumentedBy",
-    #        "resource_type": {
-    #            "type": "publication",
-    #            "subtype": "article"
-    #        }
-    #    }
-    #],
-
     "keywords": ["Programming", "Computer Science"],
-
-    #"communities": [
-    #    {"identifier": "software-cats"}
-    #],
-
-    #"grants": [{"id":"777541"}]
 }
