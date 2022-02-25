@@ -33,9 +33,6 @@ how software can be cited.
    :maxdepth: 1
    :caption: Reference
 
-   social_coding
-   licensing
-   software_citation
    quick-reference
    guide
 
