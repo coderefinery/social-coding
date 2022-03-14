@@ -33,6 +33,7 @@ how software can be cited.
    :maxdepth: 1
    :caption: Reference
 
+   exercises
    quick-reference
    guide
 
