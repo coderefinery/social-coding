@@ -23,6 +23,7 @@ how software can be cited.
 .. toctree::
    :maxdepth: 1
    :caption: The lesson
+   :hidden:
 
    social_coding
    licensing
