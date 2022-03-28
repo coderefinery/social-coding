@@ -19,8 +19,8 @@ Get an overview of motivations and benefits for sharing and reusing code.
 - The more interesting science is done referencing my paper, the better for me.
 
 ```{discussion} Discussion in HackMD
-- Did you ever share your code? If yes, what motivated you?
-- Come up with **reasons for sharing** your scripts/code/data
+- Did you ever share your code? If yes, what motivated you? Come up with 
+  **reasons for sharing** your scripts/code/data
 - Also think about **reasons for not sharing**
 ```
 
