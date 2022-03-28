@@ -36,19 +36,27 @@ Get an overview of motivations and benefits for sharing and reusing code.
 - Many tools and apps are free for open source
   ([GitHub](https://github.com), [Travis CI](https://travis-ci.org),
   [Appveyor](https://www.appveyor.com), [Read the Docs](https://readthedocs.org))
-- Good for your CV: you can show what you have built
+- Good for your CV: you can show what you have built.  Shows that you
+  have useful skills.
 - Discourages competitors. If others can't build on your work, they will make competing work
 
 ### Sharing is scary
 
 - Fear of being scooped
-> A license can avoid it. Anyway, it is very unlikely that others will understand your code and publish before you without involving you in a collaboration. Sharing is a form of publishing.
+> A license can avoid it, and you can release when you are ready. Anyway, it is very unlikely that others will understand your code and publish before you without involving you in a collaboration. Sharing is a form of publishing.
 - Exposes possibly "ugly code"
 > In practice almost nobody will judge the quality of your code.
 - Others may find bugs
 > Isn't this good? Would you not like to use a code which gives people the chance to locate bugs?
+>
+> If you don't release, people will assume there are bugs anyway.
+
 - Others may require support and ask too many questions
 > This can become a problem: use tools and community and protect your time.
+>
+> You aren't required to support anyone.
+
+
 - Fear of losing control over the direction of the project
 > Open source does not mean everybody can change **your version**.
 - "Bad" derivative projects may appear
