@@ -109,7 +109,7 @@ However a study showed that despite these policies, many people still do not sha
 - Do not lock yourself out of own code
 - Attract developers who want to be able to show the coding work on their CVs
 - Tightly regulated domains require open source
-- OSS can lead to more engagement from industry which may lead to more impact
+- Open-source software (OSS) can lead to more engagement from industry which may lead to more impact
 - If it's not open, it is not likely to become standard
 
 ## Code reusability
