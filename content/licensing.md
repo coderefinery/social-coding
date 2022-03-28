@@ -51,7 +51,10 @@ Is this derivative work?
 - The whole point of this talk is to make sure that **you can make and publish derivative works**
   and **others can make and publish derivative works from you**
 
-```{discussion} Which of these is derivative work?
+```{discussion} Licensing-1: Understand a derivative work
+
+Which of these is derivative work?
+
 1. Download some code from a website and add on to it
 2. Download some code and use one of the functions in your code
 3. Changing code you got from somewhere
@@ -186,7 +189,9 @@ License text, slides, images, and supporting information under a
 Services for sharing and collaborating on research data: <https://coderefinery.org/reproducible-research/sharing/#services-for-sharing-and-collaborating-on-research-data>
 ```
 
-```{challenge} Exercises
+## Exercises: licensing
+
+```{challenge} Licensing-2: Consider some common licensing situations
 1. What is the StackOverflow license for code you copy and paste?
 2. A journal requests that you release your software during publication. You have
    copied a portion of the code from another package, which you have forgotten.

@@ -18,7 +18,9 @@ Get an overview of motivations and benefits for sharing and reusing code.
 - The goal is maximum visibility and maximum reuse.
 - The more interesting science is done referencing my paper, the better for me.
 
-```{discussion} Discussion in HackMD
+### Discussion: basics of sharing
+
+```{discussion} Social-1: Think about if and how you share
 - Did you ever share your code? If yes, what motivated you? Come up with 
   **reasons for sharing** your scripts/code/data
 - Also think about **reasons for not sharing**
@@ -156,7 +158,7 @@ When you find a repository with code you would like to reuse, you may look at th
 
 ... most of which you have or will learn during this [CodeRefinery](https://coderefinery.org) workshop!
 
-```{challenge} Exercises (15 min)
+```{exercise} Social-2: Discuss what our "recipe" repository needs to be shareable (15 min)
 Let's go back to the repository `recipe` we have created at the beginning of this CodeRefinery workshop. This repository contains a guacamole recipe and we would like you to think about what you could add in your repository to improve its reusability and encourage external contributions. Using the list given above, pick the items (one or two) you think are the most important. 
 
 If you have not created this repository, you can fork the coderefinery [recipe](https://github.com/coderefinery/recipe).

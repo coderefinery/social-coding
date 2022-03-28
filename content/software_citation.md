@@ -12,7 +12,7 @@ Learn about software citation.
 ## Software citation
 
 
-```{discussion}
+```{discussion} Citation-1: Explain how you currently cite software
 - Do you cite software that you use? How?
 - If I wanted to cite your code/scripts, what would I need to do?
 ```
@@ -56,7 +56,9 @@ date-released: 2018-10-24
 For a discussion of FAIR in the context of software, see <https://softdev4research.github.io/4OSS-lesson/>.
 
 
-```{discussion}
+## Final discussion
+
+```{discussion} Citation-2: Consider the overall picture of your code
 - Who owns the code that you write?
 - Does your code/script have a license?
 - Can you take your own code with you after the PhD?
