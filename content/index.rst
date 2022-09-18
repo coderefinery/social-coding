@@ -36,7 +36,6 @@ how software can be cited.
    :caption: Reference
 
    exercises
-   quick-reference
    guide
 
 
