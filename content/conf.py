@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = "Social coding"
-copyright = "2021, CodeRefinery team"
+copyright = "CodeRefinery team"
 author = "CodeRefinery team"
 github_user = "coderefinery"
 github_repo_name = "social-coding"  # auto-detected from dirname if blank
