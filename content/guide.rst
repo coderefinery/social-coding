@@ -1,2 +1,0 @@
-Instructor's guide
-------------------
