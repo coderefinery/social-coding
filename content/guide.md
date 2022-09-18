@@ -23,17 +23,15 @@ There are the following main acts:
 
 - A bit of details on free software and choosing a license. There are many
   online resources, and the biggest
-  question is permissive vs. weak copyleft vs. strong copyleft. The cake analogy
-  for licenses is only linked can be skipped and does not have to be discussed in detail.
+  question is permissive vs. weak copyleft vs. strong copyleft. The [cake analogy
+  for licenses](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-coding/main/licensing-and-cakes.md/) is only linked
+  and can be skipped and does not have to be discussed in detail.
 
 - Finally a brief section on code citations. It's good if you manage to start a discussion
   around this topic.
 
 
 ## Hints
-
-In the source code, in HTML comments, are various hints and stories
-you can give. These can help to motivate reasons to license.
 
 Before you begin, it's worth thinking about some particular good or
 bad cases you know about from your experience.
