@@ -33,10 +33,11 @@ how software can be cited.
    :maxdepth: 1
    :caption: Reference
 
+   further-reading
    exercises
    quick-reference
    guide
-   further-reading
+
 
 
 .. _learner-personas:
