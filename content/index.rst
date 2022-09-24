@@ -9,14 +9,13 @@ how software can be cited.
    No computational prerequisites required for this lesson.
 
 
-
 .. csv-table::
    :widths: auto
    :delim: ;
 
    25 min ; :doc:`social_coding`
-   25 min ; :doc:`licensing`
-   25 min ; :doc:`software_citation`
+   20 min ; :doc:`licensing`
+   15 min ; :doc:`software_citation`
 
 
 .. toctree::
@@ -29,16 +28,6 @@ how software can be cited.
    software_citation
 
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Reference
-
-   further-reading
-   exercises
-   guide
-
-
-
 .. _learner-personas:
 
 Who is the course for?
@@ -48,15 +37,19 @@ Who is the course for?
 * Someone who wants to incorporate other code/libraries into their own projects
 * Group leader who wants to decide how to balance openness and long-term strategy
 
-About the course
-----------------
 
-* Social coding
-* Licensing
-* Software citation
+.. toctree::
+   :maxdepth: 1
+   :caption: Reference
+
+   further-reading
+   exercises
+   guide
+
 
 Credits
 -------
+
 Radovan Bast, Richard Darst, Sabry Razick, Jyry Suvilehto
 
 Thanks for great suggestions/corrections: Anne Fouilloux, Oxana Smirnova, Lucy Whalley
