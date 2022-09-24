@@ -1,9 +1,8 @@
-# Social Coding
+# Social coding
 
 ```{questions}
-- What are the benefits of sharing code?
+- What are benefits and risks of sharing code?
 - What is social coding?
-
 ```
 
 ```{objectives}
