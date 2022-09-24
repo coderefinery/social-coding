@@ -150,9 +150,10 @@ Different ways we can benefit from sharing code.
 
 - Sharing code and encouraging *derivative work* may boost your academic impact.
 
-## Journal policy as motivation for sharing
 
-[From Science editorial policy:](https://www.sciencemag.org/authors/science-journals-editorial-policies)
+## Journal policies as motivation for sharing
+
+From [Science editorial policy](https://www.sciencemag.org/authors/science-journals-editorial-policies):
 > "We require that **all computer code used for modeling and/or data analysis**
 > that is not commercially available be deposited in a **publicly accessible repository**
 > upon publication. In rare exceptional cases where security
@@ -160,7 +161,7 @@ Different ways we can benefit from sharing code.
 > arrangements that still facilitate reproduction of the work should be
 > discussed with your Editor no later than the revision stage."
 
- [From Nature editorial policy:](https://www.nature.com/authors/policies/availability.html)
+From [Nature editorial policy](https://www.nature.com/authors/policies/availability.html):
 > "An inherent principle of publication is that others should be able to
 > replicate and build upon the authors' published claims. A condition of
 > publication in a Nature Research journal is that authors are required to make
@@ -170,10 +171,13 @@ Different ways we can benefit from sharing code.
 > submission. Any restrictions must also be disclosed in the submitted
 > manuscript."
 
-However a study showed that despite these policies, many people still do not share their code 😞 : [https://www.pnas.org/content/115/11/2584](https://www.pnas.org/content/115/11/2584). This paper includes samples of charming author responses such as
+However [a study](https://www.pnas.org/content/115/11/2584) showed that despite
+these policies, many people still do not share their code 😞.  This paper
+includes samples of charming author responses such as:
 > "When you approach a PI for the source codes and raw data, you better explain
 > who you are, whom you work for, why you need the data and what you are going
 > to do with it."
+
 
 ## Social coding
 
