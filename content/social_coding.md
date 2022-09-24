@@ -12,7 +12,11 @@ Get an overview of motivations and benefits for sharing and reusing code.
 
 ## Sharing papers and academic credit
 
-<img src="../img/sharing-papers-upright.jpg" style="width: 80%;"/>
+```{figure} img/sharing-papers.jpg
+:alt: Image shows that we are motivated sharing our published papers since we get rewarded with academic credit in form of citations
+
+Citation as one form of academic credit to motivate sharing papers.
+```
 
 - The goal is maximum visibility and maximum reuse.
 - The more interesting science is done referencing my paper, the better for me.
@@ -65,7 +69,11 @@ Get an overview of motivations and benefits for sharing and reusing code.
 
 ## Sharing is caring
 
-<img src="../img/sharing-code-upright.jpg" style="width: 80%;"/>
+```{figure} img/sharing-code.jpg
+:alt: Getting improvements back and also getting citations can motivate us to share code
+
+Different ways we can benefit from sharing code.
+```
 
 > "I did all the ground work and they get to do the interesting science?"
 
@@ -98,7 +106,11 @@ However a study showed that despite these policies, many people still do not sha
 
 ## Social coding
 
-<img src="../img/in-out-upright.jpg" style="width: 100%;"/>
+```{figure} img/in-out.jpg
+:alt: Our work depends on ideas, articles, data, and software
+
+Whether and what we can share depends on how we obtained the components.
+```
 
 - Whether you can share your output depends on how you obtained your input.
 - **Software licenses** matter.
