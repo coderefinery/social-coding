@@ -13,7 +13,7 @@ how software can be cited.
    :widths: auto
    :delim: ;
 
-   25 min ; :doc:`social_coding`
+   25 min ; :doc:`social-coding`
    20 min ; :doc:`licensing`
    15 min ; :doc:`software_citation`
 
@@ -23,7 +23,7 @@ how software can be cited.
    :caption: The lesson
    :hidden:
 
-   social_coding
+   social-coding
    licensing
    software_citation
 

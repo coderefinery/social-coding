@@ -51,25 +51,43 @@ Is this derivative work?
 - The whole point of this talk is to make sure that **you can make and publish derivative works**
   and **others can make and publish derivative works from you**
 
-```{discussion} Licensing-1: Understand a derivative work
 
-Which of these is derivative work?
+```{instructor-note}
+This question 4 below can be used as a starting point and copied to the collaborative
+document or form input for an online poll:
+```
 
-1. Download some code from a website and add on to it
-2. Download some code and use one of the functions in your code
-3. Changing code you got from somewhere
-4. Extending code you got from somewhere
-5. Completely rewriting code you got from somewhere
-6. Rewriting code to a different programming language
-7. Linking to libraries (static or dynamic), plug-ins, and drivers
-8. Clean room design (somebody explains you the code but you have never seen it)
-9. You read a paper, understand algorithm, write own code
+```markdown
+## Question 4: Which of these are derivative works?
+
+- A. Download some code from a website and add on to it
+- B. Download some code and use one of the functions in your code
+- C. Changing code you got from somewhere
+- D. Extending code you got from somewhere
+- E. Completely rewriting code you got from somewhere
+- F. Rewriting code to a different programming language
+- G. Linking to libraries (static or dynamic), plug-ins, and drivers
+- H. Clean room design (somebody explains you the code but you have never seen it)
+- I. You read a paper, understand algorithm, write own code
+
+**Choose many**. Vote by adding an `o` character:
+- A:
+- B:
+- C:
+- D:
+- E:
+- F:
+- G:
+- H:
+- I:
 ```
-```{solution} Solution
-Derivative work: 1-6
-Not derivative work: 7,8 and 9.
-6 (and 5): This depends on how you do it, see clean room design.
+
+```{solution}
+- Derivative work: A-F
+- Not derivative work: G-I
+- E and F: This depends on how you do it, see clean room design.
 ```
+
 
 ## Why could allowing derivative work be good for you as researcher?
 
@@ -218,3 +236,13 @@ Services for sharing and collaborating on research data: <https://coderefinery.o
 - Always add a license
 
 ```
+
+
+## Notes that were previously in the README
+
+These will be incorporated into above text/lesson:
+- https://choosealicense.com/
+- https://opensource.guide/legal/#which-open-source-license-is-appropriate-for-my-project
+- Permissive: gives the public permission to use, modify, and share, without any condition for downstream licensing
+- If the licenses of dependencies are permissive, one may use any open license they want.
+- If the licenses of dependencies are strong copyleft, one must use the same license.
