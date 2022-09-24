@@ -1,8 +1,8 @@
 Social coding
 ==============
 
-In this lesson we will discuss how and why to share code, what kind of licenses are used in what situation and 
-how software can be cited. 
+In this lesson we will discuss how and why to share code, what kind of licenses are used in what situation and
+how software can be cited.
 
 .. prereq::
 

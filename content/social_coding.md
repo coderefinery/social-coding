@@ -21,7 +21,7 @@ Get an overview of motivations and benefits for sharing and reusing code.
 ### Discussion: basics of sharing
 
 ```{discussion} Social-1: Think about if and how you share
-- Did you ever share your code? If yes, what motivated you? Come up with 
+- Did you ever share your code? If yes, what motivated you? Come up with
   **reasons for sharing** your scripts/code/data
 - Also think about **reasons for not sharing**
 ```
@@ -76,7 +76,7 @@ Get an overview of motivations and benefits for sharing and reusing code.
 
 [From Science editorial policy:](https://www.sciencemag.org/authors/science-journals-editorial-policies)
 > "We require that **all computer code used for modeling and/or data analysis**
-> that is not commercially available be deposited in a **publicly accessible repository** 
+> that is not commercially available be deposited in a **publicly accessible repository**
 > upon publication. In rare exceptional cases where security
 > concerns or competing commercial interests pose a conflict, code-sharing
 > arrangements that still facilitate reproduction of the work should be
@@ -134,36 +134,36 @@ What contributes to you being able to reuse stuff that others make, and others (
 
 When you find a repository with code you would like to reuse, you may look at the following things to determine its reusability:
 
-- Date of last code change 
+- Date of last code change
 > ... is the project abandoned?
-- Release history 
+- Release history
 > ... how about stability and backwards-compatibility?
-- Versioning 
+- Versioning
 > ... will it be painful to upgrade?
-- Number of open pull requests and issues 
+- Number of open pull requests and issues
 > ... are they followed-up?
-- Installation instructions 
+- Installation instructions
 > ... will it be difficult to get it running?
-- Example 
+- Example
 > ... will it be difficult to get started?
-- License 
+- License
 > ... am I allowed to use it?
-- Contribution guide 
+- Contribution guide
 > ... how to contribute and decision process?
 - Code of Conduct
 > ... how to make clear which behaviors are unacceptable and discouraged? How violations of Code of Conduct will be handled?
-- Trust and community 
+- Trust and community
 > ... somebody you trust recommended it?
 
 
 ... most of which you have or will learn during this [CodeRefinery](https://coderefinery.org) workshop!
 
 ```{exercise} Social-2: Discuss what our "recipe" repository needs to be shareable (15 min)
-Let's go back to the repository `recipe` we have created at the beginning of this CodeRefinery workshop. This repository contains a guacamole recipe and we would like you to think about what you could add in your repository to improve its reusability and encourage external contributions. Using the list given above, pick the items (one or two) you think are the most important. 
+Let's go back to the repository `recipe` we have created at the beginning of this CodeRefinery workshop. This repository contains a guacamole recipe and we would like you to think about what you could add in your repository to improve its reusability and encourage external contributions. Using the list given above, pick the items (one or two) you think are the most important.
 
 If you have not created this repository, you can fork the coderefinery [recipe](https://github.com/coderefinery/recipe).
 
-When online, this exercise is done in breakout rooms where we encourage learners to take 2-3 minutes at the end (before returning to the main room) to exchange on their choices and have a look at your colleagues' repositories. Did you all pick the same items? 
+When online, this exercise is done in breakout rooms where we encourage learners to take 2-3 minutes at the end (before returning to the main room) to exchange on their choices and have a look at your colleagues' repositories. Did you all pick the same items?
 ```
 ````{solution} Solution
 - Add a license: it is usually advisable to add a license at the creation of your repository but if you haven't, [https://choosealicense.com/](https://choosealicense.com/) can guide you through the process. You may add the license by copying the license text into a LICENSE file in your repository or use the Suggest this license section on choosealicense.com by entering the link to your repository on the website.
