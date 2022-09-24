@@ -1,20 +1,23 @@
 # Social coding
 
-```{questions}
-- What are benefits and risks of sharing code?
-- What is social coding?
-```
-
 ```{objectives}
-Get an overview of motivations and benefits for sharing and reusing code.
+Get an overview of motivations, benefits, but also risks of sharing and reusing code.
 ```
 
 
-## Questions/poll as a start
+## Discussion/questions/poll: basics of sharing
 
 ```{instructor-note}
 These questions 1-3 below can be used as a starting point and copied to the collaborative
-document or form input for an online poll:
+document or form input for an online poll.
+
+Alternatively, they can be discussed in voice or free-form text (discussion box below).
+```
+
+```{discussion} Social-1: Think about if and how you share
+- Did you ever share your code? If yes, what motivated you? Come up with
+  **reasons for sharing** your scripts/code/data
+- Also think about **reasons for not sharing**
 ```
 
 ```markdown
@@ -86,8 +89,6 @@ Free entry of answers:
 
 
 
-
-
 ## Sharing papers and academic credit
 
 ```{figure} img/sharing-papers.jpg
@@ -98,14 +99,6 @@ Citation as one form of academic credit to motivate sharing papers.
 
 - The goal is maximum visibility and maximum reuse.
 - The more interesting science is done referencing my paper, the better for me.
-
-### Discussion: basics of sharing
-
-```{discussion} Social-1: Think about if and how you share
-- Did you ever share your code? If yes, what motivated you? Come up with
-  **reasons for sharing** your scripts/code/data
-- Also think about **reasons for not sharing**
-```
 
 ## Sharing software
 
