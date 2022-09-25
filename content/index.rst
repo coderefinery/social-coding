@@ -15,7 +15,7 @@ how software can be cited.
 
    25 min ; :doc:`social-coding`
    20 min ; :doc:`licensing`
-   15 min ; :doc:`software_citation`
+   15 min ; :doc:`software-citation`
 
 
 .. toctree::
@@ -25,7 +25,7 @@ how software can be cited.
 
    social-coding
    licensing
-   software_citation
+   software-citation
 
 
 .. _learner-personas:
