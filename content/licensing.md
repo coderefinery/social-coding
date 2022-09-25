@@ -1,23 +1,27 @@
 # Licensing
 
 ```{questions}
-* What is intellectual property/copyright/derivative work?
-* What is free software?
-* What types of licenses exist?
+- What is intellectual property/copyright/derivative work?
+- What is free software?
+- What types of licenses exist?
 ```
 
 ```{objectives}
-* Get familiar with terminology around licensing
-* Discuss what is and is not derivative work
+- Get familiar with terminology around licensing
+- Discuss what is and is not derivative work
 ```
 
-## Intellectual property (IP)
 
-<img src="../img/tate.jpg" style="width: 40%;"/>
+## Intellectual property
 
-- Patent: **Protects a *novel, non-obvious, technical invention*.**
-- **Copyright**: Protects creative expression: software, writing, graphics, photos, certain datasets, this presentation.
-- Trademark: **Protects a name/brand from impersonation.**
+```{figure} img/tate.jpg
+:alt: Photo of somebody taking a photo of an artwork that contains the text "WHO OWNS WHAT?"
+```
+
+- **Trademark**: Protects a name/brand from impersonation.
+- **Patent**: Protects a novel, non-obvious, technical invention.
+- **Copyright**: Protects **creative expression**: software, writing, graphics, photos, certain datasets, this presentation.
+
 
 ## Copyright
 
@@ -27,23 +31,22 @@
 - Time frame: essentially forever (lifetime + X years)
 
 When can you use:
-
 - When there is a **license** saying you can
 - Limited other cases (private use, fair use: context dependent)
 - In practice: people do many things, but then can't share their
-  output if copyright
+  output if license does not allow it or is not clarified
 
 **When we write or use software then copyright, licenses, and derivative works are important concepts**
 
+
 ## Derivative work: Changing, remixing, covering
 
-Is this derivative work?
+```{figure} img/rubik.jpg
+:alt: Images of Bob Marley and Mona Lisa made out of Rubik cubes
 
-<img src="../img/rubik.jpg" style="width: 70%;"/>
+Is this derivative work? ["Distillery District 26"](https://www.flickr.com/photos/dgriebeling/3851273590) CC-BY.
+```
 
-["Distillery District 26"](https://www.flickr.com/photos/dgriebeling/3851273590) CC-BY
-
-## Derivative work
 
 ### If you build on something, you form a derivative work
 
@@ -89,7 +92,7 @@ document or form input for an online poll:
 ```
 
 
-## Why could allowing derivative work be good for you as researcher?
+### Why could allowing derivative work be good for you as researcher?
 
 - **Quality** control: groups depending on your code will find bugs.
 - More applications.
@@ -99,6 +102,7 @@ document or form input for an online poll:
 - Long-term probably also **more papers** for you: new collaborations and projects.
 - Groups depending on your code will not want your code to disappear: they might **support you**,
   send improvements, and share maintenance load.
+
 
 ## What is free software?
 
@@ -112,83 +116,96 @@ document or form input for an online poll:
 ### Typical confusion
 
 - Free software does not mean that software is for free
-- Open source license does not mean you need to share everything immediately (share master branch, put unpublished code on a fork)
+- Open source license does not mean you need to share everything immediately (share main branch, put unpublished code on a fork)
 - Open source does not mean public domain: software in the public domain has no owner
 - Open source does not mean non-commercial: plenty of companies produce and support it
 
+
 ## Taxonomy of software licenses
 
-**1. Custom/closed**
+**1. Custom/closed/proprietary**
 
 - Derivative work typically not possible
 
 **2. Permissive (MIT, BSD, Apache)**
 
-<img src="../img/MIT.png" style="width: 70%;"/>
-Image unchanged from https://choosealicense.com/
-
 - Derivative work does not have to be shared
+
+```{figure} img/MIT.png
+:alt: Permissions, conditions, and limitations of the MIT license
+
+Example: Permissions, conditions, and limitations of the MIT license. Unchanged from <https://choosealicense.com/>.
+```
 
 **3. Weak copyleft share-alike (LGPL, MPL)**
 
-<img src="../img/GNU_LGPL_v3.png" style="width: 70%;"/>
-Image unchanged from https://choosealicense.com/
-
 - Derivative work is free software but is limited to the component
+
+```{figure} img/GNU_LGPL_v3.png
+:alt: Permissions, conditions, and limitations of the LGPL license
+
+Example: Permissions, conditions, and limitations of the LGPL license. Unchanged from <https://choosealicense.com/>.
+```
 
 **4. Strong copyleft share-alike (GPL, AGPL)**
 
-<img src="../img/GNU_GPL_v3.png" style="width: 70%;"/>
-Image unchanged from https://choosealicense.com/
-
 - Derivative work is free software and derivative work extends to the combined project
 
-If you would like to learn more check out [Software licensing and open source explained with cakes](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-coding/main/licensing-and-cakes.md/)
+```{figure} img/GNU_GPL_v3.png
+:alt: Permissions, conditions, and limitations of the GPL license
+
+Example: Permissions, conditions, and limitations of the GPL license. Unchanged from <https://choosealicense.com/>.
+```
+
+If you would like to learn more about licenses, check out our slide deck ["Software licensing
+and open source explained with
+cakes"](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-coding/main/licensing-and-cakes.md/).
+
 
 ## Licencing and ownership
 
 **Who can decide about or change a license?**
-
 - The copyright holder
 
 **Who owns the copyright for software you write?**
-
 - **Intellectual property depends on the country and the employer!**
 - So-called works made for hire.
 
 **If you own your software:**
-
 - You can change the license.
 - You can dual-license (e.g. GPL for anyone, but you can pay for commercial non-GPL).
 
 **If you do not own your software, you can:**
-
 - Request open-sourcing directly (preserves your rights!).
 - Request a transfer of ownership (check with your university).
 
 **If you accept contributions (pull requests), you may not be the only owner anymore!**
-
 - Clarify licensing strategy **before** - otherwise you won't have
   all rights to your code.
+
 
 ## Practical recommendations for licenses
 
 - **You cannot ignore licensing**: default is "no one can make copies or
   derivative works".
 - License your code **very early** in the project:
-  ideally develop publicly accessible open source code **from day one**. Start with a `README.md` and a `LICENSE`. Use github recommendation or/and [Choose an open source license](https://choosealicense.com/)
-- Add also the files `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`. See [Mozilla Introduction to Contributor Guidelines](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-contributor-guidelines/) and/or good example: https://github.com/KirstieJane/STEMMRoleModels
-- Emphasize open source nature of the code output in your research proposal.
+  ideally develop publicly accessible open source code **from day one**.
+  Start with a `README.md` and a `LICENSE`. Use GitHub recommendation or/and
+  [Choose an open source license](https://choosealicense.com/).
+- Add also the files `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`. See [Mozilla
+  Introduction to Contributor
+  Guidelines](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-contributor-guidelines/).
+  Good example: <https://github.com/KirstieJane/STEMMRoleModels>
+- Emphasize the open source nature of the code output in your research proposal.
 - Take an [OSI](https://opensource.org/licenses)-approved license: makes it easier to evaluate
   [compatibility](https://en.wikipedia.org/wiki/License_compatibility).
-- Add a `LICENSE` file to your repository.
 - **Do not design your own custom licenses** for open source/ open use: compatibility not clear.
 - Open source your code to make sure you are not locked out of your own code if you don't own it
   once you change affiliation.
 
-```{discussion} Datasets
+```{note}
+## How about datasets and databases?
 
-What:
 - The EU has a [database directive](https://en.wikipedia.org/wiki/Database_Directive) which restricts data mining on
   databases.
 - Has a somewhat similar effect to copyright, because copyright would
@@ -202,9 +219,10 @@ When you can use datasets:
 
 License text, slides, images, and supporting information under a
 [Creative Commons license](https://creativecommons.org/licenses/), and get a DOI using
-[Zenodo](https://zenodo.org) or [Figshare](https://figshare.com).
+[Zenodo](https://zenodo.org) or [Figshare](https://figshare.com) or other services.
 
-Services for sharing and collaborating on research data: <https://coderefinery.org/reproducible-research/sharing/#services-for-sharing-and-collaborating-on-research-data>
+Services for sharing and collaborating on research data:
+<https://coderefinery.org/reproducible-research/sharing/#services-for-sharing-and-collaborating-on-research-data>
 ```
 
 ## Exercises: licensing
