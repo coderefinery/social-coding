@@ -45,11 +45,3 @@ Who is the course for?
    further-reading
    exercises
    guide
-
-
-Credits
--------
-
-Radovan Bast, Richard Darst, Sabry Razick, Jyry Suvilehto
-
-Thanks for great suggestions/corrections: Anne Fouilloux, Oxana Smirnova, Lucy Whalley
