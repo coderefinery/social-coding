@@ -56,10 +56,11 @@ Is this derivative work? ["Distillery District 26"](https://www.flickr.com/photo
   and **others can make and publish derivative works from you**
 
 
-```{instructor-note}
+### Exercise: derivative work
+
+````{exercise} Licensing-1: What constitutes derivative work?
 This question 4 below can be used as a starting point and copied to the collaborative
 document or form input for an online poll:
-```
 
 ```markdown
 ## Question 4: Which of these are derivative works?
@@ -91,6 +92,7 @@ document or form input for an online poll:
 - Not derivative work: G-I
 - E and F: This depends on how you do it, see clean room design.
 ```
+````
 
 
 ### Derivative work and containers
@@ -244,9 +246,9 @@ Services for sharing and collaborating on research data:
 ```
 
 
-## Exercises: licensing
+## Exercise: licensing situations
 
-```{challenge} Licensing-2: Consider some common licensing situations
+````{exercise} Licensing-2: Consider some common licensing situations
 1. What is the StackOverflow license for code you copy and paste?
 2. A journal requests that you release your software during publication. You have
    copied a portion of the code from another package, which you have forgotten.
@@ -257,8 +259,8 @@ Services for sharing and collaborating on research data:
 6. You do the same as above but add in another license that looks viral. What possible licenses can you use now?
 7. Do licenses apply if you don't distribute your code? Why or why not?
 8. Which licenses are most/least attractive for companies with proprietary software?
-```
-```{solution} Solution
+
+```{solution}
 1. As indicated [here](https://stackoverflow.com/help/licensing), all publicly accessible user contributions are licensed under [Creative Commons Attribution-ShareAlike](https://creativecommons.org/licenses/by-sa/4.0/) license. See Stackoverflow [Terms of service](https://stackoverflow.com/legal/terms-of-service/public#licensing) for more detailed information.
 2. "Standard" licensing rules apply. So in this case, you would need to remove the portion of code you have copied from another package before being able to release your software.
 3. By default you are no authorized to use the content of a repository when there is no license. And derivative work is also not possible by default. Other risks: it may not be clear whether you can use and distribute (publish) the bugfixed code. For the repo owners it may not be clear whether they can use and distributed the bugfixed code. However, the authors may have forgotten to add a license so we suggest you to contact the authors (e.g. make an issue) and ask whether they are willing to add a license.
@@ -268,6 +270,7 @@ Services for sharing and collaborating on research data:
 7. If you keep your code for yourself, you may think you do not need a license. However, remember that in most companies/universities, your employer is "owning" your work and when you leave you may not be allowed to "distribute your code to your future self". So the best is always to add a license!
 8. The least attractive licenses for companies with proprietary software are licenses where you would need to keep an open license when creating derivative work. For instance GPL and and AGPL. The most attractive licenses are permissive licenses where they can reuse, modify and relicense with no conditions. For instance MIT, BSD and Apache License.
 ```
+````
 
 
 ## Further reading
