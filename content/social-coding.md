@@ -1,14 +1,15 @@
 # Social coding
 
 ```{objectives}
-Get an overview of motivations, benefits, but also risks of sharing and reusing code.
+- Get an overview of motivations, benefits, but also risks of sharing and reusing code.
+- Learn to identify whether you can use other peoples software.
 ```
 
 
 ## Discussion/questions/poll: basics of sharing
 
 ```{instructor-note}
-These questions 1-3 below can be used as a starting point and copied to the collaborative
+These questions 1-4 below can be used as a starting point and copied to the collaborative
 document or form input for an online poll.
 
 Alternatively, they can be discussed in voice or free-form text (discussion box below).
@@ -98,11 +99,7 @@ Free-form answers:
 ```
 
 
-
-
-
-
-## Sharing papers and academic credit
+## Comparing sharing papers and sharing code
 
 ```{figure} img/sharing-papers.jpg
 :alt: Image shows that we are motivated sharing our published papers since we get rewarded with academic credit in form of citations
@@ -110,48 +107,10 @@ Free-form answers:
 Citation as one form of academic credit to motivate sharing papers.
 ```
 
+Sharing papers and academic credit:
 - The goal is maximum visibility and maximum reuse.
 - The more interesting science is done referencing my paper, the better for me.
-
-## Sharing software
-
-### Benefits
-
-- Easier to find and reproduce (**scientific reproducibility**)
-- More trustworthy: others can verify correctness and find and report bugs
-- Enables others to build on top of your code (derivative work, **provided the license allows it**)
-- Others can submit features/improvements
-- Others can fix bugs
-- Many tools and apps are free for open source
-  ([GitHub](https://github.com), [Travis CI](https://travis-ci.org),
-  [Appveyor](https://www.appveyor.com), [Read the Docs](https://readthedocs.org))
-- Good for your CV: you can show what you have built.  Shows that you
-  have useful skills.
-- Discourages competitors. If others can't build on your work, they will make competing work
-
-### Sharing is scary
-
-- Fear of being scooped
-> A license can avoid it, and you can release when you are ready. Anyway, it is very unlikely that others will understand your code and publish before you without involving you in a collaboration. Sharing is a form of publishing.
-- Exposes possibly "ugly code"
-> In practice almost nobody will judge the quality of your code.
-- Others may find bugs
-> Isn't this good? Would you not like to use a code which gives people the chance to locate bugs?
->
-> If you don't release, people will assume there are bugs anyway.
-
-- Others may require support and ask too many questions
-> This can become a problem: use tools and community and protect your time.
->
-> You aren't required to support anyone.
-
-
-- Fear of losing control over the direction of the project
-> Open source does not mean everybody can change **your version**.
-- "Bad" derivative projects may appear
-> It will be clear which is the official version.
-
-## Sharing is caring
+- Nobody actively tries to limit the reach of their papers.
 
 ```{figure} img/sharing-code.jpg
 :alt: Getting improvements back and also getting citations can motivate us to share code
@@ -159,8 +118,8 @@ Citation as one form of academic credit to motivate sharing papers.
 Different ways we can benefit from sharing code.
 ```
 
-> "I did all the ground work and they get to do the interesting science?"
-
+Sharing code:
+- "I did all the ground work and they get to do the interesting science?"
 - Sharing code and encouraging *derivative work* may boost your academic impact.
 
 
@@ -192,19 +151,13 @@ includes samples of charming author responses such as:
 > to do with it."
 
 
-## Social coding
+## Benefits of sharing software
 
-```{figure} img/in-out.jpg
-:alt: Our work depends on ideas, articles, data, and software
-
-Whether and what we can share depends on how we obtained the components.
+```{instructor-note}
+We revisit answers to question 1 (above).
 ```
 
-- Whether you can share your output depends on how you obtained your input.
-- **Software licenses** matter.
-- Sometimes "OTHERS" are you yourself in the future in a different group/job.
-
-## Motivation for open source software
+### Motivation for open source software
 
 - Enable derivative work
 - Do not lock yourself out of own code
@@ -213,25 +166,70 @@ Whether and what we can share depends on how we obtained the components.
 - Open-source software (OSS) can lead to more engagement from industry which may lead to more impact
 - If it's not open, it is not likely to become standard
 
+
+## Sharing software is also scary
+
+```{instructor-note}
+We revisit answers to question 2 (above).
+```
+
+- Fear of being scooped
+> A license can avoid it, and you can release when you are ready. Anyway, it is
+> very unlikely that others will understand your code and publish before you
+> without involving you in a collaboration. Sharing is a form of publishing.
+- Exposes possibly "ugly code"
+> In practice almost nobody will judge the quality of your code.
+- Others may find bugs and mistakes
+> Isn't this good? Would you not like to use a code which gives people the chance to locate bugs?
+> If you don't release, people will assume there are bugs anyway.
+- Others may require support and ask too many questions
+> This can become a problem: use tools and community and protect your time.
+> You aren't required to support anyone.
+- Fear of losing control over the direction of the project
+> Open source does not mean everybody can change **your version**.
+- "Bad" derivative projects may appear
+> It will be clear which is the official version.
+
+```{discussion} Social-2: Discussion about "You aren't required to support anyone"
+- Have you experienced an implicit expectation of support?
+- Supporting all requests can lead to overworking and mental health issues.
+- Not supporting requests can also induce guilt.
+- Most projects are maintained by 1 or 2 persons.
+- Most projects cannot retain contributors for a longer time. Interests change.
+  "Casual contributors are like tourists visiting NYC for a weekend" (Nadia
+  Asparouhova, book below).
+- If you maintain all projects that you start forever, at some point it may be difficult to start new projects.
+- What are your experiences? Do you agree with the above thoughts?
+- Book recommendation: Nadia Asparouhova (formerly Nadia Eghbal): "Working in
+  Public: The Making and Maintenance of Open Source Software (Stripe Press)"
+```
+
+
 ## Code reusability
 
 Should you reuse things that others have done?
 
 Types of things that can be reused:
-- Main libraries (e.g. numpy, scipy)
-- Special scientific libs
+- Main libraries (e.g. NumPy, SciPy)
+- Special scientific libraries
 - Random code from website
 - Copying from Stack Overflow
 
 Do you want others to reuse what you make?
 
-How do you turn your own small project into the next numpy? Do you want to?
+How do you turn your own small project into the next NumPy? Do you want to?
+
 
 ### What contributes to reusability?
 
-What contributes to you being able to reuse stuff that others make, and others (or you) being able to reuse your stuff?
+What contributes to you being able to reuse stuff that others make, and others
+(or you) being able to reuse your stuff?  When you find a repository with code
+you would like to reuse, you may look at the following things to determine its
+reusability:
 
-When you find a repository with code you would like to reuse, you may look at the following things to determine its reusability:
+```{instructor-note}
+This can be now reconnected to question 4 (above).
+```
 
 - Date of last code change
 > ... is the project abandoned?
@@ -249,13 +247,31 @@ When you find a repository with code you would like to reuse, you may look at th
 > ... am I allowed to use it?
 - Contribution guide
 > ... how to contribute and decision process?
-- Code of Conduct
+- Code of conduct
 > ... how to make clear which behaviors are unacceptable and discouraged? How violations of Code of Conduct will be handled?
 - Trust and community
 > ... somebody you trust recommended it?
 
+... most of which you have or will learn during this
+[CodeRefinery](https://coderefinery.org) workshop!
 
-... most of which you have or will learn during this [CodeRefinery](https://coderefinery.org) workshop!
+
+## Social coding
+
+```{figure} img/in-out.jpg
+:alt: Our work depends on ideas, articles, data, and software
+
+Whether and what we can share depends on how we obtained the components.
+```
+
+- Our work depends on outputs from others. Research of others depends on our outputs.
+- Whether you can share your output depends on how you obtained your input.
+- **Software licenses** matter.
+- Sometimes "OTHERS" are you yourself in the future in a different group/job.
+
+---
+
+(this needs to be moved to perhaps later in the lesson since it does not fit here yet)
 
 ```{exercise} Social-2: Discuss what our "recipe" repository needs to be shareable (15 min)
 Let's go back to the repository `recipe` we have created at the beginning of this CodeRefinery workshop. This repository contains a guacamole recipe and we would like you to think about what you could add in your repository to improve its reusability and encourage external contributions. Using the list given above, pick the items (one or two) you think are the most important.
@@ -269,8 +285,3 @@ When online, this exercise is done in breakout rooms where we encourage learners
 - Add a Code of Conduct: it is often complex to define your own code of conduct but you usually can reuse (or at least get inspired) by existing code of conduct; for instance, the [CodeRefinery Code of Conduct](https://coderefinery.org/about/code-of-conduct/). One important aspect of the code of conduct, is how you plan to deal with incidents.
 - Add installation instructions and examples, etc. See for instance [CodeRefinery installation instructions](https://coderefinery.github.io/installation/).
 ````
-
-```{keypoints}
-- Share your software, if you can
-- Learn to identify whether you can use other peoples software
-```

@@ -22,4 +22,4 @@
 - <https://opensource.google/docs/patching/#forbidden>
 - <https://opensource.google/docs/>
 - <https://opensource.guide/>
-
+- Nadia Asparouhova (formerly Nadia Eghbal): "Working in Public: The Making and Maintenance of Open Source Software (Stripe Press)"
