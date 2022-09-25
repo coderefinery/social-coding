@@ -207,7 +207,7 @@ cakes"](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-codin
   [compatibility](https://en.wikipedia.org/wiki/License_compatibility).
 - **Do not design your own custom licenses** for open source/ open use: compatibility not clear.
 - Open source your code to make sure you are not locked out of your own code if you don't own it
-  once you change affiliation.
+  once you change affiliation. For this, both permissive and copy-left licenses are good for this.
 - **Work as if the repo is public even though it is still private**:
   This is to avoid surprises about code in the history with incompatible
   license years later when we decide to open the project (thanks to E.
