@@ -174,10 +174,11 @@ and open source explained with
 cakes"](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-coding/main/licensing-and-cakes.md/).
 
 
-## Licencing and ownership
+## Licensing and ownership
 
 **Who can decide about or change a license?**
-- The copyright holder
+- The copyright holder if a separate "Contributor License Agreement" is signed. Otherwise
+  copyright holder provided they secure express consent from all the contributors.
 
 **Who owns the copyright for software you write?**
 - **Intellectual property depends on the country and the employer!**
