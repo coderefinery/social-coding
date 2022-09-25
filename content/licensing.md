@@ -131,6 +131,8 @@ document or form input for an online poll:
 **2. Permissive (MIT, BSD, Apache)**
 
 - Derivative work does not have to be shared
+- Permissive: gives the public permission to use, modify, and share, without any condition for downstream licensing
+- If the licenses of components are permissive, one may use any open license they want.
 
 ```{figure} img/MIT.png
 :alt: Permissions, conditions, and limitations of the MIT license
@@ -151,6 +153,7 @@ Example: Permissions, conditions, and limitations of the LGPL license. Unchanged
 **4. Strong copyleft share-alike (GPL, AGPL)**
 
 - Derivative work is free software and derivative work extends to the combined project
+- If the licenses of components are strong copyleft, one must use the same license
 
 ```{figure} img/GNU_GPL_v3.png
 :alt: Permissions, conditions, and limitations of the GPL license
@@ -262,6 +265,3 @@ Services for sharing and collaborating on research data:
 These will be incorporated into above text/lesson:
 - https://choosealicense.com/
 - https://opensource.guide/legal/#which-open-source-license-is-appropriate-for-my-project
-- Permissive: gives the public permission to use, modify, and share, without any condition for downstream licensing
-- If the licenses of dependencies are permissive, one may use any open license they want.
-- If the licenses of dependencies are strong copyleft, one must use the same license.
