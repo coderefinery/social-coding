@@ -93,6 +93,14 @@ document or form input for an online poll:
 ```
 
 
+### Derivative work and containers
+
+(I haven't found a discussion/paper on this so only speculating; please suggest changes/improvements)
+
+- Distribution of container recipes: it's like distributing source code
+- Distribution of container images: it's like distributing binary form
+
+
 ### Why could allowing derivative work be good for you as researcher?
 
 - **Quality** control: groups depending on your code will find bugs.
