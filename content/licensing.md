@@ -242,6 +242,7 @@ Services for sharing and collaborating on research data:
 <https://coderefinery.org/reproducible-research/sharing/#services-for-sharing-and-collaborating-on-research-data>
 ```
 
+
 ## Exercises: licensing
 
 ```{challenge} Licensing-2: Consider some common licensing situations
@@ -267,14 +268,28 @@ Services for sharing and collaborating on research data:
 8. The least attractive licenses for companies with proprietary software are licenses where you would need to keep an open license when creating derivative work. For instance GPL and and AGPL. The most attractive licenses are permissive licenses where they can reuse, modify and relicense with no conditions. For instance MIT, BSD and Apache License.
 ```
 
-```{keypoints}
-- Always add a license
 
-```
+## Further reading
 
-
-## Notes that were previously in the README
-
-These will be incorporated into above text/lesson:
-- https://choosealicense.com/
-- https://opensource.guide/legal/#which-open-source-license-is-appropriate-for-my-project
+- [Choosing an open-source licence](https://www.software.ac.uk/resources/guides/choosing-open-source-licence)
+- [Understanding Open Source and Free Software Licensing](http://www.oreilly.com/openbook/osfreesoft/)
+- [Software Licenses in Plain English](https://tldrlegal.com)
+- [Don's Bibliography of Ethical Source Reading and Resources](https://github.com/DEGoodmanWilson/Ethical-Resources)
+- [Mikko Välimäki: The Rise of Open Source Licensing](http://lib.tkk.fi/Diss/2005/isbn9529187793/isbn9529187793.pdf)
+- [Lawrence Rosen: Open Source Licensing](http://www.rosenlaw.com/oslbook.htm)
+- [Aalto IPR Cheatsheet](https://users.aalto.fi/~darstr1/cheatsheets/ipr-cheatsheet.pdf)
+- [Contributor License Agreements](https://jacobian.org/2009/sep/17/contributor-license-agreements/)
+- [4OSS recommendations](https://softdev4research.github.io/recommendations/)
+- [4OSS lesson](https://softdev4research.github.io/4OSS-lesson/)
+- [Intellectual Property Rights (IPR), Licensing And Patents](http://oss-watch.ac.uk/resources/ipr)
+- [Dispelling Open Source Confusion: An Introduction to Licenses](http://depth-first.com/articles/2006/12/29/dispelling-open-source-confusion-an-introduction-to-licenses/)
+- <https://choosealicense.com> (can send automatic pull request to your GitHub repo)
+- <https://hintjens.gitbooks.io/social-architecture/content/chapter2.html>
+- <http://rkd.zgib.net/scicomp/open-science/open-science.html>
+- Nadia Asparouhova (formerly Nadia Eghbal): "Working in Public: The Making and Maintenance of Open Source Software" (Stripe Press)
+- [Open Source Guides](https://opensource.guide/)
+- [The Architecture of Open Source Applications](http://aosabook.org)
+- Christopher M. Kelty: ["Two Bits: The Cultural Significance of Free Software"](https://twobits.net/) (Duke University Press, 2008)
+- [Open Source (Almost) Everything](http://tom.preston-werner.com/2011/11/22/open-source-everything.html)
+- [99 ways to ruin an open source project](http://opensoul.org/99ways/)
+- [Open Source Casebook](https://google.github.io/opencasebook/)

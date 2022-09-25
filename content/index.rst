@@ -42,6 +42,5 @@ Who is the course for?
    :maxdepth: 1
    :caption: Reference
 
-   further-reading
    exercises
    guide
