@@ -220,6 +220,7 @@ cakes"](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-codin
   This is to avoid surprises about code in the history with incompatible
   license years later when we decide to open the project (thanks to E.
   Glerean for this great suggestion).
+- Example for a [license file in a derivative project](https://opensource.stackexchange.com/a/5488).
 
 ```{note} How about datasets and databases?
 - The EU has a [database directive](https://en.wikipedia.org/wiki/Database_Directive) which restricts data mining on
