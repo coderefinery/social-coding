@@ -16,6 +16,7 @@
 
 ```{figure} img/tate.jpg
 :alt: Photo of somebody taking a photo of an artwork that contains the text "WHO OWNS WHAT?"
+:width: 70%
 ```
 
 - **Trademark**: Protects a name/brand from impersonation.
