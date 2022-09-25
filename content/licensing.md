@@ -203,9 +203,7 @@ cakes"](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-codin
 - Open source your code to make sure you are not locked out of your own code if you don't own it
   once you change affiliation.
 
-```{note}
-## How about datasets and databases?
-
+```{note} How about datasets and databases?
 - The EU has a [database directive](https://en.wikipedia.org/wiki/Database_Directive) which restricts data mining on
   databases.
 - Has a somewhat similar effect to copyright, because copyright would
