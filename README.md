@@ -8,3 +8,8 @@
 Autors of the original slide deck from which the current lesson evolved from:
 Radovan Bast, Richard Darst, Sabry Razick, Jyry Suvilehto.  Thanks for great
 suggestions/corrections: Anne Fouilloux, Oxana Smirnova, Lucy Whalley.
+
+
+## Cake analogy for licenses
+
+[Slides](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-coding/main/licensing-and-cakes.md/)
