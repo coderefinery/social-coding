@@ -191,8 +191,10 @@ cakes"](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-codin
   derivative works".
 - License your code **very early** in the project:
   ideally develop publicly accessible open source code **from day one**.
-  Start with a `README.md` and a `LICENSE`. Use GitHub recommendation or/and
-  [Choose an open source license](https://choosealicense.com/).
+- Start with a `README.md` and a `LICENSE` file.
+- Use GitHub recommendation or/and <https://choosealicense.com/>.
+- A great resource on what to include in a `README.md`,
+  are the [JOSS paper review criteria](https://joss.readthedocs.io/en/latest/review_criteria.html).
 - Add also the files `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`. See [Mozilla
   Introduction to Contributor
   Guidelines](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-contributor-guidelines/).
