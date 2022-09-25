@@ -266,8 +266,8 @@ Whether and what we can share depends on how we obtained the components.
 
 - Our work depends on outputs from others. Research of others depends on our outputs.
 - Whether you can share your output depends on how you obtained your input.
-- **Software licenses** matter.
 - Sometimes "OTHERS" are you yourself in the future in a different group/job.
+- **Software licenses** matter. And this is what we will discuss in the next episode.
 
 ---
 
