@@ -173,21 +173,22 @@ We revisit answers to question 1 (above).
 We revisit answers to question 2 (above).
 ```
 
-- Fear of being scooped
+- **Fear of being scooped**
 > A license can avoid it, and you can release when you are ready. Anyway, it is
 > very unlikely that others will understand your code and publish before you
 > without involving you in a collaboration. Sharing is a form of publishing.
-- Exposes possibly "ugly code"
+- **Exposes possibly "ugly code"**
 > In practice almost nobody will judge the quality of your code.
-- Others may find bugs and mistakes
+- **Others may find bugs and mistakes**
 > Isn't this good? Would you not like to use a code which gives people the chance to locate bugs?
 > If you don't release, people will assume there are bugs anyway.
-- Others may require support and ask too many questions
+- **Others may require support and ask too many questions**
 > This can become a problem: use tools and community and protect your time.
-> You aren't required to support anyone.
-- Fear of losing control over the direction of the project
+> You aren't required to support anyone. You can also "archive" a repository to disable
+> most forms of interaction (issues, PRs). Also a note in README on support level helps.
+- **Fear of losing control over the direction of the project**
 > Open source does not mean everybody can change **your version**.
-- "Bad" derivative projects may appear
+- **"Bad" derivative projects may appear**
 > It will be clear which is the official version.
 
 ```{discussion} Social-2: Discussion about "You aren't required to support anyone"
