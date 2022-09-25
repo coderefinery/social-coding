@@ -188,7 +188,7 @@ cakes"](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-codin
   all rights to your code.
 
 
-## Practical recommendations for licenses
+## Practical recommendations
 
 - **You cannot ignore licensing**: default is "no one can make copies or
   derivative works".
@@ -208,6 +208,10 @@ cakes"](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-codin
 - **Do not design your own custom licenses** for open source/ open use: compatibility not clear.
 - Open source your code to make sure you are not locked out of your own code if you don't own it
   once you change affiliation.
+- **Work as if the repo is public even though it is still private**:
+  This is to avoid surprises about code in the history with incompatible
+  license years later when we decide to open the project (thanks to E.
+  Glerean for this great suggestion).
 
 ```{note} How about datasets and databases?
 - The EU has a [database directive](https://en.wikipedia.org/wiki/Database_Directive) which restricts data mining on
