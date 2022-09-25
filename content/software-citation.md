@@ -1,16 +1,9 @@
 # Software citation
 
 ```{questions}
-* How can software be cited?
-* How can I make my software citeable?
+- How can software be cited?
+- How can I make my software citeable?
 ```
-
-```{objectives}
-Learn about software citation.
-```
-
-## Software citation
-
 
 ```{discussion} Citation-1: Explain how you currently cite software
 - Do you cite software that you use? How?
@@ -54,21 +47,3 @@ date-released: 2018-10-24
 (c) [Scriberia](http://www.scriberia.co.uk) for [The Turing Way](https://the-turing-way.netlify.com), CC-BY.
 
 For a discussion of FAIR in the context of software, see <https://softdev4research.github.io/4OSS-lesson/>.
-
-
-## Final discussion
-
-```{discussion} Citation-2: Consider the overall picture of your code
-- Who owns the code that you write?
-- Does your code/script have a license?
-- Can you take your own code with you after the PhD?
-- Are you using open source software in your work?
-- What are your thoughts about sharing software with your colleagues or competitors?
-```
-
-```{keypoints}
-- License your code **very early** in the project:
-  ideally develop publicly accessible open source code **from day one**.
-- Make it easy to cite your code ([Zenodo](https://zenodo.org))
-- Do not forget to cite code you use.
-```
