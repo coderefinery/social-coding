@@ -63,7 +63,7 @@ This question 4 below can be used as a starting point and copied to the collabor
 document or form input for an online poll:
 
 ```markdown
-## Question 4: Which of these are derivative works?
+## Question 5: Which of these are derivative works?
 
 - A. Download some code from a website and add on to it
 - B. Download some code and use one of the functions in your code
