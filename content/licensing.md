@@ -58,8 +58,8 @@ Is this derivative work? ["Distillery District 26"](https://www.flickr.com/photo
 
 ### Exercise: derivative work
 
-````{exercise} Licensing-1: What constitutes derivative work?
-This question 4 below can be used as a starting point and copied to the collaborative
+````{discussion} Licensing-1: What constitutes derivative work?
+This question 5 below can be used as a starting point and copied to the collaborative
 document or form input for an online poll:
 
 ```markdown
@@ -248,7 +248,7 @@ Services for sharing and collaborating on research data:
 
 ## Exercise: licensing situations
 
-````{exercise} Licensing-2: Consider some common licensing situations
+````{discussion} Licensing-2: Consider some common licensing situations
 1. What is the StackOverflow license for code you copy and paste?
 2. A journal requests that you release your software during publication. You have
    copied a portion of the code from another package, which you have forgotten.
