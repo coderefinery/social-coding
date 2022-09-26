@@ -41,7 +41,7 @@ Great list/summary: ["In which journals should I publish my software?" (Neil P. 
 - Assigned an appropriate license
 - Described the software using an appropriate metadata format
 - Clear version number
-- Credited the authors
+- Authors credited
 - Procured a persistent identifier
 - Added a recommended citation to the software documentation
 

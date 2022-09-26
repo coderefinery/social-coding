@@ -44,6 +44,7 @@ When can you use:
 
 ```{figure} img/rubik.jpg
 :alt: Images of Bob Marley and Mona Lisa made out of Rubik cubes
+:width: 60%
 
 Is this derivative work? ["Distillery District 26"](https://www.flickr.com/photos/dgriebeling/3851273590) CC-BY.
 ```
@@ -207,12 +208,12 @@ cakes"](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-codin
   ideally develop publicly accessible open source code **from day one**.
 - Start with a `README.md` and a `LICENSE` file.
 - Use GitHub recommendation or/and <https://choosealicense.com/>.
-- A great resource on what to include in a `README.md`,
+- A great resource on what to include in a `README.md`
   are the [JOSS paper review criteria](https://joss.readthedocs.io/en/latest/review_criteria.html).
-- Add also the files `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`. See [Mozilla
+- Add also the files `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md` (see [Mozilla
   Introduction to Contributor
-  Guidelines](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-contributor-guidelines/).
-  Good example: <https://github.com/KirstieJane/STEMMRoleModels>
+  Guidelines](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-contributor-guidelines/),
+  good example: <https://github.com/KirstieJane/STEMMRoleModels>).
 - Emphasize the open source nature of the code output in your research proposal.
 - Take an [OSI](https://opensource.org/licenses)-approved license: makes it easier to evaluate
   [compatibility](https://en.wikipedia.org/wiki/License_compatibility).

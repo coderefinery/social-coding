@@ -17,8 +17,8 @@ Alternatively, they can be discussed in voice or free-form text (discussion box 
 
 ```{discussion} Social-1: Think about if and how you share
 - Did you ever share your code? If yes, what motivated you? Come up with
-  **reasons for sharing** your scripts/code/data
-- Also think about **reasons for not sharing**
+  **reasons for sharing** your scripts/code/data.
+- Also think about **reasons for not sharing**.
 ```
 
 ```markdown
@@ -121,6 +121,7 @@ Different ways we can benefit from sharing code.
 Sharing code:
 - "I did all the ground work and they get to do the interesting science?"
 - Sharing code and encouraging *derivative work* may boost your academic impact.
+- But will your work be visible if it is used two levels deep down?
 
 
 ## Journal policies as motivation for sharing
@@ -217,7 +218,6 @@ Types of things that can be reused:
 - Copying from Stack Overflow
 
 Do you want others to reuse what you make?
-
 How do you turn your own small project into the next NumPy? Do you want to?
 
 
@@ -249,7 +249,7 @@ This can be now reconnected to question 4 (above).
 - Contribution guide
 > ... how to contribute and decision process?
 - Code of conduct
-> ... how to make clear which behaviors are unacceptable and discouraged? How violations of Code of Conduct will be handled?
+> ... how to make clear which behaviors are unacceptable and discouraged? How violations of Code of conduct will be handled?
 - Trust and community
 > ... somebody you trust recommended it?
 
@@ -267,5 +267,6 @@ Whether and what we can share depends on how we obtained the components.
 
 - Our work depends on outputs from others. Research of others depends on our outputs.
 - Whether you can share your output depends on how you obtained your input.
+- A repository that is private today might become public one day.
 - Sometimes "OTHERS" are you yourself in the future in a different group/job.
 - **Software licenses** matter. And this is what we will discuss in the next episode.
