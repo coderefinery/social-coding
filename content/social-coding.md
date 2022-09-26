@@ -180,6 +180,7 @@ We revisit answers to question 2 (above).
 > without involving you in a collaboration. Sharing is a form of publishing.
 - **Exposes possibly "ugly code"**
 > In practice almost nobody will judge the quality of your code.
+> "Software, once written, is never really finished" (N. Asparouhova).
 - **Others may find bugs and mistakes**
 > Isn't this good? Would you not like to use a code which gives people the chance to locate bugs?
 > If you don't release, people will assume there are bugs anyway.
