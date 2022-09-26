@@ -10,4 +10,7 @@ Any single teaching event will probably cover only a subset of these,
 depending on their interests.
 
 ```{exerciselist}
+---
+include: exercise, discussion, solution, challenge
+---
 ```
