@@ -38,6 +38,7 @@ Alternatively, they can be discussed in voice or free-form text (discussion box 
 - I: When publicly shared, usually we timestamp or set a version,
      so it is easier to refer to a specific version
 - J: You can reuse your own code later after change of job or affiliation
+- K: It encourages me to code properly from the start
 
 **Choose many**. Vote by adding an `o` character:
 - A:
@@ -50,6 +51,7 @@ Alternatively, they can be discussed in voice or free-form text (discussion box 
 - H:
 - I:
 - J:
+- K:
 
 
 ## Quesion 2: The most concerning thing for me, If I share my software now
