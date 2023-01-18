@@ -109,7 +109,7 @@ document or form input for an online poll:
 - **Quality** control: groups depending on your code will find bugs.
 - More applications.
 - Globally probably more papers (**more impact**).
-- If you make your code citeable, you can measure this impact and use this
+- If you make your code citable, you can measure this impact and use this
   in grant applications.
 - Long-term probably also **more papers** for you: new collaborations and projects.
 - Groups depending on your code will not want your code to disappear: they might **support you**,
