@@ -35,7 +35,7 @@ Alternatively, they can be discussed in voice or free-form text (discussion box 
 - G: Good for your CV: you can show what you have built
 - H: Discourages competitors. If others can't build on your work,
      they will make competing work
-- I: When publicly shared, usually we timestamp or set a version,
+- I: When publicly shared, usually we time-stamp or set a version,
      so it is easier to refer to a specific version
 - J: You can reuse your own code later after change of job or affiliation
 - K: It encourages me to code properly from the start
