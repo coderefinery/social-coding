@@ -24,58 +24,76 @@ Alternatively, they can be discussed in voice or free-form text (discussion box 
 ```markdown
 ## Question 1: Why would I want to share my scripts/code/data?
 
+**Choose many**. Vote by adding an `o` character:
+
 - A: Easier to find and reproduce (scientific reproducibility)
+  - votes:
+
 - B: More trustworthy: others can verify correctness and find and report bugs
+  - votes:
+
 - C: Enables others to build on top of your code
      (derivative work, provided the license allows it)
+  - votes:
+
 - D: Others can submit features/improvements
+  - votes:
+
 - E: Others can help fixing bugs
+  - votes:
+
 - F: Many tools and apps are free for open source, so no financial cost for this
      (GitHub, GitLab, Appveyor, Read the Docs)
+  - votes:
+
 - G: Good for your CV: you can show what you have built
+  - votes:
+
 - H: Discourages competitors. If others can't build on your work,
      they will make competing work
+  - votes:
+
 - I: When publicly shared, usually we time-stamp or set a version,
      so it is easier to refer to a specific version
-- J: You can reuse your own code later after change of job or affiliation
-- K: It encourages me to code properly from the start
+  - votes:
 
-**Choose many**. Vote by adding an `o` character:
-- A:
-- B:
-- C:
-- D:
-- E:
-- F:
-- G:
-- H:
-- I:
-- J:
-- K:
+- J: You can reuse your own code later after change of job or affiliation
+  - votes:
+
+- K: It encourages me to code properly from the start
+  - votes:
 
 
 ## Quesion 2: The most concerning thing for me, If I share my software now
 
--A: It will be scooped (stolen) by someone else
--B: It will expose my "ugly code"
--C: Others may find bugs and mistakes. What if the algorithm is wrong?
--D: I will get too many questions, I do not have time for that
--E: Losing control over the direction of the project
--F: Low quality copies will appear
--G: I won't be able to sell this later. Someone else will make money from it
--H: It is too early, I am just prototyping, I will write version to distribute later
--I: Worried about licensing and legal matters, as they are very complicated
-
 **Choose one**. Vote by adding an `o` character:
-- A:
-- B:
-- C:
-- D:
-- E:
-- F:
-- G:
-- H:
-- I:
+
+- A: It will be scooped (stolen) by someone else
+  - votes:
+
+- B: It will expose my "ugly code"
+  - votes:
+
+- C: Others may find bugs and mistakes. What if the algorithm is wrong?
+  - votes:
+
+- D: I will get too many questions, I do not have time for that
+  - votes:
+
+- E: Losing control over the direction of the project
+  - votes:
+
+- F: Low quality copies will appear
+  - votes:
+
+- G: I won't be able to sell this later. Someone else will make money from it
+  - votes:
+
+- H: It is too early, I am just prototyping, I will write version to distribute later
+  - votes:
+
+- I: Worried about licensing and legal matters, as they are very complicated
+  - votes:
 
 
 ## Question 3: Why is software often treated differently from papers?

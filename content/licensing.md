@@ -66,26 +66,34 @@ document or form input for an online poll:
 ```markdown
 ## Question 5: Which of these are derivative works?
 
-- A. Download some code from a website and add on to it
-- B. Download some code and use one of the functions in your code
-- C. Changing code you got from somewhere
-- D. Extending code you got from somewhere
-- E. Completely rewriting code you got from somewhere
-- F. Rewriting code to a different programming language
-- G. Linking to libraries (static or dynamic), plug-ins, and drivers
-- H. Clean room design (somebody explains you the code but you have never seen it)
-- I. You read a paper, understand algorithm, write own code
-
 **Choose many**. Vote by adding an `o` character:
-- A:
-- B:
-- C:
-- D:
-- E:
-- F:
-- G:
-- H:
-- I:
+
+- A. Download some code from a website and add on to it
+  - votes:
+
+- B. Download some code and use one of the functions in your code
+  - votes:
+
+- C. Changing code you got from somewhere
+  - votes:
+
+- D. Extending code you got from somewhere
+  - votes:
+
+- E. Completely rewriting code you got from somewhere
+  - votes:
+
+- F. Rewriting code to a different programming language
+  - votes:
+
+- G. Linking to libraries (static or dynamic), plug-ins, and drivers
+  - votes:
+
+- H. Clean room design (somebody explains you the code but you have never seen it)
+  - votes:
+
+- I. You read a paper, understand algorithm, write own code
+  - votes:
 ```
 
 ```{solution}
