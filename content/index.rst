@@ -17,8 +17,8 @@ navigating and deciding on licenses.
    :widths: auto
    :delim: ;
 
-   25 min ; :doc:`social-coding`
-   20 min ; :doc:`licensing`
+   15 min ; :doc:`social-coding`
+   30 min ; :doc:`licensing`
    15 min ; :doc:`software-citation`
 
 
