@@ -79,7 +79,7 @@ date-released: 2021-08-11
 
 ## How to cite software
 
-Great resources:
+```{admonition} Great resources
 - A. M. Smith, D. S. Katz, K. E. Niemeyer, and FORCE11 Software Citation
   Working Group, "Software citation principles," PeerJ Comput. Sci., vol. 2,
   no. e86, 2016 ([DOI](https://doi.org/10.7717/peerj-cs.86))
@@ -90,9 +90,12 @@ Great resources:
   Checklist for Authors (Version 0.9.0). Zenodo. 2019a. ([DOI](https://doi.org/10.5281/zenodo.3479199))
 - N. P. Chue Hong, A. Allen, A. Gonzalez-Beltran, et al., Software Citation
   Checklist for Developers (Version 0.9.0). Zenodo. 2019b. ([DOI](https://doi.org/10.5281/zenodo.3482769))
+```
 
 Recommended format for software citation is to ensure the following information
-is provided as part of the reference [Katz, Chue Hong, Clark, 2021](https://doi.org/10.12688/f1000research.26932.2):
+is provided as part of the reference (from [Katz, Chue Hong, Clark,
+2021](https://doi.org/10.12688/f1000research.26932.2) which also contains
+software citation examples):
 - Creator
 - Title
 - Publication venue
@@ -100,5 +103,3 @@ is provided as part of the reference [Katz, Chue Hong, Clark, 2021](https://doi.
 - Identifier
 - Version
 - Type
-
-For software citation examples please see [Katz, Chue Hong, Clark, 2021](https://doi.org/10.12688/f1000research.26932.2).
