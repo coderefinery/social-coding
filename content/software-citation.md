@@ -61,6 +61,7 @@ et al., Software Citation Checklist for Developers (Version 0.9.0). Zenodo.
 - Make it easy for scripts and tools: use the [Citation File Format](https://citation-file-format.github.io).
 - [GitHub now supports CITATION.cff files](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)
 - [Web form to create, edit, and validate CITATION.cff files](https://citation-file-format.github.io/cff-initializer-javascript/)
+- [Video: "How to create a CITATION.cff using cffinit"](https://www.youtube.com/watch?v=zcgLIT5Qd4M)
 
 This is an example of a simple `CITATION.cff` file:
 ```yaml
