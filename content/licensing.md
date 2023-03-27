@@ -106,8 +106,7 @@ document or form input for an online poll:
 ```{figure} img/license-models.png
 :alt: "European Union Public Licence (EUPL): guidelines July 2021"
 
-European Commission, Directorate-General for Informatics, Schmitz, P., European Union Public Licence (EUPL): guidelines July 2021, Publications Offic
-e, 2021, <https://data.europa.eu/doi/10.2799/77160>
+European Commission, Directorate-General for Informatics, Schmitz, P., European Union Public Licence (EUPL): guidelines July 2021, Publications Office, 2021, <https://data.europa.eu/doi/10.2799/77160>
 ```
 
 Comments:

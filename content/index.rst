@@ -2,11 +2,12 @@ Social coding
 =============
 
 In this lesson we will discuss how and why to share code, what kind of licenses
-are used in what situation and how software can be cited.
+are used in what situation, and how software can be cited.
 
 We will try to connect software licenses to FAIR principles, give practical
 recommendations for starting, contributing, and reusing code and help you
 navigating and deciding on licenses.
+
 
 .. prereq::
 
