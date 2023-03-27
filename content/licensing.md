@@ -203,7 +203,8 @@ cakes"](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-codin
 - License your code **very early** in the project:
   ideally develop publicly accessible open source code **from day one**.
 - Start with a `README.md` and a `LICENSE` file.
-- Use GitHub recommendation or/and <https://choosealicense.com/>.
+- Use the [Joinup Licensing Assistant](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-find-and-compare-software-licenses)
+- Follow the checklist from <https://reuse.software> (good information about so-called SPDX identifiers).
 - A great resource on what to include in a `README.md`
   are the [JOSS paper review criteria](https://joss.readthedocs.io/en/latest/review_criteria.html).
 - Add also the files `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md` (see [Mozilla
@@ -211,9 +212,9 @@ cakes"](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-codin
   Guidelines](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-contributor-guidelines/),
   good example: <https://github.com/KirstieJane/STEMMRoleModels>).
 - Emphasize the open source nature of the code output in your research proposal.
-- Take an [OSI](https://opensource.org/licenses)-approved license: makes it easier to evaluate
-  [compatibility](https://en.wikipedia.org/wiki/License_compatibility).
 - **Do not design your own custom licenses** for open source/ open use: compatibility not clear.
+  Take an [OSI](https://opensource.org/licenses)-approved license: makes it easier to evaluate
+  [compatibility](https://en.wikipedia.org/wiki/License_compatibility).
 - Open source your code to make sure you are not locked out of your own code if you don't own it
   once you change affiliation. For this, both permissive and copy-left licenses are good for this.
 - **Work as if the repo is public even though it is still private**:
