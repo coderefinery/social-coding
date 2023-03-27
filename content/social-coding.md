@@ -172,13 +172,11 @@ includes samples of charming author responses such as:
 > to do with it."
 
 
-## Benefits of sharing software
+## Motivation for open source software
 
 ```{instructor-note}
 We revisit answers to question 1 (above).
 ```
-
-### Motivation for open source software
 
 - Enable derivative work
 - Do not lock yourself out of own code
@@ -194,24 +192,24 @@ We revisit answers to question 1 (above).
 We revisit answers to question 2 (above).
 ```
 
-- **Fear of being scooped**
-> A license can avoid it, and you can release when you are ready. Anyway, it is
-> very unlikely that others will understand your code and publish before you
-> without involving you in a collaboration. Sharing is a form of publishing.
-- **Exposes possibly "ugly code"**
-> In practice almost nobody will judge the quality of your code.
-> "Software, once written, is never really finished" (N. Asparouhova).
-- **Others may find bugs and mistakes**
-> Isn't this good? Would you not like to use a code which gives people the chance to locate bugs?
-> If you don't release, people will assume there are bugs anyway.
-- **Others may require support and ask too many questions**
-> This can become a problem: use tools and community and protect your time.
-> You aren't required to support anyone. You can also "archive" a repository to disable
-> most forms of interaction (issues, PRs). Also a note in README on support level helps.
-- **Fear of losing control over the direction of the project**
-> Open source does not mean everybody can change **your version**.
-- **"Bad" derivative projects may appear**
-> It will be clear which is the official version.
+- **Fear of being scooped**:
+  A license can avoid it, and you can release when you are ready. Anyway, it is
+  very unlikely that others will understand your code and publish before you
+  without involving you in a collaboration. Sharing is a form of publishing.
+- **Exposes possibly "ugly code"**:
+  In practice almost nobody will judge the quality of your code.
+  "Software, once written, is never really finished" (N. Asparouhova).
+- **Others may find bugs and mistakes**:
+  Isn't this good? Would you not like to use a code which gives people the chance to locate bugs?
+  If you don't release, people will assume there are bugs anyway.
+- **Others may require support and ask too many questions**:
+  This can become a problem: use tools and community and protect your time.
+  You aren't required to support anyone. You can also "archive" a repository to disable
+  most forms of interaction (issues, PRs). Also a note in README on support level helps.
+- **Fear of losing control over the direction of the project**:
+  Open source does not mean everybody can change **your version**.
+- **"Bad" derivative projects may appear**:
+  It will be clear which is the official version.
 
 ```{discussion} Social-2: Discussion about "You aren't required to support anyone"
 - Have you experienced an implicit expectation of support?
@@ -228,21 +226,7 @@ We revisit answers to question 2 (above).
 ```
 
 
-## Code reusability
-
-Should you reuse things that others have done?
-
-Types of things that can be reused:
-- Main libraries (e.g. NumPy, SciPy)
-- Special scientific libraries
-- Random code from website
-- Copying from Stack Overflow
-
-Do you want others to reuse what you make?
-How do you turn your own small project into the next NumPy? Do you want to?
-
-
-### What contributes to reusability?
+## Code reusability: What contributes to reusability?
 
 What contributes to you being able to reuse stuff that others make, and others
 (or you) being able to reuse your stuff?  When you find a repository with code
@@ -253,26 +237,17 @@ reusability:
 This can be now reconnected to question 4 (above).
 ```
 
-- Date of last code change
-> ... is the project abandoned?
-- Release history
-> ... how about stability and backwards-compatibility?
-- Versioning
-> ... will it be painful to upgrade?
-- Number of open pull requests and issues
-> ... are they followed-up?
-- Installation instructions
-> ... will it be difficult to get it running?
-- Example
-> ... will it be difficult to get started?
-- License
-> ... am I allowed to use it?
-- Contribution guide
-> ... how to contribute and decision process?
-- Code of conduct
-> ... how to make clear which behaviors are unacceptable and discouraged? How violations of Code of conduct will be handled?
-- Trust and community
-> ... somebody you trust recommended it?
+- **Date of last code change**: Is the project abandoned?
+- **Release history**: How about stability and backwards-compatibility?
+- **Versioning**: Will it be painful to upgrade?
+- **Number of open pull requests and issues**: Are they followed-up?
+- **Installation instructions**: Will it be difficult to get it running?
+- **Example**: Will it be difficult to get started?
+- **License**: Am I allowed to use it?
+- **Contribution guide**: How to contribute and decision process?
+- **Code of conduct**: How to make clear which behaviors are unacceptable and
+  discouraged? How violations of Code of conduct will be handled?
+- **Trust and community**: Somebody you trust recommended it?
 
 ... most of which you have or will learn during this
 [CodeRefinery](https://coderefinery.org) workshop!
@@ -290,4 +265,5 @@ Whether and what we can share depends on how we obtained the components.
 - Whether you can share your output depends on how you obtained your input.
 - A repository that is private today might become public one day.
 - Sometimes "OTHERS" are you yourself in the future in a different group/job.
+- Our code often starts by changing other code: **derivative work**.
 - **Software licenses** matter. And this is what we will discuss in the next episode.
