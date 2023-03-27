@@ -117,6 +117,11 @@ Comments:
 - Copyleft/reciprocal: Derivative work must be made available under the same license terms
 - NC (non-commercial) and ND (non-derivative) exist for data licenses but not really for software licenses
 
+**Great resource for comparing software licenses**: [Joinup Licensing Assistant](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-find-and-compare-software-licenses)
+- Provides comments on licenses
+- Easy to compare licenses
+- Not biased by some company agenda
+
 If you would like to learn more about licenses, check out our slide deck ["Software licensing
 and open source explained with
 cakes"](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-coding/main/licensing-and-cakes.md/).
@@ -238,6 +243,7 @@ License text, slides, images, and supporting information under a
 
 ## Further reading
 
+- [Joinup Licensing Assistant](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-find-and-compare-software-licenses)
 - [Choosing an open-source licence](https://www.software.ac.uk/resources/guides/choosing-open-source-licence)
 - [Understanding Open Source and Free Software Licensing](http://www.oreilly.com/openbook/osfreesoft/)
 - [Software Licenses in Plain English](https://tldrlegal.com)
