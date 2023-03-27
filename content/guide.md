@@ -1,5 +1,3 @@
-
-
 # Instructor guide
 
 ## Basics
@@ -21,7 +19,7 @@ There are the following main acts:
   many people using your work as possible, because then they can cite
   you.
 
-- A bit of details on free software and choosing a license. There are many
+- Overview of license types. There are many
   online resources, and the biggest
   question is permissive vs. weak copyleft vs. strong copyleft. The [cake analogy
   for licenses](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-coding/main/licensing-and-cakes.md/) is only linked
