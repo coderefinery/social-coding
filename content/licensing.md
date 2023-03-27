@@ -118,7 +118,7 @@ Comments:
 
 **Great resource for comparing software licenses**: [Joinup Licensing Assistant](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-find-and-compare-software-licenses)
 - Provides comments on licenses
-- Easy to compare licenses
+- Easy to compare licenses ([example](https://joinup.ec.europa.eu/licence/compare/BSD-3-Clause;Apache-2.0))
 - Not biased by some company agenda
 
 If you would like to learn more about licenses, check out our slide deck ["Software licensing
