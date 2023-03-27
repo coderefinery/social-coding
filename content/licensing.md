@@ -1,60 +1,48 @@
 # Licensing
 
-```{questions}
-- What is intellectual property/copyright/derivative work?
-- What is free software?
-- What types of licenses exist?
-```
-
 ```{objectives}
-- Get familiar with terminology around licensing
-- Discuss what is and is not derivative work
+- Knowing about what derivative work is and whether we can share it.
+- Get familiar with terminology around licensing.
+- Practical advice for software licensing.
 ```
 
 
-## Intellectual property
+## Copyright
 
 ```{figure} img/tate.jpg
 :alt: Photo of somebody taking a photo of an artwork that contains the text "WHO OWNS WHAT?"
-:width: 70%
+:width: 50%
 ```
 
 - **Trademark**: Protects a name/brand from impersonation.
 - **Patent**: Protects a novel, non-obvious, technical invention.
 - **Copyright**: Protects **creative expression**: software, writing, graphics, photos, certain datasets, this presentation.
+  Practically "forever" (lifetime of author + 70 years).
+
+Copyright controls whether and how we can distribute the original work or the **derivative work**.
 
 
-## Copyright
+## Derivative work: Sampling/remixing
 
-- Protects creative expression
-- Automatically created
-- **Derivative works** usually inherit copyright of the thing derived
-- Time frame: essentially forever (lifetime + X years)
-
-When can you use:
-- When there is a **license** saying you can
-- Limited other cases (private use, fair use: context dependent)
-- In practice: people do many things, but then can't share their
-  output if license does not allow it or is not clarified
-
-**When we write or use software then copyright, licenses, and derivative works are important concepts**
-
-
-## Derivative work: Changing, remixing, covering
-
-```{figure} img/rubik.jpg
-:alt: Images of Bob Marley and Mona Lisa made out of Rubik cubes
-:width: 60%
-
-Is this derivative work? ["Distillery District 26"](https://www.flickr.com/photos/dgriebeling/3851273590) CC-BY.
+```{figure} img/ai/record-player.png
+:alt: Generated image of a monk operating a record player
+:width: 50%
 ```
+[Midjourney, CC-BY-NC 4.0]
 
+```{figure} img/ai/turntable.png
+:alt: Generated image of a monk operating two record players
+:width: 50%
+```
+[Midjourney, CC-BY-NC 4.0]
 
-### If you build on something, you form a derivative work
+- Changing and distributing software is similar to changing and distributing
+  music
+- You can do almost anything if you don't distribute it
 
-- The original creator may have rights to what you make
-- The whole point of this talk is to make sure that **you can make and publish derivative works**
-  and **others can make and publish derivative works from you**
+**Often we don't have the choice**:
+- We are expected to publish software
+- Sharing can be good insurance against being locked out
 
 
 ### Exercise: derivative work
@@ -111,78 +99,54 @@ document or form input for an online poll:
 - Distribution of container recipes: it's like distributing source code
 - Distribution of container images: it's like distributing binary form
 
-
-### Why could allowing derivative work be good for you as researcher?
-
-- **Quality** control: groups depending on your code will find bugs.
-- More applications.
-- Globally probably more papers (**more impact**).
-- If you make your code citable, you can measure this impact and use this
-  in grant applications.
-- Long-term probably also **more papers** for you: new collaborations and projects.
-- Groups depending on your code will not want your code to disappear: they might **support you**,
-  send improvements, and share maintenance load.
-
-
-## What is free software?
-
-### Software freedom is the freedom to ...
-
-- ... run the software for **any purpose**: new applications
-- ... **study** how the software works and to adapt it to your needs: new applications, less reinventing wheels
-- ... **redistribute** copies of the software: more users, more citations
-- ... **improve** the software and distribute your improvements to the public: fix bugs, new science
-
-### Typical confusion
-
-- Free software does not mean that software is for free
-- Open source license does not mean you need to share everything immediately (share main branch, put unpublished code on a fork)
-- Open source does not mean public domain: software in the public domain has no owner
-- Open source does not mean non-commercial: plenty of companies produce and support it
-
+---
 
 ## Taxonomy of software licenses
 
-**1. Custom/closed/proprietary**
+```{figure} img/license-models.png
+:alt: "European Union Public Licence (EUPL): guidelines July 2021"
 
-- Derivative work typically not possible
-
-**2. Permissive (MIT, BSD, Apache)**
-
-- Derivative work does not have to be shared
-- Permissive: gives the public permission to use, modify, and share, without any condition for downstream licensing
-- If the licenses of components are permissive, one may use any open license they want.
-
-```{figure} img/MIT.png
-:alt: Permissions, conditions, and limitations of the MIT license
-
-Example: Permissions, conditions, and limitations of the MIT license. Unchanged from <https://choosealicense.com/>.
+European Commission, Directorate-General for Informatics, Schmitz, P., European Union Public Licence (EUPL): guidelines July 2021, Publications Offic
+e, 2021, <https://data.europa.eu/doi/10.2799/77160>
 ```
 
-**3. Weak copyleft share-alike (LGPL, MPL)**
-
-- Derivative work is free software but is limited to the component
-
-```{figure} img/GNU_LGPL_v3.png
-:alt: Permissions, conditions, and limitations of the LGPL license
-
-Example: Permissions, conditions, and limitations of the LGPL license. Unchanged from <https://choosealicense.com/>.
-```
-
-**4. Strong copyleft share-alike (GPL, AGPL)**
-
-- Derivative work is free software and derivative work extends to the combined project
-- If the licenses of components are strong copyleft, one must use the same license
-
-```{figure} img/GNU_GPL_v3.png
-:alt: Permissions, conditions, and limitations of the GPL license
-
-Example: Permissions, conditions, and limitations of the GPL license. Unchanged from <https://choosealicense.com/>.
-```
+Comments:
+- Arrows represent compatibility (A -> B: B can reuse A)
+- Proprietary/custom: Derivative work typically not possible (no arrow goes from proprietary to open)
+- Permissive: Derivative work does not have to be shared
+- Copyleft/reciprocal: Derivative work must be made available under the same license terms
+- NC (non-commercial) and ND (non-derivative) exist for data licenses but not really for software licenses
 
 If you would like to learn more about licenses, check out our slide deck ["Software licensing
 and open source explained with
 cakes"](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-coding/main/licensing-and-cakes.md/).
+
+
+## Exercise: licensing situations
+
+````{exercise} Licensing-2: Consider some common licensing situations
+1. What is the StackOverflow license for code you copy and paste?
+2. A journal requests that you release your software during publication. You have
+   copied a portion of the code from another package, which you have forgotten.
+   Can you satisfy the journal's request?
+3. You want to fix a bug in a project someone else has released, but there is no license. What risks are there?
+4. How would you ask someone to add a license?
+5. You incorporate MIT, GPL, and BSD3 licensed code into your project. What possible licenses can you pick for your project?
+6. You do the same as above but add in another license that looks strong copyleft. What possible licenses can you use now?
+7. Do licenses apply if you don't distribute your code? Why or why not?
+8. Which licenses are most/least attractive for companies with proprietary software?
+
+```{solution}
+1. As indicated [here](https://stackoverflow.com/help/licensing), all publicly accessible user contributions are licensed under [Creative Commons Attribution-ShareAlike](https://creativecommons.org/licenses/by-sa/4.0/) license. See Stackoverflow [Terms of service](https://stackoverflow.com/legal/terms-of-service/public#licensing) for more detailed information.
+2. "Standard" licensing rules apply. So in this case, you would need to remove the portion of code you have copied from another package before being able to release your software.
+3. By default you are no authorized to use the content of a repository when there is no license. And derivative work is also not possible by default. Other risks: it may not be clear whether you can use and distribute (publish) the bugfixed code. For the repo owners it may not be clear whether they can use and distributed the bugfixed code. However, the authors may have forgotten to add a license so we suggest you to contact the authors (e.g. make an issue) and ask whether they are willing to add a license.
+4. As mentionned in 3., the easiest is to fill an issue and explain the reasons why you would like to use this software (or update it).
+5. Combining software with different licenses can be tricky and it is important to understand compatibilities (or lack of compatibilities) of the various licenses. GPL license is the most protective (BSD and MIT are quite permissive) so for the resulting combined software you could use a GPL license. However, re-licensing may not be necessary.
+6. Derivative work would need to be shared under this strong copyleft license (e.g. AGPL or GPL), unless the components are only plugins or libraries.
+7. If you keep your code for yourself, you may think you do not need a license. However, remember that in most companies/universities, your employer is "owning" your work and when you leave you may not be allowed to "distribute your code to your future self". So the best is always to add a license!
+8. The least attractive licenses for companies with proprietary software are licenses where you would need to keep an open license when creating derivative work. For instance GPL and and AGPL. The most attractive licenses are permissive licenses where they can reuse, modify and relicense with no conditions. For instance MIT, BSD and Apache License.
+```
+````
 
 
 ## Licensing and ownership
@@ -206,6 +170,25 @@ cakes"](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-codin
 **If you accept contributions (pull requests), you may not be the only owner anymore!**
 - Clarify licensing strategy **before** - otherwise you won't have
   all rights to your code.
+
+
+## Guidelines/recommendations from various universities
+
+- [Aalto university](https://www.aalto.fi/en/open-science-and-research/opening-your-software-at-aalto-university)
+    - Summary: yes, you can open software and data and you need to ask only
+      minimal permission (confirm your supervisor agrees).
+- [UiT](https://en.uit.no/research/innovation/art?p_document_id=754152)
+    - "Work results of a copyright nature belong to the author"
+- [NTNU](https://i.ntnu.no/wiki/-/wiki/English/Guidelines+for+policy+for+Open+Science)
+    - "Where no overriding guidelines exist, NTNU-produced software must be
+      licensed under the European Union Public Licence."
+- [UiB](https://www.uib.no/en/ub/106619/copyright-own-scientific-work)
+    - "As a rule authors have copyright to their own work"
+    - Encourage the use of CC-BY
+- [UiO](https://www.uio.no/english/for-employees/support/research/funding/units/hf/imv/data-ethics/ipr.html)
+    - "If the University chooses not to take steps to secure copyright
+      protection and exploit the findings, the employees must be entitled to
+      have these rights reassigned to them."
 
 
 ## Practical recommendations
@@ -234,7 +217,9 @@ cakes"](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-codin
   Glerean for this great suggestion).
 - Example for a [license file in a derivative project](https://opensource.stackexchange.com/a/5488).
 
-```{note} How about datasets and databases?
+
+## Licensing of dataset and databases
+
 - The EU has a [database directive](https://en.wikipedia.org/wiki/Database_Directive) which restricts data mining on
   databases.
 - Has a somewhat similar effect to copyright, because copyright would
@@ -249,37 +234,6 @@ When you can use datasets:
 License text, slides, images, and supporting information under a
 [Creative Commons license](https://creativecommons.org/licenses/), and get a DOI using
 [Zenodo](https://zenodo.org) or [Figshare](https://figshare.com) or other services.
-
-Services for sharing and collaborating on research data:
-<https://coderefinery.org/reproducible-research/sharing/#services-for-sharing-and-collaborating-on-research-data>
-```
-
-
-## Exercise: licensing situations
-
-````{discussion} Licensing-2: Consider some common licensing situations
-1. What is the StackOverflow license for code you copy and paste?
-2. A journal requests that you release your software during publication. You have
-   copied a portion of the code from another package, which you have forgotten.
-   Can you satisfy the journal's request?
-3. You want to fix a bug in a project someone else has released, but there is no license. What risks are there?
-4. How would you ask someone to add a license?
-5. You incorporate MIT, GPL, and BSD3 licensed code into your project. What possible licenses can you pick for your project?
-6. You do the same as above but add in another license that looks viral. What possible licenses can you use now?
-7. Do licenses apply if you don't distribute your code? Why or why not?
-8. Which licenses are most/least attractive for companies with proprietary software?
-
-```{solution}
-1. As indicated [here](https://stackoverflow.com/help/licensing), all publicly accessible user contributions are licensed under [Creative Commons Attribution-ShareAlike](https://creativecommons.org/licenses/by-sa/4.0/) license. See Stackoverflow [Terms of service](https://stackoverflow.com/legal/terms-of-service/public#licensing) for more detailed information.
-2. "Standard" licensing rules apply. So in this case, you would need to remove the portion of code you have copied from another package before being able to release your software.
-3. By default you are no authorized to use the content of a repository when there is no license. And derivative work is also not possible by default. Other risks: it may not be clear whether you can use and distribute (publish) the bugfixed code. For the repo owners it may not be clear whether they can use and distributed the bugfixed code. However, the authors may have forgotten to add a license so we suggest you to contact the authors (e.g. make an issue) and ask whether they are willing to add a license.
-4. As mentionned in 3., the easiest is to fill an issue and explain the reasons why you would like to use this software (or update it).
-5. Combining software with different licenses can be tricky and it is important to understand compatibilities (or lack of compatibilities) of the various licenses. GPL license is the most protective (BSD and MIT are quite permissive) so for the resulting combined software you could use a GPL license. However, re-licensing may not be necessary.
-6. Derivative work would need to be shared under this viral license (e.g. AGPL or GPL), unless the components are only plugins or libraries.
-7. If you keep your code for yourself, you may think you do not need a license. However, remember that in most companies/universities, your employer is "owning" your work and when you leave you may not be allowed to "distribute your code to your future self". So the best is always to add a license!
-8. The least attractive licenses for companies with proprietary software are licenses where you would need to keep an open license when creating derivative work. For instance GPL and and AGPL. The most attractive licenses are permissive licenses where they can reuse, modify and relicense with no conditions. For instance MIT, BSD and Apache License.
-```
-````
 
 
 ## Further reading
