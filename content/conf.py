@@ -25,6 +25,12 @@ github_repo_name = "social-coding"  # auto-detected from dirname if blank
 github_version = "main"
 conf_py_path = "/content/"  # with leading and trailing slash
 
+import os
+if os.environ.get('GITHUB_REF', '') == 'refs/heads/'+github_version:
+    html_js_files = [
+        ('https://plausible.cs.aalto.fi/js/script.js', {"data-domain": "coderefinery.github.io", "defer": "defer"}),
+    ]
+
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
