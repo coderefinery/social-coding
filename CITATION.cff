@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this lesson material, please cite it using these metadata."
+authors:
+- name: "CodeRefinery"
+- family-names: "Bast"
+  given-names: "Radovan"
+- family-names: "Darst"
+  given-names: "Richard"
+- family-names: "Razick"
+  given-names: "Sabry"
+- family-names: "Suvilehto"
+  given-names: "Jyry"
+- family-names: "Fouilloux"
+  given-names: "Anne"
+- family-names: "Smirnova"
+  given-names: "Oxana"
+- family-names: "Whalley"
+  given-names: "Lucy"
+title: "ocial coding and open software - What can you do to get credit for your code and allow reuse?"
+type: "data"
+abstract: "We motivate and give an overview over software and data licensing and software citation best practices."
+version: 2023-09-06
+date-released: 2023-09-06
+url: "https://coderefinery.github.io/social-coding/"
+license: CC-BY-4.0
+repository-code: "https://github.com/coderefinery/social-coding"
