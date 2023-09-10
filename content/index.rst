@@ -1,5 +1,5 @@
-Social coding
-=============
+Social coding and open software - What can you do to get credit for your code and to allow reuse
+================================================================================================
 
 In this lesson we will discuss how and why to share code, what kind of licenses
 are used in what situation, and how software can be cited.

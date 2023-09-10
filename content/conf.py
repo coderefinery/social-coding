@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = "Social coding"
+project = "Social coding and open software"
 copyright = "CodeRefinery team"
 author = "CodeRefinery team"
 github_user = "coderefinery"
