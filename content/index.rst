@@ -18,9 +18,9 @@ navigating and deciding on licenses.
    :widths: auto
    :delim: ;
 
-   15 min ; :doc:`social-coding`
+   20 min ; :doc:`social-coding`
    30 min ; :doc:`licensing`
-   15 min ; :doc:`software-citation`
+   20 min ; :doc:`software-citation`
 
 
 .. toctree::
