@@ -21,6 +21,7 @@ navigating and deciding on licenses.
    20 min ; :doc:`social-coding`
    30 min ; :doc:`licensing`
    20 min ; :doc:`software-citation`
+   10 min ; :doc:`sharing`
 
 
 .. toctree::
@@ -31,6 +32,7 @@ navigating and deciding on licenses.
    social-coding
    licensing
    software-citation
+   sharing
 
 
 .. _learner-personas:
