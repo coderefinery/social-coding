@@ -9,6 +9,27 @@ recommendations for starting, contributing, and reusing code and help you
 navigating and deciding on licenses.
 
 
+.. admonition:: Why software licenses matter
+
+   - You **find some great code** or data that you want to reuse for your own
+     publication (good for the original author: you will cite them and maybe other
+     people who cite you will cite them).
+
+   - You need to **modify the code** a little bit, or you remix the data a bit.
+
+   - When it comes time to publish, you realize there is no **license**.
+
+   Now we have a problem:
+
+   - You manage to **publish the paper without the software/data** but others cannot
+     build on your software and data and
+     you don't get as many citations as you could.
+   - Or, you **cannot publish it at all** if the journal requires that papers should
+     come with data and software so that they are reproducible.
+
+   This lesson is about how to avoid this situation for you and others.
+
+
 .. prereq::
 
    No computational prerequisites required for this lesson.
