@@ -51,6 +51,8 @@ et al., Software Citation Checklist for Developers (Version 0.9.0). Zenodo.
 - Get a [digital object identifier
   (DOI)](https://en.wikipedia.org/wiki/Digital_object_identifier) for your code
   on [Zenodo](https://zenodo.org/) ([example](https://zenodo.org/record/8003695)).
+- [Step-by-step recipe](https://coderefinery.github.io/github-without-command-line/doi/)
+  for how to make your GitHub project citable using [Zenodo](https://zenodo.org/).
 - Make it as easy as possible: clearly say what you want cited.
 
 This is an example of a simple `CITATION.cff` file:
