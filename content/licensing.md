@@ -121,7 +121,7 @@ Comments:
 - Easy to compare licenses ([example](https://joinup.ec.europa.eu/licence/compare/BSD-3-Clause;Apache-2.0))
 - Not biased by some company agenda
 
-If you would like to learn more about licenses, check out our slide deck ["Software licensing
+If you would like to learn more about licenses, check out our slide deck: ["Software licensing
 and open source explained with
 cakes"](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-coding/main/licensing-and-cakes.md/).
 
