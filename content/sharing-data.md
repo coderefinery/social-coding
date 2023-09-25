@@ -176,7 +176,7 @@ platform and filter by country, content type, discipline, etc.
 
 ---
 
-## Licensing of dataset and databases
+## Licensing of datasets and databases
 
 - The EU has a [database directive](https://en.wikipedia.org/wiki/Database_Directive) which restricts data mining on
   databases.
@@ -215,7 +215,7 @@ the AI output, and AI evolutions.
 
 ---
 
-## Further reading on reproducibility and open science
+## Further reading
 
 - [The Turing way](https://github.com/alan-turing-institute/the-turing-way/)
 - [Illustrations from the Turing Way book dashes](https://zenodo.org/record/3332808)
@@ -231,7 +231,3 @@ the AI output, and AI evolutions.
 - [MolSSI Best Practice Guides](http://molssi.org/education/best-practices/)
 - [Five recommendations for fair software](https://fair-software.eu/)
 - [Awesome Research Software Registries](https://github.com/NLeSC/awesome-research-software-registries)
-
-```{keypoints}
-- Consider sharing other research outputs than articles.
-```
