@@ -25,8 +25,11 @@ There are the following main acts:
   for licenses](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-coding/main/licensing-and-cakes.md/) is only linked
   and can be skipped and does not have to be discussed in detail.
 
-- Finally a brief section on code citations. It's good if you manage to start a discussion
+- Then a brief section on code citations. It's good if you manage to start a discussion
   around this topic.
+
+- The "Sharing code and data" is meant to bring awareness about FAIRness and
+  Open Science and to show how DOIs can be obtained for Git repositories.
 
 
 ## Hints
