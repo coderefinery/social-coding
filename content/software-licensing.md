@@ -45,7 +45,7 @@ Copyright controls whether and how we can distribute the original work or the **
 - Sharing can be good insurance against being locked out
 
 
-### Exercise: derivative work
+### Exercise: Derivative work
 
 ````{discussion} Licensing-1: What constitutes derivative work?
 This question 5 below can be used as a starting point and copied to the collaborative
@@ -119,6 +119,7 @@ Comments:
 **Great resource for comparing software licenses**: [Joinup Licensing Assistant](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-find-and-compare-software-licenses)
 - Provides comments on licenses
 - Easy to compare licenses ([example](https://joinup.ec.europa.eu/licence/compare/BSD-3-Clause;Apache-2.0))
+- [Joinup Licensing Assistant - Compatibility Checker](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-compatibility-checker)
 - Not biased by some company agenda
 
 If you would like to learn more about licenses, check out our slide deck: ["Software licensing
@@ -126,7 +127,7 @@ and open source explained with
 cakes"](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-coding/main/licensing-and-cakes.md/).
 
 
-## Exercise: licensing situations
+## Exercise: Licensing situations
 
 ````{exercise} Licensing-2: Consider some common licensing situations
 1. What is the StackOverflow license for code you copy and paste?
@@ -153,79 +154,143 @@ cakes"](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-codin
 ````
 
 
-## Licensing and ownership
+## When should I add a license?
 
-**Who can decide about or change a license?**
-- The copyright holder if a separate "Contributor License Agreement" is signed. Otherwise
-  copyright holder provided they secure express consent from all the contributors.
+**Choose a license early in the project, even before you publish it**. Later in
+the project it may become complicated to change it.  Agreeing on a software
+license does not mean that you have to make it open immediately.  You can also
+follow the **"open core" approach**: You don't have to open source all your
+work. Core can be open and on a public branch. Unpublished code can be on a
+private repository.
 
-**Who owns the copyright for software you write?**
-- **Intellectual property depends on the country and the employer!**
-- So-called works made for hire.
-
-**If you own your software:**
-- You can change the license.
-- You can dual-license (e.g. GPL for anyone, but you can pay for commercial non-GPL).
-
-**If you do not own your software, you can:**
-- Request open-sourcing directly (preserves your rights!).
-- Request a transfer of ownership (check with your university).
-
-**If you accept contributions (pull requests), you may not be the only owner anymore!**
-- Clarify licensing strategy **before** - otherwise you won't have
-  all rights to your code.
+However, we recommend to **work as if the code is public even though it still
+may be private** (thanks to E.  Glerean for this great suggestion): This is to
+avoid surprises about code in the history with incompatible license years later
+when you decide to open the project.
 
 
-## Guidelines/recommendations from various universities
+## How to add a license if your work is derivative work
 
-- [Aalto university](https://www.aalto.fi/en/open-science-and-research/opening-your-software-at-aalto-university)
-    - Summary: yes, you can open software and data and you need to ask only
-      minimal permission (confirm your supervisor agrees).
-- [UiT](https://en.uit.no/research/innovation/art?p_document_id=754152)
-    - "Work results of a copyright nature belong to the author"
-- [NTNU](https://i.ntnu.no/wiki/-/wiki/English/Guidelines+for+policy+for+Open+Science)
-    - "Where no overriding guidelines exist, NTNU-produced software must be
-      licensed under the European Union Public Licence."
-- [UiB](https://www.uib.no/en/ub/106619/copyright-own-scientific-work)
-    - "As a rule authors have copyright to their own work"
-    - Encourage the use of CC-BY
-- [UiO](https://www.uio.no/english/for-employees/support/research/funding/units/hf/imv/data-ethics/ipr.html)
-    - "If the University chooses not to take steps to secure copyright
-      protection and exploit the findings, the employees must be entitled to
-      have these rights reassigned to them."
+Your code is derivative work if you have started from an existing code and
+made changes to it or if you incorporated an existing code into your code.
+
+If your code is derivative work, then **you need to check the license of the
+original code**. Depending on the license, your choices might be limited. In
+this case we recommend to use these two resources:
+- [Joinup Licensing Assistant - Find and compare software licenses](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-find-and-compare-software-licenses)
+- [Joinup Licensing Assistant - Compatibility Checker](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-compatibility-checker)
+
+If the original code does not have a license, you may not be able to distribute your
+derivative code. You can try to contact the authors and ask them to clarify
+the license of their code.
+
+Practical steps for **incorporating something small into your own project** with a license
+that allows you to do so (as
+an example incorporating a function or two from another project):
+- Create a `LICENSES/` folder in your project and "put the unmodified license text
+  (i.e., the license text template without any copyright notices) in your
+  `LICENSES/` folder" (<https://reuse.software/faq/#license-templates>). This
+  way if you reuse code from multiple projects, you can keep there multiple
+  license files.
+- **Put the code that you incorporate into a separate file or separate files**. This makes
+  it later easier to see what was incorporated, and what was written from scratch.
+  On top of the file(s) which you have incorporated into your project add (and
+  adapt) the following header ([more examples](https://reuse.software/faq/)):
+  ```python
+  # SPDX-FileCopyrightText: 2023 Jane Doe <jane@example.com>
+  #
+  # SPDX-License-Identifier: MIT
+  ```
+  The [REUSE](https://reuse.software/) initiative was started by the [Free
+  Software Foundation Europe](https://fsfe.org/) to make licensing of software
+  projects easier.  It is OK if you prefer to not follow this strict format but
+  the advantage of following it is that the
+  [reuse-tool](https://github.com/fsfe/reuse-tool) makes it then easy to verify
+  and update license headers if you have many files from different sources.
+- If it does not make sense to have several files in your project (e.g. when incorporating
+  something into a notebook), then add a note/comment
+  about the license and where the code came from on top of the function.
+- Although it is not dictated by the license but it can still be nice to
+  acknowledge the incorporated functions/code in your README/documentation and to cite
+  their work if you publish a paper about your code.
+- Some licenses are more permissive (you can keep your changes private) but some licenses
+  require you to publish the changes (share-alike).
+
+Practical steps for making **changes to an existing project** with a license
+that allows you to do so:
+- If the project is on GitHub or GitLab or similar, first fork the project
+  (copy it into your user space where you can make changes).
+- For the BSD and MIT licenses you are not obliged to state your changes but it can
+  still be helpful for others if you do. You can state your changes in the
+  header of the files you have modified. It can be helpful to state
+  bigger-picture changes in the README file of the project.
+- Some licenses are more permissive (you can keep your changes private) but some licenses
+  require you to publish the changes (share-alike).
 
 
-## Practical recommendations
+### If your work is not derivative work
 
-- **You cannot ignore licensing**: default is "no one can make copies or
-  derivative works".
-- License your code **very early** in the project:
-  ideally develop publicly accessible open source code **from day one**.
-- Start with a `README.md` and a `LICENSE` file.
-- Use the [Joinup Licensing Assistant](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-find-and-compare-software-licenses)
-- Follow the checklist from <https://reuse.software> (good information about so-called SPDX identifiers).
-- A great resource on what to include in a `README.md`
-  are the [JOSS paper review criteria](https://joss.readthedocs.io/en/latest/review_criteria.html).
-- Add also the files `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md` (see [Mozilla
-  Introduction to Contributor
-  Guidelines](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-contributor-guidelines/),
-  good example: <https://github.com/KirstieJane/STEMMRoleModels>).
-- Emphasize the open source nature of the code output in your research proposal.
-- **Do not design your own custom licenses** for open source/ open use: compatibility not clear.
-  Take an [OSI](https://opensource.org/licenses)-approved license: makes it easier to evaluate
-  [compatibility](https://en.wikipedia.org/wiki/License_compatibility).
-- Open source your code to make sure you are not locked out of your own code if you don't own it
-  once you change affiliation. For this, both permissive and copy-left licenses are good for this.
-- **Work as if the repo is public even though it is still private**:
-  This is to avoid surprises about code in the history with incompatible
-  license years later when we decide to open the project (thanks to E.
-  Glerean for this great suggestion).
-- Example for a [license file in a derivative project](https://opensource.stackexchange.com/a/5488).
+If you have started "from scratch", and not used any existing code, or
+incorporated existing code into your code, then you may consider your code to
+be not derivative work.
+
+Before you may choose a license, clarify the following points with, for
+example, your supervisor, collaborators, or principal investigator:
+- Does your work contract, grant, or collaboration agreement dictate a
+  specific license?
+- Is there an intent to commercialize the code?
+- When there is unknown or mixed ownership: If there are multiple persons or
+  organizations as owners of the code, all must agree to the license.
+
+**Do not invent your own license**. Choose one of the standard licenses, otherwise
+compatibility is not clear:
+  - [Joinup Licensing Assistant - Find and compare software licenses](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-find-and-compare-software-licenses)
+  - [Joinup Licensing Assistant - Compatibility Checker](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-compatibility-checker)
+
+Practical steps:
+- Create a `LICENSES/` folder ([example](https://github.com/bast/runtest/tree/main/LICENSES)).
+- Put the unmodified license text
+  (i.e., the license text template without any copyright notices) in plain
+  text format into the folder  ([example](https://github.com/bast/runtest/tree/main/LICENSES)).  Here are
+  the two above licenses in plain text:
+  [EUPL](https://joinup.ec.europa.eu/sites/default/files/custom-page/attachment/2020-03/EUPL-1.2%20EN.txt)
+  and [MIT](https://en.wikipedia.org/wiki/MIT_License#License_terms) (but the
+  latter contains a copyright notice which we rather want to have on top of
+  files).
+- Add copyright and license information to each file following
+  <https://reuse.software/tutorial/> which uses a standard format with
+  so-called [SPDX identifiers](https://spdx.org/licenses/). Example below
+  ([example](https://github.com/bast/runtest/blob/3b210d2e9bdbdc1903a1dab9da32e161d390092d/runtest/tuple_comparison.py#L1-L3)):
+  ```python
+  # SPDX-FileCopyrightText: 2023 Jane Doe <jane@example.com>
+  #
+  # SPDX-License-Identifier: EUPL-1.2
+  ```
+  The [REUSE](https://reuse.software/) initiative was started by the [Free
+  Software Foundation Europe](https://fsfe.org/) to make licensing of software
+  projects easier.  It is OK if you prefer to not follow this strict format but
+  the advantage of following it is that the
+  [reuse-tool](https://github.com/fsfe/reuse-tool) makes it then easy to verify
+  and update license headers if you have many files from different sources.
+- For really small projects with one or two files the above may seem excessive
+  and some projects choose to not have copyright information on top of their
+  files and they only have one `LICENSE` file and that is
+  OK for really small projects.
+
+---
 
 
-## Further reading
+## Great resources
 
-- [Joinup Licensing Assistant](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-find-and-compare-software-licenses)
+- [Research institution policies to support research software (compiled by the Research Software Alliance)](https://www.researchsoft.org/software-policies/)
+- Guide from the Aalto University in Finland: ["Opening your Software at Aalto University"](https://www.aalto.fi/en/open-science-and-research/opening-your-software-at-aalto-university)
+- [Draft: Research software licensing guide](https://research-software.uit.no/blog/2023-software-licensing-guide/)
+- [Joinup Licensing Assistant - Find and compare software licenses](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-find-and-compare-software-licenses)
+- [Joinup Licensing Assistant - Compatibility Checker](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-compatibility-checker)
+- [Social coding lesson material](https://coderefinery.github.io/social-coding/) by [CodeRefinery](https://coderefinery.org/)
+- [Citation File Format (CFF)](https://citation-file-format.github.io/)
+- [License Selector](https://ufal.github.io/public-license-selector/)
+- [GitHub licensing guide](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)
 - [Choosing an open-source licence](https://www.software.ac.uk/resources/guides/choosing-open-source-licence)
 - [Understanding Open Source and Free Software Licensing](http://www.oreilly.com/openbook/osfreesoft/)
 - [Software Licenses in Plain English](https://tldrlegal.com)
@@ -248,3 +313,8 @@ cakes"](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-codin
 - [Open Source (Almost) Everything](http://tom.preston-werner.com/2011/11/22/open-source-everything.html)
 - [99 ways to ruin an open source project](http://opensoul.org/99ways/)
 - [Open Source Casebook](https://google.github.io/opencasebook/)
+
+```{keypoints}
+- **You cannot ignore licensing**: default is "no one can make copies or
+  derivative works".
+```
