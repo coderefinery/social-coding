@@ -223,44 +223,6 @@ cakes"](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-codin
 - Example for a [license file in a derivative project](https://opensource.stackexchange.com/a/5488).
 
 
-## Licensing of dataset and databases
-
-- The EU has a [database directive](https://en.wikipedia.org/wiki/Database_Directive) which restricts data mining on
-  databases.
-- Has a somewhat similar effect to copyright, because copyright would
-  not apply to data mining.
-- A good license also gives rights to data mine. So not a major concern.
-
-When you can use datasets:
-- The license allows
-- Your country has exceptions for research
-- The data doesn't come from the EU
-
-License text, slides, images, and supporting information under a
-[Creative Commons license](https://creativecommons.org/licenses/), and get a DOI using
-[Zenodo](https://zenodo.org) or [Figshare](https://figshare.com) or other services.
-
-
-## Licensing and machine learning/ AI
-
-**Is it data? Is it software?**
-We need to consider the AI solution, the training data, the production data,
-the AI output, and AI evolutions.
-
-
-**How about ethics? How about liability?**
-- [EU AI Act](https://artificialintelligenceact.eu/)
-- Models can be reverse-engineered and training data can be extracted
-- What if the model generates an outcome that is dangerous?
-.cite[Thanks to E. Glerean for pointing these issues out to us]
-
-
-**Some resources**
-- [RAIL initiative: "Responsible AI licenses"](https://www.licenses.ai)
-- [The Turing Way: Machine Learning Model Licenses](https://the-turing-way.netlify.app/reproducible-research/licensing/licensing-ml.html)
-- ["Expert Q&A on Artificial Intelligence (AI) Licensing"](https://www.mayerbrown.com/-/media/files/news/2019/01/expert-qanda-on-artificial-intelligence-ai-licensing-w0219801.pdf)
-
-
 ## Further reading
 
 - [Joinup Licensing Assistant](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-find-and-compare-software-licenses)
