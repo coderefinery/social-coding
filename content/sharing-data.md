@@ -1,5 +1,4 @@
-# Sharing code and data
-
+# Sharing data
 
 ```{questions}
 - How can I share research code and data?
