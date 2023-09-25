@@ -1,4 +1,4 @@
-# Licensing
+# Software licensing
 
 ```{objectives}
 - Knowing about what derivative work is and whether we can share it.
