@@ -20,17 +20,10 @@ FAIR principles. (c) [Scriberia](http://www.scriberia.co.uk) for [The Turing Way
 Is it enough to make the code public for the code to remain **findable and accessible**?
 - No. Because nothing prevents me from deleting my GitHub repository or
   rewriting the Git history and we have no guarantee that GitHub will still be around in 10 years.
-- **Get a persistent identifier (PID) such as DOI in addition** using
-  [Zenodo](https://zenodo.org) or [Dataverse](https://dataverse.no/) or similar services
-  (see our lesson about [reproducible research](https://coderefinery.github.io/reproducible-research/) on how to do that).
-
-
-## Papers with focus on scientific software
-
-Where can I publish papers which are primarily focused on my scientific
-software?  Great list/summary is provided in this blog post: ["In which
-journals should I publish my software?" (Neil P. Chue
-Hong)](https://www.software.ac.uk/resources/guides/which-journals-should-i-publish-my-software)
+- **Make your code citable and persistent**:
+  Get a persistent identifier (PID) such as DOI in addition to sharing the
+  code publicly, by using services like [Zenodo](https://zenodo.org) or
+  similar services.
 
 
 ## How to make your software citable
@@ -54,28 +47,38 @@ et al., Software Citation Checklist for Developers (Version 0.9.0). Zenodo.
 2019b. ([DOI](https://doi.org/10.5281/zenodo.3482769))
 
 **Our practical recommendations**:
-- Get a [DOI](https://en.wikipedia.org/wiki/Digital_object_identifier) using
-  [Zenodo](https://zenodo.org) or [Dataverse](https://dataverse.no/) or similar services.
-- Open source license can't demand citation, but it is required by science ethics anyway.
+- Add a file called [CITATION.cff](https://citation-file-format.github.io/) ([example](https://github.com/bast/runtest/blob/main/CITATION.cff)).
+- Get a [digital object identifier
+  (DOI)](https://en.wikipedia.org/wiki/Digital_object_identifier) for your code
+  on [Zenodo](https://zenodo.org/) ([example](https://zenodo.org/record/8003695)).
 - Make it as easy as possible: clearly say what you want cited.
-- Make it easy for scripts and tools: use the [Citation File Format](https://citation-file-format.github.io).
-- [GitHub now supports CITATION.cff files](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)
-- [Web form to create, edit, and validate CITATION.cff files](https://citation-file-format.github.io/cff-initializer-javascript/)
-- [Video: "How to create a CITATION.cff using cffinit"](https://www.youtube.com/watch?v=zcgLIT5Qd4M)
 
 This is an example of a simple `CITATION.cff` file:
 ```yaml
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 authors:
-  - family-names: Druskat
-    given-names: Stephan
+  - family-names: Doe
+    given-names: Jane
     orcid: https://orcid.org/1234-5678-9101-1121
 title: "My Research Software"
 version: 2.0.4
 doi: 10.5281/zenodo.1234
 date-released: 2021-08-11
 ```
+
+More about `CITATION.cff` files:
+- [GitHub now supports CITATION.cff files](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)
+- [Web form to create, edit, and validate CITATION.cff files](https://citation-file-format.github.io/cff-initializer-javascript/)
+- [Video: "How to create a CITATION.cff using cffinit"](https://www.youtube.com/watch?v=zcgLIT5Qd4M)
+
+
+## Papers with focus on scientific software
+
+Where can I publish papers which are primarily focused on my scientific
+software?  Great list/summary is provided in this blog post: ["In which
+journals should I publish my software?" (Neil P. Chue
+Hong)](https://www.software.ac.uk/resources/guides/which-journals-should-i-publish-my-software)
 
 
 ## How to cite software
