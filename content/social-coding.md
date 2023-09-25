@@ -175,7 +175,7 @@ includes samples of charming author responses such as:
 ## Motivation for open source software
 
 ```{instructor-note}
-We revisit answers to question 1 (above).
+We revisit answers to Question 1 (above).
 ```
 
 - Enable derivative work
@@ -189,7 +189,7 @@ We revisit answers to question 1 (above).
 ## Sharing software is also scary
 
 ```{instructor-note}
-We revisit answers to question 2 (above).
+We revisit answers to Question 2 (above).
 ```
 
 - **Fear of being scooped**:
@@ -211,6 +211,33 @@ We revisit answers to question 2 (above).
 - **"Bad" derivative projects may appear**:
   It will be clear which is the official version.
 
+
+## Code reusability: What contributes to reusability?
+
+What contributes to you being able to reuse stuff that others make, and others
+(or you) being able to reuse your stuff?  When you find a repository with code
+you would like to reuse, you may look at the following things to determine its
+reusability:
+
+```{instructor-note}
+This can be now reconnected to Question 4 (above).
+```
+
+- **Date of last code change**: Is the project abandoned?
+- **Release history**: How about stability and backwards-compatibility?
+- **Versioning**: Will it be painful to upgrade?
+- **Number of open pull requests and issues**: Are they followed-up?
+- **Installation instructions**: Will it be difficult to get it running?
+- **Example**: Will it be difficult to get started?
+- **License**: Am I allowed to use it?
+- **Contribution guide**: How to contribute and decision process?
+- **Code of conduct**: How to make clear which behaviors are unacceptable and
+  discouraged? How violations of Code of conduct will be handled?
+- **Trust and community**: Somebody you trust recommended it?
+
+... most of which you have learned or will learn during this
+[CodeRefinery](https://coderefinery.org) workshop!
+
 ```{discussion} Social-2: Discussion about "You aren't required to support anyone"
 - Have you experienced an implicit expectation of support?
 - Supporting all requests can lead to overworking and mental health issues.
@@ -226,34 +253,7 @@ We revisit answers to question 2 (above).
 ```
 
 
-## Code reusability: What contributes to reusability?
-
-What contributes to you being able to reuse stuff that others make, and others
-(or you) being able to reuse your stuff?  When you find a repository with code
-you would like to reuse, you may look at the following things to determine its
-reusability:
-
-```{instructor-note}
-This can be now reconnected to question 4 (above).
-```
-
-- **Date of last code change**: Is the project abandoned?
-- **Release history**: How about stability and backwards-compatibility?
-- **Versioning**: Will it be painful to upgrade?
-- **Number of open pull requests and issues**: Are they followed-up?
-- **Installation instructions**: Will it be difficult to get it running?
-- **Example**: Will it be difficult to get started?
-- **License**: Am I allowed to use it?
-- **Contribution guide**: How to contribute and decision process?
-- **Code of conduct**: How to make clear which behaviors are unacceptable and
-  discouraged? How violations of Code of conduct will be handled?
-- **Trust and community**: Somebody you trust recommended it?
-
-... most of which you have or will learn during this
-[CodeRefinery](https://coderefinery.org) workshop!
-
-
-## Social coding
+## How our work connects to the work of others
 
 ```{figure} img/in-out.jpg
 :alt: Our work depends on ideas, articles, data, and software
