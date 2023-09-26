@@ -64,7 +64,7 @@ Alternatively, they can be discussed in voice or free-form text (discussion box 
   - votes:
 
 
-## Quesion 2: The most concerning thing for me, If I share my software now
+## Question 2: The most concerning thing for me, If I share my software now
 
 **Choose one**. Vote by adding an `o` character:
 
