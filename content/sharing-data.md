@@ -23,7 +23,6 @@ platform and filter by country, content type, discipline, etc.
 - [The Open Science Framework](https://osf.io/): Gives free accounts for collaboration
   around files and other research artifacts. Each account can have up to 5 GB of files
   without any problem, and it remains private until you make it public.
-- [Research Software Directory](https://research-software-directory.org/)
 
 **Sweden:**
 - [ICOS for climate data](http://www.icos-sweden.se/)
