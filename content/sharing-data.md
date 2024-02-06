@@ -28,13 +28,13 @@ platform and filter by country, content type, discipline, etc.
 **Sweden:**
 - [ICOS for climate data](http://www.icos-sweden.se/)
 - [Bolin center climate / geodata](https://bolin.su.se/data/)
-- [NBIS for life science, sequence –omics data](https://nbis.se/infrastructure)
+- [NBIS for life science, sequence, omics data](https://nbis.se/services/data-sharing)
 
 **Norway:**
 - [NIRD archive is widely used by some communities](https://archive.norstore.no/)
 - [NSD - Norwegian Center for Research Data, for any kind of data](https://nsd.no/nsd/english/index.html)
 - [Dataverse.no - Dataverse network, based at University of Tromsø but open for other institutions](https://dataverse.no/)
-- [ELIXIR Norway for life science, sequence –omics data](https://nbis.se/infrastructure)
+- [ELIXIR Norway for life science, sequence, omics data](https://elixir.no/)
 
 **Denmark:**
 - [opendata.dk nationwide portal](http://www.opendata.dk)
