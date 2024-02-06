@@ -34,7 +34,7 @@ platform and filter by country, content type, discipline, etc.
 - [NIRD archive is widely used by some communities](https://archive.norstore.no/)
 - [NSD - Norwegian Center for Research Data, for any kind of data](https://nsd.no/nsd/english/index.html)
 - [Dataverse.no - Dataverse network, based at University of Tromsø but open for other institutions](https://dataverse.no/)
-- [ELIXIR Norway for life science, sequence, omics data](https://elixir.no/services/#h35ski0awr6isets8xsc475w18g2g5k)
+- [ELIXIR Norway for life science, sequence, omics data](https://elixir.no/)
 
 **Denmark:**
 - [opendata.dk nationwide portal](http://www.opendata.dk)
