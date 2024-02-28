@@ -80,7 +80,7 @@ More about `CITATION.cff` files:
 Where can I publish papers which are primarily focused on my scientific
 software?  Great list/summary is provided in this blog post: ["In which
 journals should I publish my software?" (Neil P. Chue
-Hong)](https://www.software.ac.uk/resources/guides/which-journals-should-i-publish-my-software)
+Hong)](https://www.software.ac.uk/top-tip/which-journals-should-i-publish-my-software)
 
 
 ## How to cite software
