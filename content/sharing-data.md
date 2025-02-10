@@ -44,6 +44,9 @@ platform and filter by country, content type, discipline, etc.
 - [FSD for social data](https://www.fsd.uta.fi/en/)
 - [more information on Finnish resources for open data](https://www.fairdata.fi/en/)
 
+**Portugal:**
+- [DMPortal - Dataverse network for any research data](https://dmportal.biodata.pt/)
+
 ---
 
 ## Resources for data management
