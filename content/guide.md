@@ -10,23 +10,23 @@ There are the following main acts:
 - First section is about social coding and sharing code and motivation for
   sharing code with a discussion that licensing alone isn't enough. If you want
   people to use your work, you need to do more to make your work easily reusable.
-  Use this as an entry point to tell people what is coming up in the rest of
-  CodeRefinery (if this talk is on day 1 of a CodeRefinery workshop) or
-  re-emphasize how past lessons all fit together (if on the last day).
 
 - Emphasis of the concept of derivative work and that everything is
-  based on other things. And if your goal is citations, you want as
-  many people using your work as possible, because then they can cite
-  you.
+  based on other things. And if your goal is citations, you want as many
+  people using your work as possible, because then they can cite you.
 
 - Overview of license types. There are many
-  online resources, and the biggest
-  question is permissive vs. weak copyleft vs. strong copyleft. The [cake analogy
-  for licenses](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-coding/main/licensing-and-cakes.md/) is only linked
-  and can be skipped and does not have to be discussed in detail.
+  online resources, and the biggest question is permissive vs. weak copyleft
+  vs. strong copyleft.
+  The [cake analogy for licenses](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-coding/main/licensing-and-cakes.md/)
+  is only linked and can be skipped and does not have to be discussed in
+  detail.
 
-- Finally a brief section on code citations. It's good if you manage to start a discussion
+- Then a brief section on code citations. It's good if you manage to start a discussion
   around this topic.
+
+- The "Sharing data" part is meant to bring awareness about FAIRness and
+  Open Science and to show how DOIs can be obtained for Git repositories.
 
 
 ## Hints
