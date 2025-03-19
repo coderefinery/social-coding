@@ -23,8 +23,8 @@ authors:
 title: "Social coding and open software - What can you do to get credit for your code and allow reuse?"
 type: "data"
 abstract: "We motivate and give an overview over software and data licensing and software citation best practices."
-version: 2023-09-06
-date-released: 2023-09-06
+version: 2025-03-19
+date-released: 2025-03-19
 url: "https://coderefinery.github.io/social-coding/"
 license: CC-BY-4.0
 repository-code: "https://github.com/coderefinery/social-coding"
