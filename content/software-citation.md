@@ -109,3 +109,21 @@ software citation examples):
 - Identifier
 - Version
 - Type
+
+
+:::{note} FAIR for Research Software (FAIR4RS) 
+The FAIR4RS Principles adapt the original FAIR data principles to improve the **Findability, Accessibility, Interoperability, and Reusability** of research software. They provide guidelines to make research software more open, discoverable, citable, and reusable, which supports reproducibility and open science. The summary of the FAIR4RS below is a compressed version of the principles listed in [Barker, Michelle, et al. "Introducing the FAIR Principles for research software." Scientific Data 9.1 (2022): 622](https://www.nature.com/articles/s41597-022-01710-x).
+
+- **Findable**: Software should have a globally unique and persistent identifier  
+  (e.g. clear versioning of releases, DOI from Zenodo when depositing a software release, software metadata in citation file).
+- **Accessible**: Software and metadata should be retrievable using open protocols  
+  (e.g. downloading from GitHub or Zenodo).
+- **Interoperable**: Software should use open formats and standards to work with other tools  
+  (e.g. input/output files in CSV, dependencies listed in `requirements.txt` or `environment.yml`, configuration files in yaml).
+- **Reusable**: Software should have clear licensing, documentation, and provenance  
+  (e.g. a standard license and a `README` with usage instructions, authors listed with ORCIDs).
+
+There are great resources to self-evaluate the *FAIRness* of your research software:
+- [FAIR Software Checklis](thttps://fairsoftwarechecklist.net/) which provides a questionnaire and even a badge of how FAIR the software is
+- [FAIR Software NL](https://fair-software.nl/) highlights with nice visuals the five most important elemnts of FAIR4RS (1. Public accessible repository with version control; 2. License; 3. Software registry; 4. Software citation file; 5. Software quality checklist)
+:::
