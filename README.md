@@ -1,6 +1,7 @@
 # Social coding and open software - What can you do to get credit for your code and to allow reuse
 
 - Text: free to share and remix under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
+- [Social Coding lesson DOI](https://doi.org/10.5281/zenodo.16410766)
 
 
 ## Credits
