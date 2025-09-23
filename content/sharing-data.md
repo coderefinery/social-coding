@@ -36,8 +36,10 @@ platform and filter by country, content type, discipline, etc.
 - [ELIXIR Norway for life science, sequence, omics data](https://elixir.no/)
 
 **Denmark:**
-- [opendata.dk nationwide portal](http://www.opendata.dk)
-- [Danish portal for sharing geographical data](http://brugstedet.dk/)
+- [Datavejviser](https://datavejviser.dk/) – metadata catalogue aggregating from research organisations and National Archives
+- [GEUS Dataverse](https://www.dataverse.geus.dk/) – data from the Geological Survey of Denmark and Greenland
+- [DTU Data](https://data.dtu.dk/) – repository of the Technical University of Denmark
+- [DeiC Dataverse for University of Copenhagen](https://dataverse.deic.dk/dataverse/ucph)
 
 **Finland:**
 - [IDA, for general data](https://ida.fairdata.fi/login)
