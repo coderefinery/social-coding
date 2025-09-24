@@ -77,24 +77,31 @@ License text, slides, images, and supporting information under a
 
 ---
 
+
 ## Licensing and machine learning/ AI
 
+This section is maybe more relevant to **developers of AI models / AI systems** rather than **users of AI models / AI systems**.
+
 **Is it data? Is it software?**
-We need to consider the AI solution, the training data, the production data,
-the AI output, and AI evolutions.
+It depends. We need to consider the AI system as a whole, the training data, the production data, the AI output, and how it is put on service. **AI models** are like the engine of the car: they cannot do anything without the rest of the car infrastructure. **AI systems** are the whole car with the AI model and all the software and hardware to actually use it. 
+
+Depending on what you are going to share, there might be things to consider beyond the license.
+
+For example **large language models** are often shared with open source software licenses, on **HuggingFace** which is like a GitHub/GitLab for AI models (see for example the [OLMO model](https://huggingface.co/allenai/OLMo-7B)). Many so-called *open-source* models are actually just *open-weights* models: only the trained neural network weights are shared, while the training data, training code, and full documentation are often kept private. This lack of transparency raises concerns about reproducibility and accountability and this phenomenon is sometimes called **"open washing"** ([ref](https://dl.acm.org/doi/abs/10.1145/3630106.3659005)). Models are also shared with a **model card** which is a documentation tool for transparency that provide a comprehensive snapshot of a model’s characteristics and ethical considerations (see [Ch.8 Glerean 2025](https://www.edpb.europa.eu/our-work-tools/our-documents/support-pool-experts-projects/fundamentals-secure-ai-systems-personal_en)).
+
+**What about ethics? What about liability?**
+
+As AI models (e.g. the deep network weights) and AI systems (the model with all the software and infrastructure to query it) are becoming more available, there can be legal (and ethical!) requirements on the developer of the AI model/system by the [EU AI Act](https://artificialintelligenceact.eu/). In general researchers do not need to worry, but ethically one should consider that if the research-purpose AI model/system could be used for something harmful, ethically (if not legally) one should consider if such model/system should be implemented at all.
+
+**What about the training data inside the model?**
+Large models can memorize and unintentionally reveal parts of their training data. This raises concerns about copyright, trade secrets, and personal data. News publishers and artists are suing AI companies for unauthorized use of their content in training. It is still unclear how traditional data licenses can apply to data that has been transformed into model weights.
 
 
-**How about ethics? How about liability?**
-- [EU AI Act](https://artificialintelligenceact.eu/)
-- Models can be reverse-engineered and training data can be extracted
-- What if the model generates an outcome that is dangerous?
-.cite[Thanks to E. Glerean for pointing these issues out to us]
-
-
-**Some resources**
+**More resources**
 - [RAIL initiative: "Responsible AI licenses"](https://www.licenses.ai)
 - [The Turing Way: Machine Learning Model Licenses](https://the-turing-way.netlify.app/reproducible-research/licensing/licensing-ml.html)
 - ["Expert Q&A on Artificial Intelligence (AI) Licensing"](https://www.mayerbrown.com/-/media/files/news/2019/01/expert-qanda-on-artificial-intelligence-ai-licensing-w0219801.pdf)
+
 
 ---
 
