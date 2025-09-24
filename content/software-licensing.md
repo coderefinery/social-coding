@@ -92,6 +92,18 @@ document or form input for an online poll:
 ````
 
 
+```{admonition} Plagiarism vs. Intellectual Property Rights = Research Ethics vs Law 
+*This insert can be skipped and left as reading exercise*
+
+In academic context it is important to consider also *plagiarism* and how it relates to copyright and more broadly Intellectual Property Rights ([a clear explanation at this page](https://scholarworks.duke.edu/copyright-advice/copyright-faq/copyright-and-plagiarism/)). Plagiarism is the practice of taking somebody else's ideas or work and claim them as your own: it is the **unacknowledged** use of another person's work. Intellectual Property Rights (IPRs) infringement instead is the **unauthorised** use of another's work. 
+
+IPRs can be classified in two main groups ([WTO](https://www.wto.org/english/tratop_e/trips_e/intel1_e.htm)): i) Copyright and rights related to copyright (computer programs are here) and ii) Industrial properties like trademarks, and inventions (which may include specific technical implementations of systems or code) protected by patents.
+
+In research ethics, plagiarism is one of the three definition of research misconduct (along with *fabrication* and *falsification*, see ALLEA, [European Code of Conduct for Research Integrity](https://allea.org/wp-content/uploads/2023/06/European-Code-of-Conduct-Revised-Edition-2023.pdf)). Plagiarism is not illegal per se, but it can lead to serious consequences like the retraction of published work. One can engage in plagiarism, without necessarily breaking any IPR law (e.g. write a new book by reusing the plot of an old book that is not under copyright anymore). Copyright infringment instead is illegal and it can result in criminal charges (e.g. fines). Copyright however protects the particular expression of an idea or fact (for example, the specific source code of a program, but not the underlying algorithm itself). 
+
+There is no pre-defined "number of lines of code", "seconds of a song", or "pixels of an image" that can clearly set the basis for plagiarism or IPR infringement. However in the context of research, it can be possible to use *Quotation Exception* (in EU, [ref](https://www.copyrightexceptions.eu/exceptions/info53d/)) and *Fair use* (in USA, [ref](https://en.wikipedia.org/wiki/Fair_use)). Fair use has become controversial recently as it is used as legal basis for training large language models based on scraped internet data ([See for example Henderson, P., Li, X., Jurafsky, D., Hashimoto, T., Lemley, M. A., & Liang, P. (2023). Foundation models and fair use. Journal of Machine Learning Research, 24(400), 1-79.](https://www.jmlr.org/papers/v24/23-0569.html))
+```
+
 ### Derivative work and containers
 
 (I haven't found a discussion/paper on this so only speculating; please suggest changes/improvements)
