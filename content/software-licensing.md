@@ -111,7 +111,7 @@ Containers are a bit more tricky when it comes to licenses.
 - Distribution of container recipes: it's like distributing source code
 - Distribution of container images: it can be considered like distributing a binary compiled software
 
-The latter case is a bit more nuanced and the interested reader should read more about "Mere Aggregation" at [GPL-FAQ](https://www.gnu.org/licenses/gpl-faq.html#MereAggregation). Briefly, if the conatiner image just bundles separate programs that talk through normal system interfaces, it is an **aggregate** and each keeps its own license (like a CD-ROM with various packages). If the components are tightly integrated into one program (e.g. a pipeline with various parts that the container can run as a single program), the image may be treated as a **derivative work**, and stricter license obligations (e.g. GPL copyleft) can apply. 
+The latter case is a bit more nuanced and the interested reader should read more about "Mere Aggregation" at [GPL-FAQ](https://www.gnu.org/licenses/gpl-faq.html#MereAggregation). Briefly, if the container image just bundles separate programs that talk through normal system interfaces, it is an **aggregate** and each keeps its own license (like a CD-ROM with various packages). If the components are tightly integrated into one program (e.g. a pipeline with various parts that the container can run as a single program), the image may be treated as a **derivative work**, and stricter license obligations (e.g. GPL copyleft) can apply. 
 
 ---
 
@@ -290,6 +290,22 @@ Practical steps:
   and some projects choose to not have copyright information on top of their
   files and they only have one `LICENSE` file and that is
   OK for really small projects.
+
+
+
+```{admonition} Licensing code produced by generative AI systems
+
+With generative AI tools for coding such as GitHub copilot, Cursor, or even basic chat implementations (ChatGPT, Claude, Grok, ...) the responsibility fully lays on the person who is going to use (and publish) the generated code. You can never blame the autopilot or the company who invented it, only the driver (you!).
+
+There are various risks in using generative AI code (this is not a taxonomy). A few examples:
+
+- Risks for the derivative work: you think your code is doing what you asked, but you did not review it and your results are false
+- Risks for the system in use: your generated code has software security issues, e.g. an import is a *typosquat* of an actual library (e.g. "microsoft" is spelled "rnicrosoft" and depending on the font you might totally miss it...)
+- Risks related to licenses/IPR: you have generated code that is actually verbatim copy of fully copyrighted code, or code that requires a strict copyleft license. Plagiarism (ethics) also applies.
+
+If we focus on the last one, a recent paper ([ref](https://arxiv.org/html/2408.02487v1)) estimates that around 2% of AI generated code is "strikingly similar to existing open-source implementations". Generative AI tools are typically not able to provide an exact reference of where certain bits of generated code were copied from, so it is the responsibility of the researcher to verify that the produced code is citing and referencing the license of other published pieces of software. Possibly, future AI systems for code generation can be trained on code that share the same set of licenses (e.g. based only on MIT) to mitigate these risks.
+
+```
 
 ---
 
