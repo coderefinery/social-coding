@@ -106,10 +106,12 @@ There is no pre-defined "number of lines of code", "seconds of a song", or "pixe
 
 ### Derivative work and containers
 
-(I haven't found a discussion/paper on this so only speculating; please suggest changes/improvements)
+Containers are a bit more tricky when it comes to licenses.
 
 - Distribution of container recipes: it's like distributing source code
-- Distribution of container images: it's like distributing binary form
+- Distribution of container images: it can be considered like distributing a binary compiled software
+
+The latter case is a bit more nuanced and the interested reader should read more about "Mere Aggregation" at [GPL-FAQ](https://www.gnu.org/licenses/gpl-faq.html#MereAggregation). Briefly, if the conatiner image just bundles separate programs that talk through normal system interfaces, it is an **aggregate** and each keeps its own license (like a CD-ROM with various packages). If the components are tightly integrated into one program (e.g. a pipeline with various parts that the container can run as a single program), the image may be treated as a **derivative work**, and stricter license obligations (e.g. GPL copyleft) can apply. 
 
 ---
 
