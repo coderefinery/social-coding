@@ -25,6 +25,7 @@ platform and filter by country, content type, discipline, etc.
   without any problem, and it remains private until you make it public.
 
 **Sweden:**
+- [Researchdata.se - research data from a wide range of disciplines](https://researchdata.se/en)
 - [ICOS for climate data](http://www.icos-sweden.se/)
 - [Bolin center climate / geodata](https://bolin.su.se/data/)
 - [NBIS for life science, sequence, omics data](https://nbis.se/services/data-sharing)
