@@ -20,10 +20,12 @@ authors:
   given-names: "Oxana"
 - family-names: "Whalley"
   given-names: "Lucy"
+- family-names: "Glerean"
+  given-names: "Enrico"
 title: "Social coding and open software - What can you do to get credit for your code and allow reuse?"
 type: "data"
 abstract: "We motivate and give an overview over software and data licensing and software citation best practices."
-version: 2025-03-19
+version: 2026-03-30
 date-released: 2025-03-19
 url: "https://coderefinery.github.io/social-coding/"
 license: CC-BY-4.0
