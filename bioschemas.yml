@@ -1,0 +1,67 @@
+{
+    "@context": "https://schema.org/",
+    "@type": "LearningResource",
+    "@id": "https://coderefinery.github.io/social-coding",
+    "description": "We motivate and give an overview over software and data licensing and software citation best practices.",
+    "keywords": "software licensing, software citation",
+    "name": "Social coding and open software - What can you do to get credit for your code and allow reuse? - CodeRefinery lesson",
+    "author": [
+        {
+            "@type": "Organization",
+            "name": "CodeRefinery"
+        },
+        {
+            "@type": "Person",
+            "name": "Radovan Bast"
+        },
+        {
+            "@type": "Person",
+            "name": "Kjartan Thor Wikfeldt"
+        },
+        {
+            "@type": "Person",
+            "name": "Johan Hellsvik"
+        },
+        {
+            "@type": "Person",
+            "name": "Richard Darst"
+        },
+        {
+            "@type": "Person",
+            "name": "Sabry Razick"
+        },
+        {
+            "@type": "Person",
+            "name": "Jyry Suvilehto"
+        },
+        {
+            "@type": "Person",
+            "name": "Anne Fouilloux"
+        },
+        {
+            "@type": "Person",
+            "name": "Oxana Smirnova"
+        },
+        {
+            "@type": "Person",
+            "name": "Lucy Whalley"
+        },
+        {
+            "@type": "Person",
+            "name": "Enrico Glerean"
+        }
+    ],
+    "about": "We motivate and give an overview over software and data licensing and software citation best practices.",
+    "audience": "",
+    "competencyRequired": "",
+    "educationalLevel": "Beginner",
+    "identifier": "https://doi.org/10.5281/zenodo.16410766",
+    "inLanguage": "en-UK",
+    "learningResourceType": "lesson",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "teaches": "",
+    "url": "https://coderefinery.github.io/social-coding",
+    "accessibilitySummary": "",
+    "isPartOf": "https://coderefinery.org",
+    "version": "2026-08-10"
+}
