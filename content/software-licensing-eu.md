@@ -54,7 +54,7 @@ If you need formal guidance reference below could be used:
 * **Practical Impact**: EU statutory law explicitly excludes algorithms, programming languages, logic, and interface principles from copyright protection. 
 
 
-## Claisfication
+## Claisfication of licenses related to software
 
 ```{mermaid}
    flowchart TB
@@ -90,3 +90,25 @@ If you need formal guidance reference below could be used:
       class A,B,C,D mains; 
 ```
 
+::::{exercise} Scenario 1: Own algorithm with external dependencies
+You wrote an original algorithm from scratch (in Python, C++, Rust, etc.). Your repository contains only your original source code, but relies on third-party libraries referenced via dependency manifests (`requirements.txt`, `CMakeLists.txt`, `Cargo.toml`).
+
+**Tasks**:
+1. Can you apply any open-source license you want to your repository?
+2. Practice selecting a **Permissive** open-source license using the [Licensing Assistant](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses) by toggling the following options:
+
+| 🟢 **Can** | ⚪ **Must** | 🟡 **Support** |
+| :--- | :--- | :--- |
+| [x] Commercial use | [x] Incl. Copyright | [x] OSI approved |
+| [x] Modify/merge | | |
+| [x] Distribute | | |
+
+:::{solution}
+**Legal Reality**: Referenced external dependencies remain separate packages[cite: 1]. Because you have not pasted third-party source code directly into your repository files, you hold full copyright over your original codebase[cite: 1].
+
+* **Outcome**: **Fully Permissible.** You own the original source code and can choose any open-source license (e.g., MIT, Apache-2.0, EUPL-1.2, GPL-3.0)[cite: 1].
+* **JLA Expected Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
+* **Why**: Selecting these filters returns licenses that grant maximum reuse and commercial rights while requiring only standard copyright attribution[cite: 1].
+* **User Obligation**: Downstream users who compile or run your software must comply with the individual licenses of external packages when fetching or linking them[cite: 1].
+:::
+::::
