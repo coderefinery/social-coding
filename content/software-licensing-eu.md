@@ -58,36 +58,44 @@ If you need formal guidance reference below could be used:
 
 ```{mermaid}
    flowchart TB
-    subgraph box[ ]
-      A["Copyright Law Foundation<br/>(EU Directive 2009/24/EC)"] --> B["Permissive<br/>(MIT, BSD, Apache-2.0)"]
-      A --> C["Copyleft / Reciprocal<br/>(EUPL, GPL, LGPL)"]
-      A --> D["All Rights Reserved / Proprietary"]
-  
-      B --> B1["Run & Modify?<br/><b>Yes!</b>"]
-      B --> B2["Sell copies as-is?<br/><b>Yes!</b>"]
-      B --> B3["Embed in closed product & sell?<br/><b>Yes!</b>"]
-      B --> B4["Must changes stay open?<br/><b>No</b> (Optional)"]
-  
-      C --> C1["Run & Modify?<br/><b>Yes!</b>"]
-      C --> C2["Sell copies as-is?<br/><b>Yes!</b>"]
-      C --> C3["Embed in closed product & sell?<br/><b>No!</b>"]
-      C --> C4["Must changes stay open?<br/><b>Yes!</b> (Mandatory)"]
-  
-      D --> D1["Run & Modify?<br/><b>No!</b> (Zero permission)"]
-      D --> D2["Sell copies as-is?<br/><b>No!</b>"]
-      D --> D3["Embed in closed product & sell?<br/><b>No!</b>"]
-      D --> D4["Can I change code?<br/><b>No</b> (Closed source)"]
-    end
-      classDef permissive fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
-      classDef copyleft fill:#fff9db,stroke:#f59f00,stroke-width:2px,color:#5c3c00;
-      classDef proprietary fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
-      classDef header fill:#f8f9fa,stroke:#495057,stroke-width:2px,color:#212529;
-      classDef mains fill:#fafadc,stroke:#495057,stroke-width:2px,color:#212529;
-      classDef box fill:#ffffff;
-      class B1,B2,B3,B4,C1,C2 permissive;
-      class C3,C4,D1,D2,D3,D4 proprietary;
-      class box box; 
-      class A,B,C,D mains; 
+     subgraph box[ ]
+       A["Copyright Law Foundation<br/>(EU Directive 2009/24/EC)"] --> B["Permissive<br/>(MIT, BSD, Apache-2.0)"]
+       A --> C["Copyleft / Reciprocal<br/>(EUPL, GPL, LGPL)"]
+       A --> D["All Rights Reserved / Proprietary"]
+   
+       B --> B1["Run & Modify?<br/><b>Yes!</b>"]
+       B --> B2["Sell copies as-is?<br/><b>Yes!</b>"]
+       B --> B3["Embed in closed product & sell?<br/><b>Yes!</b>"]
+       B --> B4["Must changes stay open?<br/><b>No</b> (Optional)"]
+   
+       C --> C1["Run & Modify?<br/><b>Yes!</b>"]
+       C --> C2["Sell copies as-is?<br/><b>Yes!</b>"]
+       C --> C3["Embed in closed product & sell?<br/><b>No!</b>"]
+       C --> C4["Must changes stay open?<br/><b>Yes!</b> (Mandatory)"]
+   
+       D --> D1["Run & Modify?<br/><b>No!</b> (Zero permission)"]
+       D --> D2["Sell copies as-is?<br/><b>No!</b>"]
+       D --> D3["Embed in closed product & sell?<br/><b>No!</b>"]
+       D --> D4["Can I change code?<br/><b>No</b> (Closed source)"]
+       subgraph osi["Open Source Initiative (OSI)"]
+           osi_H["👉 Some exceptions exists"]
+           B["Permissive<br/>(MIT, BSD, Apache-2.0)"]
+           C["Copyleft / Reciprocal<br/>(EUPL, GPL, LGPL)"]
+         end
+     end
+       classDef permissive fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
+       classDef copyleft fill:#fff9db,stroke:#f59f00,stroke-width:2px,color:#5c3c00;
+       classDef proprietary fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
+       classDef header fill:#f8f9fa,stroke:#495057,stroke-width:2px,color:#212529;
+       classDef mains fill:#fafadc,stroke:#495057,stroke-width:2px,color:#212529;
+        classDef osiBox fill:#f8f9fa,stroke:#0275d8,stroke-width:2px,stroke-dasharray: 5 5,color:#0275d8;
+       classDef box fill:#ffffff;
+       class B1,B2,B3,B4,C1,C2 permissive;
+       class C3,C4,D1,D2,D3,D4 proprietary;
+       class box box; 
+       class A,B,C,D mains;
+       class osi_H,osi osiBox;
+
 ```
 
 ::::{exercise} Scenario 1: Own algorithm with external dependencies
