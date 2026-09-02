@@ -51,7 +51,7 @@ navigating and deciding on licenses.
    :hidden:
 
    social-coding
-   software-licensing
+   software-licensing-eu
    software-citation
    sharing-data
 
