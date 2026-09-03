@@ -147,3 +147,53 @@ You read a published scientific paper or technical specification, understand the
 * **Mixing & Redistribution**: Anyone can use and modify your code. However, if a third party integrates your copyleft implementation into their software and distributes the combined product, their whole application must be released under a compatible open-source copyleft license.
 :::
 ::::
+
+::::{exercise} Scenario 3: Directly embedding third-party Copyleft source code
+You find a useful utility function or module online licensed under a **Copyleft / Reciprocal license** (e.g., GPL-3.0 or EUPL-1.2). You copy and paste this source code directly into your repository files and extend it to fit your project.
+
+* **Licensing Goal**: Fulfill legal obligations imposed by incorporating inbound copyleft code into your codebase.
+
+[Licensing Assistant](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses) selection guide:
+
+| 🟢 **Can** | ⚪ **Must** | 🔵 **Compatible** | 🟡 **Support** |
+| :--- | :--- | :--- | :--- |
+| ☑ Commercial use | ☑ Copyleft/Share a. | ☑ For software | ☑ OSI approved |
+| ☑ Modify/merge | ☑ Disclose source | | |
+| ☑ Distribute | | | |
+
+:::{solution}
+**Legal Reality**: Unlike referencing external dependencies or writing code from scratch, pasting third-party source code directly into your repository creates a single combined (derivative) work. You do not hold exclusive copyright over the entire codebase.
+
+* **Outcome**: **Restricted Choice (Mandatory Copyleft).** You cannot choose a permissive license (e.g., MIT) or keep the repository proprietary. You must choose a copyleft license compatible with the inbound code.
+* **Selected Category**: **Copyleft / Reciprocal** (mandated by the inbound license's copyleft clause).
+* **JLA Expected Matches**: `EUPL-1.2`, `GPL-3.0`
+* **Why**: Inbound copyleft terms mandate that any derivative work distributed as a whole must inherit reciprocal sharing obligations (`Copyleft/Share a.` and `Disclose source`).
+* **User Obligation**: Anyone distributing your project must provide access to the full source code (including your modifications) under the matching copyleft terms.
+* **Mixing & Redistribution**: Downstream users receive full copyleft freedoms. You cannot re-license your combined repository under a permissive license later unless you completely strip out or rewrite the third-party copyleft code from scratch.
+:::
+::::
+
+::::{exercise} Scenario 4: Generating or assisting code using AI tools
+You write software using AI coding assistants (e.g., GitHub Copilot, ChatGPT) to generate functions, boilerplate, or refactor algorithms. Your repository consists of a mix of human-authored code and AI-generated outputs.
+
+* **Licensing Goal**: You want **maximum adoption** (or any open-source model) and need to know if using AI tools restricts your choice of open-source license.
+
+[Licensing Assistant](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses) selection guide (example using Permissive selection):
+
+| 🟢 **Can** | ⚪ **Must** | 🔵 **Compatible** | 🟡 **Support** |
+| :--- | :--- | :--- | :--- |
+| ☑ Commercial use | ☑ Incl. Copyright | ☑ For software | ☑ OSI approved |
+| ☑ Modify/merge | | | |
+| ☑ Distribute | | | |
+
+:::{solution}
+**Legal Reality**: Under EU copyright law and international consensus, **pure AI-generated outputs lacking human authorship** and are generally **ineligible** for copyright protection. However, when you assemble, refine, and integrate AI code into an overarching software project through creative human effort, you hold copyright over the resulting human-authored work (provided the AI tool did not reproduce substantial copyrighted third-party snippets verbatim).
+
+* **Outcome**: **Fully Permissible.** The use of AI tools does not force a specific open-source license onto your repository. You retain the choice between Permissive or Copyleft based on your strategic goals.
+* **Selected Category**: **Permissive** (or Copyleft, determined by author intent rather than the AI tool).
+* **JLA Expected Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause` (or `EUPL-1.2`, `GPL-3.0` if your intent is Copyleft).
+* **Why**: AI generation does not introduce third-party license obligations unless the AI model directly copied, copyrighted copyleft code from its training data.
+* **User Obligation**: Standard obligations apply based on the license you choose to attach to your human-authored codebase.
+* **Mixing & Redistribution**: Anyone can use, modify, or redistribute your repository under your chosen license. Downstream users are bound by your overall repository license terms, while the standalone, raw unedited AI snippets themselves remain ineligible for copyright protection.
+:::
+::::
