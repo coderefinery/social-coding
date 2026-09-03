@@ -1,7 +1,12 @@
-# Software licensing
+# Software licensing focusing on open source
 
 ```{objectives}
- - Objective 1
+
+- Principles of open source license 
+- Difference between permissive and copyleft licenses.
+- Determine software licence for your project folowing EU regulation.
+- Navigate the Joinup Licensing Assistant to select a compliant license.
+
 ```
 
 ```{discussion} Limitations and context of this lesson 
