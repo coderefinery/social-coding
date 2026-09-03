@@ -189,6 +189,8 @@ You write software using AI coding assistants (e.g., GitHub Copilot, ChatGPT) to
 :::{solution}
 **Legal Reality**: Under EU copyright law and international consensus, **pure AI-generated outputs lacking human authorship** and are generally **ineligible** for copyright protection. However, when you assemble, refine, and integrate AI code into an overarching software project through creative human effort, you hold copyright over the resulting human-authored work (provided the AI tool did not reproduce substantial copyrighted third-party snippets verbatim).
 
+* **How much AI assitance allowed**: There is no prenstage stated, if a dispute arrises *Human Authorship and Creative Control* used by the justice system. Treat AI like an boilerplate code generator, advanced autocomplete or research assistant and use it for actively guiding, reviewing, modifying, and structuring the code compared to *press a button to generate all the code* would be the direction to follow if you are planing to license it. 
+* **How to check if AI gave copyrighted material**: Manual code base search, built in facilities in AI tools like *Block suggestions matching public code* in GitHub Copilot. Automated license scanners like FOSSology or Snyk. 
 * **Outcome**: **Fully Permissible.** The use of AI tools does not force a specific open-source license onto your repository. You retain the choice between Permissive or Copyleft based on your strategic goals.
 * **Selected Category**: **Permissive** (or Copyleft, determined by author intent rather than the AI tool).
 * **JLA Expected Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause` (or `EUPL-1.2`, `GPL-3.0` if your intent is Copyleft).
