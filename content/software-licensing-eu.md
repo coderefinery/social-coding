@@ -26,33 +26,6 @@ If you need formal guidance reference below could be used:
     - Protected: Specific text and expression of a program in any form, including preparatory design work
     - Not protected: Underlying ideas, mathematical algorithms, logic, and interface principles.
 
-## Difference in terminology in the US regulative text and EU regulation 2009/24/EC
- 
-### 1. Modified Code & Works
-* **US Concept**: **Derivative Work** (broadly defined in the US Copyright Act).
-* **EU Concept**: **Adaptation**, translation, arrangement, or alteration (Directive 2009/24/EC Art. 4(1)(b)).
-* **Practical Impact**: EU law avoids the term "derivative work." Any code modifications are classified as specific statutory acts of adaptation or translation.
-
-### 2. User Rights & Exceptions
-* **US Concept**: **Fair Use** (flexible judicial doctrine evaluated case-by-case in court).
-* **EU Concept**: **Statutory Exceptions** (strictly codified rights, such as error correction under Art. 5(1) or decompilation for interoperability under Art. 6).
-* **Practical Impact**: EU user rights are fixed by statute and cannot be overridden by contract, avoiding reliance on judicial interpretation.
-
-### 3. Waiver of Rights
-* **US Concept**: **Public Domain Dedication** (authors can fully surrender economic and moral rights).
-* **EU Concept**: **Economic Rights Transfer / Non-Waivable Moral Rights**.
-* **Practical Impact**: European legal traditions do not allow full waiver of moral rights (e.g., right to attribution), requiring permissive open licenses rather than pure public domain dedications.
-
-### 4. Work Ownership in Employment
-* **US Concept**: **Work Made for Hire** (the employer is legally recognized as the primary author).
-* **EU Concept**: **Employer Economic Rights** (Directive 2009/24/EC Art. 2(3)).
-* **Practical Impact**: The individual developer remains the author, but all economic rights automatically transfer to the employer for code created during employment duties.
-
-### 5. Non-Protectable Elements
-* **US Concept**: **Idea-Expression Dichotomy** (established primarily through court case law).
-* **EU Concept**: **Expression vs. Ideas, Principles, & Interfaces** (explicitly codified under Directive 2009/24/EC Art. 1(2)).
-* **Practical Impact**: EU statutory law explicitly excludes algorithms, programming languages, logic, and interface principles from copyright protection. 
-
 
 ## Claisfication of licenses related to software
 
@@ -247,3 +220,31 @@ You write your own original code from scratch, but your program includes or link
 * **Mixing & Redistribution**: Anyone using or building upon your work must maintain the GPL-compatible copyleft license. If you want to avoid copyleft restrictions for your codebase, you must replace the GPL library dependency with a permissively licensed alternative (e.g., an MIT or BSD library).
 :::
 ::::
+
+## Difference in terminology in the US regulative text and EU regulation 2009/24/EC
+ 
+### 1. Modified Code & Works
+* **US Concept**: **Derivative Work** (broadly defined in the US Copyright Act).
+* **EU Concept**: **Adaptation**, translation, arrangement, or alteration (Directive 2009/24/EC Art. 4(1)(b)).
+* **Practical Impact**: EU law avoids the term "derivative work." Any code modifications are classified as specific statutory acts of adaptation or translation.
+
+### 2. User Rights & Exceptions
+* **US Concept**: **Fair Use** (flexible judicial doctrine evaluated case-by-case in court).
+* **EU Concept**: **Statutory Exceptions** (strictly codified rights, such as error correction under Art. 5(1) or decompilation for interoperability under Art. 6).
+* **Practical Impact**: EU user rights are fixed by statute and cannot be overridden by contract, avoiding reliance on judicial interpretation.
+
+### 3. Waiver of Rights
+* **US Concept**: **Public Domain Dedication** (authors can fully surrender economic and moral rights).
+* **EU Concept**: **Economic Rights Transfer / Non-Waivable Moral Rights**.
+* **Practical Impact**: European legal traditions do not allow full waiver of moral rights (e.g., right to attribution), requiring permissive open licenses rather than pure public domain dedications.
+
+### 4. Work Ownership in Employment
+* **US Concept**: **Work Made for Hire** (the employer is legally recognized as the primary author).
+* **EU Concept**: **Employer Economic Rights** (Directive 2009/24/EC Art. 2(3)).
+* **Practical Impact**: The individual developer remains the author, but all economic rights automatically transfer to the employer for code created during employment duties.
+
+### 5. Non-Protectable Elements
+* **US Concept**: **Idea-Expression Dichotomy** (established primarily through court case law).
+* **EU Concept**: **Expression vs. Ideas, Principles, & Interfaces** (explicitly codified under Directive 2009/24/EC Art. 1(2)).
+* **Practical Impact**: EU statutory law explicitly excludes algorithms, programming languages, logic, and interface principles from copyright protection. 
+
