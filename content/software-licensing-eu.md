@@ -27,9 +27,9 @@ If you need formal guidance reference below could be used:
 
 ## Introduction 
 
-- What parts of computer programs are protected by copyright
-    - Protected: Specific text and expression of a program in any form, including preparatory design work
-    - Not protected: Underlying ideas, mathematical algorithms, logic, and interface principles.
+Because copyright only protects the expression (code) and not the ideas, developers use licenses to define how that expression can be legally reused. We can classify these licenses into three main categories
+   * **Protected**: Specific text and expression of a program in any form, including preparatory design work
+   * **Not protected**: Underlying ideas, mathematical algorithms, logic, and interface principles.
 
 
 ## Claisfication of licenses related to software
@@ -76,6 +76,42 @@ If you need formal guidance reference below could be used:
 
 ```
 
+## Difference in terminology in the US regulative text and EU regulation 2009/24/EC
+ 
+### 1. Modified Code & Works
+* **US Concept**: **Derivative Work** (broadly defined in the US Copyright Act).
+* **EU Concept**: **Adaptation**, translation, arrangement, or alteration (Directive 2009/24/EC Art. 4(1)(b)).
+* **Practical Impact**: EU law avoids the term "derivative work." Any code modifications are classified as specific statutory acts of adaptation or translation.
+
+### 2. User Rights & Exceptions
+* **US Concept**: **Fair Use** (flexible judicial doctrine evaluated case-by-case in court).
+* **EU Concept**: **Statutory Exceptions** (strictly codified rights, such as error correction under Art. 5(1) or decompilation for interoperability under Art. 6).
+* **Practical Impact**: EU user rights are fixed by statute and cannot be overridden by contract, avoiding reliance on judicial interpretation.
+
+### 3. Waiver of Rights
+* **US Concept**: **Public Domain Dedication** (authors can fully surrender economic and moral rights).
+* **EU Concept**: **Economic Rights Transfer / Non-Waivable Moral Rights**.
+* **Practical Impact**: European legal traditions do not allow full waiver of moral rights (e.g., right to attribution), requiring permissive open licenses rather than pure public domain dedications.
+
+### 4. Work Ownership in Employment
+* **US Concept**: **Work Made for Hire** (the employer is legally recognized as the primary author).
+* **EU Concept**: **Employer Economic Rights** (Directive 2009/24/EC Art. 2(3)).
+* **Practical Impact**: The individual developer remains the author, but all economic rights automatically transfer to the employer for code created during employment duties.
+
+### 5. Non-Protectable Elements
+* **US Concept**: **Idea-Expression Dichotomy** (established primarily through court case law).
+* **EU Concept**: **Expression vs. Ideas, Principles, & Interfaces** (explicitly codified under Directive 2009/24/EC Art. 1(2)).
+* **Practical Impact**: EU statutory law explicitly excludes algorithms, programming languages, logic, and interface principles from copyright protection. 
+
+
+## How to select a license 
+
+Lets go through some examples on how to use the European Commission's Joinup Licensing Assistant (JLA) to select licenses. The JLA groups license clauses into four categories that map to the visual diagram above:
+ * 🟢 Can (Rights): What you are allowed to do (e.g., Run, Modify). Matches the "Yes!" bubbles in the diagram.
+ * ⚪ Must (Obligations): What you are required to do (e.g., Include Copyright for Permissive, or Share Alike for Copyleft). Maps to "Must changes stay open?".
+ * 🔵 Compatible: What context the code is used in (e.g., For software).
+ * 🟡 Support: External verification (e.g., OSI approved). Maps to the blue dashed box.
+
 ::::{exercise} Scenario 1: Own algorithm with external dependencies
 You wrote an original algorithm from scratch (in Python, C++, Rust, etc.). Your repository contains only your original source code and dependency specifications (`requirements.txt`, `CMakeLists.txt`, `Cargo.toml`, or dynamic linking flags).
 
@@ -97,7 +133,7 @@ You wrote an original algorithm from scratch (in Python, C++, Rust, etc.). Your 
 * **JLA Expected Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
 * **Why**: The filters select licenses granting maximum reuse while requiring only basic copyright attribution (`Incl. Copyright`).
 * **User Obligation**: Downstream users must comply with individual external package licenses when fetching, compiling, or running them.
-* **Mixing & Redistribution**: Anyone can freely mix, embed, or redistribute your source code. If a user compiles and distributes a combined **binary** that dynamically links to a copyleft shared library (e.g., GPL `.so`), their *distributed binary* must comply with copyleft obligations, but your upstream source repository remains unaffected under your chosen permissive license.
+* **Mixing & Redistribution**: Anyone can freely mix, embed, or redistribute your source code. If a user compiles and distributes a combined **binary** that dynamically links to a copyleft shared library (e.g., GPL `.so`), their *distributed compiled binary* must comply with copyleft obligations, but your upstream source repository remains unaffected under your chosen permissive license.
 :::
 ::::
 
@@ -126,57 +162,7 @@ You read a published scientific paper or technical specification, understand the
 :::
 ::::
 
-::::{exercise} Scenario 3: Directly embedding third-party Copyleft source code
-You find a useful utility function or module online licensed under a **Copyleft / Reciprocal license** (e.g., GPL-3.0 or EUPL-1.2). You copy and paste this source code directly into your repository files and extend it to fit your project.
-
-* **Licensing Goal**: Fulfill legal obligations imposed by incorporating inbound copyleft code into your codebase.
-
-[Licensing Assistant](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses) selection guide:
-
-| 🟢 **Can** | ⚪ **Must** | 🔵 **Compatible** | 🟡 **Support** |
-| :--- | :--- | :--- | :--- |
-| ☑ Commercial use | ☑ Copyleft/Share a. | ☑ For software | ☑ OSI approved |
-| ☑ Modify/merge | ☑ Disclose source | | |
-| ☑ Distribute | | | |
-
-:::{solution}
-**Legal Reality**: Unlike referencing external dependencies or writing code from scratch, pasting third-party source code directly into your repository creates a single combined (derivative) work. You do not hold exclusive copyright over the entire codebase.
-
-* **Outcome**: **Restricted Choice (Mandatory Copyleft).** You cannot choose a permissive license (e.g., MIT) or keep the repository proprietary. You must choose a copyleft license compatible with the inbound code.
-* **Selected Category**: **Copyleft / Reciprocal** (mandated by the inbound license's copyleft clause).
-* **JLA Expected Matches**: `EUPL-1.2`, `GPL-3.0`
-* **Why**: Inbound copyleft terms mandate that any derivative work distributed as a whole must inherit reciprocal sharing obligations (`Copyleft/Share a.` and `Disclose source`).
-* **User Obligation**: Anyone distributing your project must provide access to the full source code (including your modifications) under the matching copyleft terms.
-* **Mixing & Redistribution**: Downstream users receive full copyleft freedoms. You cannot re-license your combined repository under a permissive license later unless you completely strip out or rewrite the third-party copyleft code from scratch.
-:::
-::::
-
-::::{exercise} Scenario 4: Generating or assisting code using AI tools
-You write software using AI coding assistants (e.g., GitHub Copilot, ChatGPT) to generate functions, boilerplate, or refactor algorithms. Your repository consists of a mix of human-authored code and AI-generated outputs.
-
-* **Licensing Goal**: You want **maximum adoption** (or any open-source model) and need to know if using AI tools restricts your choice of open-source license.
-
-[Licensing Assistant](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses) selection guide (example using Permissive selection):
-
-| 🟢 **Can** | ⚪ **Must** | 🔵 **Compatible** | 🟡 **Support** |
-| :--- | :--- | :--- | :--- |
-| ☑ Commercial use | ☑ Incl. Copyright | ☑ For software | ☑ OSI approved |
-| ☑ Modify/merge | | | |
-| ☑ Distribute | | | |
-
-:::{solution}
-**Legal Reality**: Under EU copyright law and international consensus, **pure AI-generated outputs lacking human authorship** and are generally **ineligible** for copyright protection. However, when you assemble, refine, and integrate AI code into an overarching software project through creative human effort, you hold copyright over the resulting human-authored work (provided the AI tool did not reproduce substantial copyrighted third-party snippets verbatim).
-
-* **How Much AI Assistance Is Allowed**: There is no fixed percentage threshold. If a legal dispute arises, courts evaluate **Human Authorship and Creative Control**. Using AI as a boilerplate code generator, advanced autocomplete, or research assistant where you actively guide, review, modify, and structure the code preserves your copyright ownership. Conversely, simply pressing a button to generate an entire project without human creative intervention yields uncopyrightable output.
-* **How to Check for Copyrighted Material**: Combine manual codebase searches (e.g., GitHub Code Search), built-in AI tool filters (such as *Block suggestions matching public code* in GitHub Copilot), and automated open-source license scanners (like FOSSology or Snyk).
-* **Outcome**: **Fully Permissible.** The use of AI tools does not force a specific open-source license onto your repository. You retain the choice between Permissive or Copyleft based on your strategic goals.
-* **Selected Category**: **Permissive** (or Copyleft, determined by author intent rather than the AI tool).
-* **JLA Expected Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause` (or `EUPL-1.2`, `GPL-3.0` if your intent is Copyleft).
-* **User Obligation**: Standard obligations apply based on the license you choose to attach to your human-authored codebase.
-* **Mixing & Redistribution**: Anyone can use, modify, or redistribute your repository under your chosen license. Downstream users are bound by your overall repository license terms, while the standalone, raw unedited AI snippets themselves remain ineligible for copyright protection.
-:::
-::::
-::::{exercise} Scenario 5: Directly embedding third-party Permissive source code
+::::{exercise} Scenario 3: Directly embedding third-party Permissive source code
 You find a useful helper module online licensed under a **Permissive license** (e.g., MIT or BSD-3-Clause). You copy and paste this code directly into your repository to build upon it.
 
 * **Licensing Goal**: You want to know if including permissive third-party code limits your overall repository license choices (e.g., if you prefer a Copyleft license like EUPL-1.2 or GPL-3.0).
@@ -201,7 +187,34 @@ You find a useful helper module online licensed under a **Permissive license** (
 :::
 ::::
 
-::::{exercise} Scenario 6: Linking against a Strong Copyleft library (e.g., GSL or FFTW)
+
+::::{exercise} Scenario 4: Directly embedding third-party Copyleft source code
+You find a useful utility function or module online licensed under a **Copyleft / Reciprocal license** (e.g., GPL-3.0 or EUPL-1.2). You copy and paste this source code directly into your repository files and extend it to fit your project.
+
+* **Licensing Goal**: Fulfill legal obligations imposed by incorporating inbound copyleft code into your codebase.
+
+[Licensing Assistant](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses) selection guide:
+
+| 🟢 **Can** | ⚪ **Must** | 🔵 **Compatible** | 🟡 **Support** |
+| :--- | :--- | :--- | :--- |
+| ☑ Commercial use | ☑ Copyleft/Share a. | ☑ For software | ☑ OSI approved |
+| ☑ Modify/merge | ☑ Disclose source | | |
+| ☑ Distribute | | | |
+
+:::{solution}
+**Legal Reality**: Unlike referencing external dependencies or writing code from scratch, pasting third-party source code directly into your repository creates a single combined (derivative) work. You do not hold exclusive copyright over the entire codebase.
+
+* **Outcome**: **Restricted Choice (Mandatory Copyleft).** You cannot choose a permissive license (e.g., MIT) or keep the repository proprietary. You must choose a copyleft license compatible with the inbound code.
+* **Selected Category**: **Copyleft / Reciprocal** (mandated by the inbound license's copyleft clause).
+* **JLA Expected Matches**: `EUPL-1.2`, `GPL-3.0`
+* **Why**: Inbound copyleft terms mandate that any derivative work distributed as a whole must inherit reciprocal sharing obligations (`Copyleft/Share a.` and `Disclose source`).
+* **User Obligation**: Anyone distributing your project must provide access to the full source code (including your modifications) under the matching copyleft terms.
+* **Mixing & Redistribution**: Downstream users receive full copyleft freedoms. You cannot re-license your combined repository under a permissive license later unless you completely strip out or rewrite the third-party copyleft code from scratch.
+:::
+::::
+
+
+::::{exercise} Scenario 5: Linking against a Strong Copyleft library (e.g., GSL or FFTW)
 You write your own original code from scratch, but your program includes or links against a third-party scientific library licensed under a **Strong Copyleft license** (such as GPL-3.0).
 
 * **Licensing Goal**: You want to publish your repository and need to select a license that complies with the inbound linking requirements of the GPL library.
@@ -226,30 +239,29 @@ You write your own original code from scratch, but your program includes or link
 :::
 ::::
 
-## Difference in terminology in the US regulative text and EU regulation 2009/24/EC
- 
-### 1. Modified Code & Works
-* **US Concept**: **Derivative Work** (broadly defined in the US Copyright Act).
-* **EU Concept**: **Adaptation**, translation, arrangement, or alteration (Directive 2009/24/EC Art. 4(1)(b)).
-* **Practical Impact**: EU law avoids the term "derivative work." Any code modifications are classified as specific statutory acts of adaptation or translation.
+::::{exercise} Scenario 6: Generating or assisting code using AI tools
+You write software using AI coding assistants (e.g., GitHub Copilot, ChatGPT) to generate functions, boilerplate, or refactor algorithms. Your repository consists of a mix of human-authored code and AI-generated outputs.
 
-### 2. User Rights & Exceptions
-* **US Concept**: **Fair Use** (flexible judicial doctrine evaluated case-by-case in court).
-* **EU Concept**: **Statutory Exceptions** (strictly codified rights, such as error correction under Art. 5(1) or decompilation for interoperability under Art. 6).
-* **Practical Impact**: EU user rights are fixed by statute and cannot be overridden by contract, avoiding reliance on judicial interpretation.
+* **Licensing Goal**: You want **maximum adoption** (or any open-source model) and need to know if using AI tools restricts your choice of open-source license.
 
-### 3. Waiver of Rights
-* **US Concept**: **Public Domain Dedication** (authors can fully surrender economic and moral rights).
-* **EU Concept**: **Economic Rights Transfer / Non-Waivable Moral Rights**.
-* **Practical Impact**: European legal traditions do not allow full waiver of moral rights (e.g., right to attribution), requiring permissive open licenses rather than pure public domain dedications.
+[Licensing Assistant](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses) selection guide (example using Permissive selection):
 
-### 4. Work Ownership in Employment
-* **US Concept**: **Work Made for Hire** (the employer is legally recognized as the primary author).
-* **EU Concept**: **Employer Economic Rights** (Directive 2009/24/EC Art. 2(3)).
-* **Practical Impact**: The individual developer remains the author, but all economic rights automatically transfer to the employer for code created during employment duties.
+| 🟢 **Can** | ⚪ **Must** | 🔵 **Compatible** | 🟡 **Support** |
+| :--- | :--- | :--- | :--- |
+| ☑ Commercial use | ☑ Incl. Copyright | ☑ For software | ☑ OSI approved |
+| ☑ Modify/merge | | | |
+| ☑ Distribute | | | |
 
-### 5. Non-Protectable Elements
-* **US Concept**: **Idea-Expression Dichotomy** (established primarily through court case law).
-* **EU Concept**: **Expression vs. Ideas, Principles, & Interfaces** (explicitly codified under Directive 2009/24/EC Art. 1(2)).
-* **Practical Impact**: EU statutory law explicitly excludes algorithms, programming languages, logic, and interface principles from copyright protection. 
+:::{solution}
+**Legal Reality**: Under EU copyright law and international consensus, **pure AI-generated outputs lacking human authorship** and are generally **ineligible** for copyright protection. However, when you assemble, refine, and integrate AI code into an overarching software project through creative human effort, you hold copyright over the resulting human-authored work (provided the AI tool did not reproduce substantial copyrighted third-party snippets verbatim).
+
+* **How Much AI Assistance Is Allowed**: There is no fixed percentage threshold. If a legal dispute arises, courts evaluate **Human Authorship and Creative Control**. Using AI as a boilerplate code generator, advanced autocomplete, or research assistant where you actively guide, review, modify, and structure the code preserves your copyright ownership. Conversely, simply pressing a button to generate an entire project without human creative intervention yields uncopyrightable output.
+* **How to Check for Copyrighted Material**: Combine manual codebase searches (e.g., GitHub Code Search), built-in AI tool filters (such as *Block suggestions matching public code* in GitHub Copilot), and automated open-source license scanners (like FOSSology or Snyk).
+* **Outcome**: **Fully Permissible.** The use of AI tools does not force a specific open-source license onto your repository. You retain the choice between Permissive or Copyleft based on your strategic goals.
+* **Selected Category**: **Permissive** (or Copyleft, determined by author intent rather than the AI tool).
+* **JLA Expected Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause` (or `EUPL-1.2`, `GPL-3.0` if your intent is Copyleft).
+* **User Obligation**: Standard obligations apply based on the license you choose to attach to your human-authored codebase.
+* **Mixing & Redistribution**: Anyone can use, modify, or redistribute your repository under your chosen license. Downstream users are bound by your overall repository license terms, while the standalone, raw unedited AI snippets themselves remain ineligible for copyright protection.
+:::
+::::
 
