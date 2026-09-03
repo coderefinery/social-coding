@@ -198,3 +198,27 @@ You write software using AI coding assistants (e.g., GitHub Copilot, ChatGPT) to
 * **Mixing & Redistribution**: Anyone can use, modify, or redistribute your repository under your chosen license. Downstream users are bound by your overall repository license terms, while the standalone, raw unedited AI snippets themselves remain ineligible for copyright protection.
 :::
 ::::
+::::{exercise} Scenario 5: Directly embedding third-party Permissive source code
+You find a useful helper module online licensed under a **Permissive license** (e.g., MIT or BSD-3-Clause). You copy and paste this code directly into your repository to build upon it.
+
+* **Licensing Goal**: You want to know if including permissive third-party code limits your overall repository license choices (e.g., if you prefer a Copyleft license like EUPL-1.2 or GPL-3.0).
+
+[Licensing Assistant](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses) selection guide (example selecting Copyleft):
+
+| 🟢 **Can** | ⚪ **Must** | 🔵 **Compatible** | 🟡 **Support** |
+| :--- | :--- | :--- | :--- |
+| ☑ Commercial use | ☑ Copyleft/Share a. | ☑ For software | ☑ OSI approved |
+| ☑ Modify/merge | ☑ Disclose source | | |
+| ☑ Distribute | | | |
+
+:::{solution}
+**Legal Reality**: Permissive licenses (MIT, BSD) grant broad rights to combine, modify, and re-license derivative works under different terms, provided you preserve the original author's copyright notice and license text in the copied files.
+
+* **Outcome**: **Full Flexibility.** Unlike inbound Copyleft (Scenario 3), embedding Permissive code does not force a specific license on your project. You can license your combined repository as Permissive *or* Copyleft.
+* **Selected Category**: **Copyleft** (or Permissive, depending on your intent).
+* **JLA Expected Matches**: `EUPL-1.2`, `GPL-3.0` (or `MIT`, `Apache-2.0` if Permissive goal).
+* **Why**: Permissive inbound code is compatible with almost all OSI-approved software licenses.
+* **User Obligation**: You must retain the original copyright notice and MIT/BSD license text within the specific files or NOTICE file where the copied code resides.
+* **Mixing & Redistribution**: Downstream users follow your repository's overall license terms, but the original permissive author's attribution notice must remain intact inside the codebase.
+:::
+::::
