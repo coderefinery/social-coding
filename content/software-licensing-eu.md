@@ -105,21 +105,21 @@ You wrote an original algorithm from scratch (in Python, C++, Rust, etc.). Your 
 
 [Licensing Assistant](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses) selection guide:
 
-| 🟢 **Can** | ⚪ **Must** | 🟡 **Support** |
-| :--- | :--- | :--- |
-| ☑ Commercial use | ☑ Incl. Copyright | ☑ OSI approved |
-| ☑ Modify/merge | | |
-| ☑ Distribute | | |
+| 🟢 **Can** | ⚪ **Must** | 🔵 **Compatible** | 🟡 **Support** |
+| :--- | :--- | :--- | :--- |
+| ☑ Commercial use | ☑ Incl. Copyright | ☑ For software | ☑ OSI approved |
+| ☑ Modify/merge | | | |
+| ☑ Distribute | | | |
 
 :::{solution}
 **Legal Reality**: External dependencies remain separate works. Because you have not bundled third-party code inside your repository, you hold full copyright over your original codebase.
 
 * **Outcome**: **Fully Permissible.** You own the code and can choose any open-source license.
-* **Selected Category**: **Permissive** (driven by your goal of maximum adoption).
+* **Selected Category**: **Permissive** (driven by our goal of maximum adoption).
 * **JLA Expected Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
-* **Why**: Filters select licenses granting maximum reuse while requiring only basic copyright attribution.
+* **Why**: The filters select licenses granting maximum reuse while requiring only basic copyright attribution (`Incl. Copyright`).
 * **User Obligation**: Downstream users must comply with individual external package licenses when fetching, compiling, or running them.
-* **Mixing & Redistribution**: Anyone can freely mix, embed, or redistribute your source code. If a user compiles and distributes a combined binary that dynamically links to a copyleft shared library (e.g., GPL `.so`), their *distributed binary* must comply with copyleft obligations, but your upstream source repository remains unaffected under your chosen permissive license.
+* **Mixing & Redistribution**: Anyone can freely mix, embed, or redistribute your source code. If a user compiles and distributes a combined **binary** that dynamically links to a copyleft shared library (e.g., GPL `.so`), their *distributed binary* must comply with copyleft obligations, but your upstream source repository remains unaffected under your chosen permissive license.
 :::
 ::::
 
@@ -130,11 +130,11 @@ You read a published scientific paper or technical specification, understand the
 
 [Licensing Assistant](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses) selection guide:
 
-| 🟢 **Can** | ⚪ **Must** | 🔵 **Compatible** |
-| :--- | :--- | :--- |
-| ☑ Commercial use | ☑ Copyleft/Share a. | ☑ For software |
-| ☑ Modify/merge | ☑ Disclose source | |
-| ☑ Distribute | | |
+| 🟢 **Can** | ⚪ **Must** | 🔵 **Compatible** | 🟡 **Support** |
+| :--- | :--- | :--- | :--- |
+| ☑ Commercial use | ☑ Copyleft/Share a. | ☑ For software | ☑ OSI approved |
+| ☑ Modify/merge | ☑ Disclose source | | |
+| ☑ Distribute | | | |
 
 :::{solution}
 **Legal Reality**: Under EU Directive 2009/24/EC Art. 1(2), copyright protects specific source code *expression*, not underlying mathematical algorithms or scientific principles. Writing a fresh implementation creates a brand-new, independent copyright.
@@ -142,7 +142,7 @@ You read a published scientific paper or technical specification, understand the
 * **Outcome**: **Fully Permissible.** You own 100% of the copyright for your software implementation and can choose any open-source license.
 * **Selected Category**: **Copyleft / Reciprocal** (driven by your goal of community protection).
 * **JLA Expected Matches**: `EUPL-1.2`, `GPL-3.0`, `AGPL-3.0`
-* **Why**: Selecting **"Copyleft/Share a."** and **"Disclose source"** filters out permissive licenses to isolate reciprocal terms.
+* **Why**: Adding **`Copyleft/Share a.`** and **`Disclose source`** under the **Must** column isolates reciprocal terms while leaving all other baseline criteria identical.
 * **User Obligation**: Users who redistribute your software or their modified versions must provide source code access under the same copyleft terms.
 * **Mixing & Redistribution**: Anyone can use and modify your code. However, if a third party integrates your copyleft implementation into their software and distributes the combined product, their whole application must be released under a compatible open-source copyleft license.
 :::
