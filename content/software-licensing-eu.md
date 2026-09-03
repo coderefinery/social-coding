@@ -1,10 +1,9 @@
 # Software licensing focusing on open source
 
 ```{objectives}
-
-- Principles of open source license 
+- Principles of open source licensing
+- Determine the software license for your project following EU regulation
 - Difference between permissive and copyleft licenses.
-- Determine software licence for your project folowing EU regulation.
 - Navigate the Joinup Licensing Assistant to select a compliant license.
 
 ```
@@ -25,11 +24,14 @@ If you need formal guidance reference below could be used:
 * [Research Software Alliance Policy Directory](https://www.researchsoft.org/software-policies/)
 ```
 
-## Introduction 
+## Introduction
 
-Because copyright only protects the expression (code) and not the ideas, developers use licenses to define how that expression can be legally reused. We can classify these licenses into three main categories
-   * **Protected**: Specific text and expression of a program in any form, including preparatory design work
-   * **Not protected**: Underlying ideas, mathematical algorithms, logic, and interface principles.
+In the European Union, software protection is governed by copyright law, which makes a sharp distinction between what is protected and what is not:
+
+ * **Protected**: The specific source code text, expression, binaries, and preparatory design work.
+ * **Not protected**: Underlying mathematical algorithms, ideas, programming logic, and interface principles.
+
+Because copyright only protects the expression and not the underlying ideas, developers use licenses to define how that expression can be legally reused.
 
 
 ## Claisfication of licenses related to software
@@ -56,7 +58,7 @@ Because copyright only protects the expression (code) and not the ideas, develop
        D --> D3["Embed in closed product & sell?<br/><b>No!</b>"]
        D --> D4["Can I change code?<br/><b>No</b> (Closed source)"]
        subgraph osi["Open Source Initiative (OSI)"]
-           osi_H["👉 Some exceptions exists"]
+           osi_H["👉 Some exceptions exist"]
            B["Permissive<br/>(MIT, BSD, Apache-2.0)"]
            C["Copyleft / Reciprocal<br/>(EUPL, GPL, LGPL)"]
          end
@@ -129,7 +131,7 @@ You wrote an original algorithm from scratch (in Python, C++, Rust, etc.). Your 
 **Legal Reality**: External dependencies remain separate works. Because you have not bundled third-party code inside your repository, you hold full copyright over your original codebase.
 
 * **Outcome**: **Fully Permissible.** You own the code and can choose any open-source license.
-* **Selected Category**: **Permissive** (driven by our goal of maximum adoption).
+* **Selected Category**: **Permissive** (driven by you goal of maximum adoption).
 * **JLA Expected Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
 * **Why**: The filters select licenses granting maximum reuse while requiring only basic copyright attribution (`Incl. Copyright`).
 * **User Obligation**: Downstream users must comply with individual external package licenses when fetching, compiling, or running them.
