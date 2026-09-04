@@ -49,6 +49,37 @@ Because copyright protection hinges on functional execution combined with creati
 * **AI Prompt Templates**: Complex, engineered system prompts and structured frameworks meeting the threshold of human creative authorship.
 
 
+## Global Context: Software Engineering Across Legal Borders
+
+Software development is an inherently cosmopolitan business. Research software engineers routinely collaborate across continents, fetch dependencies from global registries, and commit code to international repositories. 
+
+However, modern developers face a subtle trap: **AI legal bias**. Coding assistants (ChatGPT, Claude, GitHub Copilot) are overwhelmingly trained on US-centric web data and legal texts. Consequently, when asked about software ownership or licensing, AI outputs almost universally default to **US common law concepts** (*"Fair Use"*, *"Work Made for Hire"*, *"Derivative Works"*). Relying blindly on AI advice can create legal blind spots when operating in the EU or collaborating globally.
+
+* **Code Adaptation / Refactoring**
+  * **US Concept:** **Derivative Work** (broadly interpreted judicial doctrine).
+  * **EU Concept:** **Adaptation**, translation, arrangement, or alteration (Directive 2009/24/EC Art. 4(1)(b)).
+  * **Practical Impact:** EU law avoids the vague term "derivative work." Any code modification is classified as a specific statutory act of adaptation or translation.
+
+* **User Rights & Interoperability** (Run, debug, reverse engineer)
+  * **US Concept:** **Fair Use** (flexible balancing test evaluated case-by-case in court).
+  * **EU Concept:** **Statutory Exceptions** (strictly codified rights, such as error correction under Art. 5(1) or decompilation under Art. 6).
+  * **Practical Impact:** EU user rights are fixed by statute and **cannot be overridden by contract**, removing reliance on judicial interpretation.
+
+* **Code Ownership** (Employee authorship)
+  * **US Concept:** **Work Made for Hire** (the employer is legally recognized as the primary author).
+  * **EU Concept:** **Employer Economic Rights** (Directive 2009/24/EC Art. 2(3)).
+  * **Practical Impact:** The individual developer remains the legal author, but all economic exploitation rights automatically transfer to the employer for code created during employment duties.
+
+* **Waiving Rights & Public Domain** (Giving up control)
+  * **US Concept:** **Public Domain Dedication** (authors can fully surrender both economic and moral rights).
+  * **EU & Asian Civil Law Concept:** **Economic Rights Transfer / Non-Waivable Moral Rights**.
+  * **Practical Impact:** Civil law traditions (EU, China, Japan, South Korea) do not allow complete waivers of moral rights (e.g., the author's right to attribution). Always use permissive open-source licenses (MIT, 0BSD) rather than informal public domain claims.
+
+* **Collaborating with Asian Ecosystems & Chinese AI Tools**
+  * **Civil Law Alignment:** Legal frameworks in China, Japan, and South Korea mirror EU civil law rather than US common law, strictly protecting moral rights and requiring formal contract grants.
+  * **OSI-Approved Chinese Licenses:** Chinese open-source projects frequently use **MulanPSL-2.0** (Mulan Permissive Software License), an OSI-approved bilingual license designed to align with Chinese contract law while maintaining global compatibility with MIT/Apache-2.0.
+  * **Using Chinese AI Models (e.g., DeepSeek, Qwen):** While code generated using Chinese LLMs follows standard copyright rules (human creative oversight determines ownership), always review the **Model Weights License** (e.g., OpenRAIL or specific commercial restrictions) attached to the model itself, as some open-weight licenses restrict specific commercial downstream uses.
+
 ## Claisfication of licenses related to software
 
 ```{mermaid}
