@@ -356,6 +356,32 @@ You write or generate a container build recipe (`Dockerfile` or Apptainer `.def`
 * **Mixing & Redistribution**: Anyone can freely share or modify your `Dockerfile` or `.def` file under your chosen permissive license, regardless of whether the tools installed by the recipe are Permissive, Copyleft, or Proprietary.
 :::
 ::::
+
+::::{exercise} Scenario 8: Distributing a Built Container Image (Docker Hub or Apptainer .sif)
+You build a complete container runtime image (as an Apptainer `.sif` file or an image pushed to Docker Hub/GitHub Container Registry). The compiled image contains a base Linux OS, installed system libraries, runtime dependencies, and your application code.
+
+* **Licensing Goal**: Fulfill legal obligations imposed by distributing a bundled, compiled binary filesystem image containing third-party works.
+
+[Licensing Assistant](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses) selection guide:
+
+| 🟢 **Can** | ⚪ **Must** | 🔵 **Compatible** | 🟡 **Support** |
+| :--- | :--- | :--- | :--- |
+| ☑ Commercial use | ☑ Copyleft/Share a. | ☑ For software | ☑ OSI approved |
+| ☑ Modify/merge | ☑ Disclose source | | |
+| ☑ Distribute | | | |
+
+:::{solution}
+**Legal Reality**: Unlike a text recipe file, a compiled container image (`.sif` or registry image) is a **bundle of third-party software works**. You do not hold exclusive copyright over the entire image filesystem.
+
+* **Outcome**: **Mandatory Compliance (Restricted Choice).** You cannot assign a single permissive license to the distributed image. Distribution is governed by the overlapping terms of all installed base layers, packages, and linked binaries inside.
+* **Selected Category**: **Copyleft / Reciprocal** (if any layer or installed package contains Copyleft software, such as GPL libraries).
+* **JLA Expected Matches**: `EUPL-1.2`, `GPL-3.0`
+* **Why**: If your built image bundles a Strong Copyleft component (e.g., a GPL shared library installed via `apt-get` that your application links to), distributing that bundled binary image triggers reciprocal source disclosure requirements for the entire image payload (`Copyleft/Share a.` and `Disclose source`).
+* **User Obligation**: Anyone distributing the built image file must ensure compliance with all third-party licenses inside the container, including making source code available for any copyleft components contained in the image layers.
+* **Mixing & Redistribution**: Downstream users who pull your image must abide by the strictest component license in the container. To keep your distributed application unencumbered, ensure all packages installed into your image layers use permissive licenses.
+:::
+::::
+
 ::::{exercise} Scenario 9: Including AI prompt templates in LLM applications
 You develop a research software pipeline that uses Large Language Models (LLMs) for automated data extraction. Your repository contains Python scripts alongside a `prompts/` directory containing both short functional prompts (e.g., *"Extract keywords from this paper"*) and complex, 500-word structured prompt templates (e.g., system prompts, JSON schemas, and chain-of-thought frameworks).
 
