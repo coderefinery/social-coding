@@ -20,7 +20,9 @@ This lesson is designed as practical educational material for researchers and re
 
 If you need formal guidance reference below could be used:
 
-* [Directive 2009/24/EC of the European Parliament and of the Council](https://eur-lex.europa.eu/eli/dir/2009/24)
+* EU Directive 2009/24/EC: [EUR-Lex - Directive 2009/24/EC](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009L0024)
+* US Title 17 § 117: [LII / Cornell - 17 U.S. Code § 117](https://www.law.cornell.edu/uscode/text/17/117)
+* China Software Protection Regulations: [WIPO Lex - Regulations on Computer Software Protection](https://www.wipo.int/wipolex/en/legislation/details/13109)
 * [Joinup Licensing Assistant,JLA](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-find-and-compare-software-licenses)
 * [FSFE REUSE Initiative](https://reuse.software/)
 * [Research Software Alliance Policy Directory](https://www.researchsoft.org/software-policies/)
@@ -30,14 +32,14 @@ If you need formal guidance reference below could be used:
 
 In the European Union, software protection is governed by copyright law, which makes a sharp distinction between what is protected and what is not:
 
- * **Protected**: The specific source code text, expression, binaries, and preparatory design work.
- * **Not protected**: Underlying mathematical algorithms, ideas, programming logic, and interface principles.
+ * Protected: The specific source code text, expression, binaries, and preparatory design work.
+ * Not protected: Underlying mathematical algorithms, ideas, programming logic, and interface principles.
 
 Because copyright only protects the expression and not the underlying ideas, developers use licenses to define how that expression can be legally reused.
 
 ### Scope of this Lesson: What Counts as "Software"?
 
-Under EU statutory law (Directive 2009/24/EC) and international legal frameworks, software is legally defined as **a set of instructions to be used directly or indirectly in a computer to bring about a certain result**, protected under copyright as a literary work. 
+Under EU statutory law (Directive 2009/24/EC) and international legal frameworks, software is legally defined as a set of instructions to be used directly or indirectly in a computer to bring about a certain result, protected under copyright as a literary work. 
 
 Because copyright protection hinges on functional execution combined with creative human expression, this lesson covers the full spectrum of modern research software assets:
 
