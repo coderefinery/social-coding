@@ -63,8 +63,8 @@ However, modern developers face a subtle trap: **AI legal bias**. Coding assista
 
 * **User Rights & Interoperability** (Run, debug, reverse engineer)
   * **US Concept:** **Fair Use** (flexible balancing test evaluated case-by-case in court).
-  * **EU Concept:** **Statutory Exceptions** (strictly codified rights, such as error correction under Art. 5(1) or decompilation under Art. 6).
-  * **Practical Impact:** EU user rights are fixed by statute and **cannot be overridden by contract**, removing reliance on judicial interpretation.
+  * **EU Concept:** **Statutory Exceptions** (Directive 2009/24/EC Articles 5 & 6).
+  * **Practical Impact:** EU law splits user rights into **non-waivable statutory rights** (backup copies under Art. 5(2), studying/testing under Art. 5(3), and decompilation for interoperability under Art. 6, which cannot be overridden by contract under Art. 8) and **contract-overridable default rules** (error correction under Art. 5(1), which applies unless an employment or vendor contract specifies otherwise).
 
 * **Code Ownership** (Employee authorship)
   * **US Concept:** **Work Made for Hire** (the employer is legally recognized as the primary author).
@@ -347,11 +347,11 @@ You build a complete container runtime image (as an Apptainer `.sif` file or an 
 **Legal Reality**: Unlike a text recipe file, a compiled container image (`.sif` or registry image) is a **bundle of third-party software works**. You do not hold exclusive copyright over the entire image filesystem.
 
 * **Outcome**: **Mandatory Compliance (Restricted Choice).** You cannot assign a single permissive license to the distributed image. Distribution is governed by the overlapping terms of all installed base layers, packages, and linked binaries inside.
-* **Selected Category**: **Copyleft / Reciprocal** (if any layer or installed package contains Copyleft software, such as GPL libraries).
+* **Selected Category**: **Copyleft / Reciprocal** (if your application links against or incorporates Copyleft components inside the container).
 * **JLA Expected Matches**: `EUPL-1.2`, `GPL-3.0`
-* **Why**: If your built image bundles a Strong Copyleft component (e.g., a GPL shared library installed via `apt-get` that your application links to), distributing that bundled binary image triggers reciprocal source disclosure requirements for the entire image payload (`Copyleft/Share a.` and `Disclose source`).
-* **User Obligation**: Anyone distributing the built image file must ensure compliance with all third-party licenses inside the container, including making source code available for any copyleft components contained in the image layers.
-* **Mixing & Redistribution**: Downstream users who pull your image must abide by the strictest component license in the container. To keep your distributed application unencumbered, ensure all packages installed into your image layers use permissive licenses.
+* **Why (Linking vs. Aggregation)**: If your application links against or embeds a Strong Copyleft library (`GPL-3.0`) installed in the container, distributing that image triggers copyleft disclosure obligations for your compiled application. However, if GPL components in the image are merely independent system utilities or standalone tools, GPL's "mere aggregation" provisions apply—the GPL license governs those specific tools, but does not extend to your independent application binaries.
+* **User Obligation**: Anyone distributing the built image file must ensure compliance with all third-party licenses inside the container, including providing source access for any GPL components or linked works contained in the layers.
+* **Mixing & Redistribution**: Downstream users who pull your image must abide by individual component licenses. To keep your application source code unencumbered, ensure your app links only against permissively licensed libraries inside the container layers.
 :::
 ::::
 
