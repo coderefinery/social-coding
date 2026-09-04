@@ -3,11 +3,10 @@
 ```{objectives}
 - Principles of open source licensing
 - Determine the software license for your project following EU regulation
-- Difference between permissive and copyleft licenses.
-- Regulations for AI-generated
-- Navigate the Joinup Licensing Assistant to select a compliant license.
+- Difference between permissive and copyleft licenses
+- Regulations for AI-generated and AI-assisted code
+- Navigate the Joinup Licensing Assistant to select a compliant license
 - Understand the licensing distinction between container recipes and container images
-
 ```
 
 ```{discussion} Limitations and context of this lesson 
@@ -169,7 +168,7 @@ You wrote an original algorithm from scratch (in Python, C++, Rust, etc.). Your 
 **Legal Reality**: External dependencies remain separate works. Because you have not bundled third-party code inside your repository, you hold full copyright over your original codebase.
 
 * **Outcome**: **Fully Permissible.** You own the code and can choose any open-source license.
-* **Selected Category**: **Permissive** (driven by you goal of maximum adoption).
+* **Selected Category**: **Permissive** (driven by your goal of maximum adoption).
 * **JLA Expected Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
 * **Why**: The filters select licenses granting maximum reuse while requiring only basic copyright attribution (`Incl. Copyright`).
 * **User Obligation**: Downstream users must comply with individual external package licenses when fetching, compiling, or running them.
@@ -218,7 +217,7 @@ You find a useful helper module online licensed under a **Permissive license** (
 :::{solution}
 **Legal Reality**: Permissive licenses (MIT, BSD) grant broad rights to combine, modify, and re-license derivative works under different terms, provided you preserve the original author's copyright notice and license text in the copied files.
 
-* **Outcome**: **Full Flexibility.** Unlike inbound Copyleft (Scenario 3), embedding Permissive code does not force a specific license on your project. You can license your combined repository as Permissive *or* Copyleft.
+* **Outcome**: **Full Flexibility.** Unlike inbound Copyleft (Scenario 4), embedding Permissive code does not force a specific license on your project. You can license your combined repository as Permissive *or* Copyleft.
 * **Selected Category**: **Copyleft** (or Permissive, depending on your intent).
 * **JLA Expected Matches**: `EUPL-1.2`, `GPL-3.0` (or `MIT`, `Apache-2.0` if Permissive goal).
 * **Why**: Permissive inbound code is compatible with almost all OSI-approved software licenses.
@@ -293,7 +292,7 @@ You write software using AI coding assistants (e.g., GitHub Copilot, ChatGPT) to
 | ☑ Distribute | | | |
 
 :::{solution}
-**Legal Reality**: Under EU copyright law and international consensus, **pure AI-generated outputs lacking human authorship** and are generally **ineligible** for copyright protection. However, when you assemble, refine, and integrate AI code into an overarching software project through creative human effort, you hold copyright over the resulting human-authored work (provided the AI tool did not reproduce substantial copyrighted third-party snippets verbatim).
+**Legal Reality**: Under EU copyright law and international consensus, **pure AI-generated outputs lacking human authorship are generally ineligible for copyright protection**. However, when you assemble, refine, and integrate AI code into an overarching software project through creative human effort, you hold copyright over the resulting human-authored work (provided the AI tool did not reproduce substantial copyrighted third-party snippets verbatim).
 
 * **How Much AI Assistance Is Allowed**: There is no fixed percentage threshold. If a legal dispute arises, courts evaluate **Human Authorship and Creative Control**. Using AI as a boilerplate code generator, advanced autocomplete, or research assistant where you actively guide, review, modify, and structure the code preserves your copyright ownership. Conversely, simply pressing a button to generate an entire project without human creative intervention yields uncopyrightable output.
 * **How to Check for Copyrighted Material**: Combine manual codebase searches (e.g., GitHub Code Search), built-in AI tool filters (such as *Block suggestions matching public code* in GitHub Copilot), and automated open-source license scanners (like FOSSology or Snyk).
