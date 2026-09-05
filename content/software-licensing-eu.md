@@ -1,5 +1,7 @@
 # Software licensing focusing on open source
 
+# Software licensing focusing on open source
+
 ```{objectives}
 - Principles of open source licensing
 - Determine the software license for your project following EU regulation
