@@ -40,7 +40,7 @@ navigating and deciding on licenses.
    :delim: ;
 
    20 min ; :doc:`social-coding`
-   30 min ; :doc:`software-licensing`
+   90 min ; :doc:`software-licensing-eu`
    20 min ; :doc:`software-citation`
    10 min ; :doc:`sharing-data`
 
@@ -77,7 +77,8 @@ Who is the course for?
 .. toctree::
    :maxdepth: 1
    :caption: About
-
+   
+   software-licensing
    All lessons <https://coderefinery.org/lessons/core/>
    CodeRefinery <https://coderefinery.org/>
    reusing

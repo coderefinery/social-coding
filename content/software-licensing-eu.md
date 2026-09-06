@@ -17,13 +17,13 @@ This lesson is designed as practical educational material for researchers and re
 
 * Regional Focus: Guidance is grounded in EU statutory directives, European institutional frameworks and developers based in Europe with a global focus.
 * Institutional Context: Employment contracts, grant agreements, and university policies heavily influence software ownership and licensing choices.
-* Scope: This lesson covers only the general principles of open-source reuse, copyright scope, and software adaptation. 
+* This lesson covers only the general principles of open-source reuse, copyright scope, and software adaptation. 
 
 If you need formal guidance reference below and legal experts at your host institute could be used:
 
-* EU Directive 2009/24/EC: [EUR-Lex - Directive 2009/24/EC](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009L0024)
-* US Title 17 § 117: [LII / Cornell - 17 U.S. Code § 117](https://www.law.cornell.edu/uscode/text/17/117)
-* China Software Protection Regulations: [WIPO Lex - Regulations on Computer Software Protection](https://www.wipo.int/wipolex/en/legislation/details/13109)
+* [EUR Directive 2009/24/EC](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009L0024)
+* [US Title 17 § 117-Limitations on exclusive rights: Computer programs](https://www.law.cornell.edu/uscode/text/17/117)
+* [China Software Protection Regulations,State Council Decree](https://www.wipo.int/wipolex/en/legislation/details/13109)
 * [Joinup Licensing Assistant,JLA](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses)
 * [FSFE REUSE Initiative](https://reuse.software/)
 * [Research Software Alliance Policy Directory](https://www.researchsoft.org/software-policies/)
