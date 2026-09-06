@@ -4,9 +4,9 @@
 
 ```{objectives}
 - Principles of open source licensing
-- Determine the software license for your project following EU regulation
 - Difference between permissive and copyleft licenses
 - Regulations for AI-generated and AI-assisted code
+- Determine the software license for your project following EU regulation
 - Navigate the Joinup Licensing Assistant to select a compliant license
 - Understand the licensing distinction between container recipes and container images
 ```
@@ -15,11 +15,11 @@
 
 This lesson is designed as practical educational material for researchers and research software engineers, not formal legal advice.
 
-* Regional Focus: Guidance is grounded in European Union directives and Nordic institutional frameworks.
+* Regional Focus: Guidance is grounded in EU statutory directives, European institutional frameworks and developers based in Europe with a global focus.
 * Institutional Context: Employment contracts, grant agreements, and university policies heavily influence software ownership and licensing choices.
-* Scope: This lesson covers general principles of open-source reuse, copyright scope, and software adaptation. 
+* Scope: This lesson covers only the general principles of open-source reuse, copyright scope, and software adaptation. 
 
-If you need formal guidance reference below could be used:
+If you need formal guidance reference below and legal experts at your host institute could be used:
 
 * EU Directive 2009/24/EC: [EUR-Lex - Directive 2009/24/EC](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009L0024)
 * US Title 17 § 117: [LII / Cornell - 17 U.S. Code § 117](https://www.law.cornell.edu/uscode/text/17/117)
