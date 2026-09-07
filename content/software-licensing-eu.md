@@ -38,7 +38,7 @@ Because copyright only protects the expression and not the underlying ideas, dev
 
 ### Scope of this Lesson: What Counts as "Software"?
 
-Under EU statutory law (Directive 2009/24/EC) and international legal frameworks, software is legally defined as a set of instructions to be used directly or indirectly in a computer to bring about a certain result, protected under copyright as a literary work. 
+Across international legal frameworks (such as 17 U.S.C. § 101 and WIPO model provisions), software is commonly defined as a set of instructions to be used directly or indirectly in a computer to bring about a certain result. Under EU statutory law (Directive 2009/24/EC), computer programs—including their preparatory design material—are protected under copyright as literary works.
 
 Because copyright protection hinges on functional execution combined with creative human expression, this lesson covers the full spectrum of modern research software assets:
 
