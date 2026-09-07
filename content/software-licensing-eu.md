@@ -1,7 +1,5 @@
 # Software licensing focusing on open source
 
-# Software licensing focusing on open source
-
 ```{objectives}
 - Principles of open source licensing
 - Difference between permissive and copyleft licenses
@@ -19,7 +17,7 @@ This lesson is designed as practical educational material for researchers and re
 * Institutional Context: Employment contracts, grant agreements, and university policies heavily influence software ownership and licensing choices.
 * This lesson covers only the general principles of open-source reuse, copyright scope, and software adaptation. 
 
-If you need formal guidance reference below and legal experts at your host institute could be used:
+If you need formal guidance reference below and legal experts at your host institute could be of help:
 
 * [EUR Directive 2009/24/EC](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009L0024)
 * [US Title 17 § 117-Limitations on exclusive rights: Computer programs](https://www.law.cornell.edu/uscode/text/17/117)
