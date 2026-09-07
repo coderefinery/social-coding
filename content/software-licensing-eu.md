@@ -20,8 +20,8 @@ This lesson is designed as practical educational material for researchers and re
 If you need formal guidance reference below and legal experts at your host institute could be of help:
 
 * [EUR Directive 2009/24/EC](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009L0024)
-* [US Title 17 § 117-Limitations on exclusive rights: Computer programs](https://www.law.cornell.edu/uscode/text/17/117)
-* [China Software Protection Regulations,State Council Decree](https://www.wipo.int/wipolex/en/legislation/details/13109)
+* [Compendium of U.S. Copyright Office Practices (3rd Ed.) – Chapter 700, Section 721: Computer Programs](https://www.copyright.gov/comp3/)
+* [Chinese Regulations on Computer Software Protection,(search:"计算机软件保护条例")](https://xzfg.moj.gov.cn/)
 * [Joinup Licensing Assistant,JLA](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses)
 * [FSFE REUSE Initiative](https://reuse.software/)
 * [Research Software Alliance Policy Directory](https://www.researchsoft.org/software-policies/)
