@@ -56,6 +56,9 @@ Software development is an inherently cosmopolitan business. Research software e
 
 However, modern developers face a subtle trap: **AI legal bias**. Coding assistants (ChatGPT, Claude, GitHub Copilot) are overwhelmingly trained on US-centric web data and legal texts. Consequently, when asked about software ownership or licensing, AI outputs almost universally default to **US common law concepts** (*"Fair Use"*, *"Work Made for Hire"*, *"Derivative Works"*). Relying blindly on AI advice can create legal blind spots when operating in the EU or collaborating globally.
 
+:::{dropdown} Deep Dive: Comparative Legal Mechanisms (US vs. EU vs. Asia)
+:color: info
+
 * **Code Adaptation / Refactoring**
   * **US Concept:** **Derivative Work** (broadly interpreted judicial doctrine).
   * **EU Concept:** **Adaptation**, translation, arrangement, or alteration (Directive 2009/24/EC Art. 4(1)(b)).
@@ -80,6 +83,7 @@ However, modern developers face a subtle trap: **AI legal bias**. Coding assista
   * **Civil Law Alignment:** Legal frameworks in China, Japan, and South Korea mirror EU civil law rather than US common law, strictly protecting moral rights and requiring formal contract grants.
   * **OSI-Approved Chinese Licenses:** Chinese open-source projects frequently use **MulanPSL-2.0** (Mulan Permissive Software License), an OSI-approved bilingual license designed to align with Chinese contract law while maintaining global compatibility with MIT/Apache-2.0.
   * **Using Chinese AI Models (e.g., DeepSeek, Qwen):** While code generated using Chinese LLMs follows standard copyright rules (human creative oversight determines ownership), always review the **Model Weights License** (e.g., OpenRAIL or specific commercial restrictions) attached to the model itself, as some open-weight licenses restrict specific commercial downstream uses.
+:::
 
 ## Classification of licenses
 
