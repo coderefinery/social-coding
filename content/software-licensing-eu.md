@@ -11,7 +11,7 @@
 
 ```{discussion} Limitations and context of this lesson 
 
-This lesson is designed as practical educational material for researchers and research software engineers, not formal legal advice.
+This lesson is designed as practical educational material for researchers and research software engineers, **not formal legal advice**
 
 * Regional Focus: Guidance is grounded in EU statutory directives, European institutional frameworks and developers based in Europe with a global focus.
 * Institutional Context: Employment contracts, grant agreements, and university policies heavily influence software ownership and licensing choices.
