@@ -78,7 +78,7 @@ Who is the course for?
    :maxdepth: 1
    :caption: About
    
-   software-licensing
+   software-licensing-old.md
    All lessons <https://coderefinery.org/lessons/core/>
    CodeRefinery <https://coderefinery.org/>
    reusing
