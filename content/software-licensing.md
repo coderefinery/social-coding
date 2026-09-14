@@ -30,7 +30,7 @@ If you need formal guidance references below and legal experts, especially if yo
 ## Motivation
 
 ```{mermaid}
-
+%%{init: {'themeVariables': { 'edgeLabelBackground': '#faf5ff' }}}%%
 flowchart TB
 
     subgraph box["CI/CD License Compliance Debugging Pipeline"]
@@ -69,14 +69,37 @@ flowchart TB
 
 ```
 
-## Introduction
+## Introduction: What is a Software License?
 
-In the European Union, software protection is governed by copyright law, which makes a sharp distinction between what is protected and what is not:
+In Option D of our debugging pipeline, deleting the `LICENSE` file tricked the automated scanner into passing, but created a major distribution trap. Under copyright law worldwide, software without a license automatically defaults to **"All Rights Reserved"**—meaning nobody else has the legal right to run, modify, or cite your code.
 
- * Protected: The specific source code text, expression, binaries, and preparatory design work.
- * Not protected: Underlying mathematical algorithms, ideas, programming logic, and interface principles.
+A **software license** is an explicit permission grant that overrides this statutory default, defining exactly how downstream researchers can reuse your work.
 
-Because copyright only protects the expression and not the underlying ideas, developers use licenses to define how that expression can be legally reused.
+```{mermaid}
+%%{init: {'themeVariables': { 'edgeLabelBackground': '#faf5ff' }}}%%
+flowchart TD
+    A["<b>Your Research Codebase</b><br/><i>(Source code, container definition files, prompt templates)</i>"] -->|"Option D: No License Attached<br/>(Statutory Default)"| B["<b>All Rights Reserved</b><br/>❌ Zero permissions: Nobody can legally run, modify, or share"]
+    
+    A -->|"Attach Software License<br/>(Explicit Permission Grant)"| C{"Select License Flavor"}
+    
+    C -->|"Permissive<br/>(MIT, Apache-2.0, 0BSD)"| D["<b>Maximum Reuse Freedom</b><br/>✅ Anyone can run, modify, embed in commercial tools, or re-license"]
+    C -->|"Copyleft / Reciprocal<br/>(GPL-3.0, EUPL-1.2)"| E["<b>Reciprocal Protection</b><br/>✅ Free to run & modify, but distributed changes <i>must</i> stay open source"]
+    C -->|"Proprietary / Closed Source<br/>(Commercial EULA)"| F["<b>Closed Source / Restricted</b><br/>🚫 <i>Flavour not discussed in this lesson</i>"]
+
+    classDef defaultState fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
+    classDef openState fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
+    classDef copyleftState fill:#fff9db,stroke:#f59f00,stroke-width:2px,color:#5c3c00;
+    classDef closedState fill:#f8f9fa,stroke:#adb5bd,stroke-width:2px,stroke-dasharray: 5 5,color:#6c757d;
+    classDef codeState fill:#f8f9fa,stroke:#495057,stroke-width:2px,color:#212529;
+
+    class B defaultState;
+    class D openState;
+    class E copyleftState;
+    class F closedState;
+    class A,C codeState;
+
+```
+
 
 ### Scope of this Lesson: What Counts as "Software"?
 
