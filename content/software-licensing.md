@@ -204,13 +204,21 @@ However, modern developers face a subtle trap: **AI legal bias**. Coding assista
 
 ```
 
-## How to select a license 
 
-Lets go through some examples on how to use the European Commission's Joinup Licensing Assistant (JLA) to select licenses. The JLA groups license clauses into four categories that map to the visual diagram above:
- * 🟢 Can (Rights): What you are allowed to do (e.g., Run, Modify). Matches the "Yes!" bubbles in the diagram.
- * ⚪ Must (Obligations): What you are required to do (e.g., Include Copyright for Permissive, or Share Alike for Copyleft). Maps to "Must changes stay open?".
- * 🔵 Compatible: What context the code is used in (e.g., For software).
- * 🟡 Support: External verification (e.g., OSI approved). Maps to the blue dashed box.
+## Selecting Compliant Licenses
+
+When applying the European Commission's Joinup Licensing Assistant (JLA), license selection depends on your specific RSE workflow. The JLA groups license criteria into four categories:
+
+* 🟢 **Can (Rights)**: Permissions granted (Run, Modify, Distribute).
+* ⚪ **Must (Obligations)**: Mandatory requirements (Include Copyright, Share Alike/Copyleft, Disclose Source).
+* 🔵 **Compatible**: Application domain (Software, Data, Documentation).
+* 🟡 **Support**: Verification status (OSI Approved).
+
+---
+
+### Module 1: Clean Slate – Authoring Original Code & Algorithms
+
+When writing original code or implementing published mathematical logic, you control 100% of your copyright.
 
 ::::{exercise} Scenario 1: Own algorithm with external dependencies
 You wrote an original algorithm from scratch (in Python, C++, Rust, etc.). Your repository contains only your original source code and dependency specifications (`requirements.txt`, `CMakeLists.txt`, `Cargo.toml`, or dynamic linking flags).
@@ -262,6 +270,12 @@ You read a published scientific paper or technical specification, understand the
 :::
 ::::
 
+---
+
+### Module 2: The Dependency Minefield – Inbound Code & Linking
+
+Embedding third-party source code snippets or linking against strong copyleft C/Fortran libraries introduces compliance boundaries that restrict your repository choices.
+
 ::::{exercise} Scenario 3: Directly embedding third-party Permissive source code
 You find a useful helper module online licensed under a **Permissive license** (e.g., MIT or BSD-3-Clause). You copy and paste this code directly into your repository to build upon it.
 
@@ -286,7 +300,6 @@ You find a useful helper module online licensed under a **Permissive license** (
 * **Mixing & Redistribution**: Downstream users follow your repository's overall license terms, but the original permissive author's attribution notice must remain intact inside the codebase.
 :::
 ::::
-
 
 ::::{exercise} Scenario 4: Directly embedding third-party Copyleft source code
 You find a useful utility function or module online licensed under a **Copyleft / Reciprocal license** (e.g., GPL-3.0 or EUPL-1.2). You copy and paste this source code directly into your repository files and extend it to fit your project.
@@ -313,7 +326,6 @@ You find a useful utility function or module online licensed under a **Copyleft 
 :::
 ::::
 
-
 ::::{exercise} Scenario 5: Linking against a Strong Copyleft library (e.g., GSL or FFTW)
 You write your own original code from scratch, but your program includes or links against a third-party scientific library licensed under a **Strong Copyleft license** (such as GPL-3.0).
 
@@ -339,31 +351,11 @@ You write your own original code from scratch, but your program includes or link
 :::
 ::::
 
-::::{exercise} Scenario 6: Generating or assisting code using AI tools
-You write software using AI coding assistants (e.g., GitHub Copilot, ChatGPT) to generate functions, boilerplate, or refactor algorithms. Your repository consists of a mix of human-authored code and AI-generated outputs.
+---
 
-* **Licensing Goal**: You want **maximum adoption** (or any open-source model) and need to know if using AI tools restricts your choice of open-source license.
+### Module 3: Reproducible Infrastructure – Build Recipes vs. Binary Bundles
 
-[Licensing Assistant](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses) selection guide (example using Permissive selection):
-
-| 🟢 **Can** | ⚪ **Must** | 🔵 **Compatible** | 🟡 **Support** |
-| :--- | :--- | :--- | :--- |
-| ☑ Commercial use | ☑ Incl. Copyright | ☑ For software | ☑ OSI approved |
-| ☑ Modify/merge | | | |
-| ☑ Distribute | | | |
-
-:::{solution}
-**Legal Reality**: Under EU copyright law and international consensus, **pure AI-generated outputs lacking human authorship are generally ineligible for copyright protection**. However, when you assemble, refine, and integrate AI code into an overarching software project through creative human effort, you hold copyright over the resulting human-authored work (provided the AI tool did not reproduce substantial copyrighted third-party snippets verbatim).
-
-* **How Much AI Assistance Is Allowed**: There is no fixed percentage threshold. If a legal dispute arises, courts evaluate **Human Authorship and Creative Control**. Using AI as a boilerplate code generator, advanced autocomplete, or research assistant where you actively guide, review, modify, and structure the code preserves your copyright ownership. Conversely, simply pressing a button to generate an entire project without human creative intervention yields uncopyrightable output.
-* **How to Check for Copyrighted Material**: Combine manual codebase searches (e.g., GitHub Code Search), built-in AI tool filters (such as *Block suggestions matching public code* in GitHub Copilot), and automated open-source license scanners (like FOSSology or Snyk).
-* **Outcome**: **Fully Permissible.** The use of AI tools does not force a specific open-source license onto your repository. You retain the choice between Permissive or Copyleft based on your strategic goals.
-* **Selected Category**: **Permissive** (or Copyleft, determined by author intent rather than the AI tool).
-* **JLA Expected Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause` (or `EUPL-1.2`, `GPL-3.0` if your intent is Copyleft).
-* **User Obligation**: Standard obligations apply based on the license you choose to attach to your human-authored codebase.
-* **Mixing & Redistribution**: Anyone can use, modify, or redistribute your repository under your chosen license. Downstream users are bound by your overall repository license terms, while the standalone, raw unedited AI snippets themselves remain ineligible for copyright protection.
-:::
-::::
+A major trap for RSEs is confusing **Infrastructure as Code text files** (recipes) with **compiled binary filesystems** (container images).
 
 ::::{exercise} Scenario 7: Distributing a Container Build Recipe (Dockerfile or Apptainer .def)
 You write or generate a container build recipe (`Dockerfile` or Apptainer `.def` file) to make your research reproducible. The recipe contains text commands that pull a base image, install system packages (`apt-get`), clone code from GitHub, and download data.
@@ -413,6 +405,38 @@ You build a complete container runtime image (as an Apptainer `.sif` file or an 
 * **Why (Linking vs. Aggregation)**: If your application links against or embeds a Strong Copyleft library (`GPL-3.0`) installed in the container, distributing that image triggers copyleft disclosure obligations for your compiled application. However, if GPL components in the image are merely independent system utilities or standalone tools, GPL's "mere aggregation" provisions apply—the GPL license governs those specific tools, but does not extend to your independent application binaries.
 * **User Obligation**: Anyone distributing the built image file must ensure compliance with all third-party licenses inside the container, including providing source access for any GPL components or linked works contained in the layers.
 * **Mixing & Redistribution**: Downstream users who pull your image must abide by individual component licenses. To keep your application source code unencumbered, ensure your app links only against permissively licensed libraries inside the container layers.
+:::
+::::
+
+---
+
+### Module 4: Modern AI Workflows – Assisted Code & Prompt Engineering
+
+AI tools introduce distinct licensing considerations depending on whether you are integrating AI-generated code snippets or authoring complex system prompt templates.
+
+::::{exercise} Scenario 6: Generating or assisting code using AI tools
+You write software using AI coding assistants (e.g., GitHub Copilot, ChatGPT) to generate functions, boilerplate, or refactor algorithms. Your repository consists of a mix of human-authored code and AI-generated outputs.
+
+* **Licensing Goal**: You want **maximum adoption** (or any open-source model) and need to know if using AI tools restricts your choice of open-source license.
+
+[Licensing Assistant](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses) selection guide (example using Permissive selection):
+
+| 🟢 **Can** | ⚪ **Must** | 🔵 **Compatible** | 🟡 **Support** |
+| :--- | :--- | :--- | :--- |
+| ☑ Commercial use | ☑ Incl. Copyright | ☑ For software | ☑ OSI approved |
+| ☑ Modify/merge | | | |
+| ☑ Distribute | | | |
+
+:::{solution}
+**Legal Reality**: Under EU copyright law and international consensus, **pure AI-generated outputs lacking human authorship are generally ineligible for copyright protection**. However, when you assemble, refine, and integrate AI code into an overarching software project through creative human effort, you hold copyright over the resulting human-authored work (provided the AI tool did not reproduce substantial copyrighted third-party snippets verbatim).
+
+* **How Much AI Assistance Is Allowed**: There is no fixed percentage threshold. If a legal dispute arises, courts evaluate **Human Authorship and Creative Control**. Using AI as a boilerplate code generator, advanced autocomplete, or research assistant where you actively guide, review, modify, and structure the code preserves your copyright ownership. Conversely, simply pressing a button to generate an entire project without human creative intervention yields uncopyrightable output.
+* **How to Check for Copyrighted Material**: Combine manual codebase searches (e.g., GitHub Code Search), built-in AI tool filters (such as *Block suggestions matching public code* in GitHub Copilot), and automated open-source license scanners (like FOSSology or Snyk).
+* **Outcome**: **Fully Permissible.** The use of AI tools does not force a specific open-source license onto your repository. You retain the choice between Permissive or Copyleft based on your strategic goals.
+* **Selected Category**: **Permissive** (or Copyleft, determined by author intent rather than the AI tool).
+* **JLA Expected Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause` (or `EUPL-1.2`, `GPL-3.0` if your intent is Copyleft).
+* **User Obligation**: Standard obligations apply based on the license you choose to attach to your human-authored codebase.
+* **Mixing & Redistribution**: Anyone can use, modify, or redistribute your repository under your chosen license. Downstream users are bound by your overall repository license terms, while the standalone, raw unedited AI snippets themselves remain ineligible for copyright protection.
 :::
 ::::
 
