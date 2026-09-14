@@ -126,11 +126,11 @@ Because modern research software extends beyond simple Python scripts, this less
 * **AI-Assisted Code**: Code generated, refactored, or assembled with human creative oversight.
 * **AI Prompt Templates**: Complex, engineered system prompts and structured frameworks meeting the threshold of human creative authorship.
 
-## Global Context: Software Engineering Across Legal Borders
+## Global Context & AI Legal Bias
 
-Software development is an inherently cosmopolitan business. Research software engineers routinely collaborate across continents, fetch dependencies from global registries, and commit code to international repositories. 
+Software development is inherently cosmopolitan: research software engineers routinely collaborate across legal borders, fetch dependencies from global registries, and commit code to international repositories.
 
-However, modern developers face a subtle trap: **AI legal bias**. Coding assistants (ChatGPT, Claude, GitHub Copilot) are overwhelmingly trained on US-centric web data and legal texts. Consequently, when asked about software ownership or licensing, AI outputs almost universally default to **US common law concepts** (*"Fair Use"*, *"Work Made for Hire"*, *"Derivative Works"*). Relying blindly on AI advice can create legal blind spots when operating in the EU or collaborating globally.
+However, modern developers face a subtle trap: AI legal bias. Coding assistants (ChatGPT, Claude, GitHub Copilot) are overwhelmingly trained on US-centric web data and legal texts. Consequently, when asked about software ownership or licensing, AI outputs almost universally default to US common law concepts ("Fair Use", "Work Made for Hire", "Derivative Works"). Relying blindly on AI advice can create legal blind spots when operating under EU statutory frameworks or collaborating globally.
 
 :::{dropdown} Deep Dive: Comparative Legal Mechanisms (US vs. EU vs. Asia)
 :color: info
@@ -224,6 +224,34 @@ When using the European Commission's [Joinup Licensing Assistant (JLA)](https://
 
 ---
 
+## Global Context: Software Engineering Across Legal Borders
+
+Software development is inherently cosmopolitan: research software engineers routinely collaborate across legal borders, fetch dependencies from global registries, and commit code to international repositories.
+
+However, modern developers face a subtle trap: **AI legal bias**. Coding assistants (ChatGPT, Claude, GitHub Copilot) are overwhelmingly trained on US-centric web data and legal texts. Consequently, when asked about software ownership or licensing, AI outputs almost universally default to **US common law concepts** (*"Fair Use"*, *"Work Made for Hire"*, *"Derivative Works"*). Relying blindly on AI advice can create legal blind spots when operating under EU statutory frameworks or collaborating globally.
+
+---
+
+## Selecting Compliant Licenses
+
+When using the European Commission's [Joinup Licensing Assistant (JLA)](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses), license selection depends on your RSE workflow. The JLA groups criteria into four categories: **🟢 Can** (Permissions), **⚪ Must** (Obligations), **🔵 Compatible** (Domain), and **🟡 Support** (OSI Approval).
+
+### JLA Decision Matrix at a Glance
+
+| Scenario Module | Key JLA Toggle (⚪ Must) | Resulting Category | Target Licenses |
+| :--- | :--- | :--- | :--- |
+| **1. Own Code** | `Incl. Copyright` | 🟢 Permissive | `MIT`, `Apache-2.0`, `BSD-3-Clause` |
+| **2. Math Implementation** | `Copyleft/Share a.` + `Disclose Source` | 🟡 Copyleft | `EUPL-1.2`, `GPL-3.0`, `AGPL-3.0` |
+| **3. Embed Permissive** | `Incl. Copyright` | 🟢 Flexible (Any) | `MIT` or `EUPL-1.2` / `GPL-3.0` |
+| **4. Embed Copyleft** | `Copyleft/Share a.` *(Mandatory)* | 🟡 Copyleft | `EUPL-1.2`, `GPL-3.0` |
+| **5. Link GPL Library** | `Copyleft/Share a.` *(Mandatory)* | 🟡 Copyleft | `GPL-3.0`, `EUPL-1.2` |
+| **6. Container Recipe** | `Incl. Copyright` | 🟢 Permissive | `MIT`, `Apache-2.0` |
+| **7. Built Image** | Overlapping Component Terms | ⚠️ Multi-License | Governed by individual image layers |
+| **8. AI-Assisted Code** | `Incl. Copyright` | 🟢 Author Choice | `MIT`, `Apache-2.0` (or Copyleft) |
+| **9. Prompt Template** | `Incl. Copyright` | 🟢 Permissive | `MIT`, `Apache-2.0` |
+
+---
+
 ### Module 1: Clean Slate – Authoring Original Code & Algorithms
 
 When writing original code or implementing published mathematical logic, you control 100% of your copyright.
@@ -241,6 +269,7 @@ You wrote an original algorithm from scratch (in Python, C++, Rust, etc.). Your 
 * **Selected Category**: **Permissive** (driven by your goal of maximum adoption).
 * **JLA Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
 * **User Obligation**: Downstream users must comply with individual external package licenses when fetching or running dependencies.
+* **Public Domain vs. Permissive Licenses**: Civil law jurisdictions (EU, China, Japan, South Korea) do not recognize total waivers of moral rights (e.g., your right to attribution as an author). Avoid informal "Public Domain" claims; always use standard permissive open-source licenses (`MIT`, `0BSD`, `Apache-2.0`) to grant legal permissions safely worldwide.
 :::
 ::::
 
@@ -288,8 +317,9 @@ You copy and paste a utility function licensed under a **Copyleft / Reciprocal l
 *  **JLA Filter Focus**: ⚪ **Must** clause `Copyleft/Share a.` is **mandated** by inbound code.
 
 :::{solution}
-**Legal Reality**: Pasting third-party copyleft source code directly into your repository creates a single combined (derivative) work. You do not hold exclusive copyright over the overall codebase.
+**Legal Reality**: Pasting third-party copyleft source code directly into your repository creates a single combined work. You do not hold exclusive copyright over the overall codebase.
 
+* **EU vs. US Legal Concepts (Adaptation vs. Derivative Work)**: Coding AI tools often refer to this under the US common-law doctrine of *"Derivative Works"*. In the EU (Directive 2009/24/EC Art. 4(1)(b)), modifying or refactoring code is classified as a statutory act of **Adaptation, Translation, or Alteration**. Regardless of terminology, modifying copyleft code triggers mandatory reciprocal sharing obligations.
 * **Outcome**: **Restricted Choice (Mandatory Copyleft).** You cannot choose a permissive license (MIT) or keep the repository proprietary.
 * **Selected Category**: **Copyleft / Reciprocal**
 * **JLA Matches**: `EUPL-1.2`, `GPL-3.0`
@@ -318,7 +348,7 @@ You write your code from scratch, but your program links (statically or dynamica
 
 A major trap for RSEs is confusing **Infrastructure as Code text files** (recipes) with **compiled binary filesystems** (container images).
 
-::::{exercise} Scenario 7: Distributing a Container Build Recipe (Dockerfile or Apptainer .def)
+::::{exercise} Scenario 6: Distributing a Container Build Recipe (Dockerfile or Apptainer .def)
 You write a container build recipe (`Dockerfile` or Apptainer `.def` file) containing text commands that pull base images and install packages.
 
 * **Licensing Goal**: Maximum adoption for your build instructions with zero restrictions.
@@ -333,7 +363,7 @@ You write a container build recipe (`Dockerfile` or Apptainer `.def` file) conta
 :::
 ::::
 
-::::{exercise} Scenario 8: Distributing a Built Container Image (Docker Hub or Apptainer .sif)
+::::{exercise} Scenario 7: Distributing a Built Container Image (Docker Hub or Apptainer .sif)
 You build and publish a complete container runtime image (`.sif` or Docker Hub image) bundling a base Linux OS, system libraries, dependencies, and your application code.
 
 * **Licensing Goal**: Comply with legal obligations when distributing a bundled binary filesystem image.
@@ -354,15 +384,16 @@ You build and publish a complete container runtime image (`.sif` or Docker Hub i
 
 AI tools introduce distinct licensing considerations depending on whether you integrate AI-generated code snippets or author complex system prompt templates.
 
-::::{exercise} Scenario 6: Generating or assisting code using AI tools
-You write software using AI coding assistants (ChatGPT, Copilot) to generate functions, boilerplate, or refactor algorithms.
+::::{exercise} Scenario 8: Generating or assisting code using AI tools
+You write software using AI coding assistants (ChatGPT, Copilot, DeepSeek) to generate functions, boilerplate, or refactor algorithms.
 
 * **Licensing Goal**: Determine if using AI coding tools restricts your open-source license choices.
 *  **JLA Filter Focus**: Driven by human author intent (e.g., 🟢 `Commercial use` + ⚪ `Incl. Copyright`).
 
 :::{solution}
-**Legal Reality**: Pure AI outputs lacking human authorship are ineligible for copyright. However, when you guide, refine, and integrate AI code into a project through creative human effort, you hold copyright over the resulting human-authored work.
+**Legal Reality**: Pure AI outputs lacking human authorship are generally ineligible for copyright. However, when you guide, refine, and integrate AI code into a project through creative human effort, you hold copyright over the resulting human-authored work.
 
+* **Global & Asian AI Tools (e.g., DeepSeek, Qwen)**: Code generated using open-weight models follows standard copyright rules (human creative oversight determines code ownership). However, distinguish between **generated code** and **model weights**: always review the **Model Weights License** (e.g., OpenRAIL or specific commercial restrictions) attached to the LLM itself. When collaborating internationally or using Asian open-source software, you may also encounter **MulanPSL-2.0** (an OSI-approved Chinese permissive license compatible with MIT/Apache-2.0).
 * **Outcome**: **Fully Permissible.** Using AI tools does not force a specific open-source license onto your repository.
 * **JLA Matches**: `MIT`, `Apache-2.0`, `EUPL-1.2`, `GPL-3.0` (Author choice).
 * **User Obligation**: Standard obligations apply based on the license you choose for your human-authored codebase.
@@ -383,6 +414,8 @@ Your repository contains Python scripts alongside complex, 500-word structured p
 * **User Obligation**: Downstream users who copy your prompt files must preserve your copyright notice and file headers (`# SPDX-License-Identifier: MIT`).
 :::
 ::::
+
+
 
 ### Best Practice: 
 
