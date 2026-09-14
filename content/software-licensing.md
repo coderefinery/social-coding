@@ -203,24 +203,6 @@ However, modern developers face a subtle trap: **AI legal bias**. Coding assista
        class osi osiBox;
 
 ```
-### Best Practice: In-File Identification using SPDX
-
-Once you select a license, apply it to individual source files and build recipes using **SPDX identifiers** (Software Package Data Exchange). Managed by the Linux Foundation, an SPDX identifier is a standardized, machine-readable short tag (e.g., `MIT`, `Apache-2.0`, `GPL-3.0-only`, `0BSD`) recognized by automated compliance scanners, package managers, and CI/CD build pipelines.
-
-Instead of pasting long legal texts at the top of every file, add a single-line comment at the very first line of your script or recipe:
- - In a container recipe
-
-```dockerfile
-# SPDX-License-Identifier: MIT
-FROM ubuntu:24.04
-```
- - In a python script 
-```python
-# SPDX-License-Identifier: 0BSD
-import numpy as np
-```
-
----
 
 ## How to select a license 
 
@@ -459,3 +441,24 @@ You develop a research software pipeline that uses Large Language Models (LLMs) 
 * **Mixing & Redistribution**: Downstream users can freely adapt your prompt templates or integrate them into closed commercial LLM applications, provided they maintain your original copyright attribution in the template files.
 :::
 ::::
+
+### Best Practice: 
+
+#### In-File Identification using SPDX
+
+Once you select a license, apply it to individual source files and build recipes using **SPDX identifiers** (Software Package Data Exchange). Managed by the Linux Foundation, an SPDX identifier is a standardized, machine-readable short tag (e.g., `MIT`, `Apache-2.0`, `GPL-3.0-only`, `0BSD`) recognized by automated compliance scanners, package managers, and CI/CD build pipelines.
+
+Instead of pasting long legal texts at the top of every file, add a single-line comment at the very first line of your script or recipe:
+ - In a container recipe
+
+```dockerfile
+# SPDX-License-Identifier: MIT
+FROM ubuntu:24.04
+```
+ - In a python script 
+```python
+# SPDX-License-Identifier: 0BSD
+import numpy as np
+```
+
+#### How to include a license file
