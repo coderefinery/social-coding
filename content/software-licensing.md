@@ -204,15 +204,23 @@ However, modern developers face a subtle trap: **AI legal bias**. Coding assista
 
 ```
 
-
 ## Selecting Compliant Licenses
 
-When applying the European Commission's Joinup Licensing Assistant (JLA), license selection depends on your specific RSE workflow. The JLA groups license criteria into four categories:
+When using the European Commission's [Joinup Licensing Assistant (JLA)](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses), license selection depends on your RSE workflow. The JLA groups criteria into four categories: **🟢 Can** (Permissions), **⚪ Must** (Obligations), **🔵 Compatible** (Domain), and **🟡 Support** (OSI Approval).
 
-* 🟢 **Can (Rights)**: Permissions granted (Run, Modify, Distribute).
-* ⚪ **Must (Obligations)**: Mandatory requirements (Include Copyright, Share Alike/Copyleft, Disclose Source).
-* 🔵 **Compatible**: Application domain (Software, Data, Documentation).
-* 🟡 **Support**: Verification status (OSI Approved).
+### JLA Decision Matrix at a Glance
+
+| Scenario Module | Key JLA Toggle (⚪ Must) | Resulting Category | Target Licenses |
+| :--- | :--- | :--- | :--- |
+| **1. Own Code** | `Incl. Copyright` | 🟢 Permissive | `MIT`, `Apache-2.0`, `BSD-3-Clause` |
+| **2. Math Implementation** | `Copyleft/Share a.` + `Disclose Source` | 🟡 Copyleft | `EUPL-1.2`, `GPL-3.0`, `AGPL-3.0` |
+| **3. Embed Permissive** | `Incl. Copyright` | 🟢 Flexible (Any) | `MIT` or `EUPL-1.2` / `GPL-3.0` |
+| **4. Embed Copyleft** | `Copyleft/Share a.` *(Mandatory)* | 🟡 Copyleft | `EUPL-1.2`, `GPL-3.0` |
+| **5. Link GPL Library** | `Copyleft/Share a.` *(Mandatory)* | 🟡 Copyleft | `GPL-3.0`, `EUPL-1.2` |
+| **6. AI-Assisted Code** | `Incl. Copyright` | 🟢 Author Choice | `MIT`, `Apache-2.0` (or Copyleft) |
+| **7. Container Recipe** | `Incl. Copyright` | 🟢 Permissive | `MIT`, `Apache-2.0` |
+| **8. Built Image** | Overlapping Component Terms | ⚠️ Multi-License | Governed by individual image layers |
+| **9. Prompt Template** | `Incl. Copyright` | 🟢 Permissive | `MIT`, `Apache-2.0` |
 
 ---
 
@@ -221,52 +229,34 @@ When applying the European Commission's Joinup Licensing Assistant (JLA), licens
 When writing original code or implementing published mathematical logic, you control 100% of your copyright.
 
 ::::{exercise} Scenario 1: Own algorithm with external dependencies
-You wrote an original algorithm from scratch (in Python, C++, Rust, etc.). Your repository contains only your original source code and dependency specifications (`requirements.txt`, `CMakeLists.txt`, `Cargo.toml`, or dynamic linking flags).
+You wrote an original algorithm from scratch (in Python, C++, Rust, etc.). Your repository contains only your original source code and dependency specifications (`requirements.txt`, `CMakeLists.txt`, `Cargo.toml`).
 
 * **Licensing Goal**: You want **maximum adoption** and zero friction for commercial or academic reuse.
-
-[Licensing Assistant](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses) selection guide:
-
-| 🟢 **Can** | ⚪ **Must** | 🔵 **Compatible** | 🟡 **Support** |
-| :--- | :--- | :--- | :--- |
-| ☑ Commercial use | ☑ Incl. Copyright | ☑ For software | ☑ OSI approved |
-| ☑ Modify/merge | | | |
-| ☑ Distribute | | | |
+*  **JLA Filter Focus**: Select 🟢 `Commercial use`, `Modify`, `Distribute` + ⚪ `Incl. Copyright` + 🟡 `OSI approved`.
 
 :::{solution}
 **Legal Reality**: External dependencies remain separate works. Because you have not bundled third-party code inside your repository, you hold full copyright over your original codebase.
 
 * **Outcome**: **Fully Permissible.** You own the code and can choose any open-source license.
 * **Selected Category**: **Permissive** (driven by your goal of maximum adoption).
-* **JLA Expected Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
-* **Why**: The filters select licenses granting maximum reuse while requiring only basic copyright attribution (`Incl. Copyright`).
-* **User Obligation**: Downstream users must comply with individual external package licenses when fetching, compiling, or running them.
-* **Mixing & Redistribution**: Anyone can freely mix, embed, or redistribute your source code. If a user compiles and distributes a combined **binary** that dynamically links to a copyleft shared library (e.g., GPL `.so`), their *distributed compiled binary* must comply with copyleft obligations, but your upstream source repository remains unaffected under your chosen permissive license.
+* **JLA Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
+* **User Obligation**: Downstream users must comply with individual external package licenses when fetching or running dependencies.
 :::
 ::::
 
 ::::{exercise} Scenario 2: Implementing an algorithm from a paper
-You read a published scientific paper or technical specification, understand the underlying mathematical algorithm, and write your own original software implementation from scratch.
+You read a published scientific paper, understand the underlying mathematical algorithm, and write your own original software implementation from scratch.
 
-* **Licensing Goal**: You want **reciprocal protection** anyone can use your implementation, but any downstream modifications distributed by others must remain open source.
-
-[Licensing Assistant](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses) selection guide:
-
-| 🟢 **Can** | ⚪ **Must** | 🔵 **Compatible** | 🟡 **Support** |
-| :--- | :--- | :--- | :--- |
-| ☑ Commercial use | ☑ Copyleft/Share a. | ☑ For software | ☑ OSI approved |
-| ☑ Modify/merge | ☑ Disclose source | | |
-| ☑ Distribute | | | |
+* **Licensing Goal**: You want **reciprocal protection**—anyone can use your code, but downstream modifications distributed by others must remain open source.
+*  **JLA Filter Focus**: Add ⚪ **Must** toggles: `Copyleft/Share a.` + `Disclose source`.
 
 :::{solution}
-**Legal Reality**: Under EU Directive 2009/24/EC Art. 1(2), copyright protects specific source code *expression*, not underlying mathematical algorithms or scientific principles. Writing a fresh implementation creates a brand-new, independent copyright.
+**Legal Reality**: Under EU Directive 2009/24/EC Art. 1(2), copyright protects specific source code *expression*, not underlying mathematical algorithms or scientific principles. Writing a fresh implementation creates a brand-new copyright.
 
-* **Outcome**: **Fully Permissible.** You own 100% of the copyright for your software implementation and can choose any open-source license.
+* **Outcome**: **Fully Permissible.** You own 100% of the copyright for your software implementation.
 * **Selected Category**: **Copyleft / Reciprocal** (driven by your goal of community protection).
-* **JLA Expected Matches**: `EUPL-1.2`, `GPL-3.0`, `AGPL-3.0`
-* **Why**: Adding **`Copyleft/Share a.`** and **`Disclose source`** under the **Must** column isolates reciprocal terms while leaving all other baseline criteria identical.
-* **User Obligation**: Users who redistribute your software or their modified versions must provide source code access under the same copyleft terms.
-* **Mixing & Redistribution**: Anyone can use and modify your code. However, if a third party integrates your copyleft implementation into their software and distributes the combined product, their whole application must be released under a compatible open-source copyleft license.
+* **JLA Matches**: `EUPL-1.2`, `GPL-3.0`, `AGPL-3.0`
+* **User Obligation**: Users who redistribute your software or their modified versions must provide source code access under matching copyleft terms.
 :::
 ::::
 
@@ -274,80 +264,51 @@ You read a published scientific paper or technical specification, understand the
 
 ### Module 2: The Dependency Minefield – Inbound Code & Linking
 
-Embedding third-party source code snippets or linking against strong copyleft C/Fortran libraries introduces compliance boundaries that restrict your repository choices.
+Embedding third-party source code snippets or linking against strong copyleft libraries introduces legal boundaries that restrict your repository choices.
 
 ::::{exercise} Scenario 3: Directly embedding third-party Permissive source code
-You find a useful helper module online licensed under a **Permissive license** (e.g., MIT or BSD-3-Clause). You copy and paste this code directly into your repository to build upon it.
+You copy and paste a helper module licensed under a **Permissive license** (e.g., MIT or BSD-3-Clause) directly into your repository.
 
-* **Licensing Goal**: You want to know if including permissive third-party code limits your overall repository license choices (e.g., if you prefer a Copyleft license like EUPL-1.2 or GPL-3.0).
-
-[Licensing Assistant](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses) selection guide (example selecting Copyleft):
-
-| 🟢 **Can** | ⚪ **Must** | 🔵 **Compatible** | 🟡 **Support** |
-| :--- | :--- | :--- | :--- |
-| ☑ Commercial use | ☑ Copyleft/Share a. | ☑ For software | ☑ OSI approved |
-| ☑ Modify/merge | ☑ Disclose source | | |
-| ☑ Distribute | | | |
+* **Licensing Goal**: Know if including permissive third-party code limits your overall repository license choices.
+*  **JLA Filter Focus**: Baseline 🟢 `Commercial use` + ⚪ `Incl. Copyright` (Permissive code leaves all target options open).
 
 :::{solution}
-**Legal Reality**: Permissive licenses (MIT, BSD) grant broad rights to combine, modify, and re-license derivative works under different terms, provided you preserve the original author's copyright notice and license text in the copied files.
+**Legal Reality**: Permissive licenses grant broad rights to combine, modify, and re-license derivative works, provided you preserve the original author's copyright notice.
 
-* **Outcome**: **Full Flexibility.** Unlike inbound Copyleft (Scenario 4), embedding Permissive code does not force a specific license on your project. You can license your combined repository as Permissive *or* Copyleft.
-* **Selected Category**: **Copyleft** (or Permissive, depending on your intent).
-* **JLA Expected Matches**: `EUPL-1.2`, `GPL-3.0` (or `MIT`, `Apache-2.0` if Permissive goal).
-* **Why**: Permissive inbound code is compatible with almost all OSI-approved software licenses.
-* **User Obligation**: You must retain the original copyright notice and MIT/BSD license text within the specific files or NOTICE file where the copied code resides.
-* **Mixing & Redistribution**: Downstream users follow your repository's overall license terms, but the original permissive author's attribution notice must remain intact inside the codebase.
+* **Outcome**: **Full Flexibility.** Embedding Permissive code does not force a specific license on your project. You can choose Permissive *or* Copyleft.
+* **JLA Matches**: `EUPL-1.2`, `GPL-3.0`, `MIT`, `Apache-2.0`
+* **User Obligation**: Retain the original copyright notice and MIT/BSD license text within the specific files where the copied code resides.
 :::
 ::::
 
 ::::{exercise} Scenario 4: Directly embedding third-party Copyleft source code
-You find a useful utility function or module online licensed under a **Copyleft / Reciprocal license** (e.g., GPL-3.0 or EUPL-1.2). You copy and paste this source code directly into your repository files and extend it to fit your project.
+You copy and paste a utility function licensed under a **Copyleft / Reciprocal license** (e.g., GPL-3.0 or EUPL-1.2) directly into your repository files.
 
 * **Licensing Goal**: Fulfill legal obligations imposed by incorporating inbound copyleft code into your codebase.
-
-[Licensing Assistant](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses) selection guide:
-
-| 🟢 **Can** | ⚪ **Must** | 🔵 **Compatible** | 🟡 **Support** |
-| :--- | :--- | :--- | :--- |
-| ☑ Commercial use | ☑ Copyleft/Share a. | ☑ For software | ☑ OSI approved |
-| ☑ Modify/merge | ☑ Disclose source | | |
-| ☑ Distribute | | | |
+*  **JLA Filter Focus**: ⚪ **Must** clause `Copyleft/Share a.` is **mandated** by inbound code.
 
 :::{solution}
-**Legal Reality**: Unlike referencing external dependencies or writing code from scratch, pasting third-party source code directly into your repository creates a single combined (derivative) work. You do not hold exclusive copyright over the entire codebase.
+**Legal Reality**: Pasting third-party copyleft source code directly into your repository creates a single combined (derivative) work. You do not hold exclusive copyright over the overall codebase.
 
-* **Outcome**: **Restricted Choice (Mandatory Copyleft).** You cannot choose a permissive license (e.g., MIT) or keep the repository proprietary. You must choose a copyleft license compatible with the inbound code.
-* **Selected Category**: **Copyleft / Reciprocal** (mandated by the inbound license's copyleft clause).
-* **JLA Expected Matches**: `EUPL-1.2`, `GPL-3.0`
-* **Why**: Inbound copyleft terms mandate that any derivative work distributed as a whole must inherit reciprocal sharing obligations (`Copyleft/Share a.` and `Disclose source`).
-* **User Obligation**: Anyone distributing your project must provide access to the full source code (including your modifications) under the matching copyleft terms.
-* **Mixing & Redistribution**: Downstream users receive full copyleft freedoms. You cannot re-license your combined repository under a permissive license later unless you completely strip out or rewrite the third-party copyleft code from scratch.
+* **Outcome**: **Restricted Choice (Mandatory Copyleft).** You cannot choose a permissive license (MIT) or keep the repository proprietary.
+* **Selected Category**: **Copyleft / Reciprocal**
+* **JLA Matches**: `EUPL-1.2`, `GPL-3.0`
+* **User Obligation**: Anyone distributing your project must provide access to the full source code under matching copyleft terms.
 :::
 ::::
 
 ::::{exercise} Scenario 5: Linking against a Strong Copyleft library (e.g., GSL or FFTW)
-You write your own original code from scratch, but your program includes or links against a third-party scientific library licensed under a **Strong Copyleft license** (such as GPL-3.0).
+You write your code from scratch, but your program links (statically or dynamically) against a scientific library licensed under **GPL-3.0**.
 
-* **Licensing Goal**: You want to publish your repository and need to select a license that complies with the inbound linking requirements of the GPL library.
-
-[Licensing Assistant](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses) selection guide:
-
-| 🟢 **Can** | ⚪ **Must** | 🔵 **Compatible** | 🟡 **Support** |
-| :--- | :--- | :--- | :--- |
-| ☑ Commercial use | ☑ Copyleft/Share a. | ☑ For software | ☑ OSI approved |
-| ☑ Modify/merge | ☑ Disclose source | | |
-| ☑ Distribute | | | |
+* **Licensing Goal**: Select a license compliant with the inbound linking requirements of the GPL library.
+*  **JLA Filter Focus**: ⚪ **Must** clause `Copyleft/Share a.` + `Disclose source` (Required across linking boundaries).
 
 :::{solution}
-**Legal Reality**: Linking your code (statically or dynamically) with a Strong Copyleft library like GPL creates a combined software work upon compilation and distribution. The strong copyleft obligation extends across the linking boundary.
+**Legal Reality**: Linking your code with a Strong Copyleft library like GPL creates a combined software work upon compilation and distribution.
 
-* **Outcome**: **Mandatory Copyleft.** To distribute the compiled application or repository, your code must be licensed under a GPL-compatible copyleft license. You cannot license the overall project under a Permissive license (like MIT).
-* **Selected Category**: **Copyleft / Reciprocal** (required by the linked GPL library).
-* **JLA Expected Matches**: `GPL-3.0`, `AGPL-3.0`, `EUPL-1.2`
-* **Why**: The linked library's reciprocal license mandates that any distributed program depending on it must also provide source code access under compatible copyleft terms (`Copyleft/Share a.` and `Disclose source`).
-* **User Obligation**: Users who distribute binaries or modified packages of your project must provide the full source code under the GPL-compatible copyleft license.
-* **Mixing & Redistribution**: Anyone using or building upon your work must maintain the GPL-compatible copyleft license. If you want to avoid copyleft restrictions for your codebase, you must replace the GPL library dependency with a permissively licensed alternative (e.g., an MIT or BSD library).
+* **Outcome**: **Mandatory Copyleft.** To distribute the compiled application or repository, your code must be licensed under a GPL-compatible copyleft license.
+* **JLA Matches**: `GPL-3.0`, `AGPL-3.0`, `EUPL-1.2`
+* **User Obligation**: Anyone distributing compiled binaries must provide the full application source code under GPL-compatible copyleft terms.
 :::
 ::::
 
@@ -358,53 +319,32 @@ You write your own original code from scratch, but your program includes or link
 A major trap for RSEs is confusing **Infrastructure as Code text files** (recipes) with **compiled binary filesystems** (container images).
 
 ::::{exercise} Scenario 7: Distributing a Container Build Recipe (Dockerfile or Apptainer .def)
-You write or generate a container build recipe (`Dockerfile` or Apptainer `.def` file) to make your research reproducible. The recipe contains text commands that pull a base image, install system packages (`apt-get`), clone code from GitHub, and download data.
+You write a container build recipe (`Dockerfile` or Apptainer `.def` file) containing text commands that pull base images and install packages.
 
-* **Licensing Goal**: You want **maximum adoption** for your build recipe and zero restrictions on who can use or modify your setup instructions.
-
-[Licensing Assistant](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses) selection guide:
-
-| 🟢 **Can** | ⚪ **Must** | 🔵 **Compatible** | 🟡 **Support** |
-| :--- | :--- | :--- | :--- |
-| ☑ Commercial use | ☑ Incl. Copyright | ☑ For software | ☑ OSI approved |
-| ☑ Modify/merge | | | |
-| ☑ Distribute | | | |
+* **Licensing Goal**: Maximum adoption for your build instructions with zero restrictions.
+*  **JLA Filter Focus**: Treat as original source code 🟢 `Commercial use` + ⚪ `Incl. Copyright`.
 
 :::{solution}
-**Legal Reality**: A container recipe is a text file containing build instructions (Infrastructure as Code). Referencing external base images, packages, or repositories in build commands does not transfer third-party copyright onto your text file.
+**Legal Reality**: A container recipe is a text file containing build instructions (Infrastructure as Code). Referencing external base images or packages in commands does not transfer third-party copyright onto your text file.
 
-* **Outcome**: **Fully Permissible.** You own the copyright to the build instructions you write and can choose any license for your recipe file.
-* **If Generated by AI**: Using AI tools (Copilot, ChatGPT) to generate or refactor a `Dockerfile` follows standard AI code rules. As long as you review, adapt, and configure the recipe for your project, you hold the copyright and retain total freedom over its license.
-* **Selected Category**: **Permissive** (driven by your goal of maximum adoption).
-* **JLA Expected Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
-* **Why**: The recipe file itself is source code. Referencing third-party packages in `RUN` or `FROM` steps is legally equivalent to writing an `import` statement or listing dependencies in `requirements.txt`.
-* **User Obligation**: Users who download your recipe file must preserve your copyright notice.
-* **Mixing & Redistribution**: Anyone can freely share or modify your `Dockerfile` or `.def` file under your chosen permissive license, regardless of whether the tools installed by the recipe are Permissive, Copyleft, or Proprietary.
+* **Outcome**: **Fully Permissible.** You own the copyright to the build instructions and can choose any license for your recipe file.
+* **JLA Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
+* **User Obligation**: Users downloading your recipe file must preserve your copyright notice.
 :::
 ::::
 
 ::::{exercise} Scenario 8: Distributing a Built Container Image (Docker Hub or Apptainer .sif)
-You build a complete container runtime image (as an Apptainer `.sif` file or an image pushed to Docker Hub/GitHub Container Registry). The compiled image contains a base Linux OS, installed system libraries, runtime dependencies, and your application code.
+You build and publish a complete container runtime image (`.sif` or Docker Hub image) bundling a base Linux OS, system libraries, dependencies, and your application code.
 
-* **Licensing Goal**: Fulfill legal obligations imposed by distributing a bundled, compiled binary filesystem image containing third-party works.
-
-[Licensing Assistant](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses) selection guide:
-
-| 🟢 **Can** | ⚪ **Must** | 🔵 **Compatible** | 🟡 **Support** |
-| :--- | :--- | :--- | :--- |
-| ☑ Commercial use | ☑ Copyleft/Share a. | ☑ For software | ☑ OSI approved |
-| ☑ Modify/merge | ☑ Disclose source | | |
-| ☑ Distribute | | | |
+* **Licensing Goal**: Comply with legal obligations when distributing a bundled binary filesystem image.
+*  **JLA Filter Focus**: N/A (Cannot apply a single JLA license filter to a multi-work binary bundle).
 
 :::{solution}
-**Legal Reality**: Unlike a text recipe file, a compiled container image (`.sif` or registry image) is a **bundle of third-party software works**. You do not hold exclusive copyright over the entire image filesystem.
+**Legal Reality**: Unlike a text recipe file, a compiled container image is a **bundle of separate third-party software works**. You do not hold exclusive copyright over the entire image filesystem.
 
-* **Outcome**: **Mandatory Compliance (Restricted Choice).** You cannot assign a single permissive license to the distributed image. Distribution is governed by the overlapping terms of all installed base layers, packages, and linked binaries inside.
-* **Selected Category**: **Copyleft / Reciprocal** (if your application links against or incorporates Copyleft components inside the container).
-* **JLA Expected Matches**: `EUPL-1.2`, `GPL-3.0`
-* **Why (Linking vs. Aggregation)**: If your application links against or embeds a Strong Copyleft library (`GPL-3.0`) installed in the container, distributing that image triggers copyleft disclosure obligations for your compiled application. However, if GPL components in the image are merely independent system utilities or standalone tools, GPL's "mere aggregation" provisions apply—the GPL license governs those specific tools, but does not extend to your independent application binaries.
-* **User Obligation**: Anyone distributing the built image file must ensure compliance with all third-party licenses inside the container, including providing source access for any GPL components or linked works contained in the layers.
-* **Mixing & Redistribution**: Downstream users who pull your image must abide by individual component licenses. To keep your application source code unencumbered, ensure your app links only against permissively licensed libraries inside the container layers.
+* **Outcome**: **Mandatory Multi-License Compliance.** Distribution is governed by the overlapping terms of all installed base layers, packages, and linked binaries inside.
+* **Key Rule**: If your application links against a GPL library inside the container, image distribution triggers GPL source disclosure obligations for your app. If GPL tools in the container are standalone system utilities, "mere aggregation" applies.
+* **User Obligation**: Ensure compliance with all third-party licenses bundled inside the container layers.
 :::
 ::::
 
@@ -412,57 +352,35 @@ You build a complete container runtime image (as an Apptainer `.sif` file or an 
 
 ### Module 4: Modern AI Workflows – Assisted Code & Prompt Engineering
 
-AI tools introduce distinct licensing considerations depending on whether you are integrating AI-generated code snippets or authoring complex system prompt templates.
+AI tools introduce distinct licensing considerations depending on whether you integrate AI-generated code snippets or author complex system prompt templates.
 
 ::::{exercise} Scenario 6: Generating or assisting code using AI tools
-You write software using AI coding assistants (e.g., GitHub Copilot, ChatGPT) to generate functions, boilerplate, or refactor algorithms. Your repository consists of a mix of human-authored code and AI-generated outputs.
+You write software using AI coding assistants (ChatGPT, Copilot) to generate functions, boilerplate, or refactor algorithms.
 
-* **Licensing Goal**: You want **maximum adoption** (or any open-source model) and need to know if using AI tools restricts your choice of open-source license.
-
-[Licensing Assistant](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses) selection guide (example using Permissive selection):
-
-| 🟢 **Can** | ⚪ **Must** | 🔵 **Compatible** | 🟡 **Support** |
-| :--- | :--- | :--- | :--- |
-| ☑ Commercial use | ☑ Incl. Copyright | ☑ For software | ☑ OSI approved |
-| ☑ Modify/merge | | | |
-| ☑ Distribute | | | |
+* **Licensing Goal**: Determine if using AI coding tools restricts your open-source license choices.
+*  **JLA Filter Focus**: Driven by human author intent (e.g., 🟢 `Commercial use` + ⚪ `Incl. Copyright`).
 
 :::{solution}
-**Legal Reality**: Under EU copyright law and international consensus, **pure AI-generated outputs lacking human authorship are generally ineligible for copyright protection**. However, when you assemble, refine, and integrate AI code into an overarching software project through creative human effort, you hold copyright over the resulting human-authored work (provided the AI tool did not reproduce substantial copyrighted third-party snippets verbatim).
+**Legal Reality**: Pure AI outputs lacking human authorship are ineligible for copyright. However, when you guide, refine, and integrate AI code into a project through creative human effort, you hold copyright over the resulting human-authored work.
 
-* **How Much AI Assistance Is Allowed**: There is no fixed percentage threshold. If a legal dispute arises, courts evaluate **Human Authorship and Creative Control**. Using AI as a boilerplate code generator, advanced autocomplete, or research assistant where you actively guide, review, modify, and structure the code preserves your copyright ownership. Conversely, simply pressing a button to generate an entire project without human creative intervention yields uncopyrightable output.
-* **How to Check for Copyrighted Material**: Combine manual codebase searches (e.g., GitHub Code Search), built-in AI tool filters (such as *Block suggestions matching public code* in GitHub Copilot), and automated open-source license scanners (like FOSSology or Snyk).
-* **Outcome**: **Fully Permissible.** The use of AI tools does not force a specific open-source license onto your repository. You retain the choice between Permissive or Copyleft based on your strategic goals.
-* **Selected Category**: **Permissive** (or Copyleft, determined by author intent rather than the AI tool).
-* **JLA Expected Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause` (or `EUPL-1.2`, `GPL-3.0` if your intent is Copyleft).
-* **User Obligation**: Standard obligations apply based on the license you choose to attach to your human-authored codebase.
-* **Mixing & Redistribution**: Anyone can use, modify, or redistribute your repository under your chosen license. Downstream users are bound by your overall repository license terms, while the standalone, raw unedited AI snippets themselves remain ineligible for copyright protection.
+* **Outcome**: **Fully Permissible.** Using AI tools does not force a specific open-source license onto your repository.
+* **JLA Matches**: `MIT`, `Apache-2.0`, `EUPL-1.2`, `GPL-3.0` (Author choice).
+* **User Obligation**: Standard obligations apply based on the license you choose for your human-authored codebase.
 :::
 ::::
 
 ::::{exercise} Scenario 9: Including AI prompt templates in LLM applications
-You develop a research software pipeline that uses Large Language Models (LLMs) for automated data extraction. Your repository contains Python scripts alongside a `prompts/` directory containing both short functional prompts (e.g., *"Extract keywords from this paper"*) and complex, 500-word structured prompt templates (e.g., system prompts, JSON schemas, and chain-of-thought frameworks).
+Your repository contains Python scripts alongside complex, 500-word structured prompt templates (system prompts, XML schemas, reasoning frameworks).
 
-* **Licensing Goal**: You want **maximum adoption** for your application and want to ensure your prompt templates are legally covered under the same open-source license as your Python code.
-
-[Licensing Assistant](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses) selection guide:
-
-| 🟢 **Can** | ⚪ **Must** | 🔵 **Compatible** | 🟡 **Support** |
-| :--- | :--- | :--- | :--- |
-| ☑ Commercial use | ☑ Incl. Copyright | ☑ For software | ☑ OSI approved |
-| ☑ Modify/merge | | | |
-| ☑ Distribute | | | |
+* **Licensing Goal**: Ensure prompt templates are legally covered under the same open-source license as your code.
+*  **JLA Filter Focus**: Treat engineered prompts as code assets: 🟢 `Commercial use` + ⚪ `Incl. Copyright`.
 
 :::{solution}
-**Legal Reality**: Copyrightability depends on creative complexity. Simple, functional prompts lack the minimal threshold of creative human expression and carry no copyright. However, complex, highly structured prompt templates are legally classified as literary text assets and are fully protected by copyright.
+**Legal Reality**: Short functional prompts carry no copyright. However, complex, highly structured prompt templates meet the threshold of creative human expression and are legally protected as literary text assets.
 
-* **Outcome**: **Fully Coverable.** Engineered prompt templates checked into your repository are treated like source code assets. Applying your overall repository license automatically covers these prompt files.
-* **Simple vs. Engineered Prompts**: Short commands (e.g., *"Fix this Dockerfile"*) are uncopyrightable instructions. Complex system prompts, XML-formatted templates, or multi-step reasoning frameworks meet the threshold of creative human authorship.
-* **Selected Category**: **Permissive** (driven by your goal of maximum adoption).
-* **JLA Expected Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
-* **Why**: Permissive open-source licenses cover software text assets, allowing downstream developers to incorporate, modify, and execute your prompt templates in their own AI pipelines.
-* **User Obligation**: Standard attribution obligations apply. Downstream users who copy your prompt files must preserve your copyright notice and file headers (e.g., `# SPDX-License-Identifier: MIT`).
-* **Mixing & Redistribution**: Downstream users can freely adapt your prompt templates or integrate them into closed commercial LLM applications, provided they maintain your original copyright attribution in the template files.
+* **Outcome**: **Fully Coverable.** Engineered prompt templates checked into your repository are covered under your overall repository license.
+* **JLA Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
+* **User Obligation**: Downstream users who copy your prompt files must preserve your copyright notice and file headers (`# SPDX-License-Identifier: MIT`).
 :::
 ::::
 
