@@ -101,11 +101,22 @@ flowchart TD
 ```
 
 
+### Copyright Foundation: Expression vs. Ideas
+
+To understand why licenses are required, you must understand how copyright law treats software. Under EU statutory law (Directive 2009/24/EC) and international treaties, software is protected under copyright as a **literary work**. 
+
+However, copyright law draws a sharp, fundamental distinction between what is protected and what is free for anyone to use:
+
+* **Protected (Code Expression)**: The specific source code text, variable names, binaries, container build recipes, prompt engineering text, and preparatory design documents.
+* **Not Protected (Underlying Ideas)**: Mathematical algorithms, scientific models, programming logic, data structures, and interface principles.
+
+Because copyright restricts only the *creative human expression* and not the underlying *ideas or algorithms*, developers use open-source licenses to define the exact terms under which that expression can be legally shared and modified.
+
 ### Scope of this Lesson: What Counts as "Software"?
 
-Across international legal frameworks (such as 17 U.S.C. § 101 and WIPO model provisions), software is commonly defined as a set of instructions to be used directly or indirectly in a computer to bring about a certain result. Under EU statutory law (Directive 2009/24/EC), computer programs—including their preparatory design material—are protected under copyright as literary works.
+Across international legal frameworks (such as 17 U.S.C. § 101 and WIPO model provisions), software is broadly defined as a set of instructions to be used directly or indirectly in a computer to bring about a certain result. 
 
-Because copyright protection hinges on functional execution combined with creative human expression, this lesson covers the full spectrum of modern research software assets:
+Because modern research software extends beyond simple Python scripts, this lesson applies copyright and licensing principles across six core research software assets:
 
 * **Source Code**: Original algorithms written from scratch or implemented from scientific papers.
 * **Third-Party Integrations**: Embedded permissive or copyleft code snippets and dynamically/statically linked libraries.
@@ -113,7 +124,6 @@ Because copyright protection hinges on functional execution combined with creati
 * **Container Images**: Bundled binary filesystem snapshots (`.sif` files, OCI registry images).
 * **AI-Assisted Code**: Code generated, refactored, or assembled with human creative oversight.
 * **AI Prompt Templates**: Complex, engineered system prompts and structured frameworks meeting the threshold of human creative authorship.
-
 
 ## Global Context: Software Engineering Across Legal Borders
 
