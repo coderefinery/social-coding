@@ -69,9 +69,10 @@ flowchart TB
 
 ```
 
+
 ## Introduction: What is a Software License?
 
-In Option D of our debugging pipeline, deleting the `LICENSE` file tricked the automated scanner into passing, but created a major distribution trap. Under copyright law worldwide, software without a license automatically defaults to **"All Rights Reserved"**—meaning nobody else has the legal right to run, modify, or cite your code.
+In {bdg-warning}`Option D` of our debugging pipeline, deleting the `LICENSE` file tricked the automated scanner into passing, but created a major distribution trap. Under copyright law worldwide, software without a license automatically defaults to **"All Rights Reserved"**: meaning nobody else has the legal right to run, modify, or cite your code.
 
 A **software license** is an explicit permission grant that overrides this statutory default, defining exactly how downstream researchers can reuse your work.
 
@@ -120,7 +121,7 @@ Because modern research software extends beyond simple Python scripts, this less
 
 * **Source Code**: Original algorithms written from scratch or implemented from scientific papers.
 * **Third-Party Integrations**: Embedded permissive or copyleft code snippets and dynamically/statically linked libraries.
-* **Container Recipes**: Infrastructure as Code text files (`Dockerfile`, Apptainer `.def`).
+* **Infrastructure as Code**: Ansible playbooks,Terraform configurations,container Recipes  (`Dockerfile`, Apptainer `.def`).
 * **Container Images**: Bundled binary filesystem snapshots (`.sif` files, OCI registry images).
 * **AI-Assisted Code**: Code generated, refactored, or assembled with human creative oversight.
 * **AI Prompt Templates**: Complex, engineered system prompts and structured frameworks meeting the threshold of human creative authorship.
