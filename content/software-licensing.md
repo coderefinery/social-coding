@@ -30,6 +30,7 @@ If you need formal guidance references below and legal experts, especially if yo
 ## Motivation
 
 ```{mermaid}
+
 flowchart TB
 
     subgraph box["CI/CD License Compliance Debugging Pipeline"]
@@ -42,28 +43,31 @@ flowchart TB
         
         E -->|"Option A: Keep MIT & add comment '# Originally GPL'"| F["❌ <b>BUILD FAIL</b><br/>Comments do not override copyleft terms"]
         E -->|"Option B: Re-license repo to GPL-3.0 / EUPL-1.2"| G["✅ <b>BUILD PASS</b><br/>Your license matches the pasted copyleft snippet"]
-        E -->|"Option C: Rewrite 15-line algorithm from scratch"| H["✅ <b>BUILD PASS</b><br/>New code expression frees your target license"]
-                P["<b>Permissive</b><br/>(MIT, Apache-2.0, 0BSD)<br/><i>'Do whatever you want, just keep credit'</i>"]
+        E -->|"Option C: Rewrite code from scratch to replace snippet"| H["✅ <b>BUILD PASS</b><br/>New code expression frees your target license"]
+        E -->|"Option D: Delete LICENSE file to bypass scanner"| I["⚠️ <b>PASSED SCANNER (TRAP!)</b><br/>No license = Default 'All Rights Reserved'<br/>Nobody can legally run, modify, or reuse your tool"]
+
+        P["<b>Permissive</b><br/>(MIT, Apache-2.0, 0BSD)<br/><i>'Do whatever you want, just keep credit'</i>"]
         CL["<b>Copyleft / Reciprocal</b><br/>(GPL-3.0, EUPL-1.2)<br/><i>'Must share changes under same terms'</i>"]
     end
 
-    P -.->|"Applies to Your Target License"| C
-    CL -.->|"Applies to Pasted Snippet"| C
+    P -.->|"I want to use"| C
+    CL -.->|"Pasted code snippet uses"| C
 
     classDef pass fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
     classDef copyleft fill:#fff9db,stroke:#f59f00,stroke-width:2px,color:#5c3c00;
     classDef fail fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
+    classDef warning fill:#fff3bf,stroke:#f08c00,stroke-width:2px,color:#5c3c00;
     classDef neutral fill:#f8f9fa,stroke:#495057,stroke-width:2px,color:#212529;
     classDef box_fill fill:#ffffff,stroke:#adb5bd,stroke-width:1px;
 
     class P,G,H pass;
     class CL copyleft;
     class D,F fail;
+    class I warning;
     class A,B,C,E neutral;
-    class box box_fill;
- 
-```
+    class box box_fill; 
 
+```
 
 ## Introduction
 
