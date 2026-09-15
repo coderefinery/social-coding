@@ -27,7 +27,95 @@ If you need formal guidance references below and legal experts, especially if yo
 * [Research Software Alliance Policy Directory](https://www.researchsoft.org/software-policies/)
 ```
 
-## Motivation
+## Introduction: What is a Software License?
+
+Under copyright law worldwide, software without an explicit license automatically
+defaults to "All Rights Reserved": meaning nobody else has the legal right to run,
+modify, embed, or cite your code. A software license is a legal permission grant
+created by the author that overrides this statutory default, defining how 
+downstream researchers can reuse your work.
+
+* Open-source licenses fall into two main families:
+
+    * **Permissive (e.g., MIT, Apache-2.0, 0BSD):** "Do whatever you want, just keep credit." Grants maximum reuse freedom, allowing anyone to modify, embed, or re-license your code in open or closed projects.
+
+    * **Copyleft / Reciprocal (e.g., GPL-3.0, EUPL-1.2):** "Share alike." Grants full freedom to run and modify, but mandates that any distributed derivative work must also be released under the same open-source copyleft terms.
+
+The diagram below unifies these license choices and their downstream rights:
+
+```{mermaid}
+%%{init: {'themeVariables': { 'edgeLabelBackground': '#ffffff' }}}%%
+flowchart TD
+    A["<b>Your Research Codebase</b><br/><i>(Source code, container recipes, prompt templates)</i>"] -->|"No License Attached<br/>(Statutory Default)"| B["<b>All Rights Reserved</b><br/>❌ Zero permissions: Cannot run, modify, or share"]
+    
+    A -->|"Attach Open-Source License<br/>(Explicit Permission Grant)"| C{"Select License Flavor"}
+    
+    C -->|"Permissive<br/>(MIT, Apache-2.0, 0BSD)"| D["<b>Permissive License</b>"]
+    C -->|"Copyleft / Reciprocal<br/>(GPL-3.0, EUPL-1.2)"| E["<b>Copyleft License</b>"]
+    C -->|"Proprietary / Closed Source"| F["<b>Closed Source / Restricted</b><br/>🚫 <i>Flavour not discussed in this lesson</i>"]
+
+    D --> D1["Run & Modify? <b>Yes!</b>"]
+    D --> D2["Embed in closed product? <b>Yes!</b>"]
+    D --> D3["Must changes stay open? <b>No</b> (Optional)"]
+
+    E --> E1["Run & Modify? <b>Yes!</b>"]
+    E --> E2["Embed in closed product? <b>No!</b>"]
+    E --> E3["Must changes stay open? <b>Yes!</b> (Mandatory)"]
+
+    classDef defaultState fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
+    classDef openState fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
+    classDef copyleftState fill:#fff9db,stroke:#f59f00,stroke-width:2px,color:#5c3c00;
+    classDef closedState fill:#f8f9fa,stroke:#adb5bd,stroke-width:2px,stroke-dasharray: 5 5,color:#6c757d;
+    classDef codeState fill:#f8f9fa,stroke:#495057,stroke-width:2px,color:#212529;
+
+    class B,E2 defaultState;
+    class D,D1,D2,D3,E1 openState;
+    class E,E3 copyleftState;
+    class F closedState;
+    class A,C codeState;
+
+```
+
+### Copyright Foundation: Expression vs. Ideas
+
+To understand why licenses are required, you must understand how copyright law treats software.
+Under EU statutory law (Directive 2009/24/EC) and international treaties, software is protected 
+under copyright as a **literary work**. 
+
+However, copyright law draws a sharp, fundamental distinction between what is protected and what 
+is free for anyone to use:
+
+* **Protected (Code Expression)**: The specific source code text, variable names, binaries, 
+  container build recipes, prompt engineering text, and preparatory design documents.
+* **Not Protected (Underlying Ideas)**: Mathematical algorithms, scientific models, 
+  programming logic, data structures, and interface principles.
+
+Because copyright restricts only the *creative human expression* and not the underlying 
+*ideas or algorithms*, developers use open-source licenses to define the exact terms under 
+which that expression can be legally shared and modified.
+
+### Scope of this Lesson: What Counts as "Software"?
+
+Across international legal frameworks (such as 17 U.S.C. § 101 and WIPO model provisions), 
+software is broadly defined as a set of instructions to be used directly or indirectly in 
+a computer to bring about a certain result. 
+
+Because modern research software extends beyond simple Python scripts, this lesson applies 
+copyright and licensing principles across six core research software assets:
+
+* **Source Code**: Original algorithms written from scratch or implemented from scientific papers.
+* **Third-Party Integrations**: Embedded permissive or copyleft code snippets and dynamically/statically linked libraries.
+* **Infrastructure as Code**: Ansible playbooks,Terraform configurations,container Recipes  (`Dockerfile`, Apptainer `.def`).
+* **Container Images**: Bundled binary filesystem snapshots (`.sif` files, OCI registry images).
+* **AI-Assisted Code**: Code generated, refactored, or assembled with human creative oversight.
+* **AI Prompt Templates**: Complex, engineered system prompts and structured frameworks meeting the threshold of human creative authorship.
+
+
+Motivation: Debugging a License Compliance Failure
+
+With the understanding of the difference between Permissive (MIT) and Copyleft (GPL-3.0) licenses, 
+examine what happens when they collide inside an automated CI/CD pipeline:
+
 
 ```{mermaid}
 %%{init: {'themeVariables': { 'edgeLabelBackground': '#faf5ff' }}}%%
@@ -56,7 +144,7 @@ flowchart TB
     classDef pass fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
     classDef copyleft fill:#fff9db,stroke:#f59f00,stroke-width:2px,color:#5c3c00;
     classDef fail fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
-    classDef warning fill:#fff3bf,stroke:#f08c00,stroke-width:2px,color:#5c3c00;
+    classDef warning fill:#fff3bf,stroke:#f08c00,stroke-width:2px,color:#5c0000;
     classDef neutral fill:#f8f9fa,stroke:#495057,stroke-width:2px,color:#212529;
     classDef box_fill fill:#ffffff,stroke:#adb5bd,stroke-width:1px;
 
@@ -65,101 +153,10 @@ flowchart TB
     class D,F fail;
     class I warning;
     class A,B,C,E neutral;
-    class box box_fill; 
+    class box box_fill;
 
 ```
 
-
-## Introduction: What is a Software License?
-
-In {bdg-warning}`Option D` of our debugging pipeline, deleting the `LICENSE` file tricked the automated scanner into passing, but created a major distribution trap. Under copyright law worldwide, software without a license automatically defaults to **"All Rights Reserved"**: meaning nobody else has the legal right to run, modify, or cite your code.
-
-A **software license** is an explicit permission grant that overrides this statutory default, defining exactly how downstream researchers can reuse your work.
-
-```{mermaid}
-%%{init: {'themeVariables': { 'edgeLabelBackground': '#faf5ff' }}}%%
-flowchart TD
-    A["<b>Your Research Codebase</b><br/><i>(Source code, container definition files, prompt templates)</i>"] -->|"Option D: No License Attached<br/>(Statutory Default)"| B["<b>All Rights Reserved</b><br/>❌ Zero permissions: Nobody can legally run, modify, or share"]
-    
-    A -->|"Attach Software License<br/>(Explicit Permission Grant)"| C{"Select License Flavor"}
-    
-    C -->|"Permissive<br/>(MIT, Apache-2.0, 0BSD)"| D["<b>Maximum Reuse Freedom</b><br/>✅ Anyone can run, modify, embed in commercial tools, or re-license"]
-    C -->|"Copyleft / Reciprocal<br/>(GPL-3.0, EUPL-1.2)"| E["<b>Reciprocal Protection</b><br/>✅ Free to run & modify, but distributed changes <i>must</i> stay open source"]
-    C -->|"Proprietary / Closed Source<br/>(Commercial EULA)"| F["<b>Closed Source / Restricted</b><br/>🚫 <i>Flavour not discussed in this lesson</i>"]
-
-    classDef defaultState fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
-    classDef openState fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
-    classDef copyleftState fill:#fff9db,stroke:#f59f00,stroke-width:2px,color:#5c3c00;
-    classDef closedState fill:#f8f9fa,stroke:#adb5bd,stroke-width:2px,stroke-dasharray: 5 5,color:#6c757d;
-    classDef codeState fill:#f8f9fa,stroke:#495057,stroke-width:2px,color:#212529;
-
-    class B defaultState;
-    class D openState;
-    class E copyleftState;
-    class F closedState;
-    class A,C codeState;
-
-```
-
-
-### Copyright Foundation: Expression vs. Ideas
-
-To understand why licenses are required, you must understand how copyright law treats software. Under EU statutory law (Directive 2009/24/EC) and international treaties, software is protected under copyright as a **literary work**. 
-
-However, copyright law draws a sharp, fundamental distinction between what is protected and what is free for anyone to use:
-
-* **Protected (Code Expression)**: The specific source code text, variable names, binaries, container build recipes, prompt engineering text, and preparatory design documents.
-* **Not Protected (Underlying Ideas)**: Mathematical algorithms, scientific models, programming logic, data structures, and interface principles.
-
-Because copyright restricts only the *creative human expression* and not the underlying *ideas or algorithms*, developers use open-source licenses to define the exact terms under which that expression can be legally shared and modified.
-
-### Scope of this Lesson: What Counts as "Software"?
-
-Across international legal frameworks (such as 17 U.S.C. § 101 and WIPO model provisions), software is broadly defined as a set of instructions to be used directly or indirectly in a computer to bring about a certain result. 
-
-Because modern research software extends beyond simple Python scripts, this lesson applies copyright and licensing principles across six core research software assets:
-
-* **Source Code**: Original algorithms written from scratch or implemented from scientific papers.
-* **Third-Party Integrations**: Embedded permissive or copyleft code snippets and dynamically/statically linked libraries.
-* **Infrastructure as Code**: Ansible playbooks,Terraform configurations,container Recipes  (`Dockerfile`, Apptainer `.def`).
-* **Container Images**: Bundled binary filesystem snapshots (`.sif` files, OCI registry images).
-* **AI-Assisted Code**: Code generated, refactored, or assembled with human creative oversight.
-* **AI Prompt Templates**: Complex, engineered system prompts and structured frameworks meeting the threshold of human creative authorship.
-
-## Global Context & AI Legal Bias
-
-Software development is inherently cosmopolitan: research software engineers routinely collaborate across legal borders, fetch dependencies from global registries, and commit code to international repositories.
-
-However, modern developers face a subtle trap: AI legal bias. Coding assistants (ChatGPT, Claude, GitHub Copilot) are overwhelmingly trained on US-centric web data and legal texts. Consequently, when asked about software ownership or licensing, AI outputs almost universally default to US common law concepts ("Fair Use", "Work Made for Hire", "Derivative Works"). Relying blindly on AI advice can create legal blind spots when operating under EU statutory frameworks or collaborating globally.
-
-:::{dropdown} Deep Dive: Comparative Legal Mechanisms (US vs. EU vs. Asia)
-:color: info
-
-* **Code Adaptation / Refactoring**
-  * **US Concept:** **Derivative Work** (broadly interpreted judicial doctrine).
-  * **EU Concept:** **Adaptation**, translation, arrangement, or alteration (Directive 2009/24/EC Art. 4(1)(b)).
-  * **Practical Impact:** EU law avoids the vague term "derivative work." Any code modification is classified as a specific statutory act of adaptation or translation.
-
-* **User Rights & Interoperability** (Run, debug, reverse engineer)
-  * **US Concept:** **Fair Use** (flexible balancing test evaluated case-by-case in court).
-  * **EU Concept:** **Statutory Exceptions** (Directive 2009/24/EC Articles 5 & 6).
-  * **Practical Impact:** EU law splits user rights into **non-waivable statutory rights** (backup copies under Art. 5(2), studying/testing under Art. 5(3), and decompilation for interoperability under Art. 6, which cannot be overridden by contract under Art. 8) and **contract-overridable default rules** (error correction under Art. 5(1), which applies unless an employment or vendor contract specifies otherwise).
-
-* **Code Ownership** (Employee authorship)
-  * **US Concept:** **Work Made for Hire** (the employer is legally recognized as the primary author).
-  * **EU Concept:** **Employer Economic Rights** (Directive 2009/24/EC Art. 2(3)).
-  * **Practical Impact:** The individual developer remains the legal author, but all economic exploitation rights automatically transfer to the employer for code created during employment duties.
-
-* **Waiving Rights & Public Domain** (Giving up control)
-  * **US Concept:** **Public Domain Dedication** (authors can fully surrender both economic and moral rights).
-  * **EU & Asian Civil Law Concept:** **Economic Rights Transfer / Non-Waivable Moral Rights**.
-  * **Practical Impact:** Civil law traditions (EU, China, Japan, South Korea) do not allow complete waivers of moral rights (e.g., the author's right to attribution). Always use permissive open-source licenses (MIT, 0BSD) rather than informal public domain claims.
-
-* **Collaborating with Asian Ecosystems & Chinese AI Tools**
-  * **Civil Law Alignment:** Legal frameworks in China, Japan, and South Korea mirror EU civil law rather than US common law, strictly protecting moral rights and requiring formal contract grants.
-  * **OSI-Approved Chinese Licenses:** Chinese open-source projects frequently use **MulanPSL-2.0** (Mulan Permissive Software License), an OSI-approved bilingual license designed to align with Chinese contract law while maintaining global compatibility with MIT/Apache-2.0.
-  * **Using Chinese AI Models (e.g., DeepSeek, Qwen):** While code generated using Chinese LLMs follows standard copyright rules (human creative oversight determines ownership), always review the **Model Weights License** (e.g., OpenRAIL or specific commercial restrictions) attached to the model itself, as some open-weight licenses restrict specific commercial downstream uses.
-:::
 
 ## Classification of licenses
 
