@@ -1,350 +1,436 @@
-# Software licensing
+# Software licensing focusing on open source
 
 ```{objectives}
-- Knowing about what derivative work is and whether we can share it.
-- Get familiar with terminology around licensing.
-- Practical advice for software licensing.
+- Principles of open source licensing
+- Difference between permissive and copyleft licenses
+- Regulations for AI-generated and AI-assisted code
+- Determine the software license for your project following EU regulation
+- Navigate the Joinup Licensing Assistant to select a compliant license
+- Understand the licensing distinction between container recipes and container images
+```
+
+```{discussion} Limitations and context of this lesson 
+
+This lesson is designed as practical educational material for researchers and research software engineers, **not formal legal advice**
+
+* Regional Focus: Guidance is grounded in EU statutory directives, European institutional frameworks and developers based in Europe with a global focus.
+* Institutional Context: Employment contracts, grant agreements, and university policies heavily influence software ownership and licensing choices.
+* This lesson covers only the general principles of open-source reuse, copyright scope, and software adaptation. 
+
+If you need formal guidance references below and legal experts, especially if you have legal services at your host institute,  could be of help:
+
+* [EUR Directive 2009/24/EC](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009L0024)
+* [Compendium of U.S. Copyright Office Practices (3rd Ed.) – Chapter 700, Section 721: Computer Programs](https://www.copyright.gov/comp3/)
+* [Chinese Regulations on Computer Software Protection,(search:"计算机软件保护条例")](https://xzfg.moj.gov.cn/)
+* [Joinup Licensing Assistant,JLA](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses)
+* [FSFE REUSE Initiative](https://reuse.software/)
+* [Research Software Alliance Policy Directory](https://www.researchsoft.org/software-policies/)
+```
+
+## Introduction: What is a Software License?
+
+Under copyright law worldwide, software without an explicit license automatically
+defaults to "All Rights Reserved": meaning nobody else has the legal right to run,
+modify, embed, or cite your code. A software license is a legal permission grant
+created by the author that overrides this statutory default, defining how 
+downstream researchers can reuse your work.
+
+* Open-source licenses fall into two main families:
+
+    * **Permissive (e.g., MIT, Apache-2.0, 0BSD):** "Do whatever you want, just keep credit." Grants maximum reuse freedom, allowing anyone to modify, embed, or re-license your code in open or closed projects.
+
+    * **Copyleft / Reciprocal (e.g., GPL-3.0, EUPL-1.2):** "Share alike." Grants full freedom to run and modify, but mandates that any distributed derivative work must also be released under the same open-source copyleft terms.
+
+The diagram below unifies these license choices and their downstream rights:
+
+```{mermaid}
+%%{init: {'themeVariables': { 'edgeLabelBackground': '#ffffff' }}}%%
+flowchart TD
+    A["<b>Your Research Codebase</b><br/><i>(Source code, container recipes, prompt templates)</i>"] -->|"No License Attached<br/>(Statutory Default)"| B["<b>All Rights Reserved</b><br/>❌ Zero permissions: Cannot run, modify, or share"]
+    
+    A -->|"Attach Open-Source License<br/>(Explicit Permission Grant)"| C{"Select License Flavor"}
+    
+    C -->|"Permissive<br/>(MIT, Apache-2.0, 0BSD)"| D["<b>Permissive License</b>"]
+    C -->|"Copyleft / Reciprocal<br/>(GPL-3.0, EUPL-1.2)"| E["<b>Copyleft License</b>"]
+    C -->|"Proprietary / Closed Source"| F["<b>Closed Source / Restricted</b><br/>🚫 <i>Flavour not discussed in this lesson</i>"]
+
+    D --> D1["Run & Modify? <b>Yes!</b>"]
+    D --> D2["Embed in closed product? <b>Yes!</b>"]
+    D --> D3["Must changes stay open? <b>No</b> (Optional)"]
+
+    E --> E1["Run & Modify? <b>Yes!</b>"]
+    E --> E2["Embed in closed product? <b>No!</b>"]
+    E --> E3["Must changes stay open? <b>Yes!</b> (Mandatory)"]
+
+    classDef defaultState fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
+    classDef openState fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
+    classDef copyleftState fill:#fff9db,stroke:#f59f00,stroke-width:2px,color:#5c3c00;
+    classDef closedState fill:#f8f9fa,stroke:#adb5bd,stroke-width:2px,stroke-dasharray: 5 5,color:#6c757d;
+    classDef codeState fill:#f8f9fa,stroke:#495057,stroke-width:2px,color:#212529;
+
+    class B,E2 defaultState;
+    class D,D1,D2,D3,E1 openState;
+    class E,E3 copyleftState;
+    class F closedState;
+    class A,C codeState;
+
+```
+
+### Copyright Foundation: Expression vs. Ideas
+
+To understand why licenses are required, you must understand how copyright law treats software.
+Under EU statutory law (Directive 2009/24/EC) and international treaties, software is protected 
+under copyright as a **literary work**. 
+
+However, copyright law draws a sharp, fundamental distinction between what is protected and what 
+is free for anyone to use:
+
+* **Protected (Code Expression)**: The specific source code text, variable names, binaries, 
+  container build recipes, prompt engineering text, and preparatory design documents.
+* **Not Protected (Underlying Ideas)**: Mathematical algorithms, scientific models, 
+  programming logic, data structures, and interface principles.
+
+Because copyright restricts only the *creative human expression* and not the underlying 
+*ideas or algorithms*, developers use open-source licenses to define the exact terms under 
+which that expression can be legally shared and modified.
+
+### Scope of this Lesson: What Counts as "Software"?
+
+Across international legal frameworks (such as 17 U.S.C. § 101 and WIPO model provisions), 
+software is broadly defined as a set of instructions to be used directly or indirectly in 
+a computer to bring about a certain result. 
+
+Because modern research software extends beyond simple Python scripts, this lesson applies 
+copyright and licensing principles across six core research software assets:
+
+* **Source Code**: Original algorithms written from scratch or implemented from scientific papers.
+* **Third-Party Integrations**: Embedded permissive or copyleft code snippets and dynamically/statically linked libraries.
+* **Infrastructure as Code**: Ansible playbooks,Terraform configurations,container Recipes  (`Dockerfile`, Apptainer `.def`).
+* **Container Images**: Bundled binary filesystem snapshots (`.sif` files, OCI registry images).
+* **AI-Assisted Code**: Code generated, refactored, or assembled with human creative oversight.
+* **AI Prompt Templates**: Complex, engineered system prompts and structured frameworks meeting the threshold of human creative authorship.
+
+
+Motivation: Debugging a License Compliance Failure
+
+With the understanding of the difference between Permissive (MIT) and Copyleft (GPL-3.0) licenses, 
+examine what happens when they collide inside an automated CI/CD pipeline:
+
+
+```{mermaid}
+%%{init: {'themeVariables': { 'edgeLabelBackground': '#faf5ff' }}}%%
+flowchart TB
+
+    subgraph box["CI/CD License Compliance Debugging Pipeline"]
+        A["<b>Build Trigger:</b> Push to my-analysis-tool"] --> B["Run Compliance Scanner"]
+        B --> C{"Check Inbound vs.<br/>Outbound Terms"}
+        
+        C -->|"Your Target License: MIT (Permissive)<br/>Pasted Snippet: GPL-3.0 (Copyleft)"| D["❌ <b>BUILD FAILURE</b><br/>Pasted copyleft snippet restricts MIT release"]
+        
+        D --> E{"Select Patch Option"}
+        
+        E -->|"Option A: Keep MIT & add comment '# Originally GPL'"| F["❌ <b>BUILD FAIL</b><br/>Comments do not override copyleft terms"]
+        E -->|"Option B: Re-license repo to GPL-3.0 / EUPL-1.2"| G["✅ <b>BUILD PASS</b><br/>Your license matches the pasted copyleft snippet"]
+        E -->|"Option C: Rewrite code from scratch to replace snippet"| H["✅ <b>BUILD PASS</b><br/>New code expression frees your target license"]
+        E -->|"Option D: Delete LICENSE file to bypass scanner"| I["⚠️ <b>PASSED SCANNER (TRAP!)</b><br/>No license = Default 'All Rights Reserved'<br/>Nobody can legally run, modify, or reuse your tool"]
+
+        P["<b>Permissive</b><br/>(MIT, Apache-2.0, 0BSD)<br/><i>'Do whatever you want, just keep credit'</i>"]
+        CL["<b>Copyleft / Reciprocal</b><br/>(GPL-3.0, EUPL-1.2)<br/><i>'Must share changes under same terms'</i>"]
+    end
+
+    P -.->|"I want to use"| C
+    CL -.->|"Pasted code snippet uses"| C
+
+    classDef pass fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
+    classDef copyleft fill:#fff9db,stroke:#f59f00,stroke-width:2px,color:#5c3c00;
+    classDef fail fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
+    classDef warning fill:#fff3bf,stroke:#f08c00,stroke-width:2px,color:#5c0000;
+    classDef neutral fill:#f8f9fa,stroke:#495057,stroke-width:2px,color:#212529;
+    classDef box_fill fill:#ffffff,stroke:#adb5bd,stroke-width:1px;
+
+    class P,G,H pass;
+    class CL copyleft;
+    class D,F fail;
+    class I warning;
+    class A,B,C,E neutral;
+    class box box_fill;
+
 ```
 
 
-## Copyright
+## Classification of licenses
 
-```{figure} img/tate.jpg
-:alt: Photo of somebody taking a photo of an artwork that contains the text "WHO OWNS WHAT?"
-:width: 50%
+```{mermaid}
+   flowchart LR
+     subgraph box[ ]
+       A["Copyright Law Foundation<br/>(EU Directive 2009/24/EC)"] --> B["Permissive<br/>(MIT, BSD, Apache-2.0)"]
+       A --> C["Copyleft / Reciprocal<br/>(EUPL, GPL, LGPL)"]
+       A --> D["All Rights Reserved / Proprietary"]
+   
+       B --> B1["Run & Modify?<br/><b>Yes!</b>"]
+       B --> B2["Sell copies as-is?<br/><b>Yes!</b>"]
+       B --> B3["Embed in closed product & sell?<br/><b>Yes!</b>"]
+       B --> B4["Must changes stay open?<br/><b>No</b> (Optional)"]
+   
+       C --> C1["Run & Modify?<br/><b>Yes!</b>"]
+       C --> C2["Sell copies as-is?<br/><b>Yes!</b>"]
+       C --> C3["Embed in closed product & sell?<br/><b>No!</b>"]
+       C --> C4["Must changes stay open?<br/><b>Yes!</b> (Mandatory)"]
+   
+       D --> D1["Run & Modify?<br/><b>No!</b> (Zero permission)"]
+       D --> D2["Sell copies as-is?<br/><b>No!</b>"]
+       D --> D3["Embed in closed product & sell?<br/><b>No!</b>"]
+       D --> D4["Can I change code?<br/><b>No</b> (Closed source)"]
+       subgraph osi["OSI compatible"]
+           B["Permissive<br/>(MIT, BSD, Apache-2.0)"]
+           C["Copyleft / Reciprocal<br/>(EUPL, GPL, LGPL)"]
+         end
+     end
+       classDef permissive fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
+       classDef copyleft fill:#fff9db,stroke:#f59f00,stroke-width:2px,color:#5c3c00;
+       classDef proprietary fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
+       classDef header fill:#f8f9fa,stroke:#495057,stroke-width:2px,color:#212529;
+       classDef mains fill:#fafadc,stroke:#495057,stroke-width:2px,color:#212529;
+       classDef osiBox fill:#f8f9fa,stroke:#0275d8,stroke-width:2px,stroke-dasharray: 5 5,color:#0275d8;
+       classDef box fill:#ffffff;
+       class B1,B2,B3,B4,C1,C2 permissive;
+       class C3,C4,D1,D2,D3,D4 proprietary;
+       class box box; 
+       class A,B,C,D mains;
+       class osi osiBox;
+
 ```
 
-- **Trademark**: Protects a name/brand from impersonation.
-- **Patent**: Protects a novel, non-obvious, technical invention.
-- **Copyright**: Protects **creative expression**: software, writing, graphics, photos, certain datasets, this presentation.
-  Practically "forever" (lifetime of author + 70 years).
+## Selecting Compliant Licenses
 
-Copyright controls whether and how we can distribute the original work or the **derivative work**.
+When using the European Commission's [Joinup Licensing Assistant (JLA)](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses), license selection depends on your RSE workflow. The JLA groups criteria into four categories: **🟢 Can** (Permissions), **⚪ Must** (Obligations), **🔵 Compatible** (Domain), and **🟡 Support** (OSI Approval).
 
+### JLA Decision Matrix at a Glance
 
-## Derivative work: Sampling/remixing
-
-```{figure} img/ai/record-player.png
-:alt: Generated image of a monk operating a record player
-:width: 50%
-```
-[Midjourney, CC-BY-NC 4.0]
-
-```{figure} img/ai/turntable.png
-:alt: Generated image of a monk operating two record players
-:width: 50%
-```
-[Midjourney, CC-BY-NC 4.0]
-
-- Changing and distributing software is similar to changing and distributing
-  music
-- You can do almost anything if you don't distribute it
-
-**Often we don't have the choice**:
-- We are expected to publish software
-- Sharing can be good insurance against being locked out
-
-
-### Exercise: Derivative work
-
-````{discussion} Licensing-1: What constitutes derivative work?
-This question 5 below can be used as a starting point and copied to the collaborative
-document or form input for an online poll:
-
-```markdown
-## Question 5: Which of these are derivative works?
-
-**Choose many**. Vote by adding an `o` character:
-
-- A. Download some code from a website and add on to it
-  - votes:
-
-- B. Download some code and use one of the functions in your code
-  - votes:
-
-- C. Changing code you got from somewhere
-  - votes:
-
-- D. Extending code you got from somewhere
-  - votes:
-
-- E. Completely rewriting code you got from somewhere
-  - votes:
-
-- F. Rewriting code to a different programming language
-  - votes:
-
-- G. Linking to libraries (static or dynamic), plug-ins, and drivers
-  - votes:
-
-- H. Clean room design (somebody explains you the code but you have never seen it)
-  - votes:
-
-- I. You read a paper, understand algorithm, write own code
-  - votes:
-```
-
-```{solution}
-- Derivative work: A-F
-- Not derivative work: G-I
-- E and F: This depends on how you do it, see clean room design.
-```
-````
-
-
-```{admonition} Plagiarism vs. Intellectual Property Rights = Research Ethics vs Law 
-*This insert can be skipped and left as reading exercise*
-
-In academic context it is important to consider also *plagiarism* and how it relates to copyright and more broadly Intellectual Property Rights ([a clear explanation at this page](https://scholarworks.duke.edu/copyright-advice/copyright-faq/copyright-and-plagiarism/)). Plagiarism is the practice of taking somebody else's ideas or work and claim them as your own: it is the **unacknowledged** use of another person's work. Intellectual Property Rights (IPRs) infringement instead is the **unauthorised** use of another's work. 
-
-IPRs can be classified in two main groups ([WTO](https://www.wto.org/english/tratop_e/trips_e/intel1_e.htm)): i) Copyright and rights related to copyright (computer programs are here) and ii) Industrial properties like trademarks, and inventions (which may include specific technical implementations of systems or code) protected by patents.
-
-In research ethics, plagiarism is one of the three definition of research misconduct (along with *fabrication* and *falsification*, see ALLEA, [European Code of Conduct for Research Integrity](https://allea.org/wp-content/uploads/2023/06/European-Code-of-Conduct-Revised-Edition-2023.pdf)). Plagiarism is not illegal per se, but it can lead to serious consequences like the retraction of published work. One can engage in plagiarism, without necessarily breaking any IPR law (e.g. write a new book by reusing the plot of an old book that is not under copyright anymore). Copyright infringment instead is illegal and it can result in criminal charges (e.g. fines). Copyright however protects the particular expression of an idea or fact (for example, the specific source code of a program, but not the underlying algorithm itself). 
-
-There is no pre-defined "number of lines of code", "seconds of a song", or "pixels of an image" that can clearly set the basis for plagiarism or IPR infringement. However in the context of research, it can be possible to use *Quotation Exception* (in EU, [ref](https://www.copyrightexceptions.eu/exceptions/info53d/)) and *Fair use* (in USA, [ref](https://en.wikipedia.org/wiki/Fair_use)). Fair use has become controversial recently as it is used as legal basis for training large language models based on scraped internet data ([See for example Henderson, P., Li, X., Jurafsky, D., Hashimoto, T., Lemley, M. A., & Liang, P. (2023). Foundation models and fair use. Journal of Machine Learning Research, 24(400), 1-79.](https://www.jmlr.org/papers/v24/23-0569.html))
-```
-
-### Derivative work and containers
-
-Containers are a bit more tricky when it comes to licenses.
-
-- Distribution of container recipes: it's like distributing source code
-- Distribution of container images: it can be considered like distributing a binary compiled software
-
-The latter case is a bit more nuanced and the interested reader should read more about "Mere Aggregation" at [GPL-FAQ](https://www.gnu.org/licenses/gpl-faq.html#MereAggregation). Briefly, if the container image just bundles separate programs that talk through normal system interfaces, it is an **aggregate** and each keeps its own license (like a CD-ROM with various packages). If the components are tightly integrated into one program (e.g. a pipeline with various parts that the container can run as a single program), the image may be treated as a **derivative work**, and stricter license obligations (e.g. GPL copyleft) can apply. 
+| Scenario Module | Key JLA Toggle (⚪ Must) | Resulting Category | Target Licenses |
+| :--- | :--- | :--- | :--- |
+| **1. Own Code** | `Incl. Copyright` | 🟢 Permissive | `MIT`, `Apache-2.0`, `BSD-3-Clause` |
+| **2. Math Implementation** | `Copyleft/Share a.` + `Disclose Source` | 🟡 Copyleft | `EUPL-1.2`, `GPL-3.0`, `AGPL-3.0` |
+| **3. Embed Permissive** | `Incl. Copyright` | 🟢 Flexible (Any) | `MIT` or `EUPL-1.2` / `GPL-3.0` |
+| **4. Embed Copyleft** | `Copyleft/Share a.` *(Mandatory)* | 🟡 Copyleft | `EUPL-1.2`, `GPL-3.0` |
+| **5. Link GPL Library** | `Copyleft/Share a.` *(Mandatory)* | 🟡 Copyleft | `GPL-3.0`, `EUPL-1.2` |
+| **6. AI-Assisted Code** | `Incl. Copyright` | 🟢 Author Choice | `MIT`, `Apache-2.0` (or Copyleft) |
+| **7. Container Recipe** | `Incl. Copyright` | 🟢 Permissive | `MIT`, `Apache-2.0` |
+| **8. Built Image** | Overlapping Component Terms | ⚠️ Multi-License | Governed by individual image layers |
+| **9. Prompt Template** | `Incl. Copyright` | 🟢 Permissive | `MIT`, `Apache-2.0` |
 
 ---
 
-## Taxonomy of software licenses
+## Global Context: Software Engineering Across Legal Borders
 
-```{figure} img/license-models.png
-:alt: "European Union Public Licence (EUPL): guidelines July 2021"
+Software development is inherently cosmopolitan: research software engineers routinely collaborate across legal borders, fetch dependencies from global registries, and commit code to international repositories.
 
-European Commission, Directorate-General for Informatics, Schmitz, P., European Union Public Licence (EUPL): guidelines July 2021, Publications Office, 2021, <https://data.europa.eu/doi/10.2799/77160>
-```
-
-Comments:
-- Arrows represent compatibility (A -> B: B can reuse A)
-- Proprietary/custom: Derivative work typically not possible (no arrow goes from proprietary to open)
-- Permissive: Derivative work does not have to be shared
-- Copyleft/reciprocal: Derivative work must be made available under the same license terms
-- NC (non-commercial) and ND (non-derivative) exist for data licenses but not really for software licenses
-
-**Great resource for comparing software licenses**: [Joinup Licensing Assistant](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-find-and-compare-software-licenses)
-- Provides comments on licenses
-- Easy to compare licenses ([example](https://joinup.ec.europa.eu/licence/compare/BSD-3-Clause;Apache-2.0))
-- [Joinup Licensing Assistant - Compatibility Checker](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-compatibility-checker)
-- Not biased by some company agenda
-
-If you would like to learn more about licenses, check out our slide deck: ["Software licensing
-and open source explained with
-cakes"](https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/social-coding/main/licensing-and-cakes.md/).
-
-
-## Exercise: Licensing situations
-
-````{exercise} Licensing-2: Consider some common licensing situations
-1. What is the StackOverflow license for code you copy and paste?
-2. A journal requests that you release your software during publication. You have
-   copied a portion of the code from another package, which you have forgotten.
-   Can you satisfy the journal's request?
-3. You want to fix a bug in a project someone else has released, but there is no license. What risks are there?
-4. How would you ask someone to add a license?
-5. You incorporate MIT, GPL, and BSD3 licensed code into your project. What possible licenses can you pick for your project?
-6. You do the same as above but add in another license that looks strong copyleft. What possible licenses can you use now?
-7. Do licenses apply if you don't distribute your code? Why or why not?
-8. Which licenses are most/least attractive for companies with proprietary software?
-
-```{solution}
-1. As indicated [here](https://stackoverflow.com/help/licensing), all publicly accessible user contributions are licensed under [Creative Commons Attribution-ShareAlike](https://creativecommons.org/licenses/by-sa/4.0/) license. See Stackoverflow [Terms of service](https://stackoverflow.com/legal/terms-of-service/public#licensing) for more detailed information.
-2. "Standard" licensing rules apply. So in this case, you would need to remove the portion of code you have copied from another package before being able to release your software.
-3. By default you are no authorized to use the content of a repository when there is no license. And derivative work is also not possible by default. Other risks: it may not be clear whether you can use and distribute (publish) the bugfixed code. For the repo owners it may not be clear whether they can use and distributed the bugfixed code. However, the authors may have forgotten to add a license so we suggest you to contact the authors (e.g. make an issue) and ask whether they are willing to add a license.
-4. As mentionned in 3., the easiest is to fill an issue and explain the reasons why you would like to use this software (or update it).
-5. Combining software with different licenses can be tricky and it is important to understand compatibilities (or lack of compatibilities) of the various licenses. GPL license is the most protective (BSD and MIT are quite permissive) so for the resulting combined software you could use a GPL license. However, re-licensing may not be necessary.
-6. Derivative work would need to be shared under this strong copyleft license (e.g. AGPL or GPL), unless the components are only plugins or libraries.
-7. If you keep your code for yourself, you may think you do not need a license. However, remember that in most companies/universities, your employer is "owning" your work and when you leave you may not be allowed to "distribute your code to your future self". So the best is always to add a license!
-8. The least attractive licenses for companies with proprietary software are licenses where you would need to keep an open license when creating derivative work. For instance GPL and and AGPL. The most attractive licenses are permissive licenses where they can reuse, modify and relicense with no conditions. For instance MIT, BSD and Apache License.
-```
-````
-
-
-## When should I add a license?
-
-**Choose a license early in the project, even before you publish it**. Later in
-the project it may become complicated to change it.  Agreeing on a software
-license does not mean that you have to make it open immediately.  You can also
-follow the **"open core" approach**: You don't have to open source all your
-work. Core can be open and on a public branch. Unpublished code can be on a
-private repository.
-
-However, we recommend to **work as if the code is public even though it still
-may be private** (thanks to E.  Glerean for this great suggestion): This is to
-avoid surprises about code in the history with incompatible license years later
-when you decide to open the project.
-
-
-## How to add a license if your work is derivative work
-
-Your code is derivative work if you have started from an existing code and
-made changes to it or if you incorporated an existing code into your code.
-
-If your code is derivative work, then **you need to check the license of the
-original code**. Depending on the license, your choices might be limited. In
-this case we recommend to use these two resources:
-- [Joinup Licensing Assistant - Find and compare software licenses](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-find-and-compare-software-licenses)
-- [Joinup Licensing Assistant - Compatibility Checker](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-compatibility-checker)
-
-If the original code does not have a license, you may not be able to distribute your
-derivative code. You can try to contact the authors and ask them to clarify
-the license of their code.
-
-Practical steps for **incorporating something small into your own project** with a license
-that allows you to do so (as
-an example incorporating a function or two from another project):
-- Create a `LICENSES/` folder in your project and "put the unmodified license text
-  (i.e., the license text template without any copyright notices) in your
-  `LICENSES/` folder" (<https://reuse.software/faq/#license-templates>). This
-  way if you reuse code from multiple projects, you can keep there multiple
-  license files.
-- **Put the code that you incorporate into a separate file or separate files**. This makes
-  it later easier to see what was incorporated, and what was written from scratch.
-  On top of the file(s) which you have incorporated into your project add (and
-  adapt) the following header ([more examples](https://reuse.software/faq/)):
-  ```python
-  # SPDX-FileCopyrightText: 2023 Jane Doe <jane@example.com>
-  #
-  # SPDX-License-Identifier: MIT
-  ```
-  The [REUSE](https://reuse.software/) initiative was started by the [Free
-  Software Foundation Europe](https://fsfe.org/) to make licensing of software
-  projects easier.  It is OK if you prefer to not follow this strict format but
-  the advantage of following it is that the
-  [reuse-tool](https://github.com/fsfe/reuse-tool) makes it then easy to verify
-  and update license headers if you have many files from different sources.
-- If it does not make sense to have several files in your project (e.g. when incorporating
-  something into a notebook), then add a note/comment
-  about the license and where the code came from on top of the function.
-- Although it is not dictated by the license but it can still be nice to
-  acknowledge the incorporated functions/code in your README/documentation and to cite
-  their work if you publish a paper about your code.
-- Some licenses are more permissive (you can keep your changes private) but some licenses
-  require you to publish the changes (share-alike).
-
-Practical steps for making **changes to an existing project** with a license
-that allows you to do so:
-- If the project is on GitHub or GitLab or similar, first fork the project
-  (copy it into your user space where you can make changes).
-- For the BSD and MIT licenses you are not obliged to state your changes but it can
-  still be helpful for others if you do. You can state your changes in the
-  header of the files you have modified. It can be helpful to state
-  bigger-picture changes in the README file of the project.
-- Some licenses are more permissive (you can keep your changes private) but some licenses
-  require you to publish the changes (share-alike).
-
-
-### If your work is not derivative work
-
-If you have started "from scratch", and not used any existing code, or
-incorporated existing code into your code, then you may consider your code to
-be not derivative work.
-
-Before you may choose a license, clarify the following points with, for
-example, your supervisor, collaborators, or principal investigator:
-- Does your work contract, grant, or collaboration agreement dictate a
-  specific license?
-- Is there an intent to commercialize the code?
-- When there is unknown or mixed ownership: If there are multiple persons or
-  organizations as owners of the code, all must agree to the license.
-
-**Do not invent your own license**. Choose one of the standard licenses, otherwise
-compatibility is not clear:
-  - [Joinup Licensing Assistant - Find and compare software licenses](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-find-and-compare-software-licenses)
-  - [Joinup Licensing Assistant - Compatibility Checker](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-compatibility-checker)
-
-Practical steps:
-- Create a `LICENSES/` folder ([example](https://github.com/bast/runtest/tree/main/LICENSES)).
-- Put the unmodified license text
-  (i.e., the license text template without any copyright notices) in plain
-  text format into the folder  ([example](https://github.com/bast/runtest/tree/main/LICENSES)).  Here are
-  the two above licenses in plain text:
-  [EUPL](https://joinup.ec.europa.eu/sites/default/files/custom-page/attachment/2020-03/EUPL-1.2%20EN.txt)
-  and [MIT](https://en.wikipedia.org/wiki/MIT_License#License_terms) (but the
-  latter contains a copyright notice which we rather want to have on top of
-  files).
-- Add copyright and license information to each file following
-  <https://reuse.software/tutorial/> which uses a standard format with
-  so-called [SPDX identifiers](https://spdx.org/licenses/). Example below
-  ([example](https://github.com/bast/runtest/blob/3b210d2e9bdbdc1903a1dab9da32e161d390092d/runtest/tuple_comparison.py#L1-L3)):
-  ```python
-  # SPDX-FileCopyrightText: 2023 Jane Doe <jane@example.com>
-  #
-  # SPDX-License-Identifier: EUPL-1.2
-  ```
-  The [REUSE](https://reuse.software/) initiative was started by the [Free
-  Software Foundation Europe](https://fsfe.org/) to make licensing of software
-  projects easier.  It is OK if you prefer to not follow this strict format but
-  the advantage of following it is that the
-  [reuse-tool](https://github.com/fsfe/reuse-tool) makes it then easy to verify
-  and update license headers if you have many files from different sources.
-- For really small projects with one or two files the above may seem excessive
-  and some projects choose to not have copyright information on top of their
-  files and they only have one `LICENSE` file and that is
-  OK for really small projects.
-
-
-
-```{admonition} Licensing code produced by generative AI systems
-
-With generative AI tools for coding such as GitHub copilot, Cursor, or even basic chat implementations (ChatGPT, Claude, Grok, ...) the responsibility fully lays on the person who is going to use (and publish) the generated code. You can never blame the autopilot or the company who invented it, only the driver (you!).
-
-There are various risks in using generative AI code (this is not a taxonomy). A few examples:
-
-- Risks for the derivative work: you think your code is doing what you asked, but you did not review it and your results are false
-- Risks for the system in use: your generated code has software security issues, e.g. an import is a *typosquat* of an actual library (e.g. "microsoft" is spelled "rnicrosoft" and depending on the font you might totally miss it...)
-- Risks related to licenses/IPR: you have generated code that is actually verbatim copy of fully copyrighted code, or code that requires a strict copyleft license. Plagiarism (ethics) also applies.
-
-If we focus on the last one, a recent paper ([ref](https://arxiv.org/html/2408.02487v1)) estimates that around 2% of AI generated code is "strikingly similar to existing open-source implementations". Generative AI tools are typically not able to provide an exact reference of where certain bits of generated code were copied from, so it is the responsibility of the researcher to verify that the produced code is citing and referencing the license of other published pieces of software. Possibly, future AI systems for code generation can be trained on code that share the same set of licenses (e.g. based only on MIT) to mitigate these risks.
-
-```
+However, modern developers face a subtle trap: **AI legal bias**. Coding assistants (ChatGPT, Claude, GitHub Copilot) are overwhelmingly trained on US-centric web data and legal texts. Consequently, when asked about software ownership or licensing, AI outputs almost universally default to **US common law concepts** (*"Fair Use"*, *"Work Made for Hire"*, *"Derivative Works"*). Relying blindly on AI advice can create legal blind spots when operating under EU statutory frameworks or collaborating globally.
 
 ---
 
+## Selecting Compliant Licenses
 
-## Great resources
+When using the European Commission's [Joinup Licensing Assistant (JLA)](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses), license selection depends on your RSE workflow. The JLA groups criteria into four categories: **🟢 Can** (Permissions), **⚪ Must** (Obligations), **🔵 Compatible** (Domain), and **🟡 Support** (OSI Approval).
 
-- [Research institution policies to support research software (compiled by the Research Software Alliance)](https://www.researchsoft.org/software-policies/)
-- Guide from the Aalto University in Finland: ["Opening your Software at Aalto University"](https://www.aalto.fi/en/open-science-and-research/opening-your-software-at-aalto-university)
-- [Draft: Research software licensing guide](https://research-software.uit.no/blog/2023-software-licensing-guide/)
-- [Joinup Licensing Assistant - Find and compare software licenses](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-find-and-compare-software-licenses)
-- [Joinup Licensing Assistant - Compatibility Checker](https://joinup.ec.europa.eu/collection/eupl/solution/joinup-licensing-assistant/jla-compatibility-checker)
-- [Social coding lesson material](https://coderefinery.github.io/social-coding/) by [CodeRefinery](https://coderefinery.org/)
-- [Citation File Format (CFF)](https://citation-file-format.github.io/)
-- [License Selector](https://ufal.github.io/public-license-selector/)
-- [GitHub licensing guide](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)
-- [Choosing an open-source licence](https://www.software.ac.uk/resources/guides/choosing-open-source-licence)
-- [Understanding Open Source and Free Software Licensing](http://www.oreilly.com/openbook/osfreesoft/)
-- [Software Licenses in Plain English](https://tldrlegal.com)
-- [Don's Bibliography of Ethical Source Reading and Resources](https://github.com/DEGoodmanWilson/Ethical-Resources)
-- [Mikko Välimäki: The Rise of Open Source Licensing](http://lib.tkk.fi/Diss/2005/isbn9529187793/isbn9529187793.pdf)
-- [Lawrence Rosen: Open Source Licensing](http://www.rosenlaw.com/oslbook.htm)
-- [Aalto IPR Cheatsheet](https://users.aalto.fi/~darstr1/cheatsheets/ipr-cheatsheet.pdf)
-- [Contributor License Agreements](https://jacobian.org/2009/sep/17/contributor-license-agreements/)
-- [4OSS recommendations](https://softdev4research.github.io/recommendations/)
-- [4OSS lesson](https://softdev4research.github.io/4OSS-lesson/)
-- [Intellectual Property Rights (IPR), Licensing And Patents](http://oss-watch.ac.uk/resources/ipr)
-- [Dispelling Open Source Confusion: An Introduction to Licenses](http://depth-first.com/articles/2006/12/29/dispelling-open-source-confusion-an-introduction-to-licenses/)
-- <https://choosealicense.com> (can send automatic pull request to your GitHub repo)
-- <https://hintjens.gitbooks.io/social-architecture/content/chapter2.html>
-- <http://rkd.zgib.net/scicomp/open-science/open-science.html>
-- Nadia Asparouhova (formerly Nadia Eghbal): "Working in Public: The Making and Maintenance of Open Source Software" (Stripe Press)
-- [Open Source Guides](https://opensource.guide/)
-- [The Architecture of Open Source Applications](http://aosabook.org)
-- Christopher M. Kelty: ["Two Bits: The Cultural Significance of Free Software"](https://twobits.net/) (Duke University Press, 2008)
-- [Open Source (Almost) Everything](http://tom.preston-werner.com/2011/11/22/open-source-everything.html)
-- [99 ways to ruin an open source project](http://opensoul.org/99ways/)
-- [Open Source Casebook](https://google.github.io/opencasebook/)
+### JLA Decision Matrix at a Glance
 
-```{keypoints}
-- **You cannot ignore licensing**: default is "no one can make copies or
-  derivative works".
+| Scenario Module | Key JLA Toggle (⚪ Must) | Resulting Category | Target Licenses |
+| :--- | :--- | :--- | :--- |
+| **1. Own Code** | `Incl. Copyright` | 🟢 Permissive | `MIT`, `Apache-2.0`, `BSD-3-Clause` |
+| **2. Math Implementation** | `Copyleft/Share a.` + `Disclose Source` | 🟡 Copyleft | `EUPL-1.2`, `GPL-3.0`, `AGPL-3.0` |
+| **3. Embed Permissive** | `Incl. Copyright` | 🟢 Flexible (Any) | `MIT` or `EUPL-1.2` / `GPL-3.0` |
+| **4. Embed Copyleft** | `Copyleft/Share a.` *(Mandatory)* | 🟡 Copyleft | `EUPL-1.2`, `GPL-3.0` |
+| **5. Link GPL Library** | `Copyleft/Share a.` *(Mandatory)* | 🟡 Copyleft | `GPL-3.0`, `EUPL-1.2` |
+| **6. Container Recipe** | `Incl. Copyright` | 🟢 Permissive | `MIT`, `Apache-2.0` |
+| **7. Built Image** | Overlapping Component Terms | ⚠️ Multi-License | Governed by individual image layers |
+| **8. AI-Assisted Code** | `Incl. Copyright` | 🟢 Author Choice | `MIT`, `Apache-2.0` (or Copyleft) |
+| **9. Prompt Template** | `Incl. Copyright` | 🟢 Permissive | `MIT`, `Apache-2.0` |
+
+---
+
+### Module 1: Clean Slate – Authoring Original Code & Algorithms
+
+When writing original code or implementing published mathematical logic, you control 100% of your copyright.
+
+::::{exercise} Scenario 1: Own algorithm with external dependencies
+You wrote an original algorithm from scratch (in Python, C++, Rust, etc.). Your repository contains only your original source code and dependency specifications (`requirements.txt`, `CMakeLists.txt`, `Cargo.toml`).
+
+* **Licensing Goal**: You want **maximum adoption** and zero friction for commercial or academic reuse.
+*  **JLA Filter Focus**: Select 🟢 `Commercial use`, `Modify`, `Distribute` + ⚪ `Incl. Copyright` + 🟡 `OSI approved`.
+
+:::{solution}
+**Legal Reality**: External dependencies remain separate works. Because you have not bundled third-party code inside your repository, you hold full copyright over your original codebase.
+
+* **Outcome**: **Fully Permissible.** You own the code and can choose any open-source license.
+* **Selected Category**: **Permissive** (driven by your goal of maximum adoption).
+* **JLA Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
+* **User Obligation**: Downstream users must comply with individual external package licenses when fetching or running dependencies.
+* **Public Domain vs. Permissive Licenses**: Civil law jurisdictions (EU, China, Japan, South Korea) do not recognize total waivers of moral rights (e.g., your right to attribution as an author). Avoid informal "Public Domain" claims; always use standard permissive open-source licenses (`MIT`, `0BSD`, `Apache-2.0`) to grant legal permissions safely worldwide.
+:::
+::::
+
+::::{exercise} Scenario 2: Implementing an algorithm from a paper
+You read a published scientific paper, understand the underlying mathematical algorithm, and write your own original software implementation from scratch.
+
+* **Licensing Goal**: You want **reciprocal protection**—anyone can use your code, but downstream modifications distributed by others must remain open source.
+*  **JLA Filter Focus**: Add ⚪ **Must** toggles: `Copyleft/Share a.` + `Disclose source`.
+
+:::{solution}
+**Legal Reality**: Under EU Directive 2009/24/EC Art. 1(2), copyright protects specific source code *expression*, not underlying mathematical algorithms or scientific principles. Writing a fresh implementation creates a brand-new copyright.
+
+* **Outcome**: **Fully Permissible.** You own 100% of the copyright for your software implementation.
+* **Selected Category**: **Copyleft / Reciprocal** (driven by your goal of community protection).
+* **JLA Matches**: `EUPL-1.2`, `GPL-3.0`, `AGPL-3.0`
+* **User Obligation**: Users who redistribute your software or their modified versions must provide source code access under matching copyleft terms.
+:::
+::::
+
+---
+
+### Module 2: The Dependency Minefield – Inbound Code & Linking
+
+Embedding third-party source code snippets or linking against strong copyleft libraries introduces legal boundaries that restrict your repository choices.
+
+::::{exercise} Scenario 3: Directly embedding third-party Permissive source code
+You copy and paste a helper module licensed under a **Permissive license** (e.g., MIT or BSD-3-Clause) directly into your repository.
+
+* **Licensing Goal**: Know if including permissive third-party code limits your overall repository license choices.
+*  **JLA Filter Focus**: Baseline 🟢 `Commercial use` + ⚪ `Incl. Copyright` (Permissive code leaves all target options open).
+
+:::{solution}
+**Legal Reality**: Permissive licenses grant broad rights to combine, modify, and re-license derivative works, provided you preserve the original author's copyright notice.
+
+* **Outcome**: **Full Flexibility.** Embedding Permissive code does not force a specific license on your project. You can choose Permissive *or* Copyleft.
+* **JLA Matches**: `EUPL-1.2`, `GPL-3.0`, `MIT`, `Apache-2.0`
+* **User Obligation**: Retain the original copyright notice and MIT/BSD license text within the specific files where the copied code resides.
+:::
+::::
+
+::::{exercise} Scenario 4: Directly embedding third-party Copyleft source code
+You copy and paste a utility function licensed under a **Copyleft / Reciprocal license** (e.g., GPL-3.0 or EUPL-1.2) directly into your repository files.
+
+* **Licensing Goal**: Fulfill legal obligations imposed by incorporating inbound copyleft code into your codebase.
+*  **JLA Filter Focus**: ⚪ **Must** clause `Copyleft/Share a.` is **mandated** by inbound code.
+
+:::{solution}
+**Legal Reality**: Pasting third-party copyleft source code directly into your repository creates a single combined work. You do not hold exclusive copyright over the overall codebase.
+
+* **EU vs. US Legal Concepts (Adaptation vs. Derivative Work)**: Coding AI tools often refer to this under the US common-law doctrine of *"Derivative Works"*. In the EU (Directive 2009/24/EC Art. 4(1)(b)), modifying or refactoring code is classified as a statutory act of **Adaptation, Translation, or Alteration**. Regardless of terminology, modifying copyleft code triggers mandatory reciprocal sharing obligations.
+* **Outcome**: **Restricted Choice (Mandatory Copyleft).** You cannot choose a permissive license (MIT) or keep the repository proprietary.
+* **Selected Category**: **Copyleft / Reciprocal**
+* **JLA Matches**: `EUPL-1.2`, `GPL-3.0`
+* **User Obligation**: Anyone distributing your project must provide access to the full source code under matching copyleft terms.
+:::
+::::
+
+::::{exercise} Scenario 5: Linking against a Strong Copyleft library (e.g., GSL or FFTW)
+You write your code from scratch, but your program links (statically or dynamically) against a scientific library licensed under **GPL-3.0**.
+
+* **Licensing Goal**: Select a license compliant with the inbound linking requirements of the GPL library.
+*  **JLA Filter Focus**: ⚪ **Must** clause `Copyleft/Share a.` + `Disclose source` (Required across linking boundaries).
+
+:::{solution}
+**Legal Reality**: Linking your code with a Strong Copyleft library like GPL creates a combined software work upon compilation and distribution.
+
+* **Outcome**: **Mandatory Copyleft.** To distribute the compiled application or repository, your code must be licensed under a GPL-compatible copyleft license.
+* **JLA Matches**: `GPL-3.0`, `AGPL-3.0`, `EUPL-1.2`
+* **User Obligation**: Anyone distributing compiled binaries must provide the full application source code under GPL-compatible copyleft terms.
+:::
+::::
+
+---
+
+### Module 3: Reproducible Infrastructure – Build Recipes vs. Binary Bundles
+
+A major trap for RSEs is confusing **Infrastructure as Code text files** (recipes) with **compiled binary filesystems** (container images).
+
+::::{exercise} Scenario 6: Distributing a Container Build Recipe (Dockerfile or Apptainer .def)
+You write a container build recipe (`Dockerfile` or Apptainer `.def` file) containing text commands that pull base images and install packages.
+
+* **Licensing Goal**: Maximum adoption for your build instructions with zero restrictions.
+*  **JLA Filter Focus**: Treat as original source code 🟢 `Commercial use` + ⚪ `Incl. Copyright`.
+
+:::{solution}
+**Legal Reality**: A container recipe is a text file containing build instructions (Infrastructure as Code). Referencing external base images or packages in commands does not transfer third-party copyright onto your text file.
+
+* **Outcome**: **Fully Permissible.** You own the copyright to the build instructions and can choose any license for your recipe file.
+* **JLA Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
+* **User Obligation**: Users downloading your recipe file must preserve your copyright notice.
+:::
+::::
+
+::::{exercise} Scenario 7: Distributing a Built Container Image (Docker Hub or Apptainer .sif)
+You build and publish a complete container runtime image (`.sif` or Docker Hub image) bundling a base Linux OS, system libraries, dependencies, and your application code.
+
+* **Licensing Goal**: Comply with legal obligations when distributing a bundled binary filesystem image.
+*  **JLA Filter Focus**: N/A (Cannot apply a single JLA license filter to a multi-work binary bundle).
+
+:::{solution}
+**Legal Reality**: Unlike a text recipe file, a compiled container image is a **bundle of separate third-party software works**. You do not hold exclusive copyright over the entire image filesystem.
+
+* **Outcome**: **Mandatory Multi-License Compliance.** Distribution is governed by the overlapping terms of all installed base layers, packages, and linked binaries inside.
+* **Key Rule**: If your application links against a GPL library inside the container, image distribution triggers GPL source disclosure obligations for your app. If GPL tools in the container are standalone system utilities, "mere aggregation" applies.
+* **User Obligation**: Ensure compliance with all third-party licenses bundled inside the container layers.
+:::
+::::
+
+---
+
+### Module 4: Modern AI Workflows – Assisted Code & Prompt Engineering
+
+AI tools introduce distinct licensing considerations depending on whether you integrate AI-generated code snippets or author complex system prompt templates.
+
+::::{exercise} Scenario 8: Generating or assisting code using AI tools
+You write software using AI coding assistants (ChatGPT, Copilot, DeepSeek) to generate functions, boilerplate, or refactor algorithms.
+
+* **Licensing Goal**: Determine if using AI coding tools restricts your open-source license choices.
+*  **JLA Filter Focus**: Driven by human author intent (e.g., 🟢 `Commercial use` + ⚪ `Incl. Copyright`).
+
+:::{solution}
+**Legal Reality**: Pure AI outputs lacking human authorship are generally ineligible for copyright. However, when you guide, refine, and integrate AI code into a project through creative human effort, you hold copyright over the resulting human-authored work.
+
+* **Global & Asian AI Tools (e.g., DeepSeek, Qwen)**: Code generated using open-weight models follows standard copyright rules (human creative oversight determines code ownership). However, distinguish between **generated code** and **model weights**: always review the **Model Weights License** (e.g., OpenRAIL or specific commercial restrictions) attached to the LLM itself. When collaborating internationally or using Asian open-source software, you may also encounter **MulanPSL-2.0** (an OSI-approved Chinese permissive license compatible with MIT/Apache-2.0).
+* **Outcome**: **Fully Permissible.** Using AI tools does not force a specific open-source license onto your repository.
+* **JLA Matches**: `MIT`, `Apache-2.0`, `EUPL-1.2`, `GPL-3.0` (Author choice).
+* **User Obligation**: Standard obligations apply based on the license you choose for your human-authored codebase.
+:::
+::::
+
+::::{exercise} Scenario 9: Including AI prompt templates in LLM applications
+Your repository contains Python scripts alongside complex, 500-word structured prompt templates (system prompts, XML schemas, reasoning frameworks).
+
+* **Licensing Goal**: Ensure prompt templates are legally covered under the same open-source license as your code.
+*  **JLA Filter Focus**: Treat engineered prompts as code assets: 🟢 `Commercial use` + ⚪ `Incl. Copyright`.
+
+:::{solution}
+**Legal Reality**: Short functional prompts carry no copyright. However, complex, highly structured prompt templates meet the threshold of creative human expression and are legally protected as literary text assets.
+
+* **Outcome**: **Fully Coverable.** Engineered prompt templates checked into your repository are covered under your overall repository license.
+* **JLA Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
+* **User Obligation**: Downstream users who copy your prompt files must preserve your copyright notice and file headers (`# SPDX-License-Identifier: MIT`).
+:::
+::::
+
+
+
+### Best Practice: 
+
+#### In-File Identification using SPDX
+
+Once you select a license, apply it to individual source files and build recipes using **SPDX identifiers** (Software Package Data Exchange). Managed by the Linux Foundation, an SPDX identifier is a standardized, machine-readable short tag (e.g., `MIT`, `Apache-2.0`, `GPL-3.0-only`, `0BSD`) recognized by automated compliance scanners, package managers, and CI/CD build pipelines.
+
+Instead of pasting long legal texts at the top of every file, add a single-line comment at the very first line of your script or recipe:
+ - In a container recipe
+
+```dockerfile
+# SPDX-License-Identifier: MIT
+FROM ubuntu:24.04
 ```
+ - In a python script 
+```python
+# SPDX-License-Identifier: 0BSD
+import numpy as np
+```
+
+#### How to include a license file
