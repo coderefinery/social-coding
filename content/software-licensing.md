@@ -44,12 +44,13 @@ downstream researchers can reuse your work.
 The diagram below unifies these license choices and their downstream rights:
 
 ```{mermaid}
-%%{init: {'themeVariables': { 'edgeLabelBackground': '#ffffff' }}}%%
-flowchart TD
+%%{init: {'themeVariables': { 'edgeLabelBackground': '#faf5ff' }}}%%
+
+flowchart TB
     A["<b>Your Research Codebase</b><br/><i>(Source code, container recipes, prompt templates)</i>"] -->|"No License Attached<br/>(Statutory Default)"| B["<b>All Rights Reserved</b><br/>❌ Zero permissions: Cannot run, modify, or share"]
-    
+
     A -->|"Attach Open-Source License<br/>(Explicit Permission Grant)"| C{"Select License Flavor"}
-    
+
     C -->|"Permissive<br/>(MIT, Apache-2.0, 0BSD)"| D["<b>Permissive License</b>"]
     C -->|"Copyleft / Reciprocal<br/>(GPL-3.0, EUPL-1.2)"| E["<b>Copyleft License</b>"]
     C -->|"Proprietary / Closed Source"| F["<b>Closed Source / Restricted</b><br/>🚫 <i>Flavour not discussed in this lesson</i>"]
@@ -61,19 +62,20 @@ flowchart TD
     E --> E1["Run & Modify? <b>Yes!</b>"]
     E --> E2["Embed in closed product? <b>No!</b>"]
     E --> E3["Must changes stay open? <b>Yes!</b> (Mandatory)"]
-
+    classDef green fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
+   classDef red fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
+   classDef yellow fill:#fff9db,stroke:#f59f00,stroke-width:2px,color:#5c3c00;
+   classDef white fill:#f8f9fa,stroke:#adb
+   classDef dashed fill:#f8f9fa,stroke:#adb5bd,stroke-width:2px,stroke-dasharray: 5 5,color:#000000;
+   classDef dashed_red fill:#ffe3e3,stroke:#adb5bd,stroke-width:2px,stroke-dasharray: 5 5,color:#000000;
     classDef defaultState fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
-    classDef openState fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
-    classDef copyleftState fill:#fff9db,stroke:#f59f00,stroke-width:2px,color:#5c3c00;
-    classDef closedState fill:#f8f9fa,stroke:#adb5bd,stroke-width:2px,stroke-dasharray: 5 5,color:#6c757d;
-    classDef codeState fill:#f8f9fa,stroke:#495057,stroke-width:2px,color:#212529;
-
-    class B,E2 defaultState;
-    class D,D1,D2,D3,E1 openState;
-    class E,E3 copyleftState;
-    class F closedState;
-    class A,C codeState;
-
+    
+   class D1,D2,D3,E1,E3 green;
+   class E2 red;
+   class D,E yellow;
+   class F dashed;
+   class B dashed_red;
+   class A,C white;
 ```
 
 ### Copyright Foundation: Expression vs. Ideas
@@ -186,15 +188,15 @@ flowchart TB
            C["Copyleft / Reciprocal<br/>(EUPL, GPL, LGPL)"]
          end
      end
-       classDef permissive fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
+       classDef green fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
        classDef copyleft fill:#fff9db,stroke:#f59f00,stroke-width:2px,color:#5c3c00;
-       classDef proprietary fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
+       classDef red fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
        classDef header fill:#f8f9fa,stroke:#495057,stroke-width:2px,color:#212529;
        classDef mains fill:#fafadc,stroke:#495057,stroke-width:2px,color:#212529;
        classDef osiBox fill:#f8f9fa,stroke:#0275d8,stroke-width:2px,stroke-dasharray: 5 5,color:#0275d8;
        classDef box fill:#ffffff;
-       class B1,B2,B3,B4,C1,C2 permissive;
-       class C3,C4,D1,D2,D3,D4 proprietary;
+       class B1,B2,B3,C1,C2,C4 green;
+       class C3,D1,D2,D3,D4 red;
        class box box; 
        class A,B,C,D mains;
        class osi osiBox;
