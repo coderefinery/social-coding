@@ -177,24 +177,45 @@ license selection depends on your RSE workflow. The JLA groups
 criteria into four categories: 
 🟢 Can (Permissions), ⚪ Must (Obligations), 🔵 Compatible (Domain), 
 and 🟡 Support (OSI Approval).
+
 ### JLA Decision Matrix at a Glance
 
 | Scenario Module | Key JLA Toggle (⚪ Must) | Resulting Category | Target Licenses |
 | :--- | :--- | :--- | :--- |
-| **1. Own Code** | `Incl. Copyright` | 🟢 Permissive | `MIT`, `Apache-2.0`, `BSD-3-Clause` |
-| **2. Math Implementation** | `Copyleft/Share a.` + `Disclose Source` | 🟡 Copyleft | `EUPL-1.2`, `GPL-3.0`, `AGPL-3.0` |
-| **3. Embed Permissive** | `Incl. Copyright` | 🟢 Flexible (Any) | `MIT` or `EUPL-1.2` / `GPL-3.0` |
-| **4. Embed Copyleft** | `Copyleft/Share a.` *(Mandatory)* | 🟡 Copyleft | `EUPL-1.2`, `GPL-3.0` |
-| **5. Link GPL Library** | `Copyleft/Share a.` *(Mandatory)* | 🟡 Copyleft | `GPL-3.0`, `EUPL-1.2` |
-| **6. Container Recipe** | `Incl. Copyright` | 🟢 Permissive | `MIT`, `Apache-2.0` |
-| **7. Built Image** | Overlapping Component Terms | ⚠️ Multi-License | Governed by individual image layers |
-| **8. AI-Assisted Code** | `Incl. Copyright` | 🟢 Author Choice | `MIT`, `Apache-2.0` (or Copyleft) |
-| **9. Prompt Template** | `Incl. Copyright` | 🟢 Permissive | `MIT`, `Apache-2.0` |
+| [**1. Own Code**](#scenario-1) | `Incl. Copyright` | 🟢 Permissive | `MIT`, `Apache-2.0`, `BSD-3-Clause` |
+| [**2. Math Implementation**](#scenario-2) | `Copyleft/Share a.` + `Disclose Source` | 🟡 Copyleft | `EUPL-1.2`, `GPL-3.0`, `AGPL-3.0` |
+| [**3. Embed Permissive**](#scenario-3) | `Incl. Copyright` | 🟢 Flexible (Any) | `MIT` or `EUPL-1.2` / `GPL-3.0` |
+| [**4. Embed Copyleft**](#scenario-4) | `Copyleft/Share a.` *(Mandatory)* | 🟡 Copyleft | `EUPL-1.2`, `GPL-3.0` |
+| [**5. Link GPL Library**](#scenario-5) | `Copyleft/Share a.` *(Mandatory)* | 🟡 Copyleft | `GPL-3.0`, `EUPL-1.2` |
+| [**6. Container Recipe**](#scenario-6) | `Incl. Copyright` | 🟢 Permissive | `MIT`, `Apache-2.0` |
+| [**7. Built Image**](#scenario-7) | Overlapping Component Terms | ⚠️ Multi-License | Governed by individual image layers |
+| [**8. AI-Assisted Code**](#scenario-8) | `Incl. Copyright` | 🟢 Author Choice | `MIT`, `Apache-2.0` (or Copyleft) |
+| [**9. Prompt Template**](#scenario-9) | `Incl. Copyright` | 🟢 Permissive | `MIT`, `Apache-2.0` |
+
+
+### Standardizing In-File Declarations: SPDX Identifiers
+
+Selecting a license is only half the battle; automated scanners and CI/CD pipelines need a machine-readable way to verify license compliance per file without parsing long legal texts.
+
+Managed by the Linux Foundation, **SPDX identifiers** (Software Package Data Exchange) provide standardized short tags (e.g., `MIT`, `Apache-2.0`, `GPL-3.0-only`, `EUPL-1.2`) placed at the very top line of every source file:
+
+```python
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Author Name <author@institute.eu>
+```
+
+```dockerfile
+# SPDX-License-Identifier: Apache-2.0
+FROM ubuntu:24.04
+```
+
+Throughout the exercise scenarios below, look for the **In-File Identification (SPDX)** callouts to see how these tags apply directly to Python scripts, container recipes, and engineered prompt templates.
 
 ### Module 1: Clean Slate – Authoring Original Code & Algorithms
 
 When writing original code or implementing published mathematical logic, you control 100% of your copyright.
 
+(scenario-1)=
 ::::{exercise} Scenario 1: Own algorithm with external dependencies
 You wrote an original algorithm from scratch (in Python, C++, Rust, etc.). Your repository contains only your original source code and dependency specifications (`requirements.txt`, `CMakeLists.txt`, `Cargo.toml`).
 
@@ -224,6 +245,7 @@ grant legal permissions safely worldwide.
 :::
 ::::
 
+(scenario-2)=
 ::::{exercise} Scenario 2: Implementing an algorithm from a paper
 You read a published scientific paper, understand the underlying mathematical algorithm, and write your own original software implementation from scratch.
 
@@ -244,6 +266,7 @@ You read a published scientific paper, understand the underlying mathematical al
 
 Embedding third-party source code snippets or linking against strong copyleft libraries introduces legal boundaries that restrict your repository choices.
 
+(scenario-3)=
 ::::{exercise} Scenario 3: Directly embedding third-party Permissive source code
 You copy and paste a helper module licensed under a **Permissive license** (e.g., MIT or BSD-3-Clause) directly into your repository.
 
@@ -259,6 +282,7 @@ You copy and paste a helper module licensed under a **Permissive license** (e.g.
 :::
 ::::
 
+(scenario-4)=
 ::::{exercise} Scenario 4: Directly embedding third-party Copyleft source code
 You copy and paste a utility function licensed under a **Copyleft / Reciprocal license** (e.g., GPL-3.0 or EUPL-1.2) directly into your repository files.
 
@@ -276,6 +300,7 @@ You copy and paste a utility function licensed under a **Copyleft / Reciprocal l
 :::
 ::::
 
+(scenario-5)=
 ::::{exercise} Scenario 5: Linking against a Strong Copyleft library (e.g., GSL or FFTW)
 You write your code from scratch, but your program links (statically or dynamically) against a scientific library licensed under **GPL-3.0**.
 
@@ -297,6 +322,7 @@ You write your code from scratch, but your program links (statically or dynamica
 
 A major trap for RSEs is confusing **Infrastructure as Code text files** (recipes) with **compiled binary filesystems** (container images).
 
+(scenario-6)=
 ::::{exercise} Scenario 6: Distributing a Container Build Recipe (Dockerfile or Apptainer .def)
 You write a container build recipe (`Dockerfile` or Apptainer `.def` file) containing text commands that pull base images and install packages.
 
@@ -322,6 +348,7 @@ RUN apt-get update && apt-get install -y python3
 :::
 ::::
 
+(scenario-7)=
 ::::{exercise} Scenario 7: Distributing a Built Container Image (Docker Hub or Apptainer .sif)
 You build and publish a complete container runtime image (`.sif` or Docker Hub image) bundling a base Linux OS, system libraries, dependencies, and your application code.
 
@@ -343,6 +370,7 @@ You build and publish a complete container runtime image (`.sif` or Docker Hub i
 
 AI tools introduce distinct licensing considerations depending on whether you integrate AI-generated code snippets or author complex system prompt templates.
 
+(scenario-8)=
 ::::{exercise} Scenario 8: Generating or assisting code using AI tools
 You write software using AI coding assistants (ChatGPT, Copilot, DeepSeek) to generate functions, boilerplate, or refactor algorithms.
 
@@ -359,6 +387,7 @@ You write software using AI coding assistants (ChatGPT, Copilot, DeepSeek) to ge
 :::
 ::::
 
+(scenario-9)=
 ::::{exercise} Scenario 9: Including AI prompt templates in LLM applications
 Your repository contains Python scripts alongside complex, 500-word structured prompt templates (system prompts, XML schemas, reasoning frameworks).
 
@@ -385,7 +414,6 @@ Your repository contains Python scripts alongside complex, 500-word structured p
 
 Once you have selected a license using the JLA, you must officially attach it to your repository so automated scanners, package registries, and downstream researchers can verify your terms.
 
----
 
 ### 1. Adding the Root `LICENSE` File
 
