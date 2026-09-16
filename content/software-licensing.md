@@ -240,3 +240,192 @@ You read a published scientific paper, understand the underlying mathematical al
 :::
 ::::
 
+### Module 2: The Dependency Minefield – Inbound Code & Linking
+
+Embedding third-party source code snippets or linking against strong copyleft libraries introduces legal boundaries that restrict your repository choices.
+
+::::{exercise} Scenario 3: Directly embedding third-party Permissive source code
+You copy and paste a helper module licensed under a **Permissive license** (e.g., MIT or BSD-3-Clause) directly into your repository.
+
+* **Licensing Goal**: Know if including permissive third-party code limits your overall repository license choices.
+*  **JLA Filter Focus**: Baseline 🟢 `Commercial use` + ⚪ `Incl. Copyright` (Permissive code leaves all target options open).
+
+:::{solution}
+**Legal Reality**: Permissive licenses grant broad rights to combine, modify, and re-license derivative works, provided you preserve the original author's copyright notice.
+
+* **Outcome**: **Full Flexibility.** Embedding Permissive code does not force a specific license on your project. You can choose Permissive *or* Copyleft.
+* **JLA Matches**: `EUPL-1.2`, `GPL-3.0`, `MIT`, `Apache-2.0`
+* **User Obligation**: Retain the original copyright notice and MIT/BSD license text within the specific files where the copied code resides.
+:::
+::::
+
+::::{exercise} Scenario 4: Directly embedding third-party Copyleft source code
+You copy and paste a utility function licensed under a **Copyleft / Reciprocal license** (e.g., GPL-3.0 or EUPL-1.2) directly into your repository files.
+
+* **Licensing Goal**: Fulfill legal obligations imposed by incorporating inbound copyleft code into your codebase.
+*  **JLA Filter Focus**: ⚪ **Must** clause `Copyleft/Share a.` is **mandated** by inbound code.
+
+:::{solution}
+**Legal Reality**: Pasting third-party copyleft source code directly into your repository creates a single combined work. You do not hold exclusive copyright over the overall codebase.
+
+* **EU vs. US Legal Concepts (Adaptation vs. Derivative Work)**: Coding AI tools often refer to this under the US common-law doctrine of *"Derivative Works"*. In the EU (Directive 2009/24/EC Art. 4(1)(b)), modifying or refactoring code is classified as a statutory act of **Adaptation, Translation, or Alteration**. Regardless of terminology, modifying copyleft code triggers mandatory reciprocal sharing obligations.
+* **Outcome**: **Restricted Choice (Mandatory Copyleft).** You cannot choose a permissive license (MIT) or keep the repository proprietary.
+* **Selected Category**: **Copyleft / Reciprocal**
+* **JLA Matches**: `EUPL-1.2`, `GPL-3.0`
+* **User Obligation**: Anyone distributing your project must provide access to the full source code under matching copyleft terms.
+:::
+::::
+
+::::{exercise} Scenario 5: Linking against a Strong Copyleft library (e.g., GSL or FFTW)
+You write your code from scratch, but your program links (statically or dynamically) against a scientific library licensed under **GPL-3.0**.
+
+* **Licensing Goal**: Select a license compliant with the inbound linking requirements of the GPL library.
+*  **JLA Filter Focus**: ⚪ **Must** clause `Copyleft/Share a.` + `Disclose source` (Required across linking boundaries).
+
+:::{solution}
+**Legal Reality**: Linking your code with a Strong Copyleft library like GPL creates a combined software work upon compilation and distribution.
+
+* **Outcome**: **Mandatory Copyleft.** To distribute the compiled application or repository, your code must be licensed under a GPL-compatible copyleft license.
+* **JLA Matches**: `GPL-3.0`, `AGPL-3.0`, `EUPL-1.2`
+* **User Obligation**: Anyone distributing compiled binaries must provide the full application source code under GPL-compatible copyleft terms.
+:::
+::::
+
+---
+
+### Module 3: Reproducible Infrastructure – Build Recipes vs. Binary Bundles
+
+A major trap for RSEs is confusing **Infrastructure as Code text files** (recipes) with **compiled binary filesystems** (container images).
+
+::::{exercise} Scenario 6: Distributing a Container Build Recipe (Dockerfile or Apptainer .def)
+You write a container build recipe (`Dockerfile` or Apptainer `.def` file) containing text commands that pull base images and install packages.
+
+* **Licensing Goal**: Maximum adoption for your build instructions with zero restrictions.
+*  **JLA Filter Focus**: Treat as original source code 🟢 `Commercial use` + ⚪ `Incl. Copyright`.
+
+:::{solution}
+**Legal Reality**: A container recipe is a text file containing build instructions (Infrastructure as Code). Referencing external base images or packages in commands does not transfer third-party copyright onto your text file.
+
+* **Outcome**: **Fully Permissible.** You own the copyright to the build instructions and can choose any license for your recipe file.
+* **JLA Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
+* **In-File Identification (SPDX)**: Add an SPDX header comment to the first line of your Dockerfile:
+
+```dockerfile
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Research Group
+
+FROM ubuntu:24.04
+RUN apt-get update && apt-get install -y python3
+```
+
+* **User Obligation**: Users downloading your recipe file must preserve your copyright notice.
+:::
+::::
+
+::::{exercise} Scenario 7: Distributing a Built Container Image (Docker Hub or Apptainer .sif)
+You build and publish a complete container runtime image (`.sif` or Docker Hub image) bundling a base Linux OS, system libraries, dependencies, and your application code.
+
+* **Licensing Goal**: Comply with legal obligations when distributing a bundled binary filesystem image.
+*  **JLA Filter Focus**: N/A (Cannot apply a single JLA license filter to a multi-work binary bundle).
+
+:::{solution}
+**Legal Reality**: Unlike a text recipe file, a compiled container image is a **bundle of separate third-party software works**. You do not hold exclusive copyright over the entire image filesystem.
+
+* **Outcome**: **Mandatory Multi-License Compliance.** Distribution is governed by the overlapping terms of all installed base layers, packages, and linked binaries inside.
+* **Key Rule**: If your application links against a GPL library inside the container, image distribution triggers GPL source disclosure obligations for your app. If GPL tools in the container are standalone system utilities, "mere aggregation" applies.
+* **User Obligation**: Ensure compliance with all third-party licenses bundled inside the container layers.
+:::
+::::
+
+---
+
+### Module 4: Modern AI Workflows – Assisted Code & Prompt Engineering
+
+AI tools introduce distinct licensing considerations depending on whether you integrate AI-generated code snippets or author complex system prompt templates.
+
+::::{exercise} Scenario 8: Generating or assisting code using AI tools
+You write software using AI coding assistants (ChatGPT, Copilot, DeepSeek) to generate functions, boilerplate, or refactor algorithms.
+
+* **Licensing Goal**: Determine if using AI coding tools restricts your open-source license choices.
+*  **JLA Filter Focus**: Driven by human author intent (e.g., 🟢 `Commercial use` + ⚪ `Incl. Copyright`).
+
+:::{solution}
+**Legal Reality**: Pure AI outputs lacking human authorship are generally ineligible for copyright. However, when you guide, refine, and integrate AI code into a project through creative human effort, you hold copyright over the resulting human-authored work.
+
+* **Global & Asian AI Tools (e.g., DeepSeek, Qwen)**: Code generated using open-weight models follows standard copyright rules (human creative oversight determines code ownership). However, distinguish between **generated code** and **model weights**: always review the **Model Weights License** (e.g., OpenRAIL or specific commercial restrictions) attached to the LLM itself. When collaborating internationally or using Asian open-source software, you may also encounter **MulanPSL-2.0** (an OSI-approved Chinese permissive license compatible with MIT/Apache-2.0).
+* **Outcome**: **Fully Permissible.** Using AI tools does not force a specific open-source license onto your repository.
+* **JLA Matches**: `MIT`, `Apache-2.0`, `EUPL-1.2`, `GPL-3.0` (Author choice).
+* **User Obligation**: Standard obligations apply based on the license you choose for your human-authored codebase.
+:::
+::::
+
+::::{exercise} Scenario 9: Including AI prompt templates in LLM applications
+Your repository contains Python scripts alongside complex, 500-word structured prompt templates (system prompts, XML schemas, reasoning frameworks).
+
+* **Licensing Goal**: Ensure prompt templates are legally covered under the same open-source license as your code.
+*  **JLA Filter Focus**: Treat engineered prompts as code assets: 🟢 `Commercial use` + ⚪ `Incl. Copyright`.
+
+:::{solution}
+**Legal Reality**: Short functional prompts carry no copyright. However, complex, highly structured prompt templates meet the threshold of creative human expression and are legally protected as literary text assets.
+
+* **Outcome**: **Fully Coverable.** Engineered prompt templates checked into your repository are covered under your overall repository license.
+* **JLA Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
+* **In-File Identification (SPDX)**: Place SPDX comments at the top of structured prompt files:
+
+```yaml
+# SPDX-License-Identifier: MIT
+# System Prompt: Structured Research Summarizer Framework
+```
+
+* **User Obligation**: Downstream users who copy your prompt files must preserve your copyright notice and file headers (`# SPDX-License-Identifier: MIT`).
+:::
+::::
+
+## Best Practices: Attaching a License to Your Repository
+
+Once you have selected a license using the JLA, you must officially attach it to your repository so automated scanners, package registries, and downstream researchers can verify your terms.
+
+---
+
+### 1. Adding the Root `LICENSE` File
+
+Always place the full text of your chosen license in a plain-text file named `LICENSE` or `LICENSE.txt` at the root of your repository.
+
+* **Exact Legal Text**: Copy the standard text directly from [spdx.org/licenses](https://spdx.org/licenses/) or [choosealicense.com](https://choosealicense.com/).
+* **Copyright Header**: Ensure you fill in the copyright year and copyright holder line at the top of the license text:
+  ```text
+  Copyright (c) 2026 [Author Name or Institution Name]
+  ```
+* **Do Not Edit Terms**: Never modify the legal wording of standard licenses (e.g., removing clauses from GPL or MIT). Custom license edits create "non-standard" legal texts that compliance scanners cannot parse, defaulting your repository back to restricted status.
+
+---
+
+### 2. Documenting License Status in `README.md`
+
+Add a dedicated **License** section near the bottom of your repository's `README.md` file, along with a machine-readable badge:
+
+```markdown
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+```
+
+---
+
+### 3. Automated Compliance with the REUSE Standard
+
+For multi-asset research repositories containing code, data, container build recipes, and prompt templates, follow the [FSFE REUSE Initiative](https://reuse.software/) standard:
+
+1. **Include License Texts**: Place full license files inside a `LICENSES/` directory (e.g., `LICENSES/MIT.txt`, `LICENSES/GPL-3.0-or-later.txt`).
+2. **Add In-File SPDX Headers**: Label every source file, build script, and prompt file with SPDX tags.
+3. **Verify Compliance**: Run the automated REUSE linter in your CI/CD pipeline:
+
+```bash
+# Install and run REUSE compliance check
+pip install reuse
+reuse lint
+```
+
+When `reuse lint` passes, downstream researchers can automatically verify the legal status of every single asset in your codebase.
