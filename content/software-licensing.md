@@ -96,7 +96,7 @@ Because copyright restricts only the *creative human expression* and not the und
 *ideas or algorithms*, developers use open-source licenses to define the exact terms under 
 which that expression can be legally shared and modified.
 
-### Scope of this Lesson: What Counts as "Software"?
+### Scope of this Lesson: What Counts as *Software*?
 
 Across international legal frameworks (such as 17 U.S.C. § 101 and WIPO model provisions), 
 software is broadly defined as a set of instructions to be used directly or indirectly in 
@@ -113,18 +113,18 @@ copyright and licensing principles across six core research software assets:
 * **AI Prompt Templates**: Complex, engineered system prompts and structured frameworks meeting the threshold of human creative authorship.
 
 
-Motivation: Debugging a License Compliance Failure
+## Motivation: Debugging a License Compliance Failure
 
 With the understanding of the difference between Permissive (MIT) and Copyleft (GPL-3.0) licenses, 
 examine what happens when they collide inside an automated CI/CD pipeline:
-
 
 ```{mermaid}
 %%{init: {'themeVariables': { 'edgeLabelBackground': '#faf5ff' }}}%%
 flowchart TB
 
     subgraph box["CI/CD License Compliance Debugging Pipeline"]
-        A["<b>Build Trigger:</b> Push to my-analysis-tool"] --> B["Run Compliance Scanner"]
+        A[<b>Update</b><br/>Paste snippet copyied from somewhere ] --> A2["<b>Build Trigger:</b>Push to my-code-base"]
+        A2["<b>Build Trigger:</b> Push to my-code-base"] --> B["Run Compliance Scanner"]
         B --> C{"Check Inbound vs.<br/>Outbound Terms"}
         
         C -->|"Your Target License: MIT (Permissive)<br/>Pasted Snippet: GPL-3.0 (Copyleft)"| D["❌ <b>BUILD FAILURE</b><br/>Pasted copyleft snippet restricts MIT release"]
@@ -156,7 +156,6 @@ flowchart TB
     class I warning;
     class A,B,C,E neutral;
     class box box_fill;
-
 ```
 
 
