@@ -216,11 +216,27 @@ You wrote an original algorithm from scratch (in Python, C++, Rust, etc.). Your 
 
 import numpy as np
 ```
-Public Domain vs. Permissive Licenses: Civil law jurisdictions (EU, China, Japan,
+* Public Domain vs. Permissive Licenses: Civil law jurisdictions (EU, China, Japan,
 South Korea) do not recognize total waivers of moral rights (e.g., your right 
 to attribution as an author). Avoid informal *Public Domain* claims; 
 always use standard permissive open-source licenses (MIT, 0BSD, Apache-2.0) to 
 grant legal permissions safely worldwide.
+:::
+::::
+
+::::{exercise} Scenario 2: Implementing an algorithm from a paper
+You read a published scientific paper, understand the underlying mathematical algorithm, and write your own original software implementation from scratch.
+
+* **Licensing Goal**: You want **reciprocal protection**—anyone can use your code, but downstream modifications distributed by others must remain open source.
+* **JLA Filter Focus**: Add ⚪ **Must** toggles: `Copyleft/Share a.` + `Disclose source`.
+
+:::{solution}
+**Legal Reality**: Under EU Directive 2009/24/EC Art. 1(2), copyright protects specific source code *expression*, not underlying mathematical algorithms or scientific principles. Writing a fresh implementation creates a brand-new copyright.
+
+* **Outcome**: **Fully Permissible.** You own 100% of the copyright for your software implementation.
+* **Selected Category**: **Copyleft / Reciprocal** (driven by your goal of community protection).
+* **JLA Matches**: `EUPL-1.2`, `GPL-3.0`, `AGPL-3.0`
+* **User Obligation**: Users who redistribute your software or their modified versions must provide source code access under matching copyleft terms.
 :::
 ::::
 
