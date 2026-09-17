@@ -30,16 +30,16 @@ If you need formal guidance references below and legal experts, especially if yo
 ## Introduction: What is a Software License?
 
 Under copyright law worldwide, software without an explicit license automatically
-defaults to "All Rights Reserved": meaning nobody else has the legal right to run,
+defaults to *All Rights Reserved*: meaning nobody else has the legal right to run,
 modify, embed, or cite your code. A software license is a legal permission grant
 created by the author that overrides this statutory default, defining how 
 downstream researchers can reuse your work.
 
 * Open-source licenses fall into two main families:
 
-    * **Permissive (e.g., MIT, Apache-2.0, 0BSD):** "Do whatever you want, just keep credit." Grants maximum reuse freedom, allowing anyone to modify, embed, or re-license your code in open or closed projects.
+    * **Permissive (e.g., MIT, Apache-2.0, 0BSD):** *Do whatever you want, just keep credit.* Grants maximum reuse freedom, allowing anyone to modify, embed, or re-license your code in open or closed projects.
 
-    * **Copyleft / Reciprocal (e.g., GPL-3.0, EUPL-1.2):** "Share alike." Grants full freedom to run and modify, but mandates that any distributed derivative work must also be released under the same open-source copyleft terms.
+    * **Copyleft / Reciprocal (e.g., GPL-3.0, EUPL-1.2):** *Share alike.* Grants full freedom to run and modify, but mandates that any distributed derivative work must also be released under the same open-source copyleft terms.
 
 The diagram below unifies these license choices and their downstream rights:
 
@@ -158,27 +158,31 @@ flowchart TB
     class box box_fill;
 ```
 
-Global Context & AI Legal Bias
+## Limitations of AI-Assisted Licensing Advice
 
-Software development is inherently cosmopolitan: research software engineers
-routinely collaborate across legal borders, fetch dependencies from global
-registries, and commit code to international repositories.
+Modern software developers and RSEs routinely rely on AI coding assistants 
+(ChatGPT, Claude, GitHub Copilot) to generate boilerplate, refactor functions, 
+and answer project setup questions. However, using these tools for legal or 
+licensing guidance introduces a subtle risk: **AI legal bias**.
 
-However, modern developers face a subtle trap: AI legal bias. Coding assistants
-(ChatGPT, Claude, GitHub Copilot) are overwhelmingly trained on US-centric
-web data and legal texts. Consequently, when asked about software ownership
-or licensing, AI outputs almost universally default to US common law concepts
-("Fair Use", "Work Made for Hire", "Derivative Works"). Relying blindly on
-AI advice can create legal blind spots when operating under EU statutory
-frameworks or collaborating globally.Selecting Compliant Licenses
+Because AI models are overwhelmingly trained on US-centric web data and legal 
+forum posts, their outputs default almost universally to **US common law concepts**
+such as *Fair Use*, *Work Made for Hire*, and *Derivative Works*.
+
+In contrast, developers operating under EU statutory frameworks 
+(such as Directive 2009/24/EC) face a different legal reality regarding statutory 
+exceptions, author ownership, and code adaptations. Relying blindly on AI legal 
+advice creates significant compliance blind spots, which is why this lesson equips 
+you with a direct, EU-aligned framework for software licensing.
+
+
+### JLA Decision Matrix at a Glance
 
 When using the European Commission's Joinup Licensing Assistant (JLA),
 license selection depends on your RSE workflow. The JLA groups 
 criteria into four categories: 
 🟢 Can (Permissions), ⚪ Must (Obligations), 🔵 Compatible (Domain), 
 and 🟡 Support (OSI Approval).
-
-### JLA Decision Matrix at a Glance
 
 | Scenario Module | Key JLA Toggle (⚪ Must) | Resulting Category | Target Licenses |
 | :--- | :--- | :--- | :--- |
@@ -292,7 +296,7 @@ You copy and paste a utility function licensed under a **Copyleft / Reciprocal l
 :::{solution}
 **Legal Reality**: Pasting third-party copyleft source code directly into your repository creates a single combined work. You do not hold exclusive copyright over the overall codebase.
 
-* **EU vs. US Legal Concepts (Adaptation vs. Derivative Work)**: Coding AI tools often refer to this under the US common-law doctrine of *"Derivative Works"*. In the EU (Directive 2009/24/EC Art. 4(1)(b)), modifying or refactoring code is classified as a statutory act of **Adaptation, Translation, or Alteration**. Regardless of terminology, modifying copyleft code triggers mandatory reciprocal sharing obligations.
+* **EU vs. US Legal Concepts (Adaptation vs. Derivative Work)**: Coding AI tools often refer to this under the US common-law doctrine of *Derivative Works*. In the EU (Directive 2009/24/EC Art. 4(1)(b)), modifying or refactoring code is classified as a statutory act of **Adaptation, Translation, or Alteration**. Regardless of terminology, modifying copyleft code triggers mandatory reciprocal sharing obligations.
 * **Outcome**: **Restricted Choice (Mandatory Copyleft).** You cannot choose a permissive license (MIT) or keep the repository proprietary.
 * **Selected Category**: **Copyleft / Reciprocal**
 * **JLA Matches**: `EUPL-1.2`, `GPL-3.0`
@@ -359,7 +363,7 @@ You build and publish a complete container runtime image (`.sif` or Docker Hub i
 **Legal Reality**: Unlike a text recipe file, a compiled container image is a **bundle of separate third-party software works**. You do not hold exclusive copyright over the entire image filesystem.
 
 * **Outcome**: **Mandatory Multi-License Compliance.** Distribution is governed by the overlapping terms of all installed base layers, packages, and linked binaries inside.
-* **Key Rule**: If your application links against a GPL library inside the container, image distribution triggers GPL source disclosure obligations for your app. If GPL tools in the container are standalone system utilities, "mere aggregation" applies.
+* **Key Rule**: If your application links against a GPL library inside the container, image distribution triggers GPL source disclosure obligations for your app. If GPL tools in the container are standalone system utilities, *mere aggregation* applies.
 * **User Obligation**: Ensure compliance with all third-party licenses bundled inside the container layers.
 :::
 ::::
@@ -424,7 +428,7 @@ Always place the full text of your chosen license in a plain-text file named `LI
   ```text
   Copyright (c) 2026 [Author Name or Institution Name]
   ```
-* **Do Not Edit Terms**: Never modify the legal wording of standard licenses (e.g., removing clauses from GPL or MIT). Custom license edits create "non-standard" legal texts that compliance scanners cannot parse, defaulting your repository back to restricted status.
+* **Do Not Edit Terms**: Never modify the legal wording of standard licenses (e.g., removing clauses from GPL or MIT). Custom license edits create *non-standard* legal texts that compliance scanners cannot parse, defaulting your repository back to restricted status.
 
 ---
 
