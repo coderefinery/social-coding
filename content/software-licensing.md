@@ -47,13 +47,13 @@ The diagram below unifies these license choices and their downstream rights:
 %%{init: {'themeVariables': { 'edgeLabelBackground': '#faf5ff' }}}%%
 
 flowchart TB
-    A["<b>Your Research Codebase</b><br/><i>(Source code, container recipes, prompt templates)</i>"] -->|"No License Attached<br/>(Statutory Default)"| B["<b>All Rights Reserved</b><br/>❌ Zero permissions: Cannot run, modify, or share"]
+    A["<b>Your Research Codebase</b></><i>(Source code, container recipes, prompt templates)</i>"] -->|"No License Attached</>(Statutory Default)"| B["<b>All Rights Reserved</b></>❌ Zero permissions: Cannot run, modify, or share"]
 
-    A -->|"Attach Open-Source License<br/>(Explicit Permission Grant)"| C{"Select License Flavor"}
+    A -->|"Attach Open-Source License</>(Explicit Permission Grant)"| C{"Select License Flavor"}
 
-    C -->|"Permissive<br/>(MIT, Apache-2.0, 0BSD)"| D["<b>Permissive License</b>"]
-    C -->|"Copyleft / Reciprocal<br/>(GPL-3.0, EUPL-1.2)"| E["<b>Copyleft License</b>"]
-    C -->|"Proprietary / Closed Source"| F["<b>Closed Source / Restricted</b><br/>🚫 <i>Flavour not discussed in this lesson</i>"]
+    C -->|"Permissive</>(MIT, Apache-2.0, 0BSD)"| D["<b>Permissive License</b>"]
+    C -->|"Copyleft / Reciprocal</>(GPL-3.0, EUPL-1.2)"| E["<b>Copyleft License</b>"]
+    C -->|"Proprietary / Closed Source"| F["<b>Closed Source / Restricted</b></>🚫 <i>Flavour not discussed in this lesson</i>"]
 
     D --> D1["Run & Modify? <b>Yes!</b>"]
     D --> D2["Embed in closed product? <b>Yes!</b>"]
@@ -123,21 +123,21 @@ examine what happens when they collide inside an automated CI/CD pipeline:
 flowchart TB
 
     subgraph box["CI/CD License Compliance Debugging Pipeline"]
-        A[<b>Update</b><br/>Paste snippet copyied from somewhere ] --> A2["<b>Build Trigger:</b>Push to my-code-base"]
+        A[<b>Update</b></>Paste snippet copyied from somewhere ] --> A2["<b>Build Trigger:</b>Push to my-code-base"]
         A2["<b>Build Trigger:</b> Push to my-code-base"] --> B["Run Compliance Scanner"]
-        B --> C{"Check Inbound vs.<br/>Outbound Terms"}
+        B --> C{"Check Inbound vs.</>Outbound Terms"}
         
-        C -->|"Your Target License: MIT (Permissive)<br/>Pasted Snippet: GPL-3.0 (Copyleft)"| D["❌ <b>BUILD FAILURE</b><br/>Pasted copyleft snippet restricts MIT release"]
+        C -->|"Your Target License: MIT (Permissive)</>Pasted Snippet: GPL-3.0 (Copyleft)"| D["❌ <b>BUILD FAILURE</b></>Pasted copyleft snippet restricts MIT release"]
         
         D --> E{"Select Patch Option"}
         
-        E -->|"Option A: Keep MIT & add comment '# Originally GPL'"| F["❌ <b>BUILD FAIL</b><br/>Comments do not override copyleft terms"]
-        E -->|"Option B: Re-license repo to GPL-3.0 / EUPL-1.2"| G["✅ <b>BUILD PASS</b><br/>Your license matches the pasted copyleft snippet"]
-        E -->|"Option C: Rewrite code from scratch to replace snippet"| H["✅ <b>BUILD PASS</b><br/>New code expression frees your target license"]
-        E -->|"Option D: Delete LICENSE file to bypass scanner"| I["⚠️ <b>PASSED SCANNER (TRAP!)</b><br/>No license = Default 'All Rights Reserved'<br/>Nobody can legally run, modify, or reuse your tool"]
+        E -->|"Option A: Keep MIT & add comment '# Originally GPL'"| F["❌ <b>BUILD FAIL</b></>Comments do not override copyleft terms"]
+        E -->|"Option B: Re-license repo to GPL-3.0 / EUPL-1.2"| G["✅ <b>BUILD PASS</b></>Your license matches the pasted copyleft snippet"]
+        E -->|"Option C: Rewrite code from scratch to replace snippet"| H["✅ <b>BUILD PASS</b></>New code expression frees your target license"]
+        E -->|"Option D: Delete LICENSE file to bypass scanner"| I["⚠️ <b>PASSED SCANNER (TRAP!)</b></>No license = Default 'All Rights Reserved'</>Nobody can legally run, modify, or reuse your tool"]
 
-        P["<b>Permissive</b><br/>(MIT, Apache-2.0, 0BSD)<br/><i>'Do whatever you want, just keep credit'</i>"]
-        CL["<b>Copyleft / Reciprocal</b><br/>(GPL-3.0, EUPL-1.2)<br/><i>'Must share changes under same terms'</i>"]
+        P["<b>Permissive</b></>(MIT, Apache-2.0, 0BSD)</><i>'Do whatever you want, just keep credit'</i>"]
+        CL["<b>Copyleft / Reciprocal</b></>(GPL-3.0, EUPL-1.2)</><i>'Must share changes under same terms'</i>"]
     end
 
     P -.->|"I want to use"| C
@@ -460,4 +460,47 @@ pip install reuse
 reuse lint
 ```
 
-When `reuse lint` passes, downstream researchers can automatically verify the legal status of every single asset in your codebase.
+When `reuse lint` passes, downstream researchers can automatically verify the 
+legal status of every single asset in your codebase.
+
+## Summary: Resolving the Compliance Pipeline
+
+At the start of this lesson, our project hit a **❌ BUILD FAILURE** because a pasted copyleft snippet conflicted with our target `MIT` license. 
+
+By applying the legal concepts and technical tools covered in this module, we can trace how our learned skills directly resolve the original pipeline crash:
+
+```{mermaid}
+%%{init: {'themeVariables': { 'edgeLabelBackground': '#faf5ff' }}}%%
+flowchart TB
+
+    subgraph box["Resolved CI/CD License Compliance Pipeline"]
+        A["<b>Build Trigger: Push code with inbound dependency/snippet"] --> B["Run Compliance Scanner"]
+        B --> C{"Check Inbound vs Outbound Terms"}
+        
+        C -->|"Apply JLA Decision Matrix &</>Copyright Principles"| E{"Select Compliant Strategy"}
+        
+        E -->|"<b>Strategy 1: Align Project License<b><i>(Module 2)</i>Re-license repo to GPL-3.0 / EUPL-1.2"| G["✅ <b>BUILD PASS</b>Project license matches inbound copyleft terms"]
+        
+        E -->|"<b>Strategy 2: Clean Implementation</b></><i>(Module 1)</i></>Rewrite code expression from scratch"| H["✅ <b>BUILD PASS</b></>Fresh expression frees original MIT license"]
+        
+        G --> V["<b>Standardize & Verify Repository</b></>1. Tag files with <b>SPDX Identifiers</b> (<code># SPDX-License-Identifier</code>)</>2. Add root <code>LICENSE</code> file & README badge</>3. Execute <b>REUSE Linter</b> (<code>reuse lint</code>)"]
+        H --> V
+        
+        V --> SUCCESS["🎉 <b>COMPLIANT OPEN-SOURCE RELEASE</b></>Legally safe, reproducible & ready for research reuse"]
+    end
+
+    classDef pass fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
+    classDef neutral fill:#f8f9fa,stroke:#495057,stroke-width:2px,color:#212529;
+    classDef box_fill fill:#ffffff,stroke:#adb5bd,stroke-width:1px;
+
+    class G,H,V,SUCCESS pass;
+    class A,B,C,E neutral;
+    class box box_fill;
+```
+
+### What Resolved the Issue:
+
+1. **Applied Copyright Expression vs. Idea (Option C)**: You learned that copyright protects code *expression*, not underlying algorithms. Rewriting the logic creates a fresh copyright, freeing you to maintain an `MIT` permissive license.
+2. **Applied the JLA Decision Matrix (Option B)**: You learned how to navigate inbound copyleft obligations. Re-licensing the repository to `GPL-3.0` or `EUPL-1.2` satisfies reciprocal terms while keeping your work open source.
+3. **Bypassed Legal Traps (Options A & D)**: You recognized that code comments cannot waive statutory licenses and that deleting a license triggers the default *"All Rights Reserved"* trap.
+4. **Standardized Distribution**: You embedded **SPDX headers** across code, recipes, and prompts, verifying full repository compliance via `reuse lint`.
