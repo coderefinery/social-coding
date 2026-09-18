@@ -236,19 +236,28 @@ directly to its detailed exercise, legal analysis, and JLA selection instruction
 When writing original code or implementing published mathematical logic, you control 100% of your copyright.
 
 (scenario-1)=
-::::{exercise} Scenario 1: Own algorithm with external dependencies
+::::{exercise} Scenario 1: Authoring original code and algorithms
 You wrote an original algorithm from scratch (in Python, C++, Rust, etc.). Your repository contains only your original source code and dependency specifications (`requirements.txt`, `CMakeLists.txt`, `Cargo.toml`).
 
 * **Licensing Goal**: You want **maximum adoption** and zero friction for commercial or academic reuse.
-*  **JLA Filter Focus**: Select 🟢 `Commercial use`, `Modify`, `Distribute` + ⚪ `Incl. Copyright` + 🟡 `OSI approved`.
+* **Legal Reality**: External dependencies remain separate works. Because you have not bundled third-party code inside your repository, you hold full copyright over your original codebase.
+* **JLA Selection Strategy**: To ensure downstream users must acknowledge your original authorship while granting them maximum flexibility to incorporate your code into both open and proprietary software, you require citation credit (`Incl. Copyright`) without imposing share-alike conditions (leaving `Copyleft/Share a.` unselected).
 
 :::{solution}
-**Legal Reality**: External dependencies remain separate works. Because you have not bundled third-party code inside your repository, you hold full copyright over your original codebase.
+**What to select in the JLA interface:**
 
-* **Outcome**: **Fully Permissible.** You own the code and can choose any open-source license.
-* **Selected Category**: **Permissive** (driven by your goal of maximum adoption).
-* **JLA Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
-* **User Obligation**: Downstream users must comply with individual external package licenses when fetching or running dependencies.
+1. **Can Column**: Select `Distribute`, `Modify/merge`, and `Commercial use`
+2. **Must Column**: Select `Incl. Copyright`
+3. **Support Column**: Select `OSI approved`
+
+* **JLA Filter Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
+
+* **Permissive vs. Public Domain (EU Civil Law Nuance)**: Public domain dedications (e.g., `CC0`, `Unlicense`) attempt to give away all rights. However, under EU civil law, authors cannot legally give up their moral rights (*droit moral*). Selecting an explicit permissive license like `MIT` or `Apache-2.0` grants broad permissions globally, remains legally valid under European copyright law, and guarantees academic citation credit.
+
+* **Downstream Obligations**: Anyone who reuses, modifies, or integrates your code into their work must preserve your copyright notice and license text. They are not required to share their modifications or open-source their downstream projects.
+
+* **Allowed Inbound Snippets**: If you want to include small third-party code snippets in your files, you can freely embed code licensed under **permissive terms** (e.g., MIT, BSD, Apache-2.0, 0BSD) or public domain waivers (CC0) without affecting your permissive license. However, embedding copyleft snippets (e.g., GPL, EUPL) will trigger reciprocal obligations, forcing your entire repository to be re-licensed under those copyleft terms.
+
 * **In-File Identification (SPDX)**: Apply standard machine-readable SPDX identifier comments directly at the top of your scripts:
 
 ```python
@@ -257,11 +266,6 @@ You wrote an original algorithm from scratch (in Python, C++, Rust, etc.). Your 
 
 import numpy as np
 ```
-* Public Domain vs. Permissive Licenses: Civil law jurisdictions (EU, China, Japan,
-South Korea) do not recognize total waivers of moral rights (e.g., your right 
-to attribution as an author). Avoid informal *Public Domain* claims; 
-always use standard permissive open-source licenses (MIT, 0BSD, Apache-2.0) to 
-grant legal permissions safely worldwide.
 :::
 ::::
 
