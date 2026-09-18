@@ -107,20 +107,20 @@ is free for anyone to use:
   programming logic, data structures, and interface principles.
 
 Because copyright restricts only the *creative human expression* and not the underlying 
-*ideas or algorithms*, developers use open-source licenses to define the exact terms under 
+*ideas or algorithms*, developers could use open-source licenses to define the exact terms under 
 which that expression can be legally shared and modified.
 
 ### Scope of this Lesson: What Counts as *Software*?
 
-Across international legal frameworks (such as 17 U.S.C. § 101 and WIPO model provisions), 
-software is broadly defined as a set of instructions to be used directly or indirectly in 
+Across international legal frameworks (such as 17 U.S.C. § 101 and WIPO-World Intellectual Property Organization
+model provisions), software is broadly defined as a set of instructions to be used directly or indirectly in 
 a computer to bring about a certain result. 
 
 Because modern research software extends beyond simple Python scripts, this lesson applies 
 copyright and licensing principles across six core research software assets:
 
 * **Source Code**: Original algorithms written from scratch or implemented from scientific papers.
-* **Third-Party Integrations**: Embedded permissive or copyleft code snippets and dynamically/statically linked libraries.
+* **Third-Party Integrations**: Embedded permissive or copyleft code snippets and linked libraries (dynamically/statically).
 * **Infrastructure as Code**: Ansible playbooks,Terraform configurations,container Recipes  (`Dockerfile`, Apptainer `.def`).
 * **Container Images**: Bundled binary filesystem snapshots (`.sif` files, OCI registry images).
 * **AI-Assisted Code**: Code generated, refactored, or assembled with human creative oversight.
@@ -129,7 +129,7 @@ copyright and licensing principles across six core research software assets:
 
 ## Motivation: Debugging a License Compliance Failure
 
-With the understanding of the difference between Permissive (MIT) and Copyleft (GPL-3.0) licenses, 
+With the understanding of the difference between Permissive and Copyleft licenses, 
 examine what happens when they collide inside an automated CI/CD pipeline:
 
 ```{mermaid}
@@ -137,21 +137,21 @@ examine what happens when they collide inside an automated CI/CD pipeline:
 flowchart TB
 
     subgraph box["CI/CD License Compliance Debugging Pipeline"]
-        A[<b>Update</b></>Paste snippet copyied from somewhere ] --> A2["<b>Build Trigger:</b>Push to my-code-base"]
+        A[Paste snippet copyied from somewhere ] --> A2["<b>Build Trigger:</b>Push to my-code-base"]
         A2["<b>Build Trigger:</b> Push to my-code-base"] --> B["Run Compliance Scanner"]
         B --> C{"Check Inbound vs.</>Outbound Terms"}
         
-        C -->|"Your Target License: MIT (Permissive)</>Pasted Snippet: GPL-3.0 (Copyleft)"| D["❌ <b>BUILD FAILURE</b></>Pasted copyleft snippet restricts MIT release"]
+        C -->|"Target License:Permissive</> but pasted snippet:Copyleft"| D["❌ <b>BUILD FAILURE</b><br/>Pasted copyleft snippet restricts MIT release"]
         
         D --> E{"Select Patch Option"}
         
-        E -->|"Option A: Keep MIT & add comment '# Originally GPL'"| F["❌ <b>BUILD FAIL</b></>Comments do not override copyleft terms"]
-        E -->|"Option B: Re-license repo to GPL-3.0 / EUPL-1.2"| G["✅ <b>BUILD PASS</b></>Your license matches the pasted copyleft snippet"]
-        E -->|"Option C: Rewrite code from scratch to replace snippet"| H["✅ <b>BUILD PASS</b></>New code expression frees your target license"]
-        E -->|"Option D: Delete LICENSE file to bypass scanner"| I["⚠️ <b>PASSED SCANNER (TRAP!)</b></>No license = Default 'All Rights Reserved'</>Nobody can legally run, modify, or reuse your tool"]
+        E -->|"Option A: Keep MIT & add comment '# Originally GPL'"| F["❌ <b>BUILD FAIL</b><br/>Comments do not override copyleft terms"]
+        E -->|"Option B: Re-license repo to GPL-3.0 / EUPL-1.2"| G["✅ <b>BUILD PASS</b><br/>Your license matches the pasted copyleft snippet"]
+        E -->|"Option C: Rewrite code from scratch to replace snippet"| H["✅ <b>BUILD PASS</b><br/>New code expression frees your target license"]
+        E -->|"Option D: Delete LICENSE file to bypass scanner"| I["⚠️ <b>PASSED SCANNER (TRAP!)</b><br/>No license = Default 'All Rights Reserved'</>Nobody can legally run, modify, or reuse your tool"]
 
-        P["<b>Permissive</b></>(MIT, Apache-2.0, 0BSD)</><i>'Do whatever you want, just keep credit'</i>"]
-        CL["<b>Copyleft / Reciprocal</b></>(GPL-3.0, EUPL-1.2)</><i>'Must share changes under same terms'</i>"]
+        P["<b>Permissive</b><br/>(MIT, Apache-2.0, 0BSD)</><i>'Do whatever you want, just keep credit'</i>"]
+        CL["<b>Copyleft / Reciprocal</b><br/>(GPL-3.0, EUPL-1.2)</><i>'Must share changes under same terms'</i>"]
     end
 
     P -.->|"I want to use"| C
@@ -176,18 +176,19 @@ flowchart TB
 
 Modern software developers and RSEs routinely rely on AI coding assistants 
 (ChatGPT, Claude, GitHub Copilot) to generate boilerplate, refactor functions, 
-and answer project setup questions. However, using these tools for legal or 
-licensing guidance introduces a subtle risk: **AI legal bias**.
+and answer project setup questions. 
 
-Because AI models are overwhelmingly trained on US-centric web data and legal 
-forum posts, their outputs default almost universally to **US common law concepts**
-such as *Fair Use*, *Work Made for Hire*, and *Derivative Works*.
+However, using these tools for legal or licensing guidance introduces a subtle 
+risk of **AI legal bias** as AI models are overwhelmingly trained on US-centric 
+web data and legal forum posts, their outputs default almost universally 
+to **US common law concepts** such as *Fair Use*, *Work Made for Hire*, and 
+*Derivative Works*.
 
-In contrast, developers operating under EU statutory frameworks 
-(such as Directive 2009/24/EC) face a different legal reality regarding statutory 
-exceptions, author ownership, and code adaptations. Relying blindly on AI legal 
-advice creates significant compliance blind spots, which is why this lesson equips 
-you with a direct, EU-aligned framework for software licensing.
+In contrast, developers operating under EU statutory frameworks (such as Directive 2009/24/EC) 
+face a different legal reality related to exceptions, author ownership, and code adaptations. 
+Relying blindly on AI legal advice creates significant compliance blind spots, 
+which is why this lesson was developed by the CodeRefinery team with a direct, EU-aligned 
+framework for software licensing.
 
 
 
