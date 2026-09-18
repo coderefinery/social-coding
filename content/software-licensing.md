@@ -398,8 +398,6 @@ def main():
 
 When software incorporates external dependencies, whether by dynamic linking, static compiling, or bundling binaries into container images licensing obligations expand beyond your own written source code. This module covers how dependency boundaries, build automation scripts, and packaged container artifacts affect legal compliance under the Joinup Licensing Assistant (JLA) framework.
 
----
-
 (scenario-5)=
 ::::{exercise} Scenario 5: Linking against a GPL-licensed library
 You are developing an software application that imports or links against an external software library licensed under GPL-3.0 (e.g., importing a GPL Python package or linking a C/C++ static/shared library).
@@ -419,7 +417,8 @@ You are developing an software application that imports or links against an exte
 
 * **Linking Boundaries & License Selection (Legal Nuance)**: 
   * **Why GPL forces copyleft**: Linking against a standard `GPL-3.0` library extends copyleft to your entire project. Your repository must adopt a compatible copyleft license (`GPL-3.0` or `EUPL-1.2`, which explicitly lists GPL-3.0 in its compatibility appendix).
-  * **Why LGPL or EUPL-1.2 libraries allow permissive licenses**: If the external library were licensed under `LGPL` (which has an explicit linking exemption) or `EUPL-1.2` (where linking across APIs under EU software law does not create a derivative work), copyleft would **not** extend to your application. In those cases, your own project could stay **permissively licensed** (e.g., MIT, Apache-2.0, BSD). Standard `GPL` is the key exception that forces your overall application to become copyleft.
+  * **Why LGPL or EUPL-1.2 libraries allow permissive licenses**: If the external library is licensed under `LGPL` (which includes an explicit linking exception) or `EUPL-1.2` (where European Commission guidance takes the position that dynamically linking an EUPL work through its API does not by itself create a derivative work), copyleft does not extend to your application. In these dynamic linking scenarios, your own project can stay **permissively licensed** (e.g., MIT, Apache-2.0, BSD). However, note that this EUPL stance reflects Commission guidance rather than settled CJEU case law, and static linking or direct code incorporation continues to trigger EUPL copyleft obligations.
+
 * **Downstream Obligations**: Downstream users who receive or run your application must receive full access to your source code under `GPL-3.0` (or `EUPL-1.2`), along with all upstream copyright notices and build scripts required to recompile the project.
 
 * **Allowed Inbound Code & Dependencies**: Your project can import or include other **permissively licensed** packages (MIT, BSD, Apache-2.0) and public domain waivers (CC0). However, all code linked together in the final executable or runtime environment must satisfy GPL compatibility.
@@ -438,7 +437,6 @@ def solve_system(data):
 :::
 ::::
 
----
 
 (scenario-6)=
 ::::{exercise} Scenario 6: Authoring container recipes and environment specifications
