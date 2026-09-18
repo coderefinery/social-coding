@@ -655,42 +655,45 @@ legal status of every single asset in your codebase.
 
 ## Summary: Resolving the Compliance Pipeline
 
-At the start of this lesson, our project hit a **❌ BUILD FAILURE** because a pasted copyleft snippet conflicted with our target `MIT` license. 
+When developing research software, license compliance is not an afterthought to debug at the end of a project, it is a proactive design choice. By using the **Joinup Licensing Assistant (JLA)** framework to align your repository license with your inbound dependencies from day one, your CI/CD pipeline passes cleanly on the first run.
 
-By applying the legal concepts and technical tools covered in this module, we can trace how our learned skills directly resolve the original pipeline crash:
+The diagram below illustrates how selecting a compatible license upfront ensures your code passes automated compliance checks and results in a legally sound release:
 
 ```{mermaid}
+
 %%{init: {'themeVariables': { 'edgeLabelBackground': '#faf5ff' }}}%%
 flowchart TB
 
-    subgraph box["Resolved CI/CD License Compliance Pipeline"]
-        A["<b>Build Trigger: Push code with inbound dependency/snippet"] --> B["Run Compliance Scanner"]
-        B --> C{"Check Inbound vs Outbound Terms"}
+    subgraph local["1. Local Authoring & Standardization"]
+        A["<b>Inbound Reuse Trigger:</b><br/>User copies copyleft snippet <i>(Scenario 4)</i><br/>or links GPL library <i>(Scenario 5)</i>"] --> B["<b>JLA Selection Strategy:</b><br/>Select compatible copyleft license<br/><i>(GPL-3.0 / EUPL-1.2)</i>"]
         
-        C -->|"Apply JLA Decision Matrix &</>Copyright Principles"| E{"Select Compliant Strategy"}
+        B --> C["<b>Standardize Local Codebase:</b><br/>1. Add <b>SPDX Headers</b> to all files <i>(Scenarios 1-9)</i><br/>2. Add root <code>LICENSE</code> file & README badge"]
+    end
+
+    subgraph cicd["2. Automated CI/CD & Verification"]
+        C -->|"<b>Git Push</b> to Repository"| D["<b>Build Trigger: Run Compliance Scanner</b><br/><i>(Executes <code>reuse lint</code> in CI/CD)</i>"]
         
-        E -->|"<b>Strategy 1: Align Project License<b><i>(Module 2)</i>Re-license repo to GPL-3.0 / EUPL-1.2"| G["✅ <b>BUILD PASS</b>Project license matches inbound copyleft terms"]
+        D --> E{"<b>Verify Inbound vs.<br/>Outbound Terms</b>"}
         
-        E -->|"<b>Strategy 2: Clean Implementation</b></><i>(Module 1)</i></>Rewrite code expression from scratch"| H["✅ <b>BUILD PASS</b></>Fresh expression frees original MIT license"]
+        E -->|"SPDX Headers & License Match Confirmed!"| F["✅ <b>BUILD PASSES</b><br/>Compliance verified automatically"]
         
-        G --> V["<b>Standardize & Verify Repository</b></>1. Tag files with <b>SPDX Identifiers</b> (<code># SPDX-License-Identifier</code>)</>2. Add root <code>LICENSE</code> file & README badge</>3. Execute <b>REUSE Linter</b> (<code>reuse lint</code>)"]
-        H --> V
-        
-        V --> SUCCESS["🎉 <b>COMPLIANT OPEN-SOURCE RELEASE</b></>Legally safe, reproducible & ready for research reuse"]
+        F --> SUCCESS["🎉 <b>COMPLIANT OPEN-SOURCE RELEASE</b><br/>Legally sound, reproducible & ready for scientific reuse"]
     end
 
     classDef pass fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
     classDef neutral fill:#f8f9fa,stroke:#495057,stroke-width:2px,color:#212529;
     classDef box_fill fill:#ffffff,stroke:#adb5bd,stroke-width:1px;
 
-    class G,H,V,SUCCESS pass;
-    class A,B,C,E neutral;
-    class box box_fill;
+    class F,SUCCESS pass;
+    class A,B,C,D,E neutral;
+    class local,cicd box_fill;
 ```
 
-### What Resolved the Issue:
 
-1. **Applied Copyright Expression vs. Idea (Option C)**: You learned that copyright protects code *expression*, not underlying algorithms. Rewriting the logic creates a fresh copyright, freeing you to maintain an `MIT` permissive license.
-2. **Applied the JLA Decision Matrix (Option B)**: You learned how to navigate inbound copyleft obligations. Re-licensing the repository to `GPL-3.0` or `EUPL-1.2` satisfies reciprocal terms while keeping your work open source.
-3. **Bypassed Legal Traps (Options A & D)**: You recognized that code comments cannot waive statutory licenses and that deleting a license triggers the default *"All Rights Reserved"* trap.
-4. **Standardized Distribution**: You embedded **SPDX headers** across code, recipes, and prompts, verifying full repository compliance via `reuse lint`.
+### Scenario Mapping Across the Pipeline
+
+* **Handling Inbound Copyleft ([Scenario 4](#scenario-4) & [Scenario 5](#scenario-5))**: When you copy non-trivial copyleft code snippets (e.g., CC BY-SA from Stack Overflow or GPL snippets) or link directly against a GPL library, your overall project becomes a combined work. Selecting a compatible copyleft license upfront (`GPL-3.0` or `EUPL-1.2`) satisfies the reciprocal sharing terms and allows the pipeline scanner to pass without conflict.
+* **Maintaining Permissive Defaults ([Scenario 1](#scenario-1) & [Scenario 3](#scenario-3))**: If you write original code or embed only permissively licensed snippets (MIT, Apache-2.0, BSD), selecting a permissive license (`MIT` or `Apache-2.0`) grants downstream users maximum adoption freedom while preserving your citation credit.
+* **Packaging and Build Automation ([Scenario 6](#scenario-6) & [Scenario 7](#scenario-7))**: Keep plain-text build recipes (Dockerfiles) permissively licensed for maximum reuse, while annotating compiled container image binaries as multi-license aggregate bundles to satisfy embedded base-layer obligations.
+* **AI Assets and Dual-Licensing ([Scenario 8](#scenario-8) & [Scenario 9](#scenario-9))**: Run code-similarity scanners to catch LLM training memorization before releasing AI-assisted code, and apply dual-licensing to separate executable software code (`MIT`) from non-code datasets and model weights (`CC-BY-4.0`).
+* **Standardized Distribution**: By adding machine-readable **SPDX headers** across every script, Dockerfile, and prompt template, running `reuse lint` in your pipeline confirms 100% legal clarity for the entire scientific community.<S-Del>
