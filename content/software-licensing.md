@@ -41,11 +41,16 @@ comply with terms attached to code written by others (inbound reuse).
 
 * Open-source licenses fall into two main families:
 
-    * **Permissive (e.g., MIT, Apache-2.0, 0BSD):** *Do whatever you want, just keep credit.* Grants maximum reuse freedom, allowing anyone to modify, embed, or re-license your code in open or closed projects.
+    * **Permissive (e.g., MIT, Apache-2.0, 0BSD):** *Do whatever you want, just keep crediti*. 
+      Grants maximum reuse freedom, allowing anyone to modify, embed, or re-license your code 
+      in open or closed projects.
 
-    * **Copyleft / Reciprocal (e.g., GPL-3.0, EUPL-1.2):** *Share alike.* Grants full freedom to run and modify, but mandates that any distributed derivative work must also be released under the same open-source copyleft terms.
-
-The diagram below unifies these license choices and their downstream rights:
+    * **Copyleft/Reciprocal (e.g., GPL-3.0, EUPL-1.2):** *Share alike.* Grants full freedom 
+      to run and modify, but mandates that any distributed derivative or combined work must 
+      also be released under matching copyleft terms. Often informally referred to as *viral* 
+      or *infectious* because its open-source requirements propagate across code boundaries 
+      (such as embedding snippets or static linking) into downstream projects. The diagram 
+      below unifies these license choices and their downstream rights:
 
 ```{mermaid}
 %%{init: {'themeVariables': { 'edgeLabelBackground': '#faf5ff' }}}%%
