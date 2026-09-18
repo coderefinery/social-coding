@@ -58,13 +58,13 @@ comply with terms attached to code written by others (inbound reuse).
 flowchart TB
 
   subgraph box["How License Selection Governs Code Reuse"]
-    A["<b>Your Research Codebase</b></><i>(Source code, container recipes, prompt templates)</i>"] -->|"No License Attached</>(Statutory Default)"| B["<b>All Rights Reserved</b></>❌ Zero permissions: Cannot run, modify, or share"]
+    A["<b>Your Research Codebase </b></><i>(Source code, container recipes, prompt templates)</i>"] -->|"No License Attached</>(Statutory Default)"| B["<b>All Rights Reserved</b></>❌ Zero permissions: Cannot run, modify, or share"]
 
-    A -->|"Attach Open-Source License</>(Explicit Permission Grant)"| C{"Select License Flavor"}
+    A -->|"Attach License</>(Explicit Permission Grant)"| C{"Select License"}
 
-    C -->|"Permissive</>(MIT, Apache-2.0, 0BSD)"| D["<b>Permissive License</b>"]
-    C -->|"Copyleft / Reciprocal</>(GPL-3.0, EUPL-1.2)"| E["<b>Copyleft License</b>"]
-    C -->|"Proprietary / Closed Source"| F["<b>Closed Source / Restricted</b></>🚫 <i>Flavour not discussed in this lesson</i>"]
+    C -->|"Goal: Maximum adoption & unrestricted reuse"| D["<b>Permissive License</b>"]
+    C -->|"Goal: Ensure changes stay open-source (Reciprocity)"| E["<b>Copyleft License</b>"]
+    C -->|"Goal: Proprietary control & restricted access"| F["<b>Closed Source / Restricted</b></>🚫 <i>Flavour not discussed in this lesson</i>"]
 
     D --> D1["Run & Modify? <b>Yes!</b>"]
     D --> D2["Embed in closed product? <b>Yes!</b>"]
