@@ -56,6 +56,8 @@ comply with terms attached to code written by others (inbound reuse).
 %%{init: {'themeVariables': { 'edgeLabelBackground': '#faf5ff' }}}%%
 
 flowchart TB
+
+  subgraph box["How License Selection Governs Code Reuse"]
     A["<b>Your Research Codebase</b></><i>(Source code, container recipes, prompt templates)</i>"] -->|"No License Attached</>(Statutory Default)"| B["<b>All Rights Reserved</b></>❌ Zero permissions: Cannot run, modify, or share"]
 
     A -->|"Attach Open-Source License</>(Explicit Permission Grant)"| C{"Select License Flavor"}
@@ -71,13 +73,15 @@ flowchart TB
     E --> E1["Run & Modify? <b>Yes!</b>"]
     E --> E2["Embed in closed product? <b>No!</b>"]
     E --> E3["Must changes stay open? <b>Yes!</b> (Mandatory)"]
-    classDef green fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
+  end  
+   classDef green fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
    classDef red fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
    classDef yellow fill:#fff9db,stroke:#f59f00,stroke-width:2px,color:#5c3c00;
    classDef white fill:#f8f9fa,stroke:#adb
    classDef dashed fill:#f8f9fa,stroke:#adb5bd,stroke-width:2px,stroke-dasharray: 5 5,color:#000000;
    classDef dashed_red fill:#ffe3e3,stroke:#adb5bd,stroke-width:2px,stroke-dasharray: 5 5,color:#000000;
-    classDef defaultState fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
+   classDef defaultState fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
+   classDef box_fill fill:#ffffff,stroke:#adb5bd,stroke-width:1px;
     
    class D1,D2,D3,E1,E3 green;
    class E2 red;
@@ -85,6 +89,7 @@ flowchart TB
    class F dashed;
    class B dashed_red;
    class A,C white;
+   class box box_fill;
 ```
 
 ### Copyright Foundation: Expression vs. Ideas
