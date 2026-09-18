@@ -204,25 +204,32 @@ Managed by the Linux Foundation, **SPDX identifiers** (Software Package Data Exc
 
 Throughout the exercise scenarios below, look for the **In-File Identification (SPDX)** callouts to see how these tags apply directly to Python scripts, container recipes, and engineered prompt templates.
 
-### License Decision Matrix at a Glance
 
-When using the European Commission's Joinup Licensing Assistant (JLA),
-license selection depends on your RSE workflow. The JLA groups 
-criteria into four categories: 
-🟢 Can (Permissions), ⚪ Must (Obligations), 🔵 Compatible (Domain), 
-and 🟡 Support (OSI Approval).
+### License Selection Decision Matrix & Scenario Index
 
-| Scenario Module | Key JLA Toggle (⚪ Must) | Resulting Category | Target Licenses |
-| :--- | :--- | :--- | :--- |
-| [**1. Own Code**](#scenario-1) | `Incl. Copyright` | 🟢 Permissive | `MIT`, `Apache-2.0`, `BSD-3-Clause` |
-| [**2. Math Implementation**](#scenario-2) | `Copyleft/Share a.` + `Disclose Source` | 🟡 Copyleft | `EUPL-1.2`, `GPL-3.0`, `AGPL-3.0` |
-| [**3. Embed Permissive**](#scenario-3) | `Incl. Copyright` | 🟢 Flexible (Any) | `MIT` or `EUPL-1.2` / `GPL-3.0` |
-| [**4. Embed Copyleft**](#scenario-4) | `Copyleft/Share a.` *(Mandatory)* | 🟡 Copyleft | `EUPL-1.2`, `GPL-3.0` |
-| [**5. Link GPL Library**](#scenario-5) | `Copyleft/Share a.` *(Mandatory)* | 🟡 Copyleft | `GPL-3.0`, `EUPL-1.2` |
-| [**6. Container Recipe**](#scenario-6) | `Incl. Copyright` | 🟢 Permissive | `MIT`, `Apache-2.0` |
-| [**7. Built Image**](#scenario-7) | Overlapping Component Terms | ⚠️ Multi-License | Governed by individual image layers |
-| [**8. AI-Assisted Code**](#scenario-8) | `Incl. Copyright` | 🟢 Author Choice | `MIT`, `Apache-2.0` (or Copyleft) |
-| [**9. Prompt Template**](#scenario-9) | `Incl. Copyright` | 🟢 Permissive | `MIT`, `Apache-2.0` |
+To help you navigate open-source compliance, the matrix below serves as an upfront 
+quick-reference summary and interactive index for the core licensing scenarios 
+encountered in research software engineering. 
+
+Our decision framework is grounded in the European Commission's **Joinup Licensing Assistant (JLA)**, 
+which evaluates software assets across six criteria categories: **Can** (Permissions), 
+**Must** (Obligations), **Cannot** (Restrictions), **Compatible** (Interoperability), 
+**Law** (Jurisdiction), and **Support** (Governance).
+
+Use this index to preview the demonstrated path for each scenario, or click any module link to jump 
+directly to its detailed exercise, legal analysis, and JLA selection instructions.
+
+| Scenario Module | Demonstrated Path / Focus | Compliant Target Licenses |
+| :--- | :--- | :--- |
+| [**1. Own Code**](#scenario-1) | 🟢 Permissive *(Default Choice)* | `MIT`, `Apache-2.0`, `BSD-3-Clause` |
+| [**2. Math Implementation**](#scenario-2) | 🟡 Copyleft / Reciprocal | `EUPL-1.2`, `GPL-3.0`, `AGPL-3.0` |
+| [**3. Embed Permissive**](#scenario-3) | 🟢 Permissive Focus *(Copyleft Flexible)* | `MIT`, `Apache-2.0`, `EUPL-1.2`, `GPL-3.0` |
+| [**4. Embed Copyleft**](#scenario-4) | 🟡 Mandatory Copyleft | `EUPL-1.2`, `GPL-3.0` |
+| [**5. Link GPL Library**](#scenario-5) | 🟡 Mandatory Copyleft | `GPL-3.0`, `EUPL-1.2` |
+| [**6. Container Recipe**](#scenario-6) | 🟢 Permissive Focus | `MIT`, `Apache-2.0`, `BSD-3-Clause` |
+| [**7. Built Image**](#scenario-7) | ⚠️ Multi-License Bundle | Governed by individual layer/binary terms |
+| [**8. AI-Assisted Code**](#scenario-8) | 🟢 Permissive Focus *(Author Choice)* | `MIT`, `Apache-2.0`, `EUPL-1.2`, `GPL-3.0` |
+| [**9. Prompt Chaining Architecture**](#scenario-9) | 🟢 Permissive Focus | `MIT`, `Apache-2.0` |
 
 ### Module 1: Clean Slate – Authoring Original Code & Algorithms
 
