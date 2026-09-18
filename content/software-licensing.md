@@ -148,7 +148,7 @@ flowchart TB
         E -->|"Option A: Keep MIT & add comment '# Originally GPL'"| F["❌ <b>BUILD FAIL</b><br/>Comments do not override copyleft terms"]
         E -->|"Option B: Re-license repo to GPL-3.0 / EUPL-1.2"| G["✅ <b>BUILD PASS</b><br/>Your license matches the pasted copyleft snippet"]
         E -->|"Option C: Rewrite code from scratch to replace snippet"| H["✅ <b>BUILD PASS</b><br/>New code expression frees your target license"]
-        E -->|"Option D: Delete LICENSE file to bypass scanner"| I["⚠️ <b>PASSED SCANNER (TRAP!)</b><br/>No license = Default 'All Rights Reserved'</>Nobody can legally run, modify, or reuse your tool"]
+        E -->|"Option D: Delete LICENSE file to bypass scanner"| I["⚠️ <b>PASSED SCANNER (LEGAL TRAP!)</b><br/>Infringes third-party copyright & locks own code to All Rights Reserved"]
 
         P["<b>Permissive</b><br/>(MIT, Apache-2.0, 0BSD)</><i>'Do whatever you want, just keep credit'</i>"]
         CL["<b>Copyleft / Reciprocal</b><br/>(GPL-3.0, EUPL-1.2)</><i>'Must share changes under same terms'</i>"]
@@ -187,8 +187,7 @@ to **US common law concepts** such as *Fair Use*, *Work Made for Hire*, and
 In contrast, developers operating under EU statutory frameworks (such as Directive 2009/24/EC) 
 face a different legal reality related to exceptions, author ownership, and code adaptations. 
 Relying blindly on AI legal advice creates significant compliance blind spots, 
-which is why this lesson was developed by the CodeRefinery team with a direct, EU-aligned 
-framework for software licensing.
+which is why this lesson equips you with a direct, EU-aligned framework for software licensing.
 
 
 
@@ -203,14 +202,9 @@ Managed by the Linux Foundation, **SPDX identifiers** (Software Package Data Exc
 # Copyright (c) 2026 Author Name <author@institute.eu>
 ```
 
-```dockerfile
-# SPDX-License-Identifier: Apache-2.0
-FROM ubuntu:24.04
-```
-
 Throughout the exercise scenarios below, look for the **In-File Identification (SPDX)** callouts to see how these tags apply directly to Python scripts, container recipes, and engineered prompt templates.
 
-### JLA Decision Matrix at a Glance
+### License Decision Matrix at a Glance
 
 When using the European Commission's Joinup Licensing Assistant (JLA),
 license selection depends on your RSE workflow. The JLA groups 
