@@ -520,6 +520,91 @@ COPY solver.py /app/solver.py
 :::
 ::::
 
+## Module 4: Emerging Workflows & AI
+
+AI-assisted development tools and machine learning models introduce unique legal challenges regarding copyright ownership, training data memorization, and behavioral restrictions. This module addresses how to license projects built with AI code generation tools and how to package research software that bundles AI models, weights, and datasets alongside source code.
+
+---
+
+(scenario-8)=
+::::{exercise} Scenario 8: AI-assisted code generation
+You used AI tools (e.g., GitHub Copilot, ChatGPT, Claude) to write functions, unit tests, or documentation for your research software repository.
+
+* **Licensing Goal**: Retain clear ownership and apply a **permissive license** (`MIT` or `Apache-2.0`) to your repository without incurring hidden copyright infringement or copyleft obligations from code embedded during model training.
+* **Legal Reality**: Unmodified AI-generated outputs lack human authorship and are generally not eligible for copyright protection under current EU and international legal standards. However, if an LLM reproduces a substantial copyrighted code snippet verbatim from its training data (memorization), that output snippet retains its original copyright and license obligations.
+* **JLA Selection Strategy**: To ensure maximum adoption and academic reuse for your overall codebase, require citation credit (`Incl. Copyright`) while avoiding share-alike constraints (leaving `Copyleft/Share a.` unselected), supported by automated compliance checks.
+
+:::{solution}
+**What to select in the JLA interface:**
+
+1. **Can Column**: Select `Distribute`, `Modify/merge`, and `Commercial use`
+2. **Must Column**: Select `Incl. Copyright`
+3. **Support Column**: Select `OSI approved`
+
+* **JLA Filter Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
+
+* **AI Code Generation & Verification Nuance**: Because non-human AI output cannot hold copyright, your copyright applies to the overall project structure, human-written logic, and creative choices. To protect your repository against accidental copyright infringement or copyleft contamination from AI memorization, turn on public code matching filters in your AI tools and run automated code-similarity scanners before releasing your repository.
+
+* **Downstream Obligations**: Downstream users must preserve your copyright notice for the repository. They are free to reuse, modify, and integrate your code into commercial or open-source projects.
+
+* **Allowed Inbound Snippets**: You can include permissively licensed code, public domain code (CC0), and AI-generated snippets that have been verified against verbatim training data duplication.
+
+* **In-File Identification (SPDX)**: Apply standard machine-readable SPDX identifier comments directly at the top of your scripts:
+
+```python
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Author Name <author@institute.eu>
+
+def filter_sensor_data(raw_readings: list[float]) -> list[float]:
+    """Cleans raw sensor data (written with AI assistance and human review)."""
+    return [reading for reading in raw_readings if reading > 0.0]
+```
+:::
+::::
+
+---
+
+(scenario-9)=
+::::{exercise} Scenario 9: Packaging AI workflows, datasets, and model weights
+You are developing research software that includes source code alongside trained machine learning model weights (`.pt`, `.safetensors`) and benchmark datasets.
+
+* **Licensing Goal**: Apply a clear **dual-licensing strategy** that makes both the software source code and the non-code assets (data, weights) open and reusable under appropriate legal frameworks.
+* **Legal Reality**: Standard open-source software licenses (MIT, GPL) are written specifically for source code and are legally ill-suited for datasets or neural network parameters. Under EU legal frameworks, datasets and model weights are governed by database rights (*sui generis* database protection) rather than traditional code copyright.
+* **JLA Selection Strategy**: Use JLA to select an OSI-approved open-source license for the executable code component (`Incl. Copyright` selected), while using Creative Commons licenses (e.g., `CC-BY-4.0` or `CC0`) for the dataset and weight files.
+
+:::{solution}
+**What to select in the JLA interface:**
+
+1. **Can Column**: Select `Distribute`, `Modify/merge`, and `Commercial use`
+2. **Must Column**: Select `Incl. Copyright`
+3. **Support Column**: Select `OSI approved`
+
+* **JLA Filter Matches**: `MIT`, `Apache-2.0` (for the code component)
+
+* **Code vs. Data/Weights & OpenRAIL Nuance**: Never apply software licenses like GPL or MIT to raw datasets or model weights. Use **CC-BY-4.0** or **CC0** for non-code assets. Additionally, behavioral licenses (such as OpenRAIL) impose usage restrictions (e.g., prohibiting specific harmful uses), which means they do **not** qualify as OSI-approved open-source software and cannot be filtered via standard JLA open-source queries.
+
+* **Downstream Obligations**: Downstream users must cite your repository for the code (under your chosen software license) and give credit for the model weights and data under the corresponding Creative Commons license.
+
+* **Allowed Inbound Assets**: You may combine permissively licensed python code with CC-BY-4.0 datasets or open-weight models, provided the attribution files clearly separate code licenses from data/weight licenses.
+
+* **In-File Identification (SPDX / Dual-Licensing Structure)**: Document the dual-licensing scheme in your root repository structure and script headers:
+
+```python
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Author Name <author@institute.eu>
+#
+# Note: Source code is licensed under MIT.
+# Model weights in /models/ and datasets in /data/ are licensed under CC-BY-4.0.
+
+import torch
+
+def load_pipeline():
+    model = torch.load("models/climate_weights.safetensors")
+    return model
+```
+:::
+::::
+
 
 ## Best Practices: Attaching a License to Your Repository
 
