@@ -35,6 +35,10 @@ modify, embed, or cite your code. A software license is a legal permission grant
 created by the author that overrides this statutory default, defining how 
 downstream researchers can reuse your work.
 
+In this lesson, we focus on open-source licenses to define both how we grant 
+permissions for software we develop (outbound licensing) and how we safely 
+comply with terms attached to code written by others (inbound reuse).
+
 * Open-source licenses fall into two main families:
 
     * **Permissive (e.g., MIT, Apache-2.0, 0BSD):** *Do whatever you want, just keep credit.* Grants maximum reuse freedom, allowing anyone to modify, embed, or re-license your code in open or closed projects.
@@ -176,6 +180,25 @@ advice creates significant compliance blind spots, which is why this lesson equi
 you with a direct, EU-aligned framework for software licensing.
 
 
+
+### Standardizing In-File Declarations: SPDX Identifiers
+
+Selecting a license is only half the battle; automated scanners and CI/CD pipelines need a machine-readable way to verify license compliance per file without parsing long legal texts.
+
+Managed by the Linux Foundation, **SPDX identifiers** (Software Package Data Exchange) provide standardized short tags (e.g., `MIT`, `Apache-2.0`, `GPL-3.0-only`, `EUPL-1.2`) placed at the very top line of every source file:
+
+```python
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Author Name <author@institute.eu>
+```
+
+```dockerfile
+# SPDX-License-Identifier: Apache-2.0
+FROM ubuntu:24.04
+```
+
+Throughout the exercise scenarios below, look for the **In-File Identification (SPDX)** callouts to see how these tags apply directly to Python scripts, container recipes, and engineered prompt templates.
+
 ### JLA Decision Matrix at a Glance
 
 When using the European Commission's Joinup Licensing Assistant (JLA),
@@ -195,25 +218,6 @@ and 🟡 Support (OSI Approval).
 | [**7. Built Image**](#scenario-7) | Overlapping Component Terms | ⚠️ Multi-License | Governed by individual image layers |
 | [**8. AI-Assisted Code**](#scenario-8) | `Incl. Copyright` | 🟢 Author Choice | `MIT`, `Apache-2.0` (or Copyleft) |
 | [**9. Prompt Template**](#scenario-9) | `Incl. Copyright` | 🟢 Permissive | `MIT`, `Apache-2.0` |
-
-
-### Standardizing In-File Declarations: SPDX Identifiers
-
-Selecting a license is only half the battle; automated scanners and CI/CD pipelines need a machine-readable way to verify license compliance per file without parsing long legal texts.
-
-Managed by the Linux Foundation, **SPDX identifiers** (Software Package Data Exchange) provide standardized short tags (e.g., `MIT`, `Apache-2.0`, `GPL-3.0-only`, `EUPL-1.2`) placed at the very top line of every source file:
-
-```python
-# SPDX-License-Identifier: MIT
-# Copyright (c) 2026 Author Name <author@institute.eu>
-```
-
-```dockerfile
-# SPDX-License-Identifier: Apache-2.0
-FROM ubuntu:24.04
-```
-
-Throughout the exercise scenarios below, look for the **In-File Identification (SPDX)** callouts to see how these tags apply directly to Python scripts, container recipes, and engineered prompt templates.
 
 ### Module 1: Clean Slate – Authoring Original Code & Algorithms
 
