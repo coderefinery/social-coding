@@ -303,6 +303,11 @@ import numpy as np
 :::
 ::::
 
+## Module 2: The Dependency Minefield – Inbound Code & Linking
+
+Embedding third-party source code snippets or linking against strong copyleft libraries 
+introduces legal boundaries that restrict your repository choices.
+
 (scenario-3)=
 ::::{exercise} Scenario 3: Embedding permissively licensed third-party code
 You are building an RSE tool and copied a helper function or utility snippet from a third-party project licensed under a permissive license (e.g., MIT or Apache-2.0) directly into one of your source files.
@@ -346,6 +351,176 @@ def main():
 :::
 ::::
 
+(scenario-4)=
+::::{exercise} Scenario 4: Embedding copyleft third-party code
+You are building an software tool and copied a non-trivial code snippet from a third-party project licensed under a copyleft license (e.g., GPL-3.0 or EUPL-1.2) directly into one of your source files.
+
+* **Licensing Goal**: Comply with legal requirements imposed by the inbound copyleft code while ensuring your overall repository remains legally compliant.
+* **Legal Reality**: Copyleft licenses require that any work containing copyleft code must be shared under a compatible copyleft license as a whole. Embedding copyleft code directly into your repository creates a single combined work, making copyleft licensing mandatory for your entire project.
+* **JLA Selection Strategy**: Because the inbound copyleft code forces your repository to adopt reciprocal sharing terms, you must configure JLA to require source code disclosure (`Disclose source`) and reciprocal licensing (`Copyleft/Share a.`).
+
+:::{solution}
+**What to select in the JLA interface:**
+
+1. **Can Column**: Select `Distribute`, `Modify/merge`, and `Commercial use`
+2. **Must Column**: Select `Incl. Copyright`, `Disclose source`, and `Copyleft/Share a.`
+3. **Support Column**: Select `OSI approved`
+
+* **JLA Filter Matches**: `GPL-3.0`, `EUPL-1.2`
+
+* **Copyleft Scope & EUPL Compatibility (Legal Nuance)**: Directly copying copyleft code into your source files extends the copyleft obligation to your entire codebase. If the embedded snippet is `EUPL-1.2`, its built-in compatibility provisions allow you to license your combined project under `GPL-3.0` if your project ecosystem requires it, resolving license conflicts without violating EUPL terms.
+
+* **Downstream Obligations**: Anyone who receives, modifies, or distributes your repository must receive full access to the source code under the same copyleft license terms (`GPL-3.0` or `EUPL-1.2`) and preserve all copyright notices.
+
+* **Allowed Inbound Snippets**: Because your overall repository is now governed by a copyleft license, you can safely embed code from **permissive sources** (MIT, BSD, Apache-2.0, CC0) as well as **compatible copyleft sources**. You cannot embed proprietary, closed-source code or snippets from incompatible copyleft licenses.
+
+* **In-File Identification (SPDX)**: Mark your overall file license and clearly cite the embedded copyleft snippet using SPDX comments:
+
+```python
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) 2026 Author Name <author@institute.eu>
+
+# --- Embedded Copyleft Snippet ---
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) 2023 External Researcher <researcher@university.org>
+def optimized_fft_filter(data_signal):
+    # Embedded copyleft algorithm implementation
+    return np.fft.fft(data_signal)
+# --- End Embedded Snippet ---
+
+def main():
+    pass
+```
+:::
+::::
+
+## Module 3: Dependency Linking & Packaging
+
+When software incorporates external dependencies, whether by dynamic linking, static compiling, or bundling binaries into container images licensing obligations expand beyond your own written source code. This module covers how dependency boundaries, build automation scripts, and packaged container artifacts affect legal compliance under the Joinup Licensing Assistant (JLA) framework.
+
+---
+
+(scenario-5)=
+::::{exercise} Scenario 5: Linking against a GPL-licensed library
+You are developing an software application that imports or links against an external software library licensed under GPL-3.0 (e.g., importing a GPL Python package or linking a C/C++ static/shared library).
+
+* **Licensing Goal**: Ensure legal compliance while using copyleft libraries as core dependencies in your software project.
+* **Legal Reality**: Under mainstream copyright interpretation and the text of GPL-3.0, linking your code directly against a GPL library (whether statically or dynamically) creates a combined work. Consequently, the copyleft obligations of the external library extend to your entire repository.
+* **JLA Selection Strategy**: Because linking to a GPL library requires your distributed project to be released under matching reciprocal terms, you must configure JLA to mandate source code disclosure (`Disclose source`) and reciprocal licensing (`Copyleft/Share a.`).
+
+:::{solution}
+**What to select in the JLA interface:**
+
+1. **Can Column**: Select `Distribute`, `Modify/merge`, and `Commercial use`
+2. **Must Column**: Select `Incl. Copyright`, `Disclose source`, and `Copyleft/Share a.`
+3. **Support Column**: Select `OSI approved`
+
+* **JLA Filter Matches**: `GPL-3.0`, `EUPL-1.2`
+
+* **Linking Boundaries & License Selection (Legal Nuance)**: 
+  * **Why GPL forces copyleft**: Linking against a standard `GPL-3.0` library extends copyleft to your entire project. Your repository must adopt a compatible copyleft license (`GPL-3.0` or `EUPL-1.2`, which explicitly lists GPL-3.0 in its compatibility appendix).
+  * **Why LGPL or EUPL-1.2 libraries allow permissive licenses**: If the external library were licensed under `LGPL` (which has an explicit linking exemption) or `EUPL-1.2` (where linking across APIs under EU software law does not create a derivative work), copyleft would **not** extend to your application. In those cases, your own project could stay **permissively licensed** (e.g., MIT, Apache-2.0, BSD). Standard `GPL` is the key exception that forces your overall application to become copyleft.
+* **Downstream Obligations**: Downstream users who receive or run your application must receive full access to your source code under `GPL-3.0` (or `EUPL-1.2`), along with all upstream copyright notices and build scripts required to recompile the project.
+
+* **Allowed Inbound Code & Dependencies**: Your project can import or include other **permissively licensed** packages (MIT, BSD, Apache-2.0) and public domain waivers (CC0). However, all code linked together in the final executable or runtime environment must satisfy GPL compatibility.
+
+* **In-File Identification (SPDX)**: Apply standard machine-readable SPDX identifier comments directly at the top of your main scripts:
+
+```python
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (c) 2026 Author Name <author@institute.eu>
+
+import gpl_licensed_solver  # External GPL dependency forces GPL/EUPL compliance
+
+def solve_system(data):
+    return gpl_licensed_solver.compute(data)
+```
+:::
+::::
+
+---
+
+(scenario-6)=
+::::{exercise} Scenario 6: Authoring container recipes and environment specifications
+You are creating a `Dockerfile`, Conda `environment.yml`, or build recipe to automate the setup of your research environment. The recipe itself contains setup instructions, shell commands, and package lists.
+
+* **Licensing Goal**: You want **maximum adoption** and reuse of your build automation script so other researchers can freely adapt and build upon your workflow.
+* **Legal Reality**: Build recipes and configuration scripts are plain-text source code separate from the software binaries they download at execution time. You hold copyright over the unique build instructions you write in the Dockerfile.
+* **JLA Selection Strategy**: To allow anyone to reuse or adapt your container recipe without restrictions, you require citation credit (`Incl. Copyright`) while leaving reciprocal requirements (`Copyleft/Share a.`) unselected.
+
+:::{solution}
+**What to select in the JLA interface:**
+
+1. **Can Column**: Select `Distribute`, `Modify/merge`, and `Commercial use`
+2. **Must Column**: Select `Incl. Copyright`
+3. **Support Column**: Select `OSI approved`
+
+* **JLA Filter Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
+
+* **Recipe vs. Image Nuance**: The license applied to a `Dockerfile` covers only the recipe instructions, not the software packages installed inside the container when `docker build` runs. A permissively licensed Dockerfile can install both permissive and copyleft packages without legal conflict.
+
+* **Downstream Obligations**: Anyone who reuses or adapts your build recipe must preserve your original copyright notice in the header of the recipe file.
+
+* **Allowed Inbound Snippets**: You can freely include build commands and code snippets from permissively licensed build scripts or public domain code. 
+
+* **In-File Identification (SPDX)**: Place SPDX identifier comments at the top of your Dockerfile or recipe file:
+
+```dockerfile
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Author Name <author@institute.eu>
+
+FROM ubuntu:24.04
+RUN apt-get update && apt-get install -y python3 python3-pip
+COPY solver.py /app/solver.py
+```
+:::
+::::
+
+---
+
+(scenario-7)=
+::::{exercise} Scenario 7: Distributing pre-built container images
+You compiled and published a pre-built container image (e.g., pushing a compiled Docker image to Docker Hub, GitHub Container Registry, or an institutional registry) containing an OS layer, runtime binaries, dependencies, and your application code.
+
+* **Licensing Goal**: Safely distribute compiled container images without violating the license terms of any software layer or binary included inside the image.
+* **Legal Reality**: A compiled container image is a **multi-license aggregate bundle**. Distributing pre-built binaries triggers source-code distribution obligations for any copyleft software (e.g., Linux base packages, coreutils, GPL libraries) pre-installed inside the image layers.
+* **JLA Selection Strategy**: Because a container image combines multiple distinct software components, JLA is used to evaluate constituent component obligations. When distributing compiled binaries containing copyleft layers, source disclosure requirements (`Disclose source`) must be fulfilled for those specific layers.
+
+:::{solution}
+**What to select in the JLA interface:**
+
+1. **Can Column**: Select `Distribute` and `Commercial use`
+2. **Must Column**: Select `Incl. Copyright` and `Disclose source`
+3. **Support Column**: Select `OSI approved`
+
+* **JLA Filter Matches**: `Multi-License Bundle` (Governed by constituent package terms)
+
+* **Multi-License Aggregation Nuance**: Applying a permissive license (like MIT) to your application code inside the container does not override or erase the GPL/LGPL obligations of base system packages installed in `/usr/lib` or `/usr/bin`. Distributing the built image binary makes you a distributor of all installed packages.
+
+* **Downstream Obligations**: You must ensure that downstream users can obtain the source code for copyleft components shipped inside the image, typically by publishing the `Dockerfile` and build steps used to generate the image from public upstream sources.
+
+* **Allowed Inbound Packages**: Before publishing an image binary, run automated compliance scanning tools (e.g., Syft, Trivy) to generate a Software Bill of Materials (SBOM) and verify that no non-redistributable or proprietary software is packaged inside.
+
+* **In-File Identification (Metadata Annotations)**: Document the multi-license nature of the aggregate bundle using standard OCI (Open Container Initiative) image labels inside your Dockerfile:
+
+```dockerfile
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Author Name <author@institute.eu>
+
+FROM ubuntu:24.04
+LABEL org.opencontainers.image.authors="author@institute.eu"
+# OCI Standard Image Annotations for Docker Hub Compliance
+LABEL org.opencontainers.image.title="My Research Pipeline"
+LABEL org.opencontainers.image.licenses="MIT AND GPL-3.0-or-later"
+LABEL org.opencontainers.image.vendor="My Institute Name"
+LABEL org.opencontainers.image.description="Includes Ubuntu 24.04 base layers (GPL/LGPL) and custom solver (MIT)"
+
+COPY solver.py /app/solver.py
+```
+:::
+::::
+
+
 ## Best Practices: Attaching a License to Your Repository
 
 Once you have selected a license using the JLA, you must officially attach it to your repository so automated scanners, package registries, and downstream researchers can verify your terms.
@@ -362,7 +537,6 @@ Always place the full text of your chosen license in a plain-text file named `LI
   ```
 * **Do Not Edit Terms**: Never modify the legal wording of standard licenses (e.g., removing clauses from GPL or MIT). Custom license edits create *non-standard* legal texts that compliance scanners cannot parse, defaulting your repository back to restricted status.
 
----
 
 ### 2. Documenting License Status in `README.md`
 
@@ -376,7 +550,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ```
 
----
 
 ### 3. Automated Compliance with the REUSE Standard
 
