@@ -256,7 +256,7 @@ You wrote an original algorithm from scratch (in Python, C++, Rust, etc.). Your 
 2. **Must Column**: Select `Incl. Copyright`
 3. **Support Column**: Select `OSI approved`
 
-* **JLA Filter Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
+* **Example JLA Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
 
 * **Permissive vs. Public Domain (EU Civil Law Nuance)**: Public domain dedications (e.g., `CC0`, `Unlicense`) attempt to give away all rights. However, under EU civil law, authors cannot legally give up their moral rights (*droit moral*). Selecting an explicit permissive license like `MIT` or `Apache-2.0` grants broad permissions globally, remains legally valid under European copyright law, and guarantees academic citation credit.
 
@@ -290,7 +290,7 @@ You developed a custom mathematical solver implementing algorithms from academic
 2. **Must Column**: Select `Incl. Copyright`, `Disclose source`, and `Copyleft/Share a.`
 3. **Support Column**: Select `OSI approved`
 
-* **JLA Filter Matches**: `EUPL-1.2`, `GPL-3.0`, `AGPL-3.0`
+* **Example JLA Matches**: `EUPL-1.2`, `GPL-3.0`, `AGPL-3.0`
 
 * **Copyleft Mechanics (EUPL vs. GPL Nuance)**: `GPL-3.0` is the standard global copyleft license, but `EUPL-1.2` is specifically tailored for European institutions. EUPL-1.2 is officially published in 23 EU language versions (each with equal legal validity), includes built-in compatibility clauses with GPL, and explicitly defaults to EU Member State jurisdiction and courts.
 
@@ -329,7 +329,7 @@ You are building an RSE tool and copied a helper function or utility snippet fro
 2. **Must Column**: Select `Incl. Copyright`
 3. **Support Column**: Select `OSI approved`
 
-* **JLA Filter Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
+* **Example JLA Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
 
 * **Notice Preservation Nuance**: Permissive licenses are flexible, but they are not license-free. If you copy code from an Apache-2.0 or BSD-3-Clause project into your MIT-licensed repository, you must retain the original author's copyright statement and license identifier directly above the embedded code block.
 
@@ -372,7 +372,7 @@ You are building an software tool and copied a non-trivial code snippet from a t
 2. **Must Column**: Select `Incl. Copyright`, `Disclose source`, and `Copyleft/Share a.`
 3. **Support Column**: Select `OSI approved`
 
-* **JLA Filter Matches**: `GPL-3.0`, `EUPL-1.2`
+* **Example JLA Matches**: `GPL-3.0`, `EUPL-1.2`
 
 * **Copyleft Scope & EUPL Compatibility (Legal Nuance)**: Directly copying copyleft code into your source files extends the copyleft obligation to your entire codebase. If the embedded snippet is `EUPL-1.2`, its built-in compatibility provisions allow you to license your combined project under `GPL-3.0` if your project ecosystem requires it, resolving license conflicts without violating EUPL terms.
 
@@ -419,7 +419,7 @@ You are developing an software application that imports or links against an exte
 2. **Must Column**: Select `Incl. Copyright`, `Disclose source`, and `Copyleft/Share a.`
 3. **Support Column**: Select `OSI approved`
 
-* **JLA Filter Matches**: `GPL-3.0`, `EUPL-1.2`
+* **Example JLA Matches**: `GPL-3.0`, `EUPL-1.2`
 
 * **Linking Boundaries & License Selection (Legal Nuance)**: 
   * **Why GPL forces copyleft**: Linking against a standard `GPL-3.0` library extends copyleft to your entire project. Your repository must adopt a compatible copyleft license (`GPL-3.0` or `EUPL-1.2`, which explicitly lists GPL-3.0 in its compatibility appendix).
@@ -459,7 +459,7 @@ You are creating a `Dockerfile`, Conda `environment.yml`, or build recipe to aut
 2. **Must Column**: Select `Incl. Copyright`
 3. **Support Column**: Select `OSI approved`
 
-* **JLA Filter Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
+* **Example JLA Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
 
 * **Recipe vs. Image Nuance**: The license applied to a `Dockerfile` covers only the recipe instructions, not the software packages installed inside the container when `docker build` runs. A permissively licensed Dockerfile can install both permissive and copyleft packages without legal conflict.
 
@@ -497,7 +497,7 @@ You compiled and published a pre-built container image (e.g., pushing a compiled
 2. **Must Column**: Select `Incl. Copyright` and `Disclose source`
 3. **Support Column**: Select `OSI approved`
 
-* **JLA Filter Matches**: `Multi-License Bundle` (Governed by constituent package terms)
+* **Example JLA Matches**: `Multi-License Bundle` (Governed by constituent package terms)
 
 * **Multi-License Aggregation Nuance**: Applying a permissive license (like MIT) to your application code inside the container does not override or erase the GPL/LGPL obligations of base system packages installed in `/usr/lib` or `/usr/bin`. Distributing the built image binary makes you a distributor of all installed packages.
 
@@ -545,7 +545,7 @@ You used AI tools (e.g., GitHub Copilot, ChatGPT, Claude) to write functions, un
 2. **Must Column**: Select `Incl. Copyright`
 3. **Support Column**: Select `OSI approved`
 
-* **JLA Filter Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
+* **Example JLA Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
 
 * **AI Code Generation & Verification Nuance**: Because non-human AI output cannot hold copyright, your copyright applies to the overall project structure, human-written logic, and creative choices. To protect your repository against accidental copyright infringement or copyleft contamination from AI memorization, turn on public code matching filters in your AI tools and run automated code-similarity scanners before releasing your repository.
 
@@ -583,7 +583,7 @@ You are developing research software that includes source code alongside trained
 2. **Must Column**: Select `Incl. Copyright`
 3. **Support Column**: Select `OSI approved`
 
-* **JLA Filter Matches**: `MIT`, `Apache-2.0` (for the code component)
+* **Example JLA Matches**: `MIT`, `Apache-2.0` (for the code component)
 
 * **Code vs. Data/Weights & OpenRAIL Nuance**: Never apply software licenses like GPL or MIT to raw datasets or model weights. Use **CC-BY-4.0** or **CC0** for non-code assets. Additionally, behavioral licenses (such as OpenRAIL) impose usage restrictions (e.g., prohibiting specific harmful uses), which means they do **not** qualify as OSI-approved open-source software and cannot be filtered via standard JLA open-source queries.
 
