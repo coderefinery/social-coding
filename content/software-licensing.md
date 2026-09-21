@@ -55,7 +55,7 @@ comply with terms attached to code written by others (inbound reuse).
 ```{mermaid}
 %%{init: {'themeVariables': { 'edgeLabelBackground': '#faf5ff' }}}%%
 
-flowchart LR
+flowchart TB
 
   subgraph box["How License Selection Governs Code Reuse"]
     A["<b>Your Research Codebase </b></><i>(Source code, container recipes, prompt templates)</i>"] -->|"No License Attached</>(Statutory Default)"| B["<b>All Rights Reserved</b></>❌ Zero permissions: Cannot run, modify, or share"]
