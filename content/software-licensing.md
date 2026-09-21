@@ -191,7 +191,7 @@ which is why this lesson equips you with a direct, EU-aligned framework for soft
 
 
 
-### Standardizing In-File Declarations: SPDX Identifiers
+## Standardizing In-File Declarations: SPDX Identifiers
 
 Selecting a license is only half the battle; automated scanners and CI/CD pipelines need a machine-readable way to verify license compliance per file without parsing long legal texts.
 
@@ -205,14 +205,14 @@ Managed by the Linux Foundation, **SPDX identifiers** (Software Package Data Exc
 Throughout the exercise scenarios below, look for the **In-File Identification (SPDX)** callouts to see how these tags apply directly to Python scripts, container recipes, and engineered prompt templates.
 
 
-### License Selection Decision Matrix & Scenario Index
+## License Selection Decision Matrix & Scenario Index
 
 To help you navigate open-source compliance, the matrix below serves as an upfront 
 quick-reference summary and interactive index for the core licensing scenarios 
 encountered in research software engineering. 
 
 
-* [Joinup Licensing Assistant (JLA)](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses)
+### [Joinup Licensing Assistant (JLA)](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses)
   *  Our decision framework is grounded in the European Commission's **JLA**, which evaluates software 
      assets across six criteria categories: 
        * Can (Permissions)
