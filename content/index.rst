@@ -40,7 +40,7 @@ navigating and deciding on licenses.
    :delim: ;
 
    20 min ; :doc:`social-coding`
-   90 min ; :doc:`software-licensing`
+   45 min ; :doc:`software-licensing`
    20 min ; :doc:`software-citation`
    10 min ; :doc:`sharing-data`
 
