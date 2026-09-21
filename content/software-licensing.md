@@ -211,10 +211,16 @@ To help you navigate open-source compliance, the matrix below serves as an upfro
 quick-reference summary and interactive index for the core licensing scenarios 
 encountered in research software engineering. 
 
-Our decision framework is grounded in the European Commission's **Joinup Licensing Assistant (JLA)**, 
-which evaluates software assets across six criteria categories: **Can** (Permissions), 
-**Must** (Obligations), **Cannot** (Restrictions), **Compatible** (Interoperability), 
-**Law** (Jurisdiction), and **Support** (Governance).
+
+* [Joinup Licensing Assistant (JLA)](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses)
+  *  Our decision framework is grounded in the European Commission's **JLA**, which evaluates software 
+     assets across six criteria categories: 
+       * Can (Permissions)
+       * Must (Obligations)
+       * Cannot (Restrictions)
+       * Compatible** (Interoperability)
+       * Law (Jurisdiction)
+       * Support(Governance)
 
 Use this index to preview the demonstrated path for each scenario, or click any module link to jump 
 directly to its detailed exercise, legal analysis, and JLA selection instructions.
@@ -222,7 +228,7 @@ directly to its detailed exercise, legal analysis, and JLA selection instruction
 | Scenario Module | Demonstrated Path / Focus | Compliant Target Licenses |
 | :--- | :--- | :--- |
 | [**1. Own Code**](#scenario-1) | 🟢 Permissive *(Default Choice)* | `MIT`, `Apache-2.0`, `BSD-3-Clause` |
-| [**2. Math Implementation**](#scenario-2) | 🟡 Copyleft / Reciprocal | `EUPL-1.2`, `GPL-3.0`, `AGPL-3.0` |
+| [**2. Implement an algorithm**](#scenario-2) | 🟡 Copyleft / Reciprocal | `EUPL-1.2`, `GPL-3.0`, `AGPL-3.0` |
 | [**3. Embed Permissive**](#scenario-3) | 🟢 Permissive Focus *(Copyleft Flexible)* | `MIT`, `Apache-2.0`, `EUPL-1.2`, `GPL-3.0` |
 | [**4. Embed Copyleft**](#scenario-4) | 🟡 Mandatory Copyleft | `EUPL-1.2`, `GPL-3.0` |
 | [**5. Link GPL Library**](#scenario-5) | 🟡 Mandatory Copyleft | `GPL-3.0`, `EUPL-1.2` |
