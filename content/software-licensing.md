@@ -189,6 +189,15 @@ face a different legal reality related to exceptions, author ownership, and code
 Relying blindly on AI legal advice creates significant compliance blind spots, 
 which is why this lesson equips you with a direct, EU-aligned framework for software licensing.
 
+```{discussion} Terminology Trap: "Derivative Work" (US) vs. "Adaptation" (EU)
+
+When searching online or asking AI coding assistants about software modification, you will almost always encounter the term **"derivative work"**. Understanding the origin of this term is crucial for EU-based software developers:
+
+* **US Common Law (17 U.S.C. § 101)**: Formally defines and uses the term *"Derivative Work"*. Because AI models and search engines are heavily trained on US web data, AI assistants default to using "derivative work" for almost any code modification.
+* **EU Statutory Law (Directive 2009/24/EC, Art. 4(1)(b))**: Does **not** use or recognize the term "derivative work". Instead, EU software copyright grants exclusive rights over **"translation, adaptation, arrangement, and any other alteration "**collectively governed under EU law as an **adaptation**.
+* **Why Licenses Use "Derivative Work"**: License contracts like `EUPL-1.2` or `GPL-3.0` define "Derivative Works" within their legal text as a contractual term to ensure international enforceability across jurisdictions, even though EU statutes govern the act as an *adaptation*.
+
+**Key Takeaway**: When AI tells you that a snippet or linked library creates a "derivative work", remember that under EU law you must evaluate whether the modification constitutes a statutory **adaptation** or a **combined work** across API boundaries.
 
 
 ## Standardizing In-File Declarations: SPDX Identifiers
