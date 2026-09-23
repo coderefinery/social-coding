@@ -41,12 +41,12 @@ comply with terms attached to code written by others (inbound reuse).
 
 * Open-source licenses fall into two main families:
 
-    * **Permissive (e.g., MIT, Apache-2.0, 0BSD):** *Do whatever you want, just keep crediti*. 
+    * **Permissive (e.g., MIT, Apache-2.0, 0BSD):** *Do whatever you want, just keep credit*. 
       Grants maximum reuse freedom, allowing anyone to modify, embed, or re-license your code 
       in open or closed projects.
 
     * **Copyleft/Reciprocal (e.g., GPL-3.0, EUPL-1.2):** *Share alike.* Grants full freedom 
-      to run and modify, but mandates that any distributed derivative or combined work must 
+      to run and modify, but mandates that any distributed adaptations or combined work must 
       also be released under matching copyleft terms. Often informally referred to as *viral* 
       or *infectious* because its open-source requirements propagate across code boundaries 
       (such as embedding snippets or static linking) into downstream projects. The diagram 
@@ -281,7 +281,7 @@ You developed a custom mathematical solver implementing algorithms from academic
 
 * **Licensing Goal**: You want to enforce **reciprocity** (share-alike), preventing third parties from incorporating your algorithm into proprietary, closed-source software without sharing their modifications.
 * **Legal Reality**: Mathematical concepts and formulas themselves are not copyrightable, but your specific code implementation is fully protected by copyright. Applying a copyleft license legally binds anyone who distributes modified versions of your implementation to release their source code under matching reciprocal terms.
-* **JLA Selection Strategy**: To enforce reciprocal sharing, you must mandate that downstream distributors disclose their modified source code (`Disclose source`) and license their derivative works under matching terms (`Copyleft/Share a.`).
+* **JLA Selection Strategy**: To enforce reciprocal sharing, you must mandate that downstream distributors disclose their modified source code (`Disclose source`) and license their adaptations or combined worrks under matching terms (`Copyleft/Share a.`).
 
 :::{solution}
 **What to select in the JLA interface:**
@@ -423,7 +423,7 @@ You are developing an software application that imports or links against an exte
 
 * **Linking Boundaries & License Selection (Legal Nuance)**: 
   * **Why GPL forces copyleft**: Linking against a standard `GPL-3.0` library extends copyleft to your entire project. Your repository must adopt a compatible copyleft license (`GPL-3.0` or `EUPL-1.2`, which explicitly lists GPL-3.0 in its compatibility appendix).
-  * **Why LGPL or EUPL-1.2 libraries allow permissive licenses**: If the external library is licensed under `LGPL` (which includes an explicit linking exception) or `EUPL-1.2` (where European Commission guidance takes the position that dynamically linking an EUPL work through its API does not by itself create a derivative work), copyleft does not extend to your application. In these dynamic linking scenarios, your own project can stay **permissively licensed** (e.g., MIT, Apache-2.0, BSD). However, note that this EUPL stance reflects Commission guidance rather than settled CJEU case law, and static linking or direct code incorporation continues to trigger EUPL copyleft obligations.
+  * **Why LGPL or EUPL-1.2 libraries allow permissive licenses**: If the external library is licensed under `LGPL` (which includes an explicit linking exception) or `EUPL-1.2` (where European Commission guidance takes the position that dynamically linking an EUPL work through its API does not by itself create a adaptation work), copyleft does not extend to your application. In these dynamic linking scenarios, your own project can stay **permissively licensed** (e.g., MIT, Apache-2.0, BSD). However, note that this EUPL stance reflects Commission guidance rather than settled CJEU case law, and static linking or direct code incorporation continues to trigger EUPL copyleft obligations.
 
 * **Downstream Obligations**: Downstream users who receive or run your application must receive full access to your source code under `GPL-3.0` (or `EUPL-1.2`), along with all upstream copyright notices and build scripts required to recompile the project.
 
