@@ -55,37 +55,53 @@ The diagram below unifies these license choices and their downstream rights:
 flowchart TB
 
   subgraph box["How License Selection Governs Code Reuse"]
-    A["<b>Your Research Codebase </b></><i>(Source code, container recipes, prompt templates)</i>"] -->|"No License Attached</>(Statutory Default)"| B["<b>All Rights Reserved</b></>❌ Zero permissions: Cannot run, modify, or share"]
+    A["<b>Your Research Codebase</b><br/><i>(Source code, container recipes, prompt templates)</i>"] -->|"No License Attached<br/>(Statutory Default)"| B["<b>All Rights Reserved</b><br/>❌ Zero permissions: Cannot run, modify, or share"]
 
-    A -->|"Attach License</>(Explicit Permission Grant)"| C{"Select License"}
+    A -->|"Attach License<br/>(Explicit Permission Grant)"| C{"Select License"}
 
-    C -->|"Goal: Maximum adoption & unrestricted reuse"| D["<b>Permissive License</b>"]
-    C -->|"Goal: Ensure changes stay open-source (Reciprocity)"| E["<b>Copyleft License</b>"]
-    C -->|"Goal: Proprietary control & restricted access"| F["<b>Closed Source / Restricted</b></>🚫 <i>Flavour not discussed in this lesson</i>"]
+    C -->|"Goal: Maximum adoption & unrestricted reuse"| D["<b>Permissive</b><br/><i>MIT, Apache-2.0, 0BSD</i>"]
+    C -->|"Goal: Keep the library open, allow closed users"| W["<b>Weak Copyleft</b><br/><i>LGPL-3.0, MPL-2.0, EPL-2.0</i>"]
+    C -->|"Goal: Ensure changes stay open-source (Reciprocity)"| E["<b>Copyleft</b><br/><i>GPL-3.0, EUPL-1.2</i>"]
+    C -->|"Goal: Proprietary control & restricted access"| F["<b>Closed Source / Restricted</b><br/>🚫 <i>Not discussed in this lesson</i>"]
 
-    D --> D1["Run & Modify? <b>Yes!</b>"]
-    D --> D2["Embed in closed product? <b>Yes!</b>"]
-    D --> D3["Must changes stay open? <b>No</b> (Optional)"]
+    D --> D1["Run & Modify? <b>Yes</b>"]
+    D --> D2["Embed in closed product? <b>Yes</b>"]
+    D --> D3["Must changes stay open? <b>No</b> (optional)"]
 
-    E --> E1["Run & Modify? <b>Yes!</b>"]
-    E --> E2["Embed in closed product? <b>No!</b>"]
-    E --> E3["Must changes stay open? <b>Yes!</b> (Mandatory)"]
-  end  
+    W --> W1["Run & Modify? <b>Yes</b>"]
+    W --> W2["Embed in closed product? <b>Yes, with conditions</b>"]
+    W --> W3["Must changes stay open? <b>Only the covered file or library</b>"]
+
+    E --> E1["Run & Modify? <b>Yes</b>"]
+    E --> E2["Embed in closed product? <b>No</b>"]
+    E --> E3["Must changes stay open? <b>Yes</b> (mandatory)"]
+  end
+
+  G["<b>Reciprocity only triggers on distribution</b><br/>Running modified code internally creates no obligation"]
+  E -.-> G
+  W -.-> G
+
    classDef green fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
    classDef red fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
    classDef yellow fill:#fff9db,stroke:#f59f00,stroke-width:2px,color:#5c3c00;
-   classDef white fill:#f8f9fa,stroke:#adb
+   classDef amber fill:#fff3bf,stroke:#f08c00,stroke-width:2px,color:#5c3c00;
+   classDef white fill:#f8f9fa,stroke:#adb5bd,stroke-width:2px,color:#212529;
    classDef dashed fill:#f8f9fa,stroke:#adb5bd,stroke-width:2px,stroke-dasharray: 5 5,color:#000000;
    classDef dashed_red fill:#ffe3e3,stroke:#adb5bd,stroke-width:2px,stroke-dasharray: 5 5,color:#000000;
-   classDef defaultState fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
+   classDef note fill:#ffffff,stroke:#868e96,stroke-width:1px,stroke-dasharray: 3 3,color:#212529;
    classDef box_fill fill:#ffffff,stroke:#adb5bd,stroke-width:1px;
-    
-   class D1,D2,D3,E1,E3 green;
+
+   class D1,D2,D3,W1,E1 green;
+   class W2,W3 amber;
    class E2 red;
-   class D,E yellow;
+   class E3 green;
+   class D yellow;
+   class W amber;
+   class E yellow;
    class F dashed;
    class B dashed_red;
    class A,C white;
+   class G note;
    class box box_fill;
 ```
 
