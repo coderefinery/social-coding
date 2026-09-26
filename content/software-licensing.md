@@ -214,21 +214,21 @@ Our decision framework is grounded in the European Commission's **[Joinup Licens
 
 The scenarios below are independent. Find the row that matches what you are actually building, jump to it, and skip the rest.
 
-| Scenario Module | Demonstrated Path / Focus | Compliant Target Licenses |
-| :--- | :--- | :--- |
-| [**1. Own Code**](#scenario-1) | 🟢 Permissive *(Default Choice)* | `MIT`, `Apache-2.0`, `BSD-3-Clause` |
-| [**2. Implement an algorithm**](#scenario-2) | 🟡 Copyleft / Reciprocal | `EUPL-1.2`, `GPL-3.0`, `AGPL-3.0` |
-| [**3. Embed Permissive**](#scenario-3) | 🟢 Permissive Focus *(Copyleft Flexible)* | `MIT`, `Apache-2.0`, `EUPL-1.2`, `GPL-3.0` |
-| [**4. Embed Copyleft**](#scenario-4) | 🟡 Mandatory Copyleft | `EUPL-1.2`, `GPL-3.0` |
-| [**5. Link GPL Library**](#scenario-5) | 🟡 Mandatory Copyleft | `GPL-3.0`, `EUPL-1.2` |
-| [**6. Container Recipe**](#scenario-6) | 🟢 Permissive Focus | `MIT`, `Apache-2.0`, `BSD-3-Clause` |
-| [**7. Built Image**](#scenario-7) | ⚠️ Multi-License Bundle | Governed by individual layer/binary terms |
-| [**8. AI-Assisted Code**](#scenario-8) | 🟢 Permissive Focus *(Author Choice)* | `MIT`, `Apache-2.0`, `EUPL-1.2`, `GPL-3.0` |
-| [**9. Prompt Chaining Architecture**](#scenario-9) | 🟢 Permissive Focus | `MIT`, `Apache-2.0` |
+| If you are... | Scenario | Typical Outcome | Example Licenses |
+| :--- | :--- | :--- | :--- |
+| Writing everything yourself | [**1. Own code**](#scenario-1) | 🟢 Free choice | `MIT`, `Apache-2.0`, `BSD-3-Clause` |
+| Implementing a published algorithm | [**2. Algorithm implementation**](#scenario-2) | 🟢 Free choice — copyleft if you want reciprocity | `EUPL-1.2`, `GPL-3.0`, `AGPL-3.0` |
+| Pasting in a permissive snippet | [**3. Embed permissive**](#scenario-3) | 🟢 Stay permissive, keep notices | `MIT`, `Apache-2.0`, `EUPL-1.2`, `GPL-3.0` |
+| Pasting in a copyleft snippet | [**4. Embed copyleft**](#scenario-4) | 🟡 Strong copyleft likely required | `EUPL-1.2`, `GPL-3.0` |
+| Importing or linking a library | [**5. Link a library**](#scenario-5) | 🟡 Depends on which copyleft — see below | `GPL-3.0`, `EUPL-1.2`, or permissive if weak copyleft |
+| Writing a Dockerfile or `.def` | [**6. Container recipe**](#scenario-6) | 🟢 Free choice | `MIT`, `Apache-2.0`, `BSD-3-Clause` |
+| Publishing a built image | [**7. Built image**](#scenario-7) | ⚠️ Multi-license bundle | Governed by each layer's own terms |
+| Using Copilot, ChatGPT or Claude | [**8. AI-assisted code**](#scenario-8) | 🟢 Free choice, verify for memorization | `MIT`, `Apache-2.0`, `EUPL-1.2`, `GPL-3.0` |
+| Shipping prompts, weights or datasets | [**9. AI workflows & assets**](#scenario-9) | 🟢 Dual-license code vs. assets | `MIT` + `CC-BY-4.0` |
 
-### Module 1: Clean Slate – Authoring Original Code & Algorithms
+## Module 1: Clean Slate – Authoring Original Code & Algorithms
 
-When writing original code or implementing published mathematical logic, you control 100% of your copyright.
+When writing original code or implementing published algorithms, no third-party license constrains your choice — but who owns the code depends on your employment contract and national rules, so check your institution's policy first.
 
 (scenario-1)=
 ::::{exercise} Scenario 1: Authoring original code and algorithms
@@ -251,7 +251,7 @@ You wrote an original algorithm from scratch (in Python, C++, Rust, etc.). Your 
 
 * **Downstream Obligations**: Anyone who reuses, modifies, or integrates your code into their work must preserve your copyright notice and license text. They are not required to share their modifications or open-source their downstream projects.
 
-* **Allowed Inbound Snippets**: If you want to include small third-party code snippets in your files, you can freely embed code licensed under **permissive terms** (e.g., MIT, BSD, Apache-2.0, 0BSD) or public domain waivers (CC0) without affecting your permissive license. However, embedding copyleft snippets (e.g., GPL, EUPL) will trigger reciprocal obligations, forcing your entire repository to be re-licensed under those copyleft terms.
+* **Allowed Inbound Snippets**: If you want to include small third-party code snippets in your files, you can freely embed code licensed under **permissive terms** (e.g., MIT, BSD, Apache-2.0, 0BSD) or public domain waivers (CC0) without affecting your permissive license. However, embedding copyleft snippets (e.g., GPL, EUPL) might trigger reciprocal obligations, forcing your entire repository to be re-licensed under those copyleft terms.
 
 * **In-File Identification (SPDX)**: Apply standard machine-readable SPDX identifier comments directly at the top of your scripts:
 
