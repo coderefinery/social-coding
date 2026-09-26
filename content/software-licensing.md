@@ -13,7 +13,7 @@
 
 This lesson is designed as practical educational material for researchers and research software engineers, **not formal legal advice**
 
-* Regional Focus: Guidance is grounded in EU statutory directives, European institutional frameworks and developers based in Europe with a global focus. At the same time EU has directives they only set the minimum requirements in some aspects, but Member states may have different implementations and additional regulation that are not covered here e.g. some member states have made exceptions so that University researchers retain their ownership to computer programs thus are not treated like employees
+* EU directives set only minimum requirements in some areas: Member States implement them differently and may add national rules not covered here. For example, some Member States let university researchers retain ownership of the programs they write instead of applying the employer rule in Art. 2(3).
 * Institutional Context: Employment contracts, grant agreements, and university policies heavily influence software ownership and licensing choices.
 * This lesson covers only the general principles of open-source reuse, copyright scope, and software adaptation. 
 
@@ -29,11 +29,9 @@ If you need formal guidance references below and legal experts, especially if yo
 
 ## Introduction: What is a Software License?
 
-Under copyright law worldwide, software without an explicit license automatically
-defaults to *All Rights Reserved*: meaning nobody else has the legal right to run,
-modify, embed, or cite your code. A software license is a legal permission grant
-created by the author that overrides this statutory default, defining how 
-downstream researchers can reuse your work.
+Under copyright law worldwide, software without an explicit license defaults to All Rights Reserved: nobody else may run, copy, modify, distribute, or build on your code. A software license is how the copyright holder exercises their exclusive rights, granting others permission to reproduce, distribute, modify, and sometimes sublicense the work.
+
+Note that author and copyright holder may differ: under Art. 2(3), an employer exercises the economic rights in code written by an employee on the job, unless a contract says otherwise. The employee is still the author; the employer is who licenses it.
 
 In this lesson, we focus on open-source licenses to define both how we grant 
 permissions for software we develop (outbound licensing) and how we safely 
@@ -621,7 +619,7 @@ def load_pipeline():
 
 ## Best Practices: Attaching a License to Your Repository
 
-Once you have selected a license using the JLA, you must officially attach it to your repository so automated scanners, package registries, and downstream researchers can verify your terms.
+Once you have selected a license using the JLA, you must officially attach it to your repository so automated scanners, package registries, and downstream users can verify your terms.
 
 
 ### 1. Adding the Root `LICENSE` File
