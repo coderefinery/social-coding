@@ -534,8 +534,7 @@ You used AI tools (e.g., GitHub Copilot, ChatGPT, Claude) to write functions, un
 
 * **Example JLA Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
 
-* **AI Code Generation & Verification Nuance**: Because non-human AI output cannot hold copyright, your copyright applies to the overall project structure, human-written logic, and creative choices. To protect your repository against accidental copyright infringement or copyleft contamination from AI memorization, turn on public code matching filters in your AI tools and run automated code-similarity scanners before releasing your repository.
-
+* **Marking AI-generated code**: Some projects and AI tool terms require contributors to disclose AI involvement — via a commit trailer, a PR checkbox, or an in-file comment. Even where it is optional, marking AI-assisted sections is increasingly recommended practice: it records provenance, signals to reviewers where extra scrutiny is warranted, and makes later authorship or infringement questions much easier to resolve. Check the contribution guidelines of any project you submit to.
 * **Downstream Obligations**: Downstream users must preserve your copyright notice for the repository. They are free to reuse, modify, and integrate your code into commercial or open-source projects.
 
 * **Allowed Inbound Snippets**: You can include permissively licensed code, public domain code (CC0), and AI-generated snippets that have been verified against verbatim training data duplication.
@@ -560,7 +559,7 @@ def filter_sensor_data(raw_readings: list[float]) -> list[float]:
 You are developing research software that includes source code alongside trained machine learning model weights (`.pt`, `.safetensors`) and benchmark datasets.
 
 * **Licensing Goal**: Apply a clear **dual-licensing strategy** that makes both the software source code and the non-code assets (data, weights) open and reusable under appropriate legal frameworks.
-* **Legal Reality**: Standard open-source software licenses (MIT, GPL) are written specifically for source code and are legally ill-suited for datasets or neural network parameters. Under EU legal frameworks, datasets and model weights are governed by database rights (*sui generis* database protection) rather than traditional code copyright.
+* **Legal Reality**: Standard software licenses (MIT, GPL) are written for source code and fit datasets and model parameters poorly. Datasets may attract the EU *sui generis* database right where there has been substantial investment in obtaining, verifying, or presenting their contents. Model weights are a harder case: they are neither code nor a database, and whether they attract any copyright protection in the EU is genuinely unsettled. Because of this uncertainty, applying an explicit license to weights is about setting clear terms for your users, not about relying on a settled legal right.
 * **JLA Selection Strategy**: Use JLA to select an OSI-approved open-source license for the executable code component (`Incl. Copyright` selected), while using Creative Commons licenses (e.g., `CC-BY-4.0` or `CC0`) for the dataset and weight files.
 
 :::{solution}
@@ -572,7 +571,7 @@ You are developing research software that includes source code alongside trained
 
 * **Example JLA Matches**: `MIT`, `Apache-2.0` (for the code component)
 
-* **Code vs. Data/Weights & OpenRAIL Nuance**: Never apply software licenses like GPL or MIT to raw datasets or model weights. Use **CC-BY-4.0** or **CC0** for non-code assets. Additionally, behavioral licenses (such as OpenRAIL) impose usage restrictions (e.g., prohibiting specific harmful uses), which means they do **not** qualify as OSI-approved open-source software and cannot be filtered via standard JLA open-source queries.
+* **Code vs. Data/Weights & OpenRAIL Nuance**: Avoid applying software licenses like GPL or MIT to raw datasets or model weights — their terms reference source code, object code, and linking, which leaves users guessing about what applies. Use **CC-BY-4.0** or **CC0** for non-code assets instead. Note also that behavioral licenses (such as OpenRAIL) impose usage restrictions (e.g., prohibiting specific harmful uses), so they do **not** qualify as OSI-approved open source and will not appear in standard JLA queries.
 
 * **Downstream Obligations**: Downstream users must cite your repository for the code (under your chosen software license) and give credit for the model weights and data under the corresponding Creative Commons license.
 
@@ -687,4 +686,4 @@ flowchart TB
 * **Maintaining Permissive Defaults ([Scenario 1](#scenario-1) & [Scenario 3](#scenario-3))**: If you write original code or embed only permissively licensed snippets (MIT, Apache-2.0, BSD), selecting a permissive license (`MIT` or `Apache-2.0`) grants downstream users maximum adoption freedom while preserving your citation credit.
 * **Packaging and Build Automation ([Scenario 6](#scenario-6) & [Scenario 7](#scenario-7))**: Keep plain-text build recipes (Dockerfiles) permissively licensed for maximum reuse, while annotating compiled container image binaries as multi-license aggregate bundles to satisfy embedded base-layer obligations.
 * **AI Assets and Dual-Licensing ([Scenario 8](#scenario-8) & [Scenario 9](#scenario-9))**: Run code-similarity scanners to catch LLM training memorization before releasing AI-assisted code, and apply dual-licensing to separate executable software code (`MIT`) from non-code datasets and model weights (`CC-BY-4.0`).
-* **Standardized Distribution**: By adding machine-readable **SPDX headers** across every script, Dockerfile, and prompt template, running `reuse lint` in your pipeline confirms 100% legal clarity for the entire scientific community.<S-Del>
+* **Standardized Distribution**: By adding machine-readable **SPDX headers** across every script, Dockerfile, and prompt template, running `reuse lint` in your pipeline confirms 100% legal clarity for the entire scientific community.
