@@ -125,40 +125,40 @@ Across international frameworks (17 U.S.C. § 101 and WIPO model provisions), so
 * **AI-Assisted Code** — generated or refactored with human oversight.
 * **AI Prompt Templates** — engineered system prompts meeting the threshold of human authorship.
 
-
-
 ## Motivation: Debugging a License Compliance Failure
 
-With the understanding of the difference between Permissive and Copyleft licenses, 
-examine what happens when they collide inside an automated CI/CD pipeline:
+With the three license families in mind, examine what happens when they collide inside an automated CI/CD pipeline:
 
 ```{mermaid}
 %%{init: {'themeVariables': { 'edgeLabelBackground': '#faf5ff' }}}%%
 flowchart TB
 
     subgraph box["CI/CD License Compliance Debugging Pipeline"]
-        A[Paste snippet copyied from somewhere ] --> A2["<b>Build Trigger:</b>Push to my-code-base"]
-        A2["<b>Build Trigger:</b> Push to my-code-base"] --> B["Run Compliance Scanner"]
-        B --> C{"Check Inbound vs.</>Outbound Terms"}
-        
-        C -->|"Target License:Permissive</> but pasted snippet:Copyleft"| D["❌ <b>BUILD FAILURE</b><br/>Pasted copyleft snippet restricts MIT release"]
-        
-        D --> E{"Select Patch Option"}
-        
-        E -->|"Option A: Keep MIT & add comment '# Originally GPL'"| F["❌ <b>BUILD FAIL</b><br/>Comments do not override copyleft terms"]
-        E -->|"Option B: Re-license repo to GPL-3.0 / EUPL-1.2"| G["✅ <b>BUILD PASS</b><br/>Your license matches the pasted copyleft snippet"]
-        E -->|"Option C: Rewrite code from scratch to replace snippet"| H["✅ <b>BUILD PASS</b><br/>New code expression frees your target license"]
-        E -->|"Option D: Delete LICENSE file to bypass scanner"| I["⚠️ <b>PASSED SCANNER (LEGAL TRAP!)</b><br/>Infringes third-party copyright & locks own code to All Rights Reserved"]
+        A["Paste a snippet copied from somewhere"] --> A2["<b>Build Trigger:</b> Push to my-code-base"]
+        A2 --> B["Run Compliance Scanner"]
+        B --> C{"Check Inbound vs.<br/>Outbound Terms"}
 
-        P["<b>Permissive</b><br/>(MIT, Apache-2.0, 0BSD)</><i>'Do whatever you want, just keep credit'</i>"]
-        CL["<b>Copyleft / Reciprocal</b><br/>(GPL-3.0, EUPL-1.2)</><i>'Must share changes under same terms'</i>"]
+        C -->|"Target license: Permissive<br/>Pasted snippet: Copyleft"| D["❌ <b>BUILD FAILURE</b><br/>Pasted copyleft snippet blocks MIT release"]
+
+        D --> E{"Select Patch Option"}
+
+        E -->|"A: Keep MIT, add comment '# Originally GPL'"| F["❌ <b>BUILD FAIL</b><br/>Comments do not override license terms"]
+        E -->|"B: Re-license repo to GPL-3.0 / EUPL-1.2"| G["✅ <b>BUILD PASS</b><br/>Your license now matches the snippet"]
+        E -->|"C: Reimplement the functionality yourself"| H["✅ <b>BUILD PASS</b><br/>Your own expression, your own license"]
+        E -->|"D: Delete LICENSE file to silence the scanner"| I["⚠️ <b>SCANNER PASSES — LEGAL TRAP</b><br/>Still infringing, and your own code reverts to All Rights Reserved"]
+
+        P["<b>Permissive</b><br/>MIT, Apache-2.0, 0BSD"]
+        WC["<b>Weak Copyleft</b><br/>LGPL, MPL-2.0, EPL-2.0"]
+        CL["<b>Copyleft</b><br/>GPL-3.0, EUPL-1.2"]
     end
 
-    P -.->|"I want to use"| C
-    CL -.->|"Pasted code snippet uses"| C
+    P -.->|"What I want for my repo"| C
+    CL -.->|"What the pasted snippet uses"| C
+    WC -.->|"Would often have been fine"| C
 
     classDef pass fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
     classDef copyleft fill:#fff9db,stroke:#f59f00,stroke-width:2px,color:#5c3c00;
+    classDef amber fill:#fff3bf,stroke:#f08c00,stroke-width:2px,color:#5c3c00;
     classDef fail fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
     classDef warning fill:#fff3bf,stroke:#f08c00,stroke-width:2px,color:#5c0000;
     classDef neutral fill:#f8f9fa,stroke:#495057,stroke-width:2px,color:#212529;
@@ -166,11 +166,17 @@ flowchart TB
 
     class P,G,H pass;
     class CL copyleft;
+    class WC amber;
     class D,F fail;
     class I warning;
-    class A,B,C,E neutral;
+    class A,A2,B,C,E neutral;
     class box box_fill;
 ```
+
+* Option D is the one worth dwelling on: deleting the `LICENSE` file makes the scanner quiet without changing anything legally. You are still distributing someone else's copyleft code without honouring its terms, and you have now stripped your own users of any permission to use your work. A green pipeline is not a compliance result.
+
+* Option C works only if you genuinely reimplement the functionality without copying the original expression. As the idea/expression split above establishes, the algorithm is free to reuse — the specific code is not. Reading the original closely and retyping a close paraphrase is still copying.
+
 
 ## Limitations of AI-Assisted Licensing Advice
 
@@ -178,61 +184,35 @@ Modern software developers and RSEs routinely rely on AI coding assistants
 (ChatGPT, Claude, GitHub Copilot) to generate boilerplate, refactor functions, 
 and answer project setup questions. 
 
-However, using these tools for legal or licensing guidance introduces a subtle 
-risk of **AI legal bias** as AI models are overwhelmingly trained on US-centric 
-web data and legal forum posts, their outputs default almost universally 
-to **US common law concepts** such as *Fair Use*, *Work Made for Hire*, and 
-*Derivative Works*.
 
-In contrast, developers operating under EU statutory frameworks (such as Directive 2009/24/EC) 
-face a different legal reality related to exceptions, author ownership, and code adaptations. 
-Relying blindly on AI legal advice creates significant compliance blind spots, 
-which is why this lesson equips you with a direct, EU-aligned framework for software licensing.
+However, using these tools for legal or licensing guidance introduces a subtle risk of **AI legal bias**. AI models are overwhelmingly trained on US-centric web data and legal forum posts, so their outputs default almost universally to **US common law concepts** such as *Fair Use*, *Work Made for Hire*, and *Derivative Works*.
 
-```{discussion} Terminology Trap: "Derivative Work" (US) vs. "Adaptation" (EU)
+Developers working under EU statutory frameworks face a different legal reality around exceptions, ownership, and code adaptation. The clearest example is the term you will hear constantly:
 
-When searching online or asking AI coding assistants about software modification, you will almost always encounter the term **"derivative work"**. Understanding the origin of this term is crucial for EU-based software developers:
+* **US law (17 U.S.C. § 101)** formally defines *"derivative work"*, and AI assistants reach for it to describe almost any code modification.
+* **EU law (Directive 2009/24/EC, Art. 4(1)(b))** does not use that term at all. It grants exclusive rights over "the translation, adaptation, arrangement and any other alteration of a computer program" — governed collectively as an **adaptation**.
+* **Licenses use it anyway**: `GPL-3.0` and `EUPL-1.2` define "derivative work" inside their own text as a contractual term for international enforceability, even though EU statute treats the act as an adaptation.
 
-* **US Common Law (17 U.S.C. § 101)**: Formally defines and uses the term *"Derivative Work"*. Because AI models and search engines are heavily trained on US web data, AI assistants default to using "derivative work" for almost any code modification.
-* **EU Statutory Law (Directive 2009/24/EC, Art. 4(1)(b))**: Does **not** use or recognize the term "derivative work". Instead, EU software copyright grants exclusive rights over **"translation, adaptation, arrangement, and any other alteration "**collectively governed under EU law as an **adaptation**.
-* **Why Licenses Use "Derivative Work"**: License contracts like `EUPL-1.2` or `GPL-3.0` define "Derivative Works" within their legal text as a contractual term to ensure international enforceability across jurisdictions, even though EU statutes govern the act as an *adaptation*.
-
-**Key Takeaway**: When AI tells you that a snippet or linked library creates a "derivative work", remember that under EU law you must evaluate whether the modification constitutes a statutory **adaptation** or a **combined work** across API boundaries.
-
+So when an AI assistant tells you a snippet creates a "derivative work", treat that as a prompt to check the actual question under EU law: is this a statutory **adaptation**, or a **combined work** across a technical boundary? The rest of this lesson gives you that EU-aligned framework.
 
 ## Standardizing In-File Declarations: SPDX Identifiers
 
-Selecting a license is only half the battle; automated scanners and CI/CD pipelines need a machine-readable way to verify license compliance per file without parsing long legal texts.
+Selecting a license is only half the job. Automated scanners and CI/CD pipelines need a machine-readable way to verify compliance per file without parsing legal text.
 
-Managed by the Linux Foundation, **SPDX identifiers** (Software Package Data Exchange) provide standardized short tags (e.g., `MIT`, `Apache-2.0`, `GPL-3.0-only`, `EUPL-1.2`) placed at the very top line of every source file:
+Managed by the Linux Foundation, **SPDX identifiers** are standardized short tags (`MIT`, `Apache-2.0`, `GPL-3.0-only`, `EUPL-1.2`) placed at the top of every source file:
 
 ```python
 # SPDX-License-Identifier: MIT
 # Copyright (c) 2026 Author Name <author@institute.eu>
 ```
 
-Throughout the exercise scenarios below, look for the **In-File Identification (SPDX)** callouts to see how these tags apply directly to Python scripts, container recipes, and engineered prompt templates.
-
+Every scenario below shows the SPDX tagging for its asset type — Python scripts, container recipes, and prompt templates each have their own conventions.
 
 ## License Selection Decision Matrix & Scenario Index
 
-To help you navigate open-source compliance, the matrix below serves as an upfront 
-quick-reference summary and interactive index for the core licensing scenarios 
-encountered in research software engineering. 
+Our decision framework is grounded in the European Commission's **[Joinup Licensing Assistant (JLA)](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses)**, which sorts licenses across six criteria: **Can** (permissions), **Must** (obligations), **Cannot** (restrictions), **Compatible** (interoperability), **Law** (jurisdiction), and **Support** (governance).
 
-
-### [Joinup Licensing Assistant (JLA)](https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses)
-  *  Our decision framework is grounded in the European Commission's **JLA**, which evaluates software 
-     assets across six criteria categories: 
-       * Can (Permissions)
-       * Must (Obligations)
-       * Cannot (Restrictions)
-       * Compatible** (Interoperability)
-       * Law (Jurisdiction)
-       * Support(Governance)
-
-Use this index to preview the demonstrated path for each scenario, or click any module link to jump 
-directly to its detailed exercise, legal analysis, and JLA selection instructions.
+The scenarios below are independent. Find the row that matches what you are actually building, jump to it, and skip the rest.
 
 | Scenario Module | Demonstrated Path / Focus | Compliant Target Licenses |
 | :--- | :--- | :--- |
