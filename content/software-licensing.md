@@ -300,8 +300,7 @@ import numpy as np
 
 ## Module 2: The Dependency Minefield – Inbound Code & Linking
 
-Embedding third-party source code snippets or linking against strong copyleft libraries 
-introduces legal boundaries that restrict your repository choices.
+Embedding third-party snippets or linking against external libraries introduces boundaries that can constrain your license choice. How far those boundaries reach depends on which license the inbound code carries.
 
 (scenario-3)=
 ::::{exercise} Scenario 3: Embedding permissively licensed third-party code
@@ -320,11 +319,11 @@ You are building an RSE tool and copied a helper function or utility snippet fro
 
 * **Example JLA Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
 
-* **Notice Preservation Nuance**: Permissive licenses are flexible, but they are not license-free. If you copy code from an Apache-2.0 or BSD-3-Clause project into your MIT-licensed repository, you must retain the original author's copyright statement and license identifier directly above the embedded code block.
+* **Notice Preservation Nuance**: Permissive licenses are flexible, but they are not license-free. If you copy code from an Apache-2.0 or BSD-3-Clause project into your MIT-licensed repository, you must retain the original author's copyright statement and license identifier directly above the embedded code block. Your repository license covers *your* code. It does not relicense the embedded snippet — that code stays under its original license and its original copyright holder's terms. You are distributing one file containing two separately licensed contributions, which is why both notices must appear.
 
 * **Downstream Obligations**: Downstream users receive your project under your primary permissive license (e.g., MIT), but they must preserve both your overall copyright notice and the specific third-party notices attached to embedded snippets.
 
-* **Allowed Inbound Snippets**: In addition to the embedded permissive snippet, you can freely embed other permissively licensed code (MIT, BSD, Apache-2.0) or public domain waivers (CC0). You cannot embed copyleft code (e.g., GPL, EUPL) without upgrading your entire repository's license to match that copyleft license.
+* **Allowed Inbound Snippets**: In addition to the embedded permissive snippet, you can freely embed other permissively licensed code (MIT, BSD, Apache-2.0) or public domain waivers (CC0).Embedding **strong** copyleft code (GPL, EUPL) generally requires re-licensing your repository to match. Weak copyleft (LGPL, MPL-2.0) applies at a narrower boundary and often does not
 
 * **In-File Identification (SPDX)**: Mark both your overall file license and the specific embedded snippet using SPDX comments:
 
@@ -348,10 +347,10 @@ def main():
 
 (scenario-4)=
 ::::{exercise} Scenario 4: Embedding copyleft third-party code
-You are building an software tool and copied a non-trivial code snippet from a third-party project licensed under a copyleft license (e.g., GPL-3.0 or EUPL-1.2) directly into one of your source files.
+You are building a software tool and copied a non-trivial code snippet from a third-party project licensed under a copyleft license (e.g., GPL-3.0 or EUPL-1.2) directly into one of your source files.
 
 * **Licensing Goal**: Comply with legal requirements imposed by the inbound copyleft code while ensuring your overall repository remains legally compliant.
-* **Legal Reality**: Copyleft licenses require that any work containing copyleft code must be shared under a compatible copyleft license as a whole. Embedding copyleft code directly into your repository creates a single combined work, making copyleft licensing mandatory for your entire project.
+* **Legal Reality**: Copying a non-trivial copyleft snippet into your source files creates a single combined work, so copyleft licensing generally extends to your whole project. "Non-trivial" matters: a snippet too short or purely functional to qualify as the author's own intellectual creation (Art. 1(3)) may not carry copyright at all. There is no word count or line count that draws this line — if you are unsure, assume it is protected and either comply or reimplement.
 * **JLA Selection Strategy**: Because the inbound copyleft code forces your repository to adopt reciprocal sharing terms, you must configure JLA to require source code disclosure (`Disclose source`) and reciprocal licensing (`Copyleft/Share a.`).
 
 :::{solution}
@@ -395,10 +394,10 @@ When software incorporates external dependencies, whether by dynamic linking, st
 
 (scenario-5)=
 ::::{exercise} Scenario 5: Linking against a GPL-licensed library
-You are developing an software application that imports or links against an external software library licensed under GPL-3.0 (e.g., importing a GPL Python package or linking a C/C++ static/shared library).
+You are developing a software application that imports or links against an external software library licensed under GPL-3.0 (e.g., importing a GPL Python package or linking a C/C++ static/shared library).
 
 * **Licensing Goal**: Ensure legal compliance while using copyleft libraries as core dependencies in your software project.
-* **Legal Reality**: Under mainstream copyright interpretation and the text of GPL-3.0, linking your code directly against a GPL library (whether statically or dynamically) creates a combined work. Consequently, the copyleft obligations of the external library extend to your entire repository.
+* **Legal Reality**: Whether linking creates a combined work is genuinely unsettled, and often has to be decided case by case. The FSF's position is that linking a GPL library — statically or dynamically — creates a combined work; some legal scholars and Commission EUPL guidance disagree, particularly for dynamic linking through a stable API. Most Member States have no case law on this, so no firm general rule can be stated. The guidance below follows the conservative, widely-adopted reading.
 * **JLA Selection Strategy**: Because linking to a GPL library requires your distributed project to be released under matching reciprocal terms, you must configure JLA to mandate source code disclosure (`Disclose source`) and reciprocal licensing (`Copyleft/Share a.`).
 
 :::{solution}
@@ -412,9 +411,8 @@ You are developing an software application that imports or links against an exte
 
 * **Linking Boundaries & License Selection (Legal Nuance)**: 
   * **Why GPL forces copyleft**: Linking against a standard `GPL-3.0` library extends copyleft to your entire project. Your repository must adopt a compatible copyleft license (`GPL-3.0` or `EUPL-1.2`, which explicitly lists GPL-3.0 in its compatibility appendix).
-  * **Why LGPL or EUPL-1.2 libraries allow permissive licenses**: If the external library is licensed under `LGPL` (which includes an explicit linking exception) or `EUPL-1.2` (where European Commission guidance takes the position that dynamically linking an EUPL work through its API does not by itself create a adaptation work), copyleft does not extend to your application. In these dynamic linking scenarios, your own project can stay **permissively licensed** (e.g., MIT, Apache-2.0, BSD). However, note that this EUPL stance reflects Commission guidance rather than settled CJEU case law, and static linking or direct code incorporation continues to trigger EUPL copyleft obligations.
-
-* **Downstream Obligations**: Downstream users who receive or run your application must receive full access to your source code under `GPL-3.0` (or `EUPL-1.2`), along with all upstream copyright notices and build scripts required to recompile the project.
+* **Copyleft licenses are not compatible with each other**: two strong copyleft licenses can each demand that the combined work use *their* terms, which makes the combination undistributable. The classic trap is `GPL-2.0-only`: without the "or later" clause you cannot upgrade to GPL-3.0 to resolve a conflict, so GPL-2.0-only code cannot be combined with GPL-3.0 or Apache-2.0 code at all. Always check the exact SPDX identifier — `GPL-2.0-only` and `GPL-2.0-or-later` behave very differently.
+* **Downstream Obligations**: Anyone to whom you **distribute** the application must receive full access to your source code under `GPL-3.0` (or `EUPL-1.2`), along with upstream copyright notices and the build scripts needed to recompile it. Running the software internally, without distributing it, creates no such obligation — though note that `AGPL-3.0` extends this to network use.
 
 * **Allowed Inbound Code & Dependencies**: Your project can import or include other **permissively licensed** packages (MIT, BSD, Apache-2.0) and public domain waivers (CC0). However, all code linked together in the final executable or runtime environment must satisfy GPL compatibility.
 
