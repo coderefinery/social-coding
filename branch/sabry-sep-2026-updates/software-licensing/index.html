@@ -1,0 +1,853 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Software licensing focusing on open source &mdash; Social coding and open software</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+    <link rel="shortcut icon" href="../_static/coderefinery.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=187304be"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=582ca9e2"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=b8b12719"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+      <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Software citation" href="../software-citation/" />
+    <link rel="prev" title="Social coding" href="../social-coding/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            Social coding and open software
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">The lesson</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../social-coding/">Social coding</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Software licensing focusing on open source</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction-what-is-a-software-license">Introduction: What is a Software License?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#copyright-foundation-expression-vs-ideas">Copyright Foundation: Expression vs. Ideas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scope-of-this-lesson-what-counts-as-software">Scope of this Lesson: What Counts as <em>Software</em>?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#motivation-debugging-a-license-compliance-failure">Motivation: Debugging a License Compliance Failure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#limitations-of-ai-assisted-licensing-advice">Limitations of AI-Assisted Licensing Advice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#standardizing-in-file-declarations-spdx-identifiers">Standardizing In-File Declarations: SPDX Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#license-selection-decision-matrix-scenario-index">License Selection Decision Matrix &amp; Scenario Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-1-clean-slate-authoring-original-code-algorithms">Module 1: Clean Slate – Authoring Original Code &amp; Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-2-the-dependency-minefield-inbound-code-linking">Module 2: The Dependency Minefield – Inbound Code &amp; Linking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-3-dependency-linking-packaging">Module 3: Dependency Linking &amp; Packaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-4-emerging-workflows-ai">Module 4: Emerging Workflows &amp; AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#best-practices-attaching-a-license-to-your-repository">Best Practices: Attaching a License to Your Repository</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-the-root-license-file">1. Adding the Root <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code> File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documenting-license-status-in-readme-md">2. Documenting License Status in <code class="docutils literal notranslate"><span class="pre">README.md</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#automated-compliance-with-the-reuse-standard">3. Automated Compliance with the REUSE Standard</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#summary-resolving-the-compliance-pipeline">Summary: Resolving the Compliance Pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scenario-mapping-across-the-pipeline">Scenario Mapping Across the Pipeline</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../software-citation/">Software citation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sharing-data/">Sharing data</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/">List of exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/">Instructor guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../software-licensing-old/">OLD Software licensing</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/core/">All lessons</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/">CodeRefinery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reusing/">Reusing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">Social coding and open software</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Software licensing focusing on open source</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/social-coding/blob/main/content/software-licensing.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="software-licensing-focusing-on-open-source">
+<h1>Software licensing focusing on open source<a class="headerlink" href="#software-licensing-focusing-on-open-source" title="Link to this heading"></a></h1>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Principles of open source licensing</p></li>
+<li><p>Difference between permissive and copyleft licenses</p></li>
+<li><p>Regulations for AI-generated and AI-assisted code</p></li>
+<li><p>Determine the software license for your project following EU regulation</p></li>
+<li><p>Navigate the Joinup Licensing Assistant to select a compliant license</p></li>
+<li><p>Understand the licensing distinction between container recipes and container images</p></li>
+</ul>
+</div>
+<div class="admonition-limitations-and-context-of-this-lesson discussion important admonition" id="discussion-0">
+<p class="admonition-title">Limitations and context of this lesson</p>
+<p>This lesson is designed as practical educational material for researchers and research software engineers, <strong>not formal legal advice</strong></p>
+<ul class="simple">
+<li><p>EU directives set only minimum requirements in some areas: Member States implement them differently and may add national rules not covered here. For example, some Member States let university researchers retain ownership of the programs they write instead of applying the employer rule in Art. 2(3).</p></li>
+<li><p>Institutional Context: Employment contracts, grant agreements, and university policies heavily influence software ownership and licensing choices.</p></li>
+<li><p>This lesson covers only the general principles of open-source reuse, copyright scope, and software adaptation.</p></li>
+</ul>
+<p>If you need formal guidance references below and legal experts, especially if you have legal services at your host institute,  could be of help:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009L0024">EUR Directive 2009/24/EC</a></p></li>
+<li><p><a class="reference external" href="https://www.copyright.gov/comp3/">Compendium of U.S. Copyright Office Practices (3rd Ed.) – Chapter 700, Section 721: Computer Programs</a></p></li>
+<li><p><a class="reference external" href="https://xzfg.moj.gov.cn/">Chinese Regulations on Computer Software Protection,(search:”计算机软件保护条例”)</a></p></li>
+<li><p><a class="reference external" href="https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses">Joinup Licensing Assistant,JLA</a></p></li>
+<li><p><a class="reference external" href="https://reuse.software/">FSFE REUSE Initiative</a></p></li>
+<li><p><a class="reference external" href="https://www.researchsoft.org/software-policies/">Research Software Alliance Policy Directory</a></p></li>
+</ul>
+</div>
+<section id="introduction-what-is-a-software-license">
+<h2>Introduction: What is a Software License?<a class="headerlink" href="#introduction-what-is-a-software-license" title="Link to this heading"></a></h2>
+<p>Under copyright law worldwide, software without an explicit license defaults to All Rights Reserved: nobody else may run, copy, modify, distribute, or build on your code. A software license is how the copyright holder exercises their exclusive rights, granting others permission to reproduce, distribute, modify, and sometimes sublicense the work.</p>
+<p>Note that author and copyright holder may differ: under Art. 2(3), an employer exercises the economic rights in code written by an employee on the job, unless a contract says otherwise. The employee is still the author; the employer is who licenses it. This matters in practice, because the person choosing the license for a research project is often not the person who wrote the code.</p>
+<p>In this lesson, we focus on open-source licenses to define both how we grant permissions for software we develop (outbound licensing) and how we safely comply with terms attached to code written by others (inbound reuse).</p>
+<p>Open-source licenses fall into three main families:</p>
+<ul class="simple">
+<li><p><strong>Permissive (e.g., MIT, Apache-2.0, 0BSD):</strong> <em>Do whatever you want, just keep credit.</em> Grants maximum reuse freedom, allowing anyone to modify, embed, or re-license your code in open or closed projects.</p></li>
+<li><p><strong>Copyleft / Reciprocal (e.g., GPL-3.0, EUPL-1.2):</strong> <em>Share alike.</em> Grants full freedom to run and modify, but requires that any distributed adaptation or combined work also be released under matching copyleft terms.</p></li>
+<li><p><strong>Weak copyleft (e.g., LGPL-3.0, MPL-2.0, EPL-2.0):</strong> <em>Share alike, but only within a boundary.</em> Reciprocity applies to the file (MPL-2.0) or the library (LGPL), not to your whole project. Your surrounding code can usually stay permissive or even closed, while modifications to the covered files or library must stay open.</p></li>
+</ul>
+<p>You will hear copyleft called <em>viral</em> or <em>infectious</em> in developer conversation. The slang is worth knowing, but it is misleading in two ways: nothing spreads by mere contact, so code merely sitting beside GPL code in a repository or a container image is unaffected, and the requirement only triggers when you <strong>distribute</strong>, not when you run modified code internally. Reciprocity reaches only across specific technical boundaries such as embedding snippets or static linking, and how far it reaches depends on which copyleft license you are dealing with. Choosing copyleft over permissive is a project-level decision, not a sign that a license is harmful.</p>
+<p>Weak copyleft is worth a closer look, because it is widely used and its terms are more conditional than the label suggests. LGPL-3.0 §4 lets you ship a combined work under your own terms only if those terms do not restrict modification of the LGPL portions, or reverse engineering for debugging those modifications, and this condition applies whether you linked statically or dynamically. Since most proprietary end-user licenses forbid reverse engineering, the common shorthand that “dynamic linking is safe” is not the whole story. The practical lesson is that “does this dependency force my project open?” has no general answer: it depends on which copyleft license, and at which boundary.</p>
+<p>The diagram below unifies these license choices and their downstream rights:</p>
+<div class="mermaid">
+            %%{init: {'themeVariables': { 'edgeLabelBackground': '#faf5ff' }}}%%
+
+flowchart TB
+
+  subgraph box[&quot;How License Selection Governs Code Reuse&quot;]
+    A[&quot;&lt;b&gt;Your Research Codebase&lt;/b&gt;&lt;br/&gt;&lt;i&gt;(Source code, container recipes, prompt templates)&lt;/i&gt;&quot;] --&gt;|&quot;No License Attached&lt;br/&gt;(Statutory Default)&quot;| B[&quot;&lt;b&gt;All Rights Reserved&lt;/b&gt;&lt;br/&gt;❌ Zero permissions: Cannot run, modify, or share&quot;]
+
+    A --&gt;|&quot;Attach License&lt;br/&gt;(Explicit Permission Grant)&quot;| C{&quot;Select License&quot;}
+
+    C --&gt;|&quot;Goal: Maximum adoption &amp; unrestricted reuse&quot;| D[&quot;&lt;b&gt;Permissive&lt;/b&gt;&lt;br/&gt;&lt;i&gt;MIT, Apache-2.0, 0BSD&lt;/i&gt;&quot;]
+    C --&gt;|&quot;Goal: Keep the library open, allow closed users&quot;| W[&quot;&lt;b&gt;Weak Copyleft&lt;/b&gt;&lt;br/&gt;&lt;i&gt;LGPL-3.0, MPL-2.0, EPL-2.0&lt;/i&gt;&quot;]
+    C --&gt;|&quot;Goal: Ensure changes stay open-source (Reciprocity)&quot;| E[&quot;&lt;b&gt;Copyleft&lt;/b&gt;&lt;br/&gt;&lt;i&gt;GPL-3.0, EUPL-1.2&lt;/i&gt;&quot;]
+    C --&gt;|&quot;Goal: Proprietary control &amp; restricted access&quot;| F[&quot;&lt;b&gt;Closed Source / Restricted&lt;/b&gt;&lt;br/&gt;🚫 &lt;i&gt;Not discussed in this lesson&lt;/i&gt;&quot;]
+
+    D --&gt; D1[&quot;Run &amp; Modify? &lt;b&gt;Yes&lt;/b&gt;&quot;]
+    D --&gt; D2[&quot;Embed in closed product? &lt;b&gt;Yes&lt;/b&gt;&quot;]
+    D --&gt; D3[&quot;Must changes stay open? &lt;b&gt;No&lt;/b&gt; (optional)&quot;]
+
+    W --&gt; W1[&quot;Run &amp; Modify? &lt;b&gt;Yes&lt;/b&gt;&quot;]
+    W --&gt; W2[&quot;Embed in closed product? &lt;b&gt;Yes, with conditions&lt;/b&gt;&quot;]
+    W --&gt; W3[&quot;Must changes stay open? &lt;b&gt;Only the covered file or library&lt;/b&gt;&quot;]
+
+    E --&gt; E1[&quot;Run &amp; Modify? &lt;b&gt;Yes&lt;/b&gt;&quot;]
+    E --&gt; E2[&quot;Embed in closed product? &lt;b&gt;No&lt;/b&gt;&quot;]
+    E --&gt; E3[&quot;Must changes stay open? &lt;b&gt;Yes&lt;/b&gt; (mandatory)&quot;]
+  end
+
+  G[&quot;&lt;b&gt;Reciprocity only triggers on distribution&lt;/b&gt;&lt;br/&gt;Running modified code internally creates no obligation&quot;]
+  E -.-&gt; G
+  W -.-&gt; G
+
+   classDef green fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
+   classDef red fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
+   classDef yellow fill:#fff9db,stroke:#f59f00,stroke-width:2px,color:#5c3c00;
+   classDef amber fill:#fff3bf,stroke:#f08c00,stroke-width:2px,color:#5c3c00;
+   classDef white fill:#f8f9fa,stroke:#adb5bd,stroke-width:2px,color:#212529;
+   classDef dashed fill:#f8f9fa,stroke:#adb5bd,stroke-width:2px,stroke-dasharray: 5 5,color:#000000;
+   classDef dashed_red fill:#ffe3e3,stroke:#adb5bd,stroke-width:2px,stroke-dasharray: 5 5,color:#000000;
+   classDef note fill:#ffffff,stroke:#868e96,stroke-width:1px,stroke-dasharray: 3 3,color:#212529;
+   classDef box_fill fill:#ffffff,stroke:#adb5bd,stroke-width:1px;
+
+   class D1,D2,D3,W1,E1 green;
+   class W2,W3 amber;
+   class E2 red;
+   class E3 green;
+   class D yellow;
+   class W amber;
+   class E yellow;
+   class F dashed;
+   class B dashed_red;
+   class A,C white;
+   class G note;
+   class box box_fill;
+        </div><section id="copyright-foundation-expression-vs-ideas">
+<h3>Copyright Foundation: Expression vs. Ideas<a class="headerlink" href="#copyright-foundation-expression-vs-ideas" title="Link to this heading"></a></h3>
+<p>Under Directive 2009/24/EC, software is protected by copyright as a <strong>literary work</strong> (Art. 1(1)). But copyright protects only the <strong>expression</strong>, not the ideas beneath it: Art. 1(2) explicitly excludes “ideas and principles which underlie any element of a computer program, including those which underlie its interfaces.”</p>
+<ul class="simple">
+<li><p><strong>Protected</strong>: your specific source code text, binaries, container recipes, prompt text, and preparatory design material.</p></li>
+<li><p><strong>Not protected</strong>: mathematical algorithms, scientific models, programming logic, data structures, and interfaces.</p></li>
+</ul>
+<p>The CJEU confirmed this line in <em>SAS Institute v World Programming</em> (C-406/10): a program’s functionality, its programming language, and its data file formats are ideas, not expression, and are therefore outside copyright. Someone may reimplement your algorithm from scratch; they may not copy your code. This is exactly why licenses exist — they set the terms for the expression, which is the only part copyright lets you control.</p>
+</section>
+<section id="scope-of-this-lesson-what-counts-as-software">
+<h3>Scope of this Lesson: What Counts as <em>Software</em>?<a class="headerlink" href="#scope-of-this-lesson-what-counts-as-software" title="Link to this heading"></a></h3>
+<p>Across international frameworks (17 U.S.C. § 101 and WIPO model provisions), software is broadly defined as a set of statements or instructions used directly or indirectly in a computer to bring about a certain result. Research software goes well beyond Python scripts, so this lesson covers six asset types — find the ones matching your own project, since the scenarios later map onto them:</p>
+<ul class="simple">
+<li><p><strong>Source Code</strong> — original algorithms, or implementations of published methods.</p></li>
+<li><p><strong>Third-Party Integrations</strong> — embedded snippets and linked libraries (static or dynamic).</p></li>
+<li><p><strong>Infrastructure as Code</strong> — Ansible playbooks, Terraform configs, container recipes (<code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code>, Apptainer <code class="docutils literal notranslate"><span class="pre">.def</span></code>).</p></li>
+<li><p><strong>Container Images</strong> — built binary snapshots (<code class="docutils literal notranslate"><span class="pre">.sif</span></code> files, OCI registry images).</p></li>
+<li><p><strong>AI-Assisted Code</strong> — generated or refactored with human oversight.</p></li>
+<li><p><strong>AI Prompt Templates</strong> — engineered system prompts meeting the threshold of human authorship.</p></li>
+</ul>
+</section>
+</section>
+<section id="motivation-debugging-a-license-compliance-failure">
+<h2>Motivation: Debugging a License Compliance Failure<a class="headerlink" href="#motivation-debugging-a-license-compliance-failure" title="Link to this heading"></a></h2>
+<p>With the three license families in mind, examine what happens when they collide inside an automated CI/CD pipeline:</p>
+<div class="mermaid">
+            %%{init: {'themeVariables': { 'edgeLabelBackground': '#faf5ff' }}}%%
+flowchart TB
+
+    subgraph box[&quot;CI/CD License Compliance Debugging Pipeline&quot;]
+        A[&quot;Paste a snippet copied from somewhere&quot;] --&gt; A2[&quot;&lt;b&gt;Build Trigger:&lt;/b&gt; Push to my-code-base&quot;]
+        A2 --&gt; B[&quot;Run Compliance Scanner&quot;]
+        B --&gt; C{&quot;Check Inbound vs.&lt;br/&gt;Outbound Terms&quot;}
+
+        C --&gt;|&quot;Target license: Permissive&lt;br/&gt;Pasted snippet: Copyleft&quot;| D[&quot;❌ &lt;b&gt;BUILD FAILURE&lt;/b&gt;&lt;br/&gt;Pasted copyleft snippet blocks MIT release&quot;]
+
+        D --&gt; E{&quot;Select Patch Option&quot;}
+
+        E --&gt;|&quot;A: Keep MIT, add comment '# Originally GPL'&quot;| F[&quot;❌ &lt;b&gt;BUILD FAIL&lt;/b&gt;&lt;br/&gt;Comments do not override license terms&quot;]
+        E --&gt;|&quot;B: Re-license repo to GPL-3.0 / EUPL-1.2&quot;| G[&quot;✅ &lt;b&gt;BUILD PASS&lt;/b&gt;&lt;br/&gt;Your license now matches the snippet&quot;]
+        E --&gt;|&quot;C: Reimplement the functionality yourself&quot;| H[&quot;✅ &lt;b&gt;BUILD PASS&lt;/b&gt;&lt;br/&gt;Your own expression, your own license&quot;]
+        E --&gt;|&quot;D: Delete LICENSE file to silence the scanner&quot;| I[&quot;⚠️ &lt;b&gt;SCANNER PASSES — LEGAL TRAP&lt;/b&gt;&lt;br/&gt;Still infringing, and your own code reverts to All Rights Reserved&quot;]
+
+        P[&quot;&lt;b&gt;Permissive&lt;/b&gt;&lt;br/&gt;MIT, Apache-2.0, 0BSD&quot;]
+        WC[&quot;&lt;b&gt;Weak Copyleft&lt;/b&gt;&lt;br/&gt;LGPL, MPL-2.0, EPL-2.0&quot;]
+        CL[&quot;&lt;b&gt;Copyleft&lt;/b&gt;&lt;br/&gt;GPL-3.0, EUPL-1.2&quot;]
+    end
+
+    P -.-&gt;|&quot;What I want for my repo&quot;| C
+    CL -.-&gt;|&quot;What the pasted snippet uses&quot;| C
+    WC -.-&gt;|&quot;Would often have been fine&quot;| C
+
+    classDef pass fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
+    classDef copyleft fill:#fff9db,stroke:#f59f00,stroke-width:2px,color:#5c3c00;
+    classDef amber fill:#fff3bf,stroke:#f08c00,stroke-width:2px,color:#5c3c00;
+    classDef fail fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
+    classDef warning fill:#fff3bf,stroke:#f08c00,stroke-width:2px,color:#5c0000;
+    classDef neutral fill:#f8f9fa,stroke:#495057,stroke-width:2px,color:#212529;
+    classDef box_fill fill:#ffffff,stroke:#adb5bd,stroke-width:1px;
+
+    class P,G,H pass;
+    class CL copyleft;
+    class WC amber;
+    class D,F fail;
+    class I warning;
+    class A,A2,B,C,E neutral;
+    class box box_fill;
+        </div><ul class="simple">
+<li><p>Option D is the one worth dwelling on: deleting the <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code> file makes the scanner quiet without changing anything legally. You are still distributing someone else’s copyleft code without honouring its terms, and you have now stripped your own users of any permission to use your work. A green pipeline is not a compliance result.</p></li>
+<li><p>Option C works only if you genuinely reimplement the functionality without copying the original expression. As the idea/expression split above establishes, the algorithm is free to reuse — the specific code is not. Reading the original closely and retyping a close paraphrase is still copying.</p></li>
+</ul>
+</section>
+<section id="limitations-of-ai-assisted-licensing-advice">
+<h2>Limitations of AI-Assisted Licensing Advice<a class="headerlink" href="#limitations-of-ai-assisted-licensing-advice" title="Link to this heading"></a></h2>
+<p>Modern software developers and RSEs routinely rely on AI coding assistants
+(ChatGPT, Claude, GitHub Copilot) to generate boilerplate, refactor functions,
+and answer project setup questions.</p>
+<p>However, using these tools for legal or licensing guidance introduces a subtle risk of <strong>AI legal bias</strong>. AI models are overwhelmingly trained on US-centric web data and legal forum posts, so their outputs default almost universally to <strong>US common law concepts</strong> such as <em>Fair Use</em>, <em>Work Made for Hire</em>, and <em>Derivative Works</em>.</p>
+<p>Developers working under EU statutory frameworks face a different legal reality around exceptions, ownership, and code adaptation. The clearest example is the term you will hear constantly:</p>
+<ul class="simple">
+<li><p><strong>US law (17 U.S.C. § 101)</strong> formally defines <em>“derivative work”</em>, and AI assistants reach for it to describe almost any code modification.</p></li>
+<li><p><strong>EU law (Directive 2009/24/EC, Art. 4(1)(b))</strong> does not use that term at all. It grants exclusive rights over “the translation, adaptation, arrangement and any other alteration of a computer program” — governed collectively as an <strong>adaptation</strong>.</p></li>
+<li><p><strong>Licenses use it anyway</strong>: <code class="docutils literal notranslate"><span class="pre">GPL-3.0</span></code> and <code class="docutils literal notranslate"><span class="pre">EUPL-1.2</span></code> define “derivative work” inside their own text as a contractual term for international enforceability, even though EU statute treats the act as an adaptation.</p></li>
+</ul>
+<p>So when an AI assistant tells you a snippet creates a “derivative work”, treat that as a prompt to check the actual question under EU law: is this a statutory <strong>adaptation</strong>, or a <strong>combined work</strong> across a technical boundary? The rest of this lesson gives you that EU-aligned framework.</p>
+</section>
+<section id="standardizing-in-file-declarations-spdx-identifiers">
+<h2>Standardizing In-File Declarations: SPDX Identifiers<a class="headerlink" href="#standardizing-in-file-declarations-spdx-identifiers" title="Link to this heading"></a></h2>
+<p>Selecting a license is only half the job. Automated scanners and CI/CD pipelines need a machine-readable way to verify compliance per file without parsing legal text.</p>
+<p>Managed by the Linux Foundation, <strong>SPDX identifiers</strong> are standardized short tags (<code class="docutils literal notranslate"><span class="pre">MIT</span></code>, <code class="docutils literal notranslate"><span class="pre">Apache-2.0</span></code>, <code class="docutils literal notranslate"><span class="pre">GPL-3.0-only</span></code>, <code class="docutils literal notranslate"><span class="pre">EUPL-1.2</span></code>) placed at the top of every source file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># SPDX-License-Identifier: MIT</span>
+<span class="c1"># Copyright (c) 2026 Author Name &lt;author@institute.eu&gt;</span>
+</pre></div>
+</div>
+<p>Every scenario below shows the SPDX tagging for its asset type — Python scripts, container recipes, and prompt templates each have their own conventions.</p>
+</section>
+<section id="license-selection-decision-matrix-scenario-index">
+<h2>License Selection Decision Matrix &amp; Scenario Index<a class="headerlink" href="#license-selection-decision-matrix-scenario-index" title="Link to this heading"></a></h2>
+<p>Our decision framework is grounded in the European Commission’s <strong><a class="reference external" href="https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant/find-and-compare-software-licenses">Joinup Licensing Assistant (JLA)</a></strong>, which sorts licenses across six criteria: <strong>Can</strong> (permissions), <strong>Must</strong> (obligations), <strong>Cannot</strong> (restrictions), <strong>Compatible</strong> (interoperability), <strong>Law</strong> (jurisdiction), and <strong>Support</strong> (governance).</p>
+<p>The scenarios below are independent. Find the row that matches what you are actually building, jump to it, and skip the rest.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>If you are…</p></th>
+<th class="head text-left"><p>Scenario</p></th>
+<th class="head text-left"><p>Typical Outcome</p></th>
+<th class="head text-left"><p>Example Licenses</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Writing everything yourself</p></td>
+<td class="text-left"><p><a class="reference internal" href="#scenario-1"><strong>1. Own code</strong></a></p></td>
+<td class="text-left"><p>🟢 Free choice</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">MIT</span></code>, <code class="docutils literal notranslate"><span class="pre">Apache-2.0</span></code>, <code class="docutils literal notranslate"><span class="pre">BSD-3-Clause</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Implementing a published algorithm</p></td>
+<td class="text-left"><p><a class="reference internal" href="#scenario-2"><strong>2. Algorithm implementation</strong></a></p></td>
+<td class="text-left"><p>🟢 Free choice — copyleft if you want reciprocity</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">EUPL-1.2</span></code>, <code class="docutils literal notranslate"><span class="pre">GPL-3.0</span></code>, <code class="docutils literal notranslate"><span class="pre">AGPL-3.0</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Pasting in a permissive snippet</p></td>
+<td class="text-left"><p><a class="reference internal" href="#scenario-3"><strong>3. Embed permissive</strong></a></p></td>
+<td class="text-left"><p>🟢 Stay permissive, keep notices</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">MIT</span></code>, <code class="docutils literal notranslate"><span class="pre">Apache-2.0</span></code>, <code class="docutils literal notranslate"><span class="pre">EUPL-1.2</span></code>, <code class="docutils literal notranslate"><span class="pre">GPL-3.0</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Pasting in a copyleft snippet</p></td>
+<td class="text-left"><p><a class="reference internal" href="#scenario-4"><strong>4. Embed copyleft</strong></a></p></td>
+<td class="text-left"><p>🟡 Strong copyleft likely required</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">EUPL-1.2</span></code>, <code class="docutils literal notranslate"><span class="pre">GPL-3.0</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Importing or linking a library</p></td>
+<td class="text-left"><p><a class="reference internal" href="#scenario-5"><strong>5. Link a library</strong></a></p></td>
+<td class="text-left"><p>🟡 Depends on which copyleft — see below</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">GPL-3.0</span></code>, <code class="docutils literal notranslate"><span class="pre">EUPL-1.2</span></code>, or permissive if weak copyleft</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Writing a Dockerfile or <code class="docutils literal notranslate"><span class="pre">.def</span></code></p></td>
+<td class="text-left"><p><a class="reference internal" href="#scenario-6"><strong>6. Container recipe</strong></a></p></td>
+<td class="text-left"><p>🟢 Free choice</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">MIT</span></code>, <code class="docutils literal notranslate"><span class="pre">Apache-2.0</span></code>, <code class="docutils literal notranslate"><span class="pre">BSD-3-Clause</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Publishing a built image</p></td>
+<td class="text-left"><p><a class="reference internal" href="#scenario-7"><strong>7. Built image</strong></a></p></td>
+<td class="text-left"><p>⚠️ Multi-license bundle</p></td>
+<td class="text-left"><p>Governed by each layer’s own terms</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Using Copilot, ChatGPT or Claude</p></td>
+<td class="text-left"><p><a class="reference internal" href="#scenario-8"><strong>8. AI-assisted code</strong></a></p></td>
+<td class="text-left"><p>🟢 Free choice, verify for memorization</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">MIT</span></code>, <code class="docutils literal notranslate"><span class="pre">Apache-2.0</span></code>, <code class="docutils literal notranslate"><span class="pre">EUPL-1.2</span></code>, <code class="docutils literal notranslate"><span class="pre">GPL-3.0</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Shipping prompts, weights or datasets</p></td>
+<td class="text-left"><p><a class="reference internal" href="#scenario-9"><strong>9. AI workflows &amp; assets</strong></a></p></td>
+<td class="text-left"><p>🟢 Dual-license code vs. assets</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">MIT</span></code> + <code class="docutils literal notranslate"><span class="pre">CC-BY-4.0</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>This lesson covers nine scenarios, a typical session works through three or four. The rest are here for reference when your project changes</p>
+</section>
+<section id="module-1-clean-slate-authoring-original-code-algorithms">
+<h2>Module 1: Clean Slate – Authoring Original Code &amp; Algorithms<a class="headerlink" href="#module-1-clean-slate-authoring-original-code-algorithms" title="Link to this heading"></a></h2>
+<p>When writing original code or implementing published algorithms, no third-party license constrains your choice — but who owns the code depends on your employment contract and national rules, so check your institution’s policy first.</p>
+<div class="admonition-scenario-1-authoring-original-code-and-algorithms exercise important admonition" id="exercise-0">
+<span id="scenario-1"></span><p class="admonition-title">Scenario 1: Authoring original code and algorithms</p>
+<p>You wrote an original algorithm from scratch (in Python, C++, Rust, etc.). Your repository contains only your original source code and dependency specifications (<code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">Cargo.toml</span></code>).</p>
+<ul class="simple">
+<li><p><strong>Licensing Goal</strong>: You want <strong>maximum adoption</strong> and zero friction for commercial or academic reuse.</p></li>
+<li><p><strong>Legal Reality</strong>: External dependencies remain separate works. Because you have not bundled third-party code inside your repository, no inbound license terms constrain your choice.</p></li>
+<li><p><strong>JLA Selection Strategy</strong>: To ensure downstream users must acknowledge your original authorship while granting them maximum flexibility to incorporate your code into both open and proprietary software, you require citation credit (<code class="docutils literal notranslate"><span class="pre">Incl.</span> <span class="pre">Copyright</span></code>) without imposing share-alike conditions (leaving <code class="docutils literal notranslate"><span class="pre">Copyleft/Share</span> <span class="pre">a.</span></code> unselected).</p></li>
+</ul>
+<div class="admonition-solution solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution</p>
+<p><strong>What to select in the JLA interface:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Can Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">Distribute</span></code>, <code class="docutils literal notranslate"><span class="pre">Modify/merge</span></code>, and <code class="docutils literal notranslate"><span class="pre">Commercial</span> <span class="pre">use</span></code></p></li>
+<li><p><strong>Must Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">Incl.</span> <span class="pre">Copyright</span></code></p></li>
+<li><p><strong>Support Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">OSI</span> <span class="pre">approved</span></code></p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Example JLA Matches</strong>: <code class="docutils literal notranslate"><span class="pre">MIT</span></code>, <code class="docutils literal notranslate"><span class="pre">Apache-2.0</span></code>, <code class="docutils literal notranslate"><span class="pre">BSD-3-Clause</span></code></p></li>
+<li><p><strong>Permissive vs. Public Domain (EU Civil Law Nuance)</strong>: Public domain dedications (e.g., <code class="docutils literal notranslate"><span class="pre">CC0</span></code>, <code class="docutils literal notranslate"><span class="pre">Unlicense</span></code>) attempt to give away all rights. However, under EU civil law, authors cannot legally give up their moral rights (<em>droit moral</em>). Selecting an explicit permissive license like <code class="docutils literal notranslate"><span class="pre">MIT</span></code> or <code class="docutils literal notranslate"><span class="pre">Apache-2.0</span></code> grants broad permissions globally, remains legally valid under European copyright law, and guarantees academic citation credit.</p></li>
+<li><p><strong>Downstream Obligations</strong>: Anyone who reuses, modifies, or integrates your code into their work must preserve your copyright notice and license text. They are not required to share their modifications or open-source their downstream projects.</p></li>
+<li><p><strong>Allowed Inbound Snippets</strong>: If you want to include small third-party code snippets in your files, you can freely embed code licensed under <strong>permissive terms</strong> (e.g., MIT, BSD, Apache-2.0, 0BSD) or public domain waivers (CC0) without affecting your permissive license. However, embedding copyleft snippets (e.g., GPL, EUPL) might trigger reciprocal obligations requiring you to re-license. Whether it does depends on which copyleft: weak copyleft (LGPL, MPL-2.0) often lets your surrounding code stay permissive, while strong copyleft generally does not.</p></li>
+<li><p><strong>In-File Identification (SPDX)</strong>: Apply standard machine-readable SPDX identifier comments directly at the top of your scripts:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># SPDX-License-Identifier: MIT</span>
+<span class="c1"># Copyright (c) 2026 Author Name &lt;author@institute.eu&gt;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-scenario-2-choosing-reciprocity-for-your-own-implementation exercise important admonition" id="exercise-1">
+<span id="scenario-2"></span><p class="admonition-title">Scenario 2: Choosing reciprocity for your own implementation</p>
+<p>You developed a custom solver implementing algorithms from academic literature. You want any downstream improvements, extensions, or modifications to remain open-source and be shared back with the scientific community.</p>
+<ul class="simple">
+<li><p><strong>Licensing Goal</strong>: You want to enforce <strong>reciprocity</strong> (share-alike), preventing third parties from incorporating your implementation into proprietary software without sharing their modifications.</p></li>
+<li><p><strong>Legal Reality</strong>: The published algorithm itself is an unprotected idea — anyone may implement it independently, as Scenario 1 and the <em>SAS</em> ruling establish. What copyright protects is <em>your</em> specific implementation. Nothing about implementing a published method forces a particular license; copyleft here is your deliberate choice to bind downstream distributors to matching terms.</p></li>
+<li><p><strong>JLA Selection Strategy</strong>: To enforce reciprocal sharing, you must mandate that downstream distributors disclose their modified source code (<code class="docutils literal notranslate"><span class="pre">Disclose</span> <span class="pre">source</span></code>) and license their adaptations or combined works under matching terms (<code class="docutils literal notranslate"><span class="pre">Copyleft/Share</span> <span class="pre">a.</span></code>).</p></li>
+</ul>
+<div class="admonition-solution solution important dropdown admonition" id="solution-1">
+<p class="admonition-title">Solution</p>
+<p><strong>What to select in the JLA interface:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Can Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">Distribute</span></code>, <code class="docutils literal notranslate"><span class="pre">Modify/merge</span></code>, and <code class="docutils literal notranslate"><span class="pre">Commercial</span> <span class="pre">use</span></code></p></li>
+<li><p><strong>Must Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">Incl.</span> <span class="pre">Copyright</span></code>, <code class="docutils literal notranslate"><span class="pre">Disclose</span> <span class="pre">source</span></code>, and <code class="docutils literal notranslate"><span class="pre">Copyleft/Share</span> <span class="pre">a.</span></code></p></li>
+<li><p><strong>Support Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">OSI</span> <span class="pre">approved</span></code></p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Example JLA Matches</strong>: <code class="docutils literal notranslate"><span class="pre">EUPL-1.2</span></code>, <code class="docutils literal notranslate"><span class="pre">GPL-3.0</span></code>, <code class="docutils literal notranslate"><span class="pre">AGPL-3.0</span></code></p></li>
+<li><p><strong>Copyleft Mechanics (EUPL vs. GPL Nuance)</strong>: <code class="docutils literal notranslate"><span class="pre">GPL-3.0</span></code> is the standard global copyleft license, but <code class="docutils literal notranslate"><span class="pre">EUPL-1.2</span></code> is specifically tailored for European institutions. EUPL-1.2 is officially published in 23 EU language versions (each with equal legal validity), includes built-in compatibility clauses with GPL, and explicitly defaults to EU Member State jurisdiction and courts.</p></li>
+<li><p><strong>A caution before choosing strong copyleft</strong>: reciprocity also limits who can combine with your code. Strong copyleft licenses are frequently incompatible with each other, so a future collaborator on a differently-licensed copyleft project may be unable to use your work at all. Scenario 5 covers this.</p></li>
+<li><p><strong>Downstream Obligations</strong>: Anyone who distributes your code or a modified version of it must provide complete access to the corresponding source code under the same copyleft license and preserve your original copyright notices.</p></li>
+<li><p><strong>Allowed Inbound Snippets</strong>: You can freely embed code snippets licensed under <strong>permissive terms</strong> (e.g., MIT, Apache-2.0, BSD) or public domain waivers (CC0). You may also embed snippets from compatible copyleft code (e.g., EUPL, GPL). However, you cannot embed closed-source or proprietary code snippets.</p></li>
+<li><p><strong>In-File Identification (SPDX)</strong>: Apply standard machine-readable SPDX identifier comments directly at the top of your scripts:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># SPDX-License-Identifier: EUPL-1.2</span>
+<span class="c1"># Copyright (c) 2026 Author Name &lt;author@institute.eu&gt;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="module-2-the-dependency-minefield-inbound-code-linking">
+<h2>Module 2: The Dependency Minefield – Inbound Code &amp; Linking<a class="headerlink" href="#module-2-the-dependency-minefield-inbound-code-linking" title="Link to this heading"></a></h2>
+<p>Embedding third-party snippets or linking against external libraries introduces boundaries that can constrain your license choice. How far those boundaries reach depends on which license the inbound code carries.</p>
+<div class="admonition-scenario-3-embedding-permissively-licensed-third-party-code exercise important admonition" id="exercise-2">
+<span id="scenario-3"></span><p class="admonition-title">Scenario 3: Embedding permissively licensed third-party code</p>
+<p>You are building an RSE tool and copied a helper function or utility snippet from a third-party project licensed under a permissive license (e.g., MIT or Apache-2.0) directly into one of your source files.</p>
+<ul class="simple">
+<li><p><strong>Licensing Goal</strong>: You want to maintain a <strong>permissive default</strong> for your project while properly acknowledging and legally respecting the embedded third-party code.</p></li>
+<li><p><strong>Legal Reality</strong>: Permissive licenses explicitly grant you permission to copy, modify, and embed their code into your repository. However, embedding permissive code does not make the original third-party copyright disappear, you must preserve the original copyright attribution and license terms for that specific snippet.</p></li>
+<li><p><strong>JLA Selection Strategy</strong>: Because inbound permissive code gives you maximum licensing flexibility, your overall repository can remain permissively licensed. To reflect this, select citation obligations (<code class="docutils literal notranslate"><span class="pre">Incl.</span> <span class="pre">Copyright</span></code>) without imposing reciprocal sharing constraints (leaving <code class="docutils literal notranslate"><span class="pre">Copyleft/Share</span> <span class="pre">a.</span></code> unselected).</p></li>
+</ul>
+<div class="admonition-solution solution important dropdown admonition" id="solution-2">
+<p class="admonition-title">Solution</p>
+<p><strong>What to select in the JLA interface:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Can Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">Distribute</span></code>, <code class="docutils literal notranslate"><span class="pre">Modify/merge</span></code>, and <code class="docutils literal notranslate"><span class="pre">Commercial</span> <span class="pre">use</span></code></p></li>
+<li><p><strong>Must Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">Incl.</span> <span class="pre">Copyright</span></code></p></li>
+<li><p><strong>Support Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">OSI</span> <span class="pre">approved</span></code></p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Example JLA Matches</strong>: <code class="docutils literal notranslate"><span class="pre">MIT</span></code>, <code class="docutils literal notranslate"><span class="pre">Apache-2.0</span></code>, <code class="docutils literal notranslate"><span class="pre">BSD-3-Clause</span></code></p></li>
+<li><p><strong>Notice Preservation Nuance</strong>: Permissive licenses are flexible, but they are not license-free. If you copy code from an Apache-2.0 or BSD-3-Clause project into your MIT-licensed repository, you must retain the original author’s copyright statement and license identifier directly above the embedded code block. Your repository license covers <em>your</em> code. It does not relicense the embedded snippet — that code stays under its original license and its original copyright holder’s terms. You are distributing one file containing two separately licensed contributions, which is why both notices must appear.</p></li>
+<li><p><strong>Downstream Obligations</strong>: Downstream users receive your project under your primary permissive license (e.g., MIT), but they must preserve both your overall copyright notice and the specific third-party notices attached to embedded snippets.</p></li>
+<li><p><strong>Allowed Inbound Snippets</strong>: In addition to the embedded permissive snippet, you can freely embed other permissively licensed code (MIT, BSD, Apache-2.0) or public domain waivers (CC0).Embedding <strong>strong</strong> copyleft code (GPL, EUPL) generally requires re-licensing your repository to match. Weak copyleft (LGPL, MPL-2.0) applies at a narrower boundary and often does not</p></li>
+<li><p><strong>In-File Identification (SPDX)</strong>: Mark both your overall file license and the specific embedded snippet using SPDX comments:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># SPDX-License-Identifier: MIT</span>
+<span class="c1"># Copyright (c) 2026 Author Name &lt;author@institute.eu&gt;</span>
+
+<span class="c1"># --- Embedded Third-Party Snippet ---</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="c1"># Copyright (c) 2024 External Contributor &lt;dev@external-lib.org&gt;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fast_matrix_solver</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
+    <span class="c1"># Embedded algorithm implementation</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">)))</span>
+<span class="c1"># --- End Embedded Snippet ---</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-scenario-4-embedding-copyleft-third-party-code exercise important admonition" id="exercise-3">
+<span id="scenario-4"></span><p class="admonition-title">Scenario 4: Embedding copyleft third-party code</p>
+<p>You are building a software tool and copied a non-trivial code snippet from a third-party project licensed under a copyleft license (e.g., GPL-3.0 or EUPL-1.2) directly into one of your source files.</p>
+<ul class="simple">
+<li><p><strong>Licensing Goal</strong>: Comply with legal requirements imposed by the inbound copyleft code while ensuring your overall repository remains legally compliant.</p></li>
+<li><p><strong>Legal Reality</strong>: Copying a non-trivial copyleft snippet into your source files creates a single combined work, so copyleft licensing generally extends to your whole project. “Non-trivial” matters: a snippet too short or purely functional to qualify as the author’s own intellectual creation (Art. 1(3)) may not carry copyright at all. There is no word count or line count that draws this line — if you are unsure, assume it is protected and either comply or reimplement.</p></li>
+<li><p><strong>JLA Selection Strategy</strong>: Because the inbound copyleft code forces your repository to adopt reciprocal sharing terms, you must configure JLA to require source code disclosure (<code class="docutils literal notranslate"><span class="pre">Disclose</span> <span class="pre">source</span></code>) and reciprocal licensing (<code class="docutils literal notranslate"><span class="pre">Copyleft/Share</span> <span class="pre">a.</span></code>).</p></li>
+</ul>
+<div class="admonition-solution solution important dropdown admonition" id="solution-3">
+<p class="admonition-title">Solution</p>
+<p><strong>What to select in the JLA interface:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Can Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">Distribute</span></code>, <code class="docutils literal notranslate"><span class="pre">Modify/merge</span></code>, and <code class="docutils literal notranslate"><span class="pre">Commercial</span> <span class="pre">use</span></code></p></li>
+<li><p><strong>Must Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">Incl.</span> <span class="pre">Copyright</span></code>, <code class="docutils literal notranslate"><span class="pre">Disclose</span> <span class="pre">source</span></code>, and <code class="docutils literal notranslate"><span class="pre">Copyleft/Share</span> <span class="pre">a.</span></code></p></li>
+<li><p><strong>Support Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">OSI</span> <span class="pre">approved</span></code></p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Example JLA Matches</strong>: <code class="docutils literal notranslate"><span class="pre">GPL-3.0</span></code>, <code class="docutils literal notranslate"><span class="pre">EUPL-1.2</span></code></p></li>
+<li><p><strong>Copyleft Scope &amp; EUPL Compatibility (Legal Nuance)</strong>: Directly copying copyleft code into your source files extends the copyleft obligation to your entire codebase. If the embedded snippet is <code class="docutils literal notranslate"><span class="pre">EUPL-1.2</span></code>, its built-in compatibility provisions allow you to license your combined project under <code class="docutils literal notranslate"><span class="pre">GPL-3.0</span></code> if your project ecosystem requires it, resolving license conflicts without violating EUPL terms.</p></li>
+<li><p><strong>Downstream Obligations</strong>: Anyone who receives, modifies, or distributes your repository must receive full access to the source code under the same copyleft license terms (<code class="docutils literal notranslate"><span class="pre">GPL-3.0</span></code> or <code class="docutils literal notranslate"><span class="pre">EUPL-1.2</span></code>) and preserve all copyright notices.</p></li>
+<li><p><strong>Allowed Inbound Snippets</strong>: Because your overall repository is now governed by a copyleft license, you can safely embed code from <strong>permissive sources</strong> (MIT, BSD, Apache-2.0, CC0) as well as <strong>compatible copyleft sources</strong>. You cannot embed proprietary, closed-source code or snippets from incompatible copyleft licenses.</p></li>
+<li><p><strong>In-File Identification (SPDX)</strong>: Mark your overall file license and clearly cite the embedded copyleft snippet using SPDX comments:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># SPDX-License-Identifier: GPL-3.0-or-later</span>
+<span class="c1"># Copyright (c) 2026 Author Name &lt;author@institute.eu&gt;</span>
+
+<span class="c1"># --- Embedded Copyleft Snippet ---</span>
+<span class="c1"># SPDX-License-Identifier: GPL-3.0-or-later</span>
+<span class="c1"># Copyright (c) 2023 External Researcher &lt;researcher@university.org&gt;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">optimized_fft_filter</span><span class="p">(</span><span class="n">data_signal</span><span class="p">):</span>
+    <span class="c1"># Embedded copyleft algorithm implementation</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">data_signal</span><span class="p">)</span>
+<span class="c1"># --- End Embedded Snippet ---</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="module-3-dependency-linking-packaging">
+<h2>Module 3: Dependency Linking &amp; Packaging<a class="headerlink" href="#module-3-dependency-linking-packaging" title="Link to this heading"></a></h2>
+<p>When software incorporates external dependencies, whether by dynamic linking, static compiling, or bundling binaries into container images licensing obligations expand beyond your own written source code. This module covers how dependency boundaries, build automation scripts, and packaged container artifacts affect legal compliance under the Joinup Licensing Assistant (JLA) framework.</p>
+<div class="admonition-scenario-5-linking-against-a-gpl-licensed-library exercise important admonition" id="exercise-4">
+<span id="scenario-5"></span><p class="admonition-title">Scenario 5: Linking against a GPL-licensed library</p>
+<p>You are developing a software application that imports or links against an external software library licensed under GPL-3.0 (e.g., importing a GPL Python package or linking a C/C++ static/shared library).</p>
+<ul class="simple">
+<li><p><strong>Licensing Goal</strong>: Ensure legal compliance while using copyleft libraries as core dependencies in your software project.</p></li>
+<li><p><strong>Legal Reality</strong>: Whether linking creates a combined work is genuinely unsettled, and often has to be decided case by case. The FSF’s position is that linking a GPL library — statically or dynamically — creates a combined work; some legal scholars and Commission EUPL guidance disagree, particularly for dynamic linking through a stable API. Most Member States have no case law on this, so no firm general rule can be stated. The guidance below follows the conservative, widely-adopted reading.</p></li>
+<li><p><strong>JLA Selection Strategy</strong>: Because linking to a GPL library requires your distributed project to be released under matching reciprocal terms, you must configure JLA to mandate source code disclosure (<code class="docutils literal notranslate"><span class="pre">Disclose</span> <span class="pre">source</span></code>) and reciprocal licensing (<code class="docutils literal notranslate"><span class="pre">Copyleft/Share</span> <span class="pre">a.</span></code>).</p></li>
+</ul>
+<div class="admonition-solution solution important dropdown admonition" id="solution-4">
+<p class="admonition-title">Solution</p>
+<p><strong>What to select in the JLA interface:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Can Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">Distribute</span></code>, <code class="docutils literal notranslate"><span class="pre">Modify/merge</span></code>, and <code class="docutils literal notranslate"><span class="pre">Commercial</span> <span class="pre">use</span></code></p></li>
+<li><p><strong>Must Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">Incl.</span> <span class="pre">Copyright</span></code>, <code class="docutils literal notranslate"><span class="pre">Disclose</span> <span class="pre">source</span></code>, and <code class="docutils literal notranslate"><span class="pre">Copyleft/Share</span> <span class="pre">a.</span></code></p></li>
+<li><p><strong>Support Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">OSI</span> <span class="pre">approved</span></code></p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Example JLA Matches</strong>: <code class="docutils literal notranslate"><span class="pre">GPL-3.0</span></code>, <code class="docutils literal notranslate"><span class="pre">EUPL-1.2</span></code></p></li>
+<li><p><strong>Linking Boundaries &amp; License Selection (Legal Nuance)</strong>:</p>
+<ul>
+<li><p><strong>Why GPL forces copyleft</strong>: Linking against a standard <code class="docutils literal notranslate"><span class="pre">GPL-3.0</span></code> library extends copyleft to your entire project. Your repository must adopt a compatible copyleft license (<code class="docutils literal notranslate"><span class="pre">GPL-3.0</span></code> or <code class="docutils literal notranslate"><span class="pre">EUPL-1.2</span></code>, which explicitly lists GPL-3.0 in its compatibility appendix).</p></li>
+</ul>
+</li>
+<li><p><strong>Copyleft licenses are not compatible with each other</strong>: two strong copyleft licenses can each demand that the combined work use <em>their</em> terms, which makes the combination undistributable. The classic trap is <code class="docutils literal notranslate"><span class="pre">GPL-2.0-only</span></code>: without the “or later” clause you cannot upgrade to GPL-3.0 to resolve a conflict, so GPL-2.0-only code cannot be combined with GPL-3.0 or Apache-2.0 code at all. Always check the exact SPDX identifier — <code class="docutils literal notranslate"><span class="pre">GPL-2.0-only</span></code> and <code class="docutils literal notranslate"><span class="pre">GPL-2.0-or-later</span></code> behave very differently.</p></li>
+<li><p><strong>Downstream Obligations</strong>: Anyone to whom you <strong>distribute</strong> the application must receive full access to your source code under <code class="docutils literal notranslate"><span class="pre">GPL-3.0</span></code> (or <code class="docutils literal notranslate"><span class="pre">EUPL-1.2</span></code>), along with upstream copyright notices and the build scripts needed to recompile it. Running the software internally, without distributing it, creates no such obligation — though note that <code class="docutils literal notranslate"><span class="pre">AGPL-3.0</span></code> extends this to network use.</p></li>
+<li><p><strong>Allowed Inbound Code &amp; Dependencies</strong>: Your project can import or include other <strong>permissively licensed</strong> packages (MIT, BSD, Apache-2.0) and public domain waivers (CC0). However, all code linked together in the final executable or runtime environment must satisfy GPL compatibility.</p></li>
+<li><p><strong>In-File Identification (SPDX)</strong>: Apply standard machine-readable SPDX identifier comments directly at the top of your main scripts:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># SPDX-License-Identifier: GPL-3.0-or-later</span>
+<span class="c1"># Copyright (c) 2026 Author Name &lt;author@institute.eu&gt;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">gpl_licensed_solver</span>  <span class="c1"># External GPL dependency forces GPL/EUPL compliance</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">solve_system</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">gpl_licensed_solver</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-scenario-6-authoring-container-recipes-and-environment-specifications exercise important admonition" id="exercise-5">
+<span id="scenario-6"></span><p class="admonition-title">Scenario 6: Authoring container recipes and environment specifications</p>
+<p>You are creating a <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code>, Conda <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code>, or build recipe to automate the setup of your research environment. The recipe itself contains setup instructions, shell commands, and package lists.</p>
+<ul class="simple">
+<li><p><strong>Licensing Goal</strong>: You want <strong>maximum adoption</strong> and reuse of your build automation script so other researchers can freely adapt and build upon your workflow.</p></li>
+<li><p><strong>Legal Reality</strong>: Build recipes and configuration scripts are plain-text source code, separate from the software binaries they download at build time. The build instructions you write are your expression — but note that a very short recipe (a <code class="docutils literal notranslate"><span class="pre">FROM</span></code> line plus two <code class="docutils literal notranslate"><span class="pre">RUN</span></code> commands) may be too trivial to meet the Art. 1(3) originality threshold and may not attract copyright at all. Longer, non-obvious recipes clearly do.</p></li>
+<li><p><strong>JLA Selection Strategy</strong>: To allow anyone to reuse or adapt your container recipe without restrictions, you require citation credit (<code class="docutils literal notranslate"><span class="pre">Incl.</span> <span class="pre">Copyright</span></code>) while leaving reciprocal requirements (<code class="docutils literal notranslate"><span class="pre">Copyleft/Share</span> <span class="pre">a.</span></code>) unselected.</p></li>
+</ul>
+<div class="admonition-solution solution important dropdown admonition" id="solution-5">
+<p class="admonition-title">Solution</p>
+<p><strong>What to select in the JLA interface:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Can Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">Distribute</span></code>, <code class="docutils literal notranslate"><span class="pre">Modify/merge</span></code>, and <code class="docutils literal notranslate"><span class="pre">Commercial</span> <span class="pre">use</span></code></p></li>
+<li><p><strong>Must Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">Incl.</span> <span class="pre">Copyright</span></code></p></li>
+<li><p><strong>Support Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">OSI</span> <span class="pre">approved</span></code></p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Example JLA Matches</strong>: <code class="docutils literal notranslate"><span class="pre">MIT</span></code>, <code class="docutils literal notranslate"><span class="pre">Apache-2.0</span></code>, <code class="docutils literal notranslate"><span class="pre">BSD-3-Clause</span></code></p></li>
+<li><p><strong>Recipe vs. Image Nuance</strong>: The license applied to a <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> covers only the recipe instructions, not the software packages installed inside the container when <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">build</span></code> runs. A permissively licensed Dockerfile can install both permissive and copyleft packages without legal conflict.</p></li>
+<li><p><strong>Downstream Obligations</strong>: Anyone who reuses or adapts your build recipe must preserve your original copyright notice in the header of the recipe file.</p></li>
+<li><p><strong>Allowed Inbound Snippets</strong>: You can freely include build commands and code snippets from permissively licensed build scripts or public domain code.</p></li>
+<li><p><strong>In-File Identification (SPDX)</strong>: Place SPDX identifier comments at the top of your Dockerfile or recipe file:</p></li>
+</ul>
+<div class="highlight-dockerfile notranslate"><div class="highlight"><pre><span></span><span class="c"># SPDX-License-Identifier: MIT</span>
+<span class="c"># Copyright (c) 2026 Author Name &lt;author@institute.eu&gt;</span>
+
+<span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:24.04</span>
+<span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3<span class="w"> </span>python3-pip
+<span class="k">COPY</span><span class="w"> </span>solver.py<span class="w"> </span>/app/solver.py
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition-scenario-7-distributing-pre-built-container-images exercise important admonition" id="exercise-6">
+<span id="scenario-7"></span><p class="admonition-title">Scenario 7: Distributing pre-built container images</p>
+<p>You compiled and published a pre-built container image (e.g., pushing a compiled Docker image to Docker Hub, GitHub Container Registry, or an institutional registry) containing an OS layer, runtime binaries, dependencies, and your application code.</p>
+<ul class="simple">
+<li><p><strong>Licensing Goal</strong>: Safely distribute compiled container images without violating the license terms of any software layer or binary included inside the image.</p></li>
+<li><p><strong>Legal Reality</strong>: A compiled container image is a <strong>multi-license aggregate bundle</strong>, not a single combined work. Distributing pre-built binaries makes you a distributor of every package inside, so source-availability obligations apply to the copyleft components (Linux base packages, coreutils, GPL libraries). But those packages sitting in the same filesystem as your application do not make your application a derivative of them — this is mere aggregation. Your own code keeps whatever license you chose; you simply also carry distributor obligations for the copyleft software you are shipping alongside it.</p></li>
+<li><p><strong>JLA Selection Strategy</strong>: Because a container image combines multiple distinct software components, JLA is used to evaluate constituent component obligations. When distributing compiled binaries containing copyleft layers, source disclosure requirements (<code class="docutils literal notranslate"><span class="pre">Disclose</span> <span class="pre">source</span></code>) must be fulfilled for those specific layers.</p></li>
+</ul>
+<div class="admonition-solution solution important dropdown admonition" id="solution-6">
+<p class="admonition-title">Solution</p>
+<p><strong>What to select in the JLA interface:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Can Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">Distribute</span></code> and <code class="docutils literal notranslate"><span class="pre">Commercial</span> <span class="pre">use</span></code></p></li>
+<li><p><strong>Must Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">Incl.</span> <span class="pre">Copyright</span></code> and <code class="docutils literal notranslate"><span class="pre">Disclose</span> <span class="pre">source</span></code></p></li>
+<li><p><strong>Support Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">OSI</span> <span class="pre">approved</span></code></p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>JLA Outcome</strong>: No single license applies. Use JLA per component to check each one’s obligations, then record the aggregate in your image metadata.</p></li>
+<li><p><strong>Multi-License Aggregation Nuance</strong>: Applying a permissive license (like MIT) to your application code inside the container does not override or erase the GPL/LGPL obligations of base system packages installed in <code class="docutils literal notranslate"><span class="pre">/usr/lib</span></code> or <code class="docutils literal notranslate"><span class="pre">/usr/bin</span></code>. Distributing the built image binary makes you a distributor of all installed packages.</p></li>
+<li><p><strong>Downstream Obligations</strong>: You must ensure downstream users can obtain the corresponding source for the copyleft components you shipped. Publishing your <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> documents the build but does not by itself satisfy this — the GPL asks for the source of the binaries actually distributed. In practice, most research images rely on unmodified upstream distribution packages, where pointing to the distributor’s public source archives (as GPLv3 §6(d) permits) is the normal approach. If you modify or rebuild a copyleft component yourself, you must provide that source directly.</p></li>
+<li><p><strong>Allowed Inbound Packages</strong>: Before publishing an image binary, run automated compliance scanning tools (e.g., Syft, Trivy) to generate a Software Bill of Materials (SBOM) and verify that no non-redistributable or proprietary software is packaged inside.</p></li>
+<li><p><strong>In-File Identification (Metadata Annotations)</strong>: Document the multi-license nature of the aggregate bundle using standard OCI (Open Container Initiative) image labels inside your Dockerfile:</p></li>
+</ul>
+<div class="highlight-dockerfile notranslate"><div class="highlight"><pre><span></span><span class="c"># SPDX-License-Identifier: MIT</span>
+<span class="c"># Copyright (c) 2026 Author Name &lt;author@institute.eu&gt;</span>
+
+<span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:24.04</span>
+<span class="k">LABEL</span><span class="w"> </span>org.opencontainers.image.authors<span class="o">=</span><span class="s2">"author@institute.eu"</span>
+<span class="c"># OCI Standard Image Annotations for Docker Hub Compliance</span>
+<span class="k">LABEL</span><span class="w"> </span>org.opencontainers.image.title<span class="o">=</span><span class="s2">"My Research Pipeline"</span>
+<span class="k">LABEL</span><span class="w"> </span>org.opencontainers.image.licenses<span class="o">=</span><span class="s2">"MIT AND GPL-3.0-or-later"</span>
+<span class="k">LABEL</span><span class="w"> </span>org.opencontainers.image.vendor<span class="o">=</span><span class="s2">"My Institute Name"</span>
+<span class="k">LABEL</span><span class="w"> </span>org.opencontainers.image.description<span class="o">=</span><span class="s2">"Includes Ubuntu 24.04 base layers (GPL/LGPL) and custom solver (MIT)"</span>
+
+<span class="k">COPY</span><span class="w"> </span>solver.py<span class="w"> </span>/app/solver.py
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="module-4-emerging-workflows-ai">
+<h2>Module 4: Emerging Workflows &amp; AI<a class="headerlink" href="#module-4-emerging-workflows-ai" title="Link to this heading"></a></h2>
+<p>AI-assisted development tools and machine learning models introduce unique legal challenges regarding copyright ownership, training data memorization, and behavioral restrictions. This module addresses how to license projects built with AI code generation tools and how to package research software that bundles AI models, weights, and datasets alongside source code.</p>
+<hr class="docutils" />
+<div class="admonition-scenario-8-ai-assisted-code-generation exercise important admonition" id="exercise-7">
+<span id="scenario-8"></span><p class="admonition-title">Scenario 8: AI-assisted code generation</p>
+<p>You used AI tools (e.g., GitHub Copilot, ChatGPT, Claude) to write functions, unit tests, or documentation for your research software repository.</p>
+<ul class="simple">
+<li><p><strong>Licensing Goal</strong>: Retain clear ownership and apply a <strong>permissive license</strong> (<code class="docutils literal notranslate"><span class="pre">MIT</span></code> or <code class="docutils literal notranslate"><span class="pre">Apache-2.0</span></code>) to your repository without incurring hidden copyright infringement or copyleft obligations from code embedded during model training.</p></li>
+<li><p><strong>Legal Reality</strong>: Unmodified AI-generated outputs lack human authorship and are generally not eligible for copyright protection under current EU and international legal standards. However, if an LLM reproduces a substantial copyrighted code snippet verbatim from its training data (memorization), that output snippet retains its original copyright and license obligations.</p></li>
+<li><p><strong>JLA Selection Strategy</strong>: To ensure maximum adoption and academic reuse for your overall codebase, require citation credit (<code class="docutils literal notranslate"><span class="pre">Incl.</span> <span class="pre">Copyright</span></code>) while avoiding share-alike constraints (leaving <code class="docutils literal notranslate"><span class="pre">Copyleft/Share</span> <span class="pre">a.</span></code> unselected), supported by automated compliance checks.</p></li>
+</ul>
+<div class="admonition-solution solution important dropdown admonition" id="solution-7">
+<p class="admonition-title">Solution</p>
+<p><strong>What to select in the JLA interface:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Can Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">Distribute</span></code>, <code class="docutils literal notranslate"><span class="pre">Modify/merge</span></code>, and <code class="docutils literal notranslate"><span class="pre">Commercial</span> <span class="pre">use</span></code></p></li>
+<li><p><strong>Must Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">Incl.</span> <span class="pre">Copyright</span></code></p></li>
+<li><p><strong>Support Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">OSI</span> <span class="pre">approved</span></code></p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Example JLA Matches</strong>: <code class="docutils literal notranslate"><span class="pre">MIT</span></code>, <code class="docutils literal notranslate"><span class="pre">Apache-2.0</span></code>, <code class="docutils literal notranslate"><span class="pre">BSD-3-Clause</span></code></p></li>
+<li><p><strong>Marking AI-generated code</strong>: Some projects and AI tool terms require contributors to disclose AI involvement — via a commit trailer, a PR checkbox, or an in-file comment. Even where it is optional, marking AI-assisted sections is increasingly recommended practice: it records provenance, signals to reviewers where extra scrutiny is warranted, and makes later authorship or infringement questions much easier to resolve. Check the contribution guidelines of any project you submit to.</p></li>
+<li><p><strong>Downstream Obligations</strong>: Downstream users must preserve your copyright notice for the repository. They are free to reuse, modify, and integrate your code into commercial or open-source projects.</p></li>
+<li><p><strong>Allowed Inbound Snippets</strong>: You can include permissively licensed code, public domain code (CC0), and AI-generated snippets that have been verified against verbatim training data duplication.</p></li>
+<li><p><strong>In-File Identification (SPDX)</strong>: Apply standard machine-readable SPDX identifier comments directly at the top of your scripts:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># SPDX-License-Identifier: MIT</span>
+<span class="c1"># Copyright (c) 2026 Author Name &lt;author@institute.eu&gt;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">filter_sensor_data</span><span class="p">(</span><span class="n">raw_readings</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Cleans raw sensor data (written with AI assistance and human review)."""</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">reading</span> <span class="k">for</span> <span class="n">reading</span> <span class="ow">in</span> <span class="n">raw_readings</span> <span class="k">if</span> <span class="n">reading</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition-scenario-9-packaging-ai-workflows-datasets-and-model-weights exercise important admonition" id="exercise-8">
+<span id="scenario-9"></span><p class="admonition-title">Scenario 9: Packaging AI workflows, datasets, and model weights</p>
+<p>You are developing research software that includes source code alongside trained machine learning model weights (<code class="docutils literal notranslate"><span class="pre">.pt</span></code>, <code class="docutils literal notranslate"><span class="pre">.safetensors</span></code>) and benchmark datasets.</p>
+<ul class="simple">
+<li><p><strong>Licensing Goal</strong>: Apply a clear <strong>dual-licensing strategy</strong> that makes both the software source code and the non-code assets (data, weights) open and reusable under appropriate legal frameworks.</p></li>
+<li><p><strong>Legal Reality</strong>: Standard software licenses (MIT, GPL) are written for source code and fit datasets and model parameters poorly. Datasets may attract the EU <em>sui generis</em> database right where there has been substantial investment in obtaining, verifying, or presenting their contents. Model weights are a harder case: they are neither code nor a database, and whether they attract any copyright protection in the EU is genuinely unsettled. Because of this uncertainty, applying an explicit license to weights is about setting clear terms for your users, not about relying on a settled legal right.</p></li>
+<li><p><strong>JLA Selection Strategy</strong>: Use JLA to select an OSI-approved open-source license for the executable code component (<code class="docutils literal notranslate"><span class="pre">Incl.</span> <span class="pre">Copyright</span></code> selected), while using Creative Commons licenses (e.g., <code class="docutils literal notranslate"><span class="pre">CC-BY-4.0</span></code> or <code class="docutils literal notranslate"><span class="pre">CC0</span></code>) for the dataset and weight files.</p></li>
+</ul>
+<div class="admonition-solution solution important dropdown admonition" id="solution-8">
+<p class="admonition-title">Solution</p>
+<p><strong>What to select in the JLA interface:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Can Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">Distribute</span></code>, <code class="docutils literal notranslate"><span class="pre">Modify/merge</span></code>, and <code class="docutils literal notranslate"><span class="pre">Commercial</span> <span class="pre">use</span></code></p></li>
+<li><p><strong>Must Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">Incl.</span> <span class="pre">Copyright</span></code></p></li>
+<li><p><strong>Support Column</strong>: Select <code class="docutils literal notranslate"><span class="pre">OSI</span> <span class="pre">approved</span></code></p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Example JLA Matches</strong>: <code class="docutils literal notranslate"><span class="pre">MIT</span></code>, <code class="docutils literal notranslate"><span class="pre">Apache-2.0</span></code> (for the code component)</p></li>
+<li><p><strong>Code vs. Data/Weights &amp; OpenRAIL Nuance</strong>: Avoid applying software licenses like GPL or MIT to raw datasets or model weights — their terms reference source code, object code, and linking, which leaves users guessing about what applies. Use <strong>CC-BY-4.0</strong> or <strong>CC0</strong> for non-code assets instead. Note also that behavioral licenses (such as OpenRAIL) impose usage restrictions (e.g., prohibiting specific harmful uses), so they do <strong>not</strong> qualify as OSI-approved open source and will not appear in standard JLA queries.</p></li>
+<li><p><strong>Downstream Obligations</strong>: Downstream users must cite your repository for the code (under your chosen software license) and give credit for the model weights and data under the corresponding Creative Commons license.</p></li>
+<li><p><strong>Allowed Inbound Assets</strong>: You may combine permissively licensed python code with CC-BY-4.0 datasets or open-weight models, provided the attribution files clearly separate code licenses from data/weight licenses.</p></li>
+<li><p><strong>In-File Identification (SPDX / Dual-Licensing Structure)</strong>: Document the dual-licensing scheme in your root repository structure and script headers:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># SPDX-License-Identifier: MIT</span>
+<span class="c1"># Copyright (c) 2026 Author Name &lt;author@institute.eu&gt;</span>
+<span class="c1">#</span>
+<span class="c1"># Note: Source code is licensed under MIT.</span>
+<span class="c1"># Model weights in /models/ and datasets in /data/ are licensed under CC-BY-4.0.</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">load_pipeline</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"models/climate_weights.safetensors"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="best-practices-attaching-a-license-to-your-repository">
+<h2>Best Practices: Attaching a License to Your Repository<a class="headerlink" href="#best-practices-attaching-a-license-to-your-repository" title="Link to this heading"></a></h2>
+<p>Once you have selected a license using the JLA, you must officially attach it to your repository so automated scanners, package registries, and downstream users can verify your terms.</p>
+<section id="adding-the-root-license-file">
+<h3>1. Adding the Root <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code> File<a class="headerlink" href="#adding-the-root-license-file" title="Link to this heading"></a></h3>
+<p>Always place the full text of your chosen license in a plain-text file named <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code> or <code class="docutils literal notranslate"><span class="pre">LICENSE.txt</span></code> at the root of your repository.</p>
+<ul>
+<li><p><strong>Exact Legal Text</strong>: Copy the standard text directly from <a class="reference external" href="https://spdx.org/licenses/">spdx.org/licenses</a> or <a class="reference external" href="https://choosealicense.com/">choosealicense.com</a>.</p></li>
+<li><p><strong>Copyright Header</strong>: Ensure you fill in the copyright year and copyright holder line at the top of the license text:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Copyright (c) 2026 [Author Name or Institution Name]
+</pre></div>
+</div>
+</li>
+<li><p><strong>Do Not Edit Terms</strong>: Never modify the legal wording of standard licenses (e.g., removing clauses from GPL or MIT). Edited texts are no longer the license they claim to be: compliance scanners cannot classify them, package registries may flag them, and downstream users have to get their own legal review before touching your code. If a standard license does not fit, pick a different standard license.</p></li>
+</ul>
+</section>
+<section id="documenting-license-status-in-readme-md">
+<h3>2. Documenting License Status in <code class="docutils literal notranslate"><span class="pre">README.md</span></code><a class="headerlink" href="#documenting-license-status-in-readme-md" title="Link to this heading"></a></h3>
+<p>Add a dedicated <strong>License</strong> section near the bottom of your repository’s <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file, along with a machine-readable badge:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## License</span>
+
+This project is licensed under the MIT License - see the [<span class="nt">LICENSE</span>](<span class="na">LICENSE</span>) file for details.
+
+[<span class="nt">![License: MIT</span>](<span class="na">https://img.shields.io/badge/License-MIT-yellow.svg</span>)](https://opensource.org/licenses/MIT)
+</pre></div>
+</div>
+</section>
+<section id="automated-compliance-with-the-reuse-standard">
+<h3>3. Automated Compliance with the REUSE Standard<a class="headerlink" href="#automated-compliance-with-the-reuse-standard" title="Link to this heading"></a></h3>
+<p>For multi-asset research repositories containing code, data, container build recipes, and prompt templates, follow the <a class="reference external" href="https://reuse.software/">FSFE REUSE Initiative</a> standard:</p>
+<ol class="arabic simple">
+<li><p><strong>Include License Texts</strong>: Place full license files inside a <code class="docutils literal notranslate"><span class="pre">LICENSES/</span></code> directory (e.g., <code class="docutils literal notranslate"><span class="pre">LICENSES/MIT.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">LICENSES/GPL-3.0-or-later.txt</span></code>).</p></li>
+<li><p><strong>Add In-File SPDX Headers</strong>: Label every source file, build script, and prompt file with SPDX tags.</p></li>
+<li><p><strong>Verify Compliance</strong>: Run the automated REUSE linter in your CI/CD pipeline:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install and run REUSE compliance check</span>
+pip<span class="w"> </span>install<span class="w"> </span>reuse
+reuse<span class="w"> </span>lint
+</pre></div>
+</div>
+<p>When <code class="docutils literal notranslate"><span class="pre">reuse</span> <span class="pre">lint</span></code> passes, downstream researchers can automatically verify the
+legal status of every single asset in your codebase.</p>
+</section>
+</section>
+<section id="summary-resolving-the-compliance-pipeline">
+<h2>Summary: Resolving the Compliance Pipeline<a class="headerlink" href="#summary-resolving-the-compliance-pipeline" title="Link to this heading"></a></h2>
+<p>When developing research software, license compliance is not an afterthought to debug at the end of a project, it is a proactive design choice. By using the <strong>Joinup Licensing Assistant (JLA)</strong> framework to align your repository license with your inbound dependencies from day one, your CI/CD pipeline passes cleanly on the first run.</p>
+<p>The diagram below illustrates how selecting a compatible license upfront ensures your code passes automated compliance checks and results in a legally sound release:</p>
+<div class="mermaid">
+            %%{init: {'themeVariables': { 'edgeLabelBackground': '#faf5ff' }}}%%
+flowchart TB
+
+    subgraph local[&quot;1. Local Authoring &amp; Standardization&quot;]
+        A[&quot;&lt;b&gt;Inbound Reuse Trigger:&lt;/b&gt;&lt;br/&gt;User copies copyleft snippet &lt;i&gt;(Scenario 4)&lt;/i&gt;&lt;br/&gt;or links GPL library &lt;i&gt;(Scenario 5)&lt;/i&gt;&quot;] --&gt; B[&quot;&lt;b&gt;JLA Selection Strategy:&lt;/b&gt;&lt;br/&gt;Select compatible copyleft license&lt;br/&gt;&lt;i&gt;(GPL-3.0 / EUPL-1.2)&lt;/i&gt;&quot;]
+        
+        B --&gt; C[&quot;&lt;b&gt;Standardize Local Codebase:&lt;/b&gt;&lt;br/&gt;1. Add &lt;b&gt;SPDX Headers&lt;/b&gt; to all files &lt;i&gt;(Scenarios 1-9)&lt;/i&gt;&lt;br/&gt;2. Add root &lt;code&gt;LICENSE&lt;/code&gt; file &amp; README badge&quot;]
+    end
+
+    subgraph cicd[&quot;2. Automated CI/CD &amp; Verification&quot;]
+        C --&gt;|&quot;&lt;b&gt;Git Push&lt;/b&gt; to Repository&quot;| D[&quot;&lt;b&gt;Build Trigger: Run Compliance Scanner&lt;/b&gt;&lt;br/&gt;&lt;i&gt;(Executes &lt;code&gt;reuse lint&lt;/code&gt; in CI/CD)&lt;/i&gt;&quot;]
+        
+        D --&gt; E{&quot;&lt;b&gt;Verify Inbound vs.&lt;br/&gt;Outbound Terms&lt;/b&gt;&quot;}
+        
+        E --&gt;|&quot;SPDX Headers &amp; License Match Confirmed!&quot;| F[&quot;✅ &lt;b&gt;BUILD PASSES&lt;/b&gt;&lt;br/&gt;Compliance verified automatically&quot;]
+        
+        F --&gt; SUCCESS[&quot;🎉 &lt;b&gt;COMPLIANT OPEN-SOURCE RELEASE&lt;/b&gt;&lt;br/&gt;Legally sound, reproducible &amp; ready for scientific reuse&quot;]
+    end
+
+    classDef pass fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
+    classDef neutral fill:#f8f9fa,stroke:#495057,stroke-width:2px,color:#212529;
+    classDef box_fill fill:#ffffff,stroke:#adb5bd,stroke-width:1px;
+
+    class F,SUCCESS pass;
+    class A,B,C,D,E neutral;
+    class local,cicd box_fill;
+        </div><section id="scenario-mapping-across-the-pipeline">
+<h3>Scenario Mapping Across the Pipeline<a class="headerlink" href="#scenario-mapping-across-the-pipeline" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Handling Inbound Copyleft (<a class="reference internal" href="#scenario-4">Scenario 4</a> &amp; <a class="reference internal" href="#scenario-5">Scenario 5</a>)</strong>: When you copy non-trivial copyleft code snippets (e.g., CC BY-SA from Stack Overflow or GPL snippets) or link directly against a GPL library, your overall project becomes a combined work. Selecting a compatible copyleft license upfront (<code class="docutils literal notranslate"><span class="pre">GPL-3.0</span></code> or <code class="docutils literal notranslate"><span class="pre">EUPL-1.2</span></code>) satisfies the reciprocal sharing terms and allows the pipeline scanner to pass without conflict.</p></li>
+<li><p><strong>Handling Inbound Copyleft (<a class="reference internal" href="#scenario-4">Scenario 4</a> &amp; <a class="reference internal" href="#scenario-5">Scenario 5</a>)</strong>: Copying a non-trivial copyleft snippet (e.g., CC BY-SA code from Stack Overflow, or a GPL fragment) creates a combined work. Linking against a copyleft library may do the same, depending on the license and the linking method. In both cases, selecting a compatible copyleft license upfront (<code class="docutils literal notranslate"><span class="pre">GPL-3.0</span></code> or <code class="docutils literal notranslate"><span class="pre">EUPL-1.2</span></code>) satisfies the reciprocal terms and lets the scanner pass — and checking the exact SPDX identifier first avoids the <code class="docutils literal notranslate"><span class="pre">GPL-2.0-only</span></code> incompatibility trap.</p></li>
+<li><p><strong>Packaging and Build Automation (<a class="reference internal" href="#scenario-6">Scenario 6</a> &amp; <a class="reference internal" href="#scenario-7">Scenario 7</a>)</strong>: Keep plain-text build recipes (Dockerfiles) permissively licensed for maximum reuse, while annotating compiled container image binaries as multi-license aggregate bundles to satisfy embedded base-layer obligations.</p></li>
+<li><p><strong>AI Assets and Dual-Licensing (<a class="reference internal" href="#scenario-8">Scenario 8</a> &amp; <a class="reference internal" href="#scenario-9">Scenario 9</a>)</strong>: Run code-similarity scanners to catch LLM training memorization before releasing AI-assisted code, and apply dual-licensing to separate executable software code (<code class="docutils literal notranslate"><span class="pre">MIT</span></code>) from non-code datasets and model weights (<code class="docutils literal notranslate"><span class="pre">CC-BY-4.0</span></code>).</p></li>
+<li><p><strong>Standardized Distribution</strong>: Adding machine-readable <strong>SPDX headers</strong> across every script, Dockerfile, and prompt template lets <code class="docutils literal notranslate"><span class="pre">reuse</span> <span class="pre">lint</span></code> confirm that every asset has a declared, documented license. Note what this does and does not prove: the linter verifies that declarations exist and are well-formed, not that they are legally correct or mutually compatible. Automation makes your intent auditable — it does not replace the judgment calls in the scenarios above.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../social-coding/" class="btn btn-neutral float-left" title="Social coding" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../software-citation/" class="btn btn-neutral float-right" title="Software citation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
