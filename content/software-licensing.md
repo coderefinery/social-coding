@@ -648,3 +648,93 @@ Compare this with the failing pipeline at the start of the lesson: the pipeline 
 * **Packaging and Build Automation ([Scenario 6](#scenario-6) & [Scenario 7](#scenario-7))**: Keep plain-text build recipes (Dockerfiles) permissively licensed for maximum reuse, while annotating compiled container image binaries as multi-license aggregate bundles to satisfy embedded base-layer obligations.
 * **AI Assets and Dual-Licensing ([Scenario 8](#scenario-8) & [Scenario 9](#scenario-9))**: Run code-similarity scanners to catch LLM training memorization before releasing AI-assisted code, and apply dual-licensing to separate executable software code (`MIT`) from non-code datasets and model weights (`CC-BY-4.0`).
 * **Standardized Distribution**: Adding machine-readable **SPDX headers** across every script, Dockerfile, and prompt template lets `reuse lint` confirm that every asset has a declared, documented license. Note what this does and does not prove: the linter verifies that declarations exist and are well-formed, not that they are legally correct or mutually compatible. Automation makes your intent auditable — it does not replace the judgment calls in the scenarios above.
+
+## Glossary
+
+````{admonition} Glossary of terms (click to expand)
+:class: dropdown
+
+```{glossary}
+Adaptation
+  EU term (Art. 4(1)(b)) for translating, arranging, or altering a program; roughly the US *derivative work*.
+
+AGPL-3.0
+  Strong copyleft that also requires sharing source when users interact with modified software over a network.
+
+All Rights Reserved
+  Default for unlicensed software: nobody but the copyright holder may run, copy, modify, or share it.
+
+Author
+  The person who created the program; not always the copyright holder.
+
+Combined work
+  One work formed by merging separately licensed code, e.g. embedding a snippet or static linking.
+
+Compatibility
+  Whether two licenses allow their code to be combined and distributed together.
+
+Container image
+  A built binary snapshot (`.sif`, OCI image) bundling many packages under many licenses.
+
+Container recipe
+  The plain-text build instructions (`Dockerfile`, `.def`); source code in its own right.
+
+Copyleft
+  Licenses requiring distributed adaptations to use matching terms (GPL-3.0, EUPL-1.2).
+
+Copyright holder
+  Whoever holds the economic rights and can license the work: the author, employer, or assignee.
+
+Corresponding source
+  The full source and build scripts needed to rebuild the exact binaries you distributed.
+
+Derivative work
+  US term (17 U.S.C. § 101) for a work based on another; EU law says *adaptation*.
+
+Distribution
+  Giving copies to others outside your organisation; this is what triggers copyleft obligations.
+
+Dynamic linking
+  Loading a separate library at runtime; whether it creates a combined work is unsettled.
+
+Economic rights
+  Exclusive rights to copy, adapt, and distribute; often exercised by the employer (Art. 2(3)).
+
+EUPL-1.2
+  The European Commission's copyleft license, available in 23 EU languages.
+
+Expression vs. ideas
+  Copyright protects your code, not the underlying algorithms, functionality, or interfaces.
+
+Inbound licensing
+  The licenses on others' code you bring into your project.
+
+JLA
+  Joinup Licensing Assistant, the Commission's tool for comparing licenses.
+
+LGPL
+  Weak copyleft for libraries; your app may use other terms if it allows modifying and debugging the library.
+
+Memorization
+  When an AI model reproduces training code verbatim; that code keeps its original license.
+
+Mere aggregation
+  Separate programs shipped side by side; copyleft does not spread between them.
+
+-only / -or-later
+  SPDX suffixes: `GPL-2.0-only` cannot move to GPL-3.0; `-or-later` can.
+
+Originality threshold
+  A program is protected only if it is the author's own intellectual creation (Art. 1(3)).
+
+Outbound licensing
+  The license you choose for your own project.
+
+Permissive
+  Licenses allowing any reuse if notices are kept (MIT, Apache-2.0, BSD).
+
+Reciprocity
+  The copyleft requirement to share adaptations under matching terms.
+
+REUSE
+  FSFE standard for per-file license declarations;
