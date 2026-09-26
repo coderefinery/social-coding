@@ -235,7 +235,7 @@ When writing original code or implementing published algorithms, no third-party 
 You wrote an original algorithm from scratch (in Python, C++, Rust, etc.). Your repository contains only your original source code and dependency specifications (`requirements.txt`, `CMakeLists.txt`, `Cargo.toml`).
 
 * **Licensing Goal**: You want **maximum adoption** and zero friction for commercial or academic reuse.
-* **Legal Reality**: External dependencies remain separate works. Because you have not bundled third-party code inside your repository, you hold full copyright over your original codebase.
+* **Legal Reality**: External dependencies remain separate works. Because you have not bundled third-party code inside your repository, no inbound license terms constrain your choice.
 * **JLA Selection Strategy**: To ensure downstream users must acknowledge your original authorship while granting them maximum flexibility to incorporate your code into both open and proprietary software, you require citation credit (`Incl. Copyright`) without imposing share-alike conditions (leaving `Copyleft/Share a.` unselected).
 
 :::{solution}
@@ -251,7 +251,7 @@ You wrote an original algorithm from scratch (in Python, C++, Rust, etc.). Your 
 
 * **Downstream Obligations**: Anyone who reuses, modifies, or integrates your code into their work must preserve your copyright notice and license text. They are not required to share their modifications or open-source their downstream projects.
 
-* **Allowed Inbound Snippets**: If you want to include small third-party code snippets in your files, you can freely embed code licensed under **permissive terms** (e.g., MIT, BSD, Apache-2.0, 0BSD) or public domain waivers (CC0) without affecting your permissive license. However, embedding copyleft snippets (e.g., GPL, EUPL) might trigger reciprocal obligations, forcing your entire repository to be re-licensed under those copyleft terms.
+* **Allowed Inbound Snippets**: If you want to include small third-party code snippets in your files, you can freely embed code licensed under **permissive terms** (e.g., MIT, BSD, Apache-2.0, 0BSD) or public domain waivers (CC0) without affecting your permissive license. However, embedding copyleft snippets (e.g., GPL, EUPL) might trigger reciprocal obligations requiring you to re-license. Whether it does depends on which copyleft: weak copyleft (LGPL, MPL-2.0) often lets your surrounding code stay permissive, while strong copyleft generally does not.
 
 * **In-File Identification (SPDX)**: Apply standard machine-readable SPDX identifier comments directly at the top of your scripts:
 
@@ -265,12 +265,12 @@ import numpy as np
 ::::
 
 (scenario-2)=
-::::{exercise} Scenario 2: Implementing mathematical models with copyleft obligations
-You developed a custom mathematical solver implementing algorithms from academic literature. You want to ensure that any downstream improvements, extensions, or modifications made by others remain open-source and are shared back with the scientific community.
+::::{exercise} Scenario 2: Choosing reciprocity for your own implementation
+You developed a custom solver implementing algorithms from academic literature. You want any downstream improvements, extensions, or modifications to remain open-source and be shared back with the scientific community.
 
-* **Licensing Goal**: You want to enforce **reciprocity** (share-alike), preventing third parties from incorporating your algorithm into proprietary, closed-source software without sharing their modifications.
-* **Legal Reality**: Mathematical concepts and formulas themselves are not copyrightable, but your specific code implementation is fully protected by copyright. Applying a copyleft license legally binds anyone who distributes modified versions of your implementation to release their source code under matching reciprocal terms.
-* **JLA Selection Strategy**: To enforce reciprocal sharing, you must mandate that downstream distributors disclose their modified source code (`Disclose source`) and license their adaptations or combined worrks under matching terms (`Copyleft/Share a.`).
+* **Licensing Goal**: You want to enforce **reciprocity** (share-alike), preventing third parties from incorporating your implementation into proprietary software without sharing their modifications.
+* **Legal Reality**: The published algorithm itself is an unprotected idea — anyone may implement it independently, as Scenario 1 and the *SAS* ruling establish. What copyright protects is *your* specific implementation. Nothing about implementing a published method forces a particular license; copyleft here is your deliberate choice to bind downstream distributors to matching terms.
+* **JLA Selection Strategy**: To enforce reciprocal sharing, you must mandate that downstream distributors disclose their modified source code (`Disclose source`) and license their adaptations or combined works under matching terms (`Copyleft/Share a.`).
 
 :::{solution}
 **What to select in the JLA interface:**
@@ -282,7 +282,7 @@ You developed a custom mathematical solver implementing algorithms from academic
 * **Example JLA Matches**: `EUPL-1.2`, `GPL-3.0`, `AGPL-3.0`
 
 * **Copyleft Mechanics (EUPL vs. GPL Nuance)**: `GPL-3.0` is the standard global copyleft license, but `EUPL-1.2` is specifically tailored for European institutions. EUPL-1.2 is officially published in 23 EU language versions (each with equal legal validity), includes built-in compatibility clauses with GPL, and explicitly defaults to EU Member State jurisdiction and courts.
-
+* **A caution before choosing strong copyleft**: reciprocity also limits who can combine with your code. Strong copyleft licenses are frequently incompatible with each other, so a future collaborator on a differently-licensed copyleft project may be unable to use your work at all. Scenario 5 covers this.
 * **Downstream Obligations**: Anyone who distributes your code or a modified version of it must provide complete access to the corresponding source code under the same copyleft license and preserve your original copyright notices.
 
 * **Allowed Inbound Snippets**: You can freely embed code snippets licensed under **permissive terms** (e.g., MIT, Apache-2.0, BSD) or public domain waivers (CC0). You may also embed snippets from compatible copyleft code (e.g., EUPL, GPL). However, you cannot embed closed-source or proprietary code snippets.
