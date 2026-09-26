@@ -11,13 +11,13 @@
 
 ```{discussion} Limitations and context of this lesson 
 
-This lesson is designed as practical educational material for researchers and research software engineers, **not formal legal advice**
+This lesson is designed as practical educational material for researchers and research software engineers, **not formal legal advice**.
 
 * EU directives set only minimum requirements in some areas: Member States implement them differently and may add national rules not covered here. For example, some Member States let university researchers retain ownership of the programs they write instead of applying the employer rule in Art. 2(3).
 * Institutional Context: Employment contracts, grant agreements, and university policies heavily influence software ownership and licensing choices.
 * This lesson covers only the general principles of open-source reuse, copyright scope, and software adaptation. 
 
-If you need formal guidance references below and legal experts, especially if you have legal services at your host institute,  could be of help:
+If you need formal guidance, the references below can help — and so can legal experts, especially if your host institute has a legal services office:
 
 * [EUR Directive 2009/24/EC](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009L0024)
 * [Compendium of U.S. Copyright Office Practices (3rd Ed.) – Chapter 700, Section 721: Computer Programs](https://www.copyright.gov/comp3/)
@@ -61,7 +61,7 @@ flowchart TB
    class A,C white;
 ```
 
-Three things the table above cannot show. **Weak copyleft's conditions are where people get caught**: LGPL-3.0 §4 lets you ship inside a closed product only if your terms don't restrict modification of the LGPL portions or reverse engineering for debugging them, and that holds whether you linked statically or dynamically. **Reciprocity only triggers on distribution**: running modified copyleft code internally creates no obligation. And **copyleft licenses are often incompatible with each other**, so choosing one also decides who can combine with your work later.
+Three things the diagram above cannot show. **Weak copyleft's conditions are where people get caught**: LGPL-3.0 §4 lets you ship inside a closed product only if your terms don't restrict modification of the LGPL portions or reverse engineering for debugging them, and that holds whether you linked statically or dynamically. **Reciprocity only triggers on distribution**: running modified copyleft code internally creates no obligation. And **copyleft licenses are often incompatible with each other**, so choosing one also decides who can combine with your work later.
 
 You will hear copyleft called *viral* or *infectious*. The slang is worth knowing, but it misleads: nothing spreads by mere contact, so code merely sitting beside GPL code in a repository or container image is unaffected. Reciprocity reaches only across specific technical boundaries, such as embedding snippets or static linking, and how far it reaches depends on which copyleft license applies. Choosing copyleft over permissive is a project-level decision, not a sign that a license is harmful.
 
@@ -100,7 +100,7 @@ flowchart TB
         A2 --> B["Run Compliance Scanner"]
         B --> C{"Check Inbound vs.<br/>Outbound Terms"}
 
-        C -->|"Target license: Permissive<br/>Pasted snippet: Copyleft"| D["❌ <b>BUILD FAILURE</b><br/>Pasted copyleft snippet blocks MIT release"]
+        C -->|"Target license: Permissive<br/>Pasted snippet: Copyleft"| D["❌ <b>BUILD FAILURE</b> · job #142<br/>Pasted copyleft snippet blocks MIT release"]
 
         D --> E{"Select Patch Option"}
 
@@ -153,7 +153,7 @@ Developers working under EU statutory frameworks face a different legal reality 
 
 * **US law (17 U.S.C. § 101)** formally defines *"derivative work"*, and AI assistants reach for it to describe almost any code modification.
 * **EU law (Directive 2009/24/EC, Art. 4(1)(b))** does not use that term at all. It grants exclusive rights over "the translation, adaptation, arrangement and any other alteration of a computer program" — governed collectively as an **adaptation**.
-* **Licenses use it anyway**: `GPL-3.0` and `EUPL-1.2` define "derivative work" inside their own text as a contractual term for international enforceability, even though EU statute treats the act as an adaptation.
+* **Licenses vary**: `EUPL-1.2` defines "Derivative Works" in its own text as a contractual term, and `GPL-2.0` used the phrase too. `GPL-3.0` deliberately dropped it in favour of "modify" and "a work based on the Program", because its drafters recognised the term means different things in different jurisdictions — the same problem you face when an AI assistant uses it.
 
 So when an AI assistant tells you a snippet creates a "derivative work", treat that as a prompt to check the actual question under EU law: is this a statutory **adaptation**, or a **combined work** across a technical boundary? The rest of this lesson gives you that EU-aligned framework.
 
@@ -438,7 +438,7 @@ COPY solver.py /app/solver.py
 You compiled and published a pre-built container image (e.g., pushing a compiled Docker image to Docker Hub, GitHub Container Registry, or an institutional registry) containing an OS layer, runtime binaries, dependencies, and your application code.
 
 * **Licensing Goal**: Safely distribute compiled container images without violating the license terms of any software layer or binary included inside the image.
-* **Legal Reality**: A compiled container image is a **multi-license aggregate bundle**, not a single combined work. Distributing pre-built binaries makes you a distributor of every package inside, so source-availability obligations apply to the copyleft components (Linux base packages, coreutils, GPL libraries). But those packages sitting in the same filesystem as your application do not make your application a derivative of them — this is mere aggregation. Your own code keeps whatever license you chose; you simply also carry distributor obligations for the copyleft software you are shipping alongside it.
+* **Legal Reality**: A compiled container image is a **multi-license aggregate bundle**, not a single combined work. Distributing pre-built binaries makes you a distributor of every package inside, so source-availability obligations apply to the copyleft components (Linux base packages, coreutils, GPL libraries). But those packages sitting in the same filesystem as your application do not make your application a derivative of them, this is mere aggregation. Your own code keeps whatever license you chose; you simply also carry distributor obligations for the copyleft software you are shipping alongside it.
 * **JLA Selection Strategy**: Because a container image combines multiple distinct software components, JLA is used to evaluate constituent component obligations. When distributing compiled binaries containing copyleft layers, source disclosure requirements (`Disclose source`) must be fulfilled for those specific layers.
 
 :::{solution}
@@ -603,8 +603,7 @@ pip install reuse
 reuse lint
 ```
 
-When `reuse lint` passes, downstream researchers can automatically verify the 
-legal status of every single asset in your codebase.
+When `reuse lint` passes, every asset in your codebase carries a declared, machine-readable license that downstream users can check.
 
 ## Summary: Resolving the Compliance Pipeline
 
