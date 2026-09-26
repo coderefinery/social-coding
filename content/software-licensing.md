@@ -107,37 +107,24 @@ flowchart TB
 
 ### Copyright Foundation: Expression vs. Ideas
 
-To understand why licenses are required, you must understand how copyright law treats software.
-Under EU statutory law (Directive 2009/24/EC) and international treaties, software is protected 
-under copyright as a **literary work**. 
+Under Directive 2009/24/EC, software is protected by copyright as a **literary work** (Art. 1(1)). But copyright protects only the **expression**, not the ideas beneath it: Art. 1(2) explicitly excludes "ideas and principles which underlie any element of a computer program, including those which underlie its interfaces."
 
-However, copyright law draws a sharp, fundamental distinction between what is protected and what 
-is free for anyone to use:
+* **Protected**: your specific source code text, binaries, container recipes, prompt text, and preparatory design material.
+* **Not protected**: mathematical algorithms, scientific models, programming logic, data structures, and interfaces.
 
-* **Protected (Code Expression)**: The specific source code text, variable names, binaries, 
-  container build recipes, prompt engineering text, and preparatory design documents.
-* **Not Protected (Underlying Ideas)**: Mathematical algorithms, scientific models, 
-  programming logic, data structures, and interface principles.
-
-Because copyright restricts only the *creative human expression* and not the underlying 
-*ideas or algorithms*, developers could use open-source licenses to define the exact terms under 
-which that expression can be legally shared and modified.
+The CJEU confirmed this line in *SAS Institute v World Programming* (C-406/10): a program's functionality, its programming language, and its data file formats are ideas, not expression, and are therefore outside copyright. Someone may reimplement your algorithm from scratch; they may not copy your code. This is exactly why licenses exist — they set the terms for the expression, which is the only part copyright lets you control.
 
 ### Scope of this Lesson: What Counts as *Software*?
 
-Across international legal frameworks (such as 17 U.S.C. § 101 and WIPO-World Intellectual Property Organization
-model provisions), software is broadly defined as a set of instructions to be used directly or indirectly in 
-a computer to bring about a certain result. 
+Across international frameworks (17 U.S.C. § 101 and WIPO model provisions), software is broadly defined as a set of statements or instructions used directly or indirectly in a computer to bring about a certain result. Research software goes well beyond Python scripts, so this lesson covers six asset types — find the ones matching your own project, since the scenarios later map onto them:
 
-Because modern research software extends beyond simple Python scripts, this lesson applies 
-copyright and licensing principles across six core research software assets:
+* **Source Code** — original algorithms, or implementations of published methods.
+* **Third-Party Integrations** — embedded snippets and linked libraries (static or dynamic).
+* **Infrastructure as Code** — Ansible playbooks, Terraform configs, container recipes (`Dockerfile`, Apptainer `.def`).
+* **Container Images** — built binary snapshots (`.sif` files, OCI registry images).
+* **AI-Assisted Code** — generated or refactored with human oversight.
+* **AI Prompt Templates** — engineered system prompts meeting the threshold of human authorship.
 
-* **Source Code**: Original algorithms written from scratch or implemented from scientific papers.
-* **Third-Party Integrations**: Embedded permissive or copyleft code snippets and linked libraries (dynamically/statically).
-* **Infrastructure as Code**: Ansible playbooks,Terraform configurations,container Recipes  (`Dockerfile`, Apptainer `.def`).
-* **Container Images**: Bundled binary filesystem snapshots (`.sif` files, OCI registry images).
-* **AI-Assisted Code**: Code generated, refactored, or assembled with human creative oversight.
-* **AI Prompt Templates**: Complex, engineered system prompts and structured frameworks meeting the threshold of human creative authorship.
 
 
 ## Motivation: Debugging a License Compliance Failure
