@@ -13,7 +13,7 @@
 
 This lesson is designed as practical educational material for researchers and research software engineers, **not formal legal advice**
 
-* Regional Focus: Guidance is grounded in EU statutory directives, European institutional frameworks and developers based in Europe with a global focus.
+* Regional Focus: Guidance is grounded in EU statutory directives, European institutional frameworks and developers based in Europe with a global focus. At the same time EU has directives they only set the minimum requirements in some aspects, but Member states may have different implementations and additional regulation that are not covered here e.g. some member states have made exceptions so that University researchers retain their ownership to computer programs thus are not treated like employees
 * Institutional Context: Employment contracts, grant agreements, and university policies heavily influence software ownership and licensing choices.
 * This lesson covers only the general principles of open-source reuse, copyright scope, and software adaptation. 
 
