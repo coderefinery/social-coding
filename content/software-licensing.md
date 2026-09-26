@@ -49,61 +49,37 @@ Weak copyleft is worth a closer look, because it is widely used and its terms ar
 
 The diagram below unifies these license choices and their downstream rights:
 
+
 ```{mermaid}
-%%{init: {'themeVariables': { 'edgeLabelBackground': '#faf5ff' }}}%%
+%%{init: {'themeVariables': { 'edgeLabelBackground': '#faf5ff', 'fontSize': '16px' }}}%%
 
 flowchart TB
 
-  subgraph box["How License Selection Governs Code Reuse"]
-    A["<b>Your Research Codebase</b><br/><i>(Source code, container recipes, prompt templates)</i>"] -->|"No License Attached<br/>(Statutory Default)"| B["<b>All Rights Reserved</b><br/>❌ Zero permissions: Cannot run, modify, or share"]
+  P["You paste a snippet<br/>from another project"] --> J["❌ <b>license-check FAILED</b><br/><i>job #142</i>"]
 
-    A -->|"Attach License<br/>(Explicit Permission Grant)"| C{"Select License"}
+  J -->|"Tempting: delete<br/>your LICENSE file"| X["⚠️ <b>Scanner quiet,<br/>nothing fixed</b><br/>Your code reverts to<br/>All Rights Reserved"]
 
-    C -->|"Goal: Maximum adoption & unrestricted reuse"| D["<b>Permissive</b><br/><i>MIT, Apache-2.0, 0BSD</i>"]
-    C -->|"Goal: Keep the library open, allow closed users"| W["<b>Weak Copyleft</b><br/><i>LGPL-3.0, MPL-2.0, EPL-2.0</i>"]
-    C -->|"Goal: Ensure changes stay open-source (Reciprocity)"| E["<b>Copyleft</b><br/><i>GPL-3.0, EUPL-1.2</i>"]
-    C -->|"Goal: Proprietary control & restricted access"| F["<b>Closed Source / Restricted</b><br/>🚫 <i>Not discussed in this lesson</i>"]
+  J -->|"Better: what does<br/>the snippet require?"| Q{"Which license<br/>family is it?"}
 
-    D --> D1["Run & Modify? <b>Yes</b>"]
-    D --> D2["Embed in closed product? <b>Yes</b>"]
-    D --> D3["Must changes stay open? <b>No</b> (optional)"]
-
-    W --> W1["Run & Modify? <b>Yes</b>"]
-    W --> W2["Embed in closed product? <b>Yes, with conditions</b>"]
-    W --> W3["Must changes stay open? <b>Only the covered file or library</b>"]
-
-    E --> E1["Run & Modify? <b>Yes</b>"]
-    E --> E2["Embed in closed product? <b>No</b>"]
-    E --> E3["Must changes stay open? <b>Yes</b> (mandatory)"]
-  end
-
-  G["<b>Reciprocity only triggers on distribution</b><br/>Running modified code internally creates no obligation"]
-  E -.-> G
-  W -.-> G
+  Q --> D["<b>Permissive</b><br/><i>MIT, Apache-2.0</i><br/>━━━━━━<br/>Run &amp; modify ✅<br/>Closed product ✅<br/>Changes open ❌"]
+  Q --> W["<b>Weak Copyleft</b><br/><i>LGPL, MPL-2.0</i><br/>━━━━━━<br/>Run &amp; modify ✅<br/>Closed product ✅ <i>cond.</i><br/>Changes open ✅ <i>file only</i>"]
+  Q --> E["<b>Copyleft</b><br/><i>GPL-3.0, EUPL-1.2</i><br/>━━━━━━<br/>Run &amp; modify ✅<br/>Closed product ❌<br/>Changes open ✅"]
 
    classDef green fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
-   classDef red fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
-   classDef yellow fill:#fff9db,stroke:#f59f00,stroke-width:2px,color:#5c3c00;
    classDef amber fill:#fff3bf,stroke:#f08c00,stroke-width:2px,color:#5c3c00;
+   classDef yellow fill:#fff9db,stroke:#f59f00,stroke-width:2px,color:#5c3c00;
+   classDef fail fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
+   classDef warning fill:#fff3bf,stroke:#f08c00,stroke-width:2px,color:#5c0000;
    classDef white fill:#f8f9fa,stroke:#adb5bd,stroke-width:2px,color:#212529;
-   classDef dashed fill:#f8f9fa,stroke:#adb5bd,stroke-width:2px,stroke-dasharray: 5 5,color:#000000;
-   classDef dashed_red fill:#ffe3e3,stroke:#adb5bd,stroke-width:2px,stroke-dasharray: 5 5,color:#000000;
-   classDef note fill:#ffffff,stroke:#868e96,stroke-width:1px,stroke-dasharray: 3 3,color:#212529;
-   classDef box_fill fill:#ffffff,stroke:#adb5bd,stroke-width:1px;
 
-   class D1,D2,D3,W1,E1 green;
-   class W2,W3 amber;
-   class E2 red;
-   class E3 green;
-   class D yellow;
+   class D green;
    class W amber;
    class E yellow;
-   class F dashed;
-   class B dashed_red;
-   class A,C white;
-   class G note;
-   class box box_fill;
+   class J fail;
+   class X warning;
+   class P,Q white;
 ```
+Deleting the `LICENSE` file only silences the scanner. You are still using someone else's code without permission, and with no license attached your own software defaults to **All Rights Reserved** — so nobody may legally run, copy or build on it either. A green pipeline is not a compliance result. The real question is which family the snippet belongs to. Note that weak copyleft's conditions are where people get caught: LGPL lets you ship inside a closed product only if you don't restrict modification of the LGPL parts or reverse engineering for debugging them. Note too that reciprocity only triggers on **distribution** — running modified copyleft code internally creates no obligation at all. The rest of this lesson works through these situations scenario by scenario.
 
 ### Copyright Foundation: Expression vs. Ideas
 
@@ -226,7 +202,7 @@ The scenarios below are independent. Find the row that matches what you are actu
 | Using Copilot, ChatGPT or Claude | [**8. AI-assisted code**](#scenario-8) | 🟢 Free choice, verify for memorization | `MIT`, `Apache-2.0`, `EUPL-1.2`, `GPL-3.0` |
 | Shipping prompts, weights or datasets | [**9. AI workflows & assets**](#scenario-9) | 🟢 Dual-license code vs. assets | `MIT` + `CC-BY-4.0` |
 
-This lesson covers nine scenarios, a typical session works through three or four. The rest are here for reference when your project changes
+This lesson covers nine scenarios; a typical session works through three or four. The rest are here for reference when your project changes.
 
 ## Module 1: Clean Slate – Authoring Original Code & Algorithms
 
@@ -646,7 +622,7 @@ legal status of every single asset in your codebase.
 
 ## Summary: Resolving the Compliance Pipeline
 
-When developing research software, license compliance is not an afterthought to debug at the end of a project, it is a proactive design choice. By using the **Joinup Licensing Assistant (JLA)** framework to align your repository license with your inbound dependencies from day one, your CI/CD pipeline passes cleanly on the first run.
+When developing research software, license compliance is not an afterthought to debug at the end of a project, it is a proactive design choice. By using the **Joinup Licensing Assistant (JLA)** framework to align your repository license with your inbound dependencies from day one, your pipeline is far less likely to fail on a license conflict late in the project.
 
 The diagram below illustrates how selecting a compatible license upfront ensures your code passes automated compliance checks and results in a legally sound release:
 
@@ -683,7 +659,7 @@ flowchart TB
 
 ### Scenario Mapping Across the Pipeline
 
-* **Handling Inbound Copyleft ([Scenario 4](#scenario-4) & [Scenario 5](#scenario-5))**: When you copy non-trivial copyleft code snippets (e.g., CC BY-SA from Stack Overflow or GPL snippets) or link directly against a GPL library, your overall project becomes a combined work. Selecting a compatible copyleft license upfront (`GPL-3.0` or `EUPL-1.2`) satisfies the reciprocal sharing terms and allows the pipeline scanner to pass without conflict.
+* **Choosing Your Own Terms ([Scenario 1](#scenario-1), [Scenario 2](#scenario-2) & [Scenario 3](#scenario-3))**: When you write original code, implement a published algorithm, or embed only permissive snippets, no inbound license constrains you — the choice follows your goal. Pick permissive (`MIT`, `Apache-2.0`) for maximum adoption, or copyleft (`EUPL-1.2`, `GPL-3.0`) if you want downstream improvements shared back. Either way, preserve any third-party notices attached to code you embedded.
 * **Handling Inbound Copyleft ([Scenario 4](#scenario-4) & [Scenario 5](#scenario-5))**: Copying a non-trivial copyleft snippet (e.g., CC BY-SA code from Stack Overflow, or a GPL fragment) creates a combined work. Linking against a copyleft library may do the same, depending on the license and the linking method. In both cases, selecting a compatible copyleft license upfront (`GPL-3.0` or `EUPL-1.2`) satisfies the reciprocal terms and lets the scanner pass — and checking the exact SPDX identifier first avoids the `GPL-2.0-only` incompatibility trap.
 * **Packaging and Build Automation ([Scenario 6](#scenario-6) & [Scenario 7](#scenario-7))**: Keep plain-text build recipes (Dockerfiles) permissively licensed for maximum reuse, while annotating compiled container image binaries as multi-license aggregate bundles to satisfy embedded base-layer obligations.
 * **AI Assets and Dual-Licensing ([Scenario 8](#scenario-8) & [Scenario 9](#scenario-9))**: Run code-similarity scanners to catch LLM training memorization before releasing AI-assisted code, and apply dual-licensing to separate executable software code (`MIT`) from non-code datasets and model weights (`CC-BY-4.0`).
