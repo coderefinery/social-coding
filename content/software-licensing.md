@@ -436,7 +436,7 @@ def solve_system(data):
 You are creating a `Dockerfile`, Conda `environment.yml`, or build recipe to automate the setup of your research environment. The recipe itself contains setup instructions, shell commands, and package lists.
 
 * **Licensing Goal**: You want **maximum adoption** and reuse of your build automation script so other researchers can freely adapt and build upon your workflow.
-* **Legal Reality**: Build recipes and configuration scripts are plain-text source code separate from the software binaries they download at execution time. You hold copyright over the unique build instructions you write in the Dockerfile.
+* **Legal Reality**: Build recipes and configuration scripts are plain-text source code, separate from the software binaries they download at build time. The build instructions you write are your expression — but note that a very short recipe (a `FROM` line plus two `RUN` commands) may be too trivial to meet the Art. 1(3) originality threshold and may not attract copyright at all. Longer, non-obvious recipes clearly do.
 * **JLA Selection Strategy**: To allow anyone to reuse or adapt your container recipe without restrictions, you require citation credit (`Incl. Copyright`) while leaving reciprocal requirements (`Copyleft/Share a.`) unselected.
 
 :::{solution}
@@ -474,7 +474,7 @@ COPY solver.py /app/solver.py
 You compiled and published a pre-built container image (e.g., pushing a compiled Docker image to Docker Hub, GitHub Container Registry, or an institutional registry) containing an OS layer, runtime binaries, dependencies, and your application code.
 
 * **Licensing Goal**: Safely distribute compiled container images without violating the license terms of any software layer or binary included inside the image.
-* **Legal Reality**: A compiled container image is a **multi-license aggregate bundle**. Distributing pre-built binaries triggers source-code distribution obligations for any copyleft software (e.g., Linux base packages, coreutils, GPL libraries) pre-installed inside the image layers.
+* **Legal Reality**: A compiled container image is a **multi-license aggregate bundle**, not a single combined work. Distributing pre-built binaries makes you a distributor of every package inside, so source-availability obligations apply to the copyleft components (Linux base packages, coreutils, GPL libraries). But those packages sitting in the same filesystem as your application do not make your application a derivative of them — this is mere aggregation. Your own code keeps whatever license you chose; you simply also carry distributor obligations for the copyleft software you are shipping alongside it.
 * **JLA Selection Strategy**: Because a container image combines multiple distinct software components, JLA is used to evaluate constituent component obligations. When distributing compiled binaries containing copyleft layers, source disclosure requirements (`Disclose source`) must be fulfilled for those specific layers.
 
 :::{solution}
@@ -484,11 +484,11 @@ You compiled and published a pre-built container image (e.g., pushing a compiled
 2. **Must Column**: Select `Incl. Copyright` and `Disclose source`
 3. **Support Column**: Select `OSI approved`
 
-* **Example JLA Matches**: `Multi-License Bundle` (Governed by constituent package terms)
+* **JLA Outcome**: No single license applies. Use JLA per component to check each one's obligations, then record the aggregate in your image metadata.
 
 * **Multi-License Aggregation Nuance**: Applying a permissive license (like MIT) to your application code inside the container does not override or erase the GPL/LGPL obligations of base system packages installed in `/usr/lib` or `/usr/bin`. Distributing the built image binary makes you a distributor of all installed packages.
 
-* **Downstream Obligations**: You must ensure that downstream users can obtain the source code for copyleft components shipped inside the image, typically by publishing the `Dockerfile` and build steps used to generate the image from public upstream sources.
+* **Downstream Obligations**: You must ensure downstream users can obtain the corresponding source for the copyleft components you shipped. Publishing your `Dockerfile` documents the build but does not by itself satisfy this — the GPL asks for the source of the binaries actually distributed. In practice, most research images rely on unmodified upstream distribution packages, where pointing to the distributor's public source archives (as GPLv3 §6(d) permits) is the normal approach. If you modify or rebuild a copyleft component yourself, you must provide that source directly.
 
 * **Allowed Inbound Packages**: Before publishing an image binary, run automated compliance scanning tools (e.g., Syft, Trivy) to generate a Software Bill of Materials (SBOM) and verify that no non-redistributable or proprietary software is packaged inside.
 
