@@ -226,6 +226,8 @@ The scenarios below are independent. Find the row that matches what you are actu
 | Using Copilot, ChatGPT or Claude | [**8. AI-assisted code**](#scenario-8) | 🟢 Free choice, verify for memorization | `MIT`, `Apache-2.0`, `EUPL-1.2`, `GPL-3.0` |
 | Shipping prompts, weights or datasets | [**9. AI workflows & assets**](#scenario-9) | 🟢 Dual-license code vs. assets | `MIT` + `CC-BY-4.0` |
 
+This lesson covers nine scenarios, a typical session works through three or four. The rest are here for reference when your project changes
+
 ## Module 1: Clean Slate – Authoring Original Code & Algorithms
 
 When writing original code or implementing published algorithms, no third-party license constrains your choice — but who owns the code depends on your employment contract and national rules, so check your institution's policy first.
@@ -610,8 +612,7 @@ Always place the full text of your chosen license in a plain-text file named `LI
   ```text
   Copyright (c) 2026 [Author Name or Institution Name]
   ```
-* **Do Not Edit Terms**: Never modify the legal wording of standard licenses (e.g., removing clauses from GPL or MIT). Custom license edits create *non-standard* legal texts that compliance scanners cannot parse, defaulting your repository back to restricted status.
-
+* **Do Not Edit Terms**: Never modify the legal wording of standard licenses (e.g., removing clauses from GPL or MIT). Edited texts are no longer the license they claim to be: compliance scanners cannot classify them, package registries may flag them, and downstream users have to get their own legal review before touching your code. If a standard license does not fit, pick a different standard license.
 
 ### 2. Documenting License Status in `README.md`
 
@@ -683,7 +684,7 @@ flowchart TB
 ### Scenario Mapping Across the Pipeline
 
 * **Handling Inbound Copyleft ([Scenario 4](#scenario-4) & [Scenario 5](#scenario-5))**: When you copy non-trivial copyleft code snippets (e.g., CC BY-SA from Stack Overflow or GPL snippets) or link directly against a GPL library, your overall project becomes a combined work. Selecting a compatible copyleft license upfront (`GPL-3.0` or `EUPL-1.2`) satisfies the reciprocal sharing terms and allows the pipeline scanner to pass without conflict.
-* **Maintaining Permissive Defaults ([Scenario 1](#scenario-1) & [Scenario 3](#scenario-3))**: If you write original code or embed only permissively licensed snippets (MIT, Apache-2.0, BSD), selecting a permissive license (`MIT` or `Apache-2.0`) grants downstream users maximum adoption freedom while preserving your citation credit.
+* **Handling Inbound Copyleft ([Scenario 4](#scenario-4) & [Scenario 5](#scenario-5))**: Copying a non-trivial copyleft snippet (e.g., CC BY-SA code from Stack Overflow, or a GPL fragment) creates a combined work. Linking against a copyleft library may do the same, depending on the license and the linking method. In both cases, selecting a compatible copyleft license upfront (`GPL-3.0` or `EUPL-1.2`) satisfies the reciprocal terms and lets the scanner pass — and checking the exact SPDX identifier first avoids the `GPL-2.0-only` incompatibility trap.
 * **Packaging and Build Automation ([Scenario 6](#scenario-6) & [Scenario 7](#scenario-7))**: Keep plain-text build recipes (Dockerfiles) permissively licensed for maximum reuse, while annotating compiled container image binaries as multi-license aggregate bundles to satisfy embedded base-layer obligations.
 * **AI Assets and Dual-Licensing ([Scenario 8](#scenario-8) & [Scenario 9](#scenario-9))**: Run code-similarity scanners to catch LLM training memorization before releasing AI-assisted code, and apply dual-licensing to separate executable software code (`MIT`) from non-code datasets and model weights (`CC-BY-4.0`).
-* **Standardized Distribution**: By adding machine-readable **SPDX headers** across every script, Dockerfile, and prompt template, running `reuse lint` in your pipeline confirms 100% legal clarity for the entire scientific community.
+* **Standardized Distribution**: Adding machine-readable **SPDX headers** across every script, Dockerfile, and prompt template lets `reuse lint` confirm that every asset has a declared, documented license. Note what this does and does not prove: the linter verifies that declarations exist and are well-formed, not that they are legally correct or mutually compatible. Automation makes your intent auditable — it does not replace the judgment calls in the scenarios above.
