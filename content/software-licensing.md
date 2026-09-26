@@ -613,35 +613,34 @@ When developing research software, license compliance is not an afterthought to 
 The diagram below illustrates how selecting a compatible license upfront ensures your code passes automated compliance checks and results in a legally sound release:
 
 ```{mermaid}
-
-%%{init: {'themeVariables': { 'edgeLabelBackground': '#faf5ff' }}}%%
+%%{init: {'themeVariables': { 'edgeLabelBackground': '#faf5ff', 'fontSize': '16px' }}}%%
 flowchart TB
 
-    subgraph local["1. Local Authoring & Standardization"]
-        A["<b>Inbound Reuse Trigger:</b><br/>User copies copyleft snippet <i>(Scenario 4)</i><br/>or links GPL library <i>(Scenario 5)</i>"] --> B["<b>JLA Selection Strategy:</b><br/>Select compatible copyleft license<br/><i>(GPL-3.0 / EUPL-1.2)</i>"]
-        
-        B --> C["<b>Standardize Local Codebase:</b><br/>1. Add <b>SPDX Headers</b> to all files <i>(Scenarios 1-9)</i><br/>2. Add root <code>LICENSE</code> file & README badge"]
-    end
+  subgraph local["① What you do differently now — before pushing"]
+    direction LR
+    A["Paste a snippet<br/>copied from somewhere"] --> L["Identify its<br/>license family"] --> S["Choose a compatible<br/>license + add<br/>SPDX headers"]
+  end
 
-    subgraph cicd["2. Automated CI/CD & Verification"]
-        C -->|"<b>Git Push</b> to Repository"| D["<b>Build Trigger: Run Compliance Scanner</b><br/><i>(Executes <code>reuse lint</code> in CI/CD)</i>"]
-        
-        D --> E{"<b>Verify Inbound vs.<br/>Outbound Terms</b>"}
-        
-        E -->|"SPDX Headers & License Match Confirmed!"| F["✅ <b>BUILD PASSES</b><br/>Compliance verified automatically"]
-        
-        F --> SUCCESS["🎉 <b>COMPLIANT OPEN-SOURCE RELEASE</b><br/>Legally sound, reproducible & ready for scientific reuse"]
-    end
+  subgraph ci["② The same pipeline as before"]
+    direction LR
+    T["<b>Build Trigger:</b><br/>Push to my-code-base"] --> B["Run Compliance<br/>Scanner"] --> C{"Check Inbound vs.<br/>Outbound Terms"}
+  end
 
-    classDef pass fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
-    classDef neutral fill:#f8f9fa,stroke:#495057,stroke-width:2px,color:#212529;
-    classDef box_fill fill:#ffffff,stroke:#adb5bd,stroke-width:1px;
+  S --> T
+  C -->|"terms match"| P["✅ <b>BUILD PASS</b> · job #143<br/>Compliant, reusable release"]
 
-    class F,SUCCESS pass;
-    class A,B,C,D,E neutral;
-    class local,cicd box_fill;
+   classDef pass fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
+   classDef neutral fill:#f8f9fa,stroke:#495057,stroke-width:2px,color:#212529;
+   classDef fix fill:#e7f5ff,stroke:#1c7ed6,stroke-width:2px,color:#0b3d6b;
+   classDef box_fill fill:#ffffff,stroke:#adb5bd,stroke-width:1px;
+
+   class P pass;
+   class A,T,B,C neutral;
+   class L,S fix;
+   class local,ci box_fill;
 ```
 
+Compare this with the failing pipeline at the start of the lesson: the pipeline itself is identical. Nothing about the scanner changed — the only difference is two decisions made before pushing.
 
 ### Scenario Mapping Across the Pipeline
 
