@@ -27,59 +27,45 @@ If you need formal guidance references below and legal experts, especially if yo
 * [Research Software Alliance Policy Directory](https://www.researchsoft.org/software-policies/)
 ```
 
+
 ## Introduction: What is a Software License?
 
-Under copyright law worldwide, software without an explicit license defaults to All Rights Reserved: nobody else may run, copy, modify, distribute, or build on your code. A software license is how the copyright holder exercises their exclusive rights, granting others permission to reproduce, distribute, modify, and sometimes sublicense the work.
+Under copyright law worldwide, software without an explicit license defaults to **All Rights Reserved**: nobody else may run, copy, modify, distribute, or build on your code. A software license is how the copyright holder exercises their exclusive rights, granting others permission to reproduce, distribute, modify, and sometimes sublicense the work.
 
-Note that author and copyright holder may differ: under Art. 2(3), an employer exercises the economic rights in code written by an employee on the job, unless a contract says otherwise. The employee is still the author; the employer is who licenses it. This matters in practice, because the person choosing the license for a research project is often not the person who wrote the code.
+Note that *author* and *copyright holder* may differ: under Art. 2(3), an employer exercises the economic rights in code written by an employee on the job, unless a contract says otherwise. The employee is still the author; the employer is who licenses it. This matters in practice, because the person choosing the license for a research project is often not the person who wrote the code.
 
-In this lesson, we focus on open-source licenses to define both how we grant permissions for software we develop (outbound licensing) and how we safely comply with terms attached to code written by others (inbound reuse).
-
-Open-source licenses fall into three main families:
-
-* **Permissive (e.g., MIT, Apache-2.0, 0BSD):** *Do whatever you want, just keep credit.* Grants maximum reuse freedom, allowing anyone to modify, embed, or re-license your code in open or closed projects.
-
-* **Copyleft / Reciprocal (e.g., GPL-3.0, EUPL-1.2):** *Share alike.* Grants full freedom to run and modify, but requires that any distributed adaptation or combined work also be released under matching copyleft terms.
-
-* **Weak copyleft (e.g., LGPL-3.0, MPL-2.0, EPL-2.0):** *Share alike, but only within a boundary.* Reciprocity applies to the file (MPL-2.0) or the library (LGPL), not to your whole project. Your surrounding code can usually stay permissive or even closed, while modifications to the covered files or library must stay open.
-
-You will hear copyleft called *viral* or *infectious* in developer conversation. The slang is worth knowing, but it is misleading in two ways: nothing spreads by mere contact, so code merely sitting beside GPL code in a repository or a container image is unaffected, and the requirement only triggers when you **distribute**, not when you run modified code internally. Reciprocity reaches only across specific technical boundaries such as embedding snippets or static linking, and how far it reaches depends on which copyleft license you are dealing with. Choosing copyleft over permissive is a project-level decision, not a sign that a license is harmful.
-
-Weak copyleft is worth a closer look, because it is widely used and its terms are more conditional than the label suggests. LGPL-3.0 §4 lets you ship a combined work under your own terms only if those terms do not restrict modification of the LGPL portions, or reverse engineering for debugging those modifications, and this condition applies whether you linked statically or dynamically. Since most proprietary end-user licenses forbid reverse engineering, the common shorthand that "dynamic linking is safe" is not the whole story. The practical lesson is that "does this dependency force my project open?" has no general answer: it depends on which copyleft license, and at which boundary.
-
-The diagram below unifies these license choices and their downstream rights:
-
+Open-source licenses fall into three families, which differ in what they let downstream users do:
 
 ```{mermaid}
 %%{init: {'themeVariables': { 'edgeLabelBackground': '#faf5ff', 'fontSize': '16px' }}}%%
 
 flowchart TB
 
-  P["You paste a snippet<br/>from another project"] --> J["❌ <b>license-check FAILED</b><br/><i>job #142</i>"]
+  A["<b>Your code</b>"] -->|"no license"| B["<b>All Rights Reserved</b><br/>Nobody may run,<br/>copy or modify it"]
+  A -->|"attach a license"| C{"What do you want<br/>downstream users<br/>to be able to do?"}
 
-  J -->|"Tempting: delete<br/>your LICENSE file"| X["⚠️ <b>Scanner quiet,<br/>nothing fixed</b><br/>Your code reverts to<br/>All Rights Reserved"]
-
-  J -->|"Better: what does<br/>the snippet require?"| Q{"Which license<br/>family is it?"}
-
-  Q --> D["<b>Permissive</b><br/><i>MIT, Apache-2.0</i><br/>━━━━━━<br/>Run &amp; modify ✅<br/>Closed product ✅<br/>Changes open ❌"]
-  Q --> W["<b>Weak Copyleft</b><br/><i>LGPL, MPL-2.0</i><br/>━━━━━━<br/>Run &amp; modify ✅<br/>Closed product ✅ <i>cond.</i><br/>Changes open ✅ <i>file only</i>"]
-  Q --> E["<b>Copyleft</b><br/><i>GPL-3.0, EUPL-1.2</i><br/>━━━━━━<br/>Run &amp; modify ✅<br/>Closed product ❌<br/>Changes open ✅"]
+  C --> D["<b>Permissive</b><br/><i>MIT, Apache-2.0</i><br/>'Reuse freely, keep credit'<br/>━━━━━━<br/>Run &amp; modify ✅<br/>Closed product ✅<br/>Changes open ❌"]
+  C --> W["<b>Weak Copyleft</b><br/><i>LGPL, MPL-2.0</i><br/>'Share alike, within a boundary'<br/>━━━━━━<br/>Run &amp; modify ✅<br/>Closed product ✅ <i>cond.</i><br/>Changes open ✅ <i>file/library only</i>"]
+  C --> E["<b>Copyleft</b><br/><i>GPL-3.0, EUPL-1.2</i><br/>'Share alike'<br/>━━━━━━<br/>Run &amp; modify ✅<br/>Closed product ❌<br/>Changes open ✅"]
 
    classDef green fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
    classDef amber fill:#fff3bf,stroke:#f08c00,stroke-width:2px,color:#5c3c00;
    classDef yellow fill:#fff9db,stroke:#f59f00,stroke-width:2px,color:#5c3c00;
-   classDef fail fill:#ffe3e3,stroke:#e03131,stroke-width:2px,color:#5c0000;
-   classDef warning fill:#fff3bf,stroke:#f08c00,stroke-width:2px,color:#5c0000;
+   classDef dashed_red fill:#ffe3e3,stroke:#adb5bd,stroke-width:2px,stroke-dasharray: 5 5,color:#000000;
    classDef white fill:#f8f9fa,stroke:#adb5bd,stroke-width:2px,color:#212529;
 
    class D green;
    class W amber;
    class E yellow;
-   class J fail;
-   class X warning;
-   class P,Q white;
+   class B dashed_red;
+   class A,C white;
 ```
-Deleting the `LICENSE` file only silences the scanner. You are still using someone else's code without permission, and with no license attached your own software defaults to **All Rights Reserved** — so nobody may legally run, copy or build on it either. A green pipeline is not a compliance result. The real question is which family the snippet belongs to. Note that weak copyleft's conditions are where people get caught: LGPL lets you ship inside a closed product only if you don't restrict modification of the LGPL parts or reverse engineering for debugging them. Note too that reciprocity only triggers on **distribution** — running modified copyleft code internally creates no obligation at all. The rest of this lesson works through these situations scenario by scenario.
+
+Three things the table above cannot show. **Weak copyleft's conditions are where people get caught**: LGPL-3.0 §4 lets you ship inside a closed product only if your terms don't restrict modification of the LGPL portions or reverse engineering for debugging them, and that holds whether you linked statically or dynamically. **Reciprocity only triggers on distribution**: running modified copyleft code internally creates no obligation. And **copyleft licenses are often incompatible with each other**, so choosing one also decides who can combine with your work later.
+
+You will hear copyleft called *viral* or *infectious*. The slang is worth knowing, but it misleads: nothing spreads by mere contact, so code merely sitting beside GPL code in a repository or container image is unaffected. Reciprocity reaches only across specific technical boundaries, such as embedding snippets or static linking, and how far it reaches depends on which copyleft license applies. Choosing copyleft over permissive is a project-level decision, not a sign that a license is harmful.
+
+This lesson covers both directions: choosing terms for software you write, and complying with terms attached to code written by others. The scenarios later work through each case.
 
 ### Copyright Foundation: Expression vs. Ideas
 
