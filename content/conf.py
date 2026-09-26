@@ -42,6 +42,7 @@ extensions = [
     "sphinx_rtd_theme_ext_color_contrast",
     "sphinx_coderefinery_branding",
     "lesson_metadata",
+    "sphinxcontrib.mermaid",
 ]
 
 # Settings for myst_nb:
