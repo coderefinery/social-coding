@@ -31,24 +31,23 @@ If you need formal guidance references below and legal experts, especially if yo
 
 Under copyright law worldwide, software without an explicit license defaults to All Rights Reserved: nobody else may run, copy, modify, distribute, or build on your code. A software license is how the copyright holder exercises their exclusive rights, granting others permission to reproduce, distribute, modify, and sometimes sublicense the work.
 
-Note that author and copyright holder may differ: under Art. 2(3), an employer exercises the economic rights in code written by an employee on the job, unless a contract says otherwise. The employee is still the author; the employer is who licenses it.
+Note that author and copyright holder may differ: under Art. 2(3), an employer exercises the economic rights in code written by an employee on the job, unless a contract says otherwise. The employee is still the author; the employer is who licenses it. This matters in practice, because the person choosing the license for a research project is often not the person who wrote the code.
 
-In this lesson, we focus on open-source licenses to define both how we grant 
-permissions for software we develop (outbound licensing) and how we safely 
-comply with terms attached to code written by others (inbound reuse).
+In this lesson, we focus on open-source licenses to define both how we grant permissions for software we develop (outbound licensing) and how we safely comply with terms attached to code written by others (inbound reuse).
 
-* Open-source licenses fall into two main families:
+Open-source licenses fall into three main families:
 
-    * **Permissive (e.g., MIT, Apache-2.0, 0BSD):** *Do whatever you want, just keep credit*. 
-      Grants maximum reuse freedom, allowing anyone to modify, embed, or re-license your code 
-      in open or closed projects.
+* **Permissive (e.g., MIT, Apache-2.0, 0BSD):** *Do whatever you want, just keep credit.* Grants maximum reuse freedom, allowing anyone to modify, embed, or re-license your code in open or closed projects.
 
-    * **Copyleft/Reciprocal (e.g., GPL-3.0, EUPL-1.2):** *Share alike.* Grants full freedom 
-      to run and modify, but mandates that any distributed adaptations or combined work must 
-      also be released under matching copyleft terms. Often informally referred to as *viral* 
-      or *infectious* because its open-source requirements propagate across code boundaries 
-      (such as embedding snippets or static linking) into downstream projects. The diagram 
-      below unifies these license choices and their downstream rights:
+* **Copyleft / Reciprocal (e.g., GPL-3.0, EUPL-1.2):** *Share alike.* Grants full freedom to run and modify, but requires that any distributed adaptation or combined work also be released under matching copyleft terms.
+
+* **Weak copyleft (e.g., LGPL-3.0, MPL-2.0, EPL-2.0):** *Share alike, but only within a boundary.* Reciprocity applies to the file (MPL-2.0) or the library (LGPL), not to your whole project. Your surrounding code can usually stay permissive or even closed, while modifications to the covered files or library must stay open.
+
+You will hear copyleft called *viral* or *infectious* in developer conversation. The slang is worth knowing, but it is misleading in two ways: nothing spreads by mere contact, so code merely sitting beside GPL code in a repository or a container image is unaffected, and the requirement only triggers when you **distribute**, not when you run modified code internally. Reciprocity reaches only across specific technical boundaries such as embedding snippets or static linking, and how far it reaches depends on which copyleft license you are dealing with. Choosing copyleft over permissive is a project-level decision, not a sign that a license is harmful.
+
+Weak copyleft is worth a closer look, because it is widely used and its terms are more conditional than the label suggests. LGPL-3.0 §4 lets you ship a combined work under your own terms only if those terms do not restrict modification of the LGPL portions, or reverse engineering for debugging those modifications, and this condition applies whether you linked statically or dynamically. Since most proprietary end-user licenses forbid reverse engineering, the common shorthand that "dynamic linking is safe" is not the whole story. The practical lesson is that "does this dependency force my project open?" has no general answer: it depends on which copyleft license, and at which boundary.
+
+The diagram below unifies these license choices and their downstream rights:
 
 ```{mermaid}
 %%{init: {'themeVariables': { 'edgeLabelBackground': '#faf5ff' }}}%%
