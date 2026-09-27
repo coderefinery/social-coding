@@ -46,7 +46,7 @@ flowchart TB
   A["<b>Your code</b>"] -->|"no license"| B["<b>All Rights Reserved</b><br/>Nobody may run,<br/>copy or modify it"]
   A -->|"attach a license"| C{"What do you want<br/>downstream users<br/>to be able to do?"}
 
-  C --> D["<b>Permissive</b><br/><i>MIT, Apache-2.0</i><br/>'Reuse freely, keep credit'<br/>━━━━━━<br/>Run &amp; modify ✅<br/>Closed product ✅<br/>Changes open ❌"]
+  C --> D["<b>Permissive</b><br/><i>MIT, Apache-2.0</i><br/>'Reuse freely, keep credit'<br/>━━━━━━<br/>Run &amp; modify ✅<br/>Closed product ✅<br/>Changes open ❓"]
   C --> W["<b>Weak Copyleft</b><br/><i>LGPL, MPL-2.0</i><br/>'Share alike, within a boundary'<br/>━━━━━━<br/>Run &amp; modify ✅<br/>Closed product ✅ <i>cond.</i><br/>Changes open ✅ <i>file/library only</i>"]
   C --> E["<b>Copyleft</b><br/><i>GPL-3.0, EUPL-1.2</i><br/>'Share alike'<br/>━━━━━━<br/>Run &amp; modify ✅<br/>Closed product ❌<br/>Changes open ✅"]
 
