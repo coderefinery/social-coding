@@ -69,7 +69,7 @@ Three rules of thumb the diagram cannot show:
 * **"Weak" copyleft still has conditions.** For example, if you ship an LGPL library inside a closed product, you must still let users modify and debug that library.
 * **Copyleft licenses often don't mix.** Code under two different copyleft licenses may not be combinable, so your choice today decides who can build on your work later.
 
-You will hear copyleft called *viral* or *infectious*. The slang is worth knowing, but it misleads: nothing spreads by mere contact, so code merely sitting beside GPL code in a repository or container image is unaffected. Reciprocity reaches only across specific technical boundaries, such as embedding snippets or static linking, and how far it reaches depends on which copyleft license applies. Choosing copyleft over permissive is a project-level decision, not a sign that a license is harmful.
+You will hear copyleft called *viral* or *infectious*. The slang is misleading: copyleft doesn't spread just because GPL code sits next to yours in a repository or container. It only applies when you build GPL code into your own, for example by copying in a snippet. And choosing copyleft is a legitimate project decision, not a sign that a license is harmful.
 
 This lesson covers both directions: choosing terms for software you write, and complying with terms attached to code written by others. The scenarios later work through each case.
 
