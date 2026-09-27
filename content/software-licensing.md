@@ -34,6 +34,8 @@ Under copyright law worldwide, software without an explicit license defaults to 
 
 Note that *author* and *copyright holder* may differ: under Art. 2(3), an employer exercises the economic rights in code written by an employee on the job, unless a contract says otherwise. The employee is still the author; the employer is who licenses it. This matters in practice, because the person choosing the license for a research project is often not the person who wrote the code.
 
+This lesson focuses on open-source licenses. If your employment terms and institutional policy allow you to open-source the code you write, we recommend doing so. It makes you a better citizen of the research community, since others can reuse, verify, and build on your work. It also protects **your future self**: code your employer owns and never licenses stays locked behind All Rights Reserved when you change jobs, whereas an open license grants everyone the right to reuse it, including you.
+
 Open-source licenses fall into three families, which differ in what they let downstream users do:
 
 ```{mermaid}
@@ -61,7 +63,11 @@ flowchart TB
    class A,C white;
 ```
 
-Three things the diagram above cannot show. **Weak copyleft's conditions are where people get caught**: LGPL-3.0 §4 lets you ship inside a closed product only if your terms don't restrict modification of the LGPL portions or reverse engineering for debugging them, and that holds whether you linked statically or dynamically. **Reciprocity only triggers on distribution**: running modified copyleft code internally creates no obligation. And **copyleft licenses are often incompatible with each other**, so choosing one also decides who can combine with your work later.
+Three rules of thumb the diagram cannot show:
+
+* **Copyleft only applies when you share the code.** Running modified GPL code on your own machine or cluster creates no obligations.
+* **"Weak" copyleft still has conditions.** For example, if you ship an LGPL library inside a closed product, you must still let users modify and debug that library.
+* **Copyleft licenses often don't mix.** Code under two different copyleft licenses may not be combinable, so your choice today decides who can build on your work later.
 
 You will hear copyleft called *viral* or *infectious*. The slang is worth knowing, but it misleads: nothing spreads by mere contact, so code merely sitting beside GPL code in a repository or container image is unaffected. Reciprocity reaches only across specific technical boundaries, such as embedding snippets or static linking, and how far it reaches depends on which copyleft license applies. Choosing copyleft over permissive is a project-level decision, not a sign that a license is harmful.
 
