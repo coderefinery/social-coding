@@ -64,7 +64,7 @@ flowchart TB
    class A,C white;
 ```
 
-Three rules of thumb the diagram cannot show:
+Three rules of thumb as an compliment to the diagram:
 
 * **Copyleft only applies when you share the code.** Running modified GPL code on your own machine or cluster creates no obligations.
 * **"Weak" copyleft still has conditions.** For example, if you ship an LGPL library inside a closed product, you must still let users modify and debug that library.
@@ -142,7 +142,7 @@ flowchart TB
     class box box_fill;
 ```
 
-* Option D is the one worth dwelling on: deleting the `LICENSE` file makes the scanner quiet without changing anything legally. You are still distributing someone else's copyleft code without honouring its terms, and you have now stripped your own users of any permission to use your work. A green pipeline is not a compliance result.
+* Option D : deleting the `LICENSE` file makes the scanner quiet without changing anything legally. You are still distributing someone else's copyleft code without honouring its terms, and you have now stripped your own users of any permission to use your work. A green pipeline is not a compliance result.
 
 * Option C works only if you genuinely reimplement the functionality without copying the original expression. As the idea/expression split above establishes, the algorithm is free to reuse — the specific code is not. Reading the original closely and retyping a close paraphrase is still copying.
 
@@ -662,6 +662,9 @@ Compare this with the failing pipeline at the start of the lesson: the pipeline 
 :class: dropdown
 
 ```{glossary}
+0BSD
+  Zero-Clause BSD, a permissive license so minimal it doesn't even require keeping the copyright notice.
+
 Adaptation
   EU term (Art. 4(1)(b)) for translating, arranging, or altering a program; roughly the US *derivative work*.
 
@@ -671,8 +674,32 @@ AGPL-3.0
 All Rights Reserved
   Default for unlicensed software: nobody but the copyright holder may run, copy, modify, or share it.
 
+Apache-2.0
+  Permissive license like MIT, plus an explicit patent grant and a requirement to note changes you made.
+
+API
+  Application Programming Interface: the defined way one program calls another. The idea of an interface is not protected by copyright; the code implementing it is.
+
 Author
   The person who created the program; not always the copyright holder.
+
+BSD-3-Clause
+  Permissive license like MIT, plus a clause forbidding use of the authors' names to promote derived products.
+
+CC BY-SA
+  Creative Commons share-alike license used for code posted on Stack Overflow; adaptations must carry the same terms, much like copyleft.
+
+CC-BY-4.0
+  Creative Commons license allowing any reuse if the creator is credited; suited to data, documentation, and models rather than code.
+
+CC0
+  Creative Commons tool waiving rights as far as the law allows, placing a work as close to the public domain as possible.
+
+CI/CD
+  Continuous Integration / Continuous Delivery: automated pipelines that build, test, and check code on every push, including license compliance checks.
+
+CJEU
+  Court of Justice of the European Union; its rulings interpret EU law for all Member States.
 
 Combined work
   One work formed by merging separately licensed code, e.g. embedding a snippet or static linking.
@@ -707,11 +734,20 @@ Dynamic linking
 Economic rights
   Exclusive rights to copy, adapt, and distribute; often exercised by the employer (Art. 2(3)).
 
+EPL-2.0
+  Eclipse Public License, a weak copyleft license applying at the file/module level.
+
 EUPL-1.2
   The European Commission's copyleft license, available in 23 EU languages.
 
 Expression vs. ideas
   Copyright protects your code, not the underlying algorithms, functionality, or interfaces.
+
+FSF
+  Free Software Foundation, the US non-profit that publishes the GPL family of licenses.
+
+GPL
+  GNU General Public License, the most widely used strong copyleft license. `GPL-3.0` is the current version; `GPL-2.0` is still common.
 
 Inbound licensing
   The licenses on others' code you bring into your project.
@@ -722,17 +758,32 @@ JLA
 LGPL
   Weak copyleft for libraries; your app may use other terms if it allows modifying and debugging the library.
 
+LLM
+  Large Language Model, the technology behind AI assistants such as ChatGPT, Copilot, and Claude.
+
 Memorization
   When an AI model reproduces training code verbatim; that code keeps its original license.
 
 Mere aggregation
   Separate programs shipped side by side; copyleft does not spread between them.
 
--only / -or-later
-  SPDX suffixes: `GPL-2.0-only` cannot move to GPL-3.0; `-or-later` can.
+MIT
+  The most widely used permissive license: short, simple, and requires only that the copyright and license notice be kept.
+
+MPL-2.0
+  Mozilla Public License, a weak copyleft license applying per file: modified MPL files stay MPL, new files can use any license.
+
+OCI
+  Open Container Initiative, the standard format for container images used by Docker, Podman, and registries.
+
+OpenRAIL
+  Behavioral licenses for AI models that forbid specific harmful uses; because they restrict use, they are not OSI open source.
 
 Originality threshold
   A program is protected only if it is the author's own intellectual creation (Art. 1(3)).
+
+OSI
+  Open Source Initiative, the non-profit that approves licenses as meeting the Open Source Definition.
 
 Outbound licensing
   The license you choose for your own project.
@@ -744,4 +795,29 @@ Reciprocity
   The copyleft requirement to share adaptations under matching terms.
 
 REUSE
-  FSFE standard for per-file license declarations;
+  FSFE standard for per-file license declarations; `reuse lint` checks they exist, not that they are correct.
+
+RSE
+  Research Software Engineer: a professional who develops and maintains software used in research.
+
+SPDX identifier
+  Standard license tag in file headers, e.g. `MIT`, `GPL-3.0-or-later`.
+
+SPDX version suffixes
+  `-only` and `-or-later`: `GPL-2.0-only` cannot move to GPL-3.0; `GPL-2.0-or-later` can.
+
+Static linking
+  Copying library code into your binary at build time; generally creates a combined work.
+
+Sublicense
+  Passing on permissions under your own terms; allowed by MIT, generally not by copyleft.
+
+Sui generis database right
+  EU right protecting databases built with substantial investment; unclear for model weights.
+
+Viral / infectious
+  Misleading slang for copyleft; it does not spread by mere contact.
+
+Weak copyleft
+  Reciprocity limited to a file (MPL-2.0) or library (LGPL).
+```
