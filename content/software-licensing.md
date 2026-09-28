@@ -183,6 +183,15 @@ Our decision framework is grounded in the European Commission's **[Joinup Licens
 
 The scenarios below are independent. Find the row that matches what you are actually building, jump to it, and skip the rest.
 
+```{raw} html
+<style>
+table.wrap-table td, table.wrap-table th { white-space: normal !important; }
+</style>
+```
+
+```{table}
+:class: wrap-table
+
 | If you are... | Scenario | Typical Outcome | Example Licenses |
 | :--- | :--- | :--- | :--- |
 | Writing everything yourself | [**1. Own code**](#scenario-1) | 🟢 Free choice | `MIT`, `Apache-2.0`, `BSD-3-Clause` |
@@ -194,6 +203,7 @@ The scenarios below are independent. Find the row that matches what you are actu
 | Publishing a built image | [**7. Built image**](#scenario-7) | ⚠️ Multi-license bundle | Governed by each layer's own terms |
 | Using Copilot, ChatGPT or Claude | [**8. AI-assisted code**](#scenario-8) | 🟢 Free choice, verify for memorization | `MIT`, `Apache-2.0`, `EUPL-1.2`, `GPL-3.0` |
 | Shipping prompts, weights or datasets | [**9. AI workflows & assets**](#scenario-9) | 🟢 Dual-license code vs. assets | `MIT` + `CC-BY-4.0` |
+```
 
 This lesson covers nine scenarios; a typical session works through three or four. The rest are here for reference when your project changes.
 
