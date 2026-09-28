@@ -221,6 +221,98 @@ table.wrap-table td, table.wrap-table th { white-space: normal !important; }
 
 This lesson covers nine scenarios; a typical session works through three or four. The rest are here for reference when your project changes.
 
+### Exercise-1: How do you work with others' software and ideas?
+
+````{discussion} Licensing-1: Which scenarios typically describe your work?
+The text below can be copied to the collaborative
+document for an online poll:
+
+```markdown
+## Question: How do you work with other's code?
+
+**Choose many**. Vote by adding an `o` character:
+
+- 1. Writing everything yourself
+  - votes:
+
+- 2. Implementing a published algorithm 
+  - votes:
+
+- 3. Pasting in a permissive snippet
+  - votes:
+
+- 4. Pasting in a copyleft snippet
+  - votes:
+
+- 5. Importing or linking a library
+  - votes:
+
+- 6. Writing a Dockerfile or .def
+  - votes:
+
+- 7. Publishing a built image
+  - votes:
+
+- 8. Using Copilot, ChatGPT, Claude, or similar
+  - votes:
+
+- 9. Shipping prompts, weights or datasets
+  - votes:
+```
+
+````
+
+### Exercise-2: How small is a snippet?
+
+````{discussion} Licensing-2: Can you decide from the number of lines?
+
+The text below can be copied to the collaborative document for an online poll:
+
+```markdown
+## Question: Which of these can you safely copy *based only on its size*?
+
+**Choose many**. Vote by adding an `o` character:
+
+- A. A one-line expression: `return max(lo, min(x, hi))`
+  - votes:
+
+- B. Five lines of ordinary boilerplate for parsing command-line arguments
+  - votes:
+
+- C. Three unusually written lines copied verbatim from a GPL-licensed solver
+  - votes:
+
+- D. Twenty lines you wrote independently after reading an algorithm in a paper, without looking at another implementation
+  - votes:
+
+- E. Anything under 10 lines is too small to be copyrighted
+  - votes:
+
+- F. None of the above: the number of lines alone does not decide
+  - votes:
+
+
+### Follow-up question
+
+For each example, what information would you want to know before reusing or publishing the code?
+```
+
+```{solution}
+
+The key answer is **F**: there is no fixed safe number of lines.
+
+Copyright does not use a numerical threshold such as 5, 10, or 20 lines. The important question is whether what has been copied is protected expression. Very short or purely functional code may not meet the originality threshold, while a short but distinctive piece of code may.
+
+- **A and B:** they may be too simple, conventional, or constrained by function to contain protectable expression, but their size alone does not answer the question.
+- **C:** being only three lines does not automatically make copied code unprotected. Check its provenance and license.
+- **D:** independently implementing the *idea* or algorithm is different from copying somebody else's expression of it.
+- **E:** there is no "10-line rule".
+
+**Practical rule:** if you copied code and are unsure whether it is protected, check where it came from and under which license it was published. Preserve any required notices, or independently implement the underlying idea instead of copying the code.
+
+```
+````
+
 ## Module 1: Clean Slate – Authoring Original Code & Algorithms
 
 When writing original code or implementing published algorithms, no third-party license constrains your choice — but who owns the code depends on your employment contract and national rules, so check your institution's policy first.
