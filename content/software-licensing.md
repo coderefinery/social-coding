@@ -3,8 +3,8 @@
 ```{objectives}
 - Principles of open source licensing
 - Difference between permissive and copyleft licenses
-- Regulations for AI-generated and AI-assisted code
-- Determine the software license for your project following EU regulation
+- Frameworks for AI-generated and AI-assisted code
+- Determine the software license for your project following EU copyright framework
 - Navigate the Joinup Licensing Assistant to select a compliant license
 - Understand the licensing distinction between container recipes and container images
 ```
@@ -82,6 +82,20 @@ Under Directive 2009/24/EC, software is protected by copyright as a **literary w
 * **Not protected**: mathematical algorithms, scientific models, programming logic, data structures, and interfaces.
 
 The CJEU confirmed this line in *SAS Institute v World Programming* (C-406/10): a program's functionality, its programming language, and its data file formats are ideas, not expression, and are therefore outside copyright. Someone may reimplement your algorithm from scratch; they may not copy your code. This is exactly why licenses exist — they set the terms for the expression, which is the only part copyright lets you control.
+
+````{admonition} Plagiarism vs. Intellectual Property Rights = Research Ethics vs. Law 
+:class: dropdown
+
+*This insert can be skipped and left as reading exercise*
+
+In academic context it is important to consider also *plagiarism* and how it relates to copyright and more broadly Intellectual Property Rights ([a clear explanation at this page](https://scholarworks.duke.edu/copyright-advice/copyright-faq/copyright-and-plagiarism/)). Plagiarism is the practice of taking somebody else's ideas or work and claim them as your own: it is the **unacknowledged** use of another person's work. Intellectual Property Rights (IPRs) infringement instead is the **unauthorised** use of another's work. 
+
+IPRs can be classified in two main groups ([WTO](https://www.wto.org/english/tratop_e/trips_e/intel1_e.htm)): i) Copyright and rights related to copyright (computer programs are here) and ii) Industrial properties like trademarks, and inventions (which may include specific technical implementations of systems or code) protected by patents.
+
+In research ethics, plagiarism is one of the three main forms of research misconduct (along with *fabrication* and *falsification*, see ALLEA, [European Code of Conduct for Research Integrity](https://allea.org/wp-content/uploads/2023/06/European-Code-of-Conduct-Revised-Edition-2023.pdf)). Plagiarism is not illegal per se, but it can lead to serious consequences like the retraction of published work. One can engage in plagiarism, without necessarily breaking any IPR law (e.g. write a new book by reusing the plot of an old book that is not under copyright anymore). Copyright infringment instead is illegal and it can result in criminal charges (e.g. fines). Copyright however protects the particular expression of an idea or fact (for example, the specific source code of a program, but not the underlying algorithm itself). 
+
+There is no pre-defined "number of lines of code", "seconds of a song", or "pixels of an image" that can clearly set the basis for plagiarism or IPR infringement. However in the context of research, it can be possible to use *Quotation Exception* (in EU, [ref](https://www.copyrightexceptions.eu/exceptions/info53d/)) and *Fair use* (in USA, [ref](https://en.wikipedia.org/wiki/Fair_use)). Fair use has become controversial recently as it is used as legal basis for training large language models based on scraped internet data ([See for example Henderson, P., Li, X., Jurafsky, D., Hashimoto, T., Lemley, M. A., & Liang, P. (2023). Foundation models and fair use. Journal of Machine Learning Research, 24(400), 1-79.](https://www.jmlr.org/papers/v24/23-0569.html))
+````
 
 ### Scope of this Lesson: What Counts as *Software*?
 
@@ -183,6 +197,15 @@ Our decision framework is grounded in the European Commission's **[Joinup Licens
 
 The scenarios below are independent. Find the row that matches what you are actually building, jump to it, and skip the rest.
 
+```{raw} html
+<style>
+table.wrap-table td, table.wrap-table th { white-space: normal !important; }
+</style>
+```
+
+```{table}
+:class: wrap-table
+
 | If you are... | Scenario | Typical Outcome | Example Licenses |
 | :--- | :--- | :--- | :--- |
 | Writing everything yourself | [**1. Own code**](#scenario-1) | 🟢 Free choice | `MIT`, `Apache-2.0`, `BSD-3-Clause` |
@@ -194,8 +217,101 @@ The scenarios below are independent. Find the row that matches what you are actu
 | Publishing a built image | [**7. Built image**](#scenario-7) | ⚠️ Multi-license bundle | Governed by each layer's own terms |
 | Using Copilot, ChatGPT or Claude | [**8. AI-assisted code**](#scenario-8) | 🟢 Free choice, verify for memorization | `MIT`, `Apache-2.0`, `EUPL-1.2`, `GPL-3.0` |
 | Shipping prompts, weights or datasets | [**9. AI workflows & assets**](#scenario-9) | 🟢 Dual-license code vs. assets | `MIT` + `CC-BY-4.0` |
+```
 
 This lesson covers nine scenarios; a typical session works through three or four. The rest are here for reference when your project changes.
+
+### Exercise-1: How do you work with others' software and ideas?
+
+````{discussion} Licensing-1: Which scenarios typically describe your work?
+The text below can be copied to the collaborative
+document for an online poll:
+
+```markdown
+## Question: How do you work with other's code?
+
+**Choose many**. Vote by adding an `o` character:
+
+- 1. Writing everything yourself
+  - votes:
+
+- 2. Implementing a published algorithm 
+  - votes:
+
+- 3. Pasting in a permissive snippet
+  - votes:
+
+- 4. Pasting in a copyleft snippet
+  - votes:
+
+- 5. Importing or linking a library
+  - votes:
+
+- 6. Writing a Dockerfile or .def
+  - votes:
+
+- 7. Publishing a built image
+  - votes:
+
+- 8. Using Copilot, ChatGPT, Claude, or similar
+  - votes:
+
+- 9. Shipping prompts, weights or datasets
+  - votes:
+```
+
+````
+
+### Exercise-2: How small is a snippet?
+
+````{discussion} Licensing-2: Can you decide from the number of lines?
+
+The text below can be copied to the collaborative document for an online poll:
+
+```markdown
+## Question: Which of these can you safely copy *based only on its size*?
+
+**Choose many**. Vote by adding an `o` character:
+
+- A. A one-line expression: `return max(lo, min(x, hi))`
+  - votes:
+
+- B. Five lines of ordinary boilerplate for parsing command-line arguments
+  - votes:
+
+- C. Three unusually written lines copied verbatim from a GPL-licensed solver
+  - votes:
+
+- D. Twenty lines you wrote independently after reading an algorithm in a paper, without looking at another implementation
+  - votes:
+
+- E. Anything under 10 lines is too small to be copyrighted
+  - votes:
+
+- F. None of the above: the number of lines alone does not decide
+  - votes:
+
+
+### Follow-up question
+
+For each example, what information would you want to know before reusing or publishing the code?
+```
+
+```{solution}
+
+The key answer is **F**: there is no fixed safe number of lines.
+
+Copyright does not use a numerical threshold such as 5, 10, or 20 lines. The important question is whether what has been copied is protected expression. Very short or purely functional code may not meet the originality threshold, while a short but distinctive piece of code may.
+
+- **A and B:** they may be too simple, conventional, or constrained by function to contain protectable expression, but their size alone does not answer the question.
+- **C:** being only three lines does not automatically make copied code unprotected. Check its provenance and license.
+- **D:** independently implementing the *idea* or algorithm is different from copying somebody else's expression of it.
+- **E:** there is no "10-line rule".
+
+**Practical rule:** if you copied code and are unsure whether it is protected, check where it came from and under which license it was published. Preserve any required notices, or independently implement the underlying idea instead of copying the code.
+
+```
+````
 
 ## Module 1: Clean Slate – Authoring Original Code & Algorithms
 
