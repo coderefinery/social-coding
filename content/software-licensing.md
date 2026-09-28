@@ -3,8 +3,8 @@
 ```{objectives}
 - Principles of open source licensing
 - Difference between permissive and copyleft licenses
-- Regulations for AI-generated and AI-assisted code
-- Determine the software license for your project following EU regulation
+- Frameworks for AI-generated and AI-assisted code
+- Determine the software license for your project following EU copyright framework
 - Navigate the Joinup Licensing Assistant to select a compliant license
 - Understand the licensing distinction between container recipes and container images
 ```
