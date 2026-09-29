@@ -695,13 +695,15 @@ def filter_sensor_data(raw_readings: list[float]) -> list[float]:
 :::
 ::::
 
+
+ 
 (scenario-9)=
 ::::{exercise} Scenario 9: Packaging AI workflows, datasets, and model weights
 You are developing research software that includes source code alongside trained machine learning model weights (`.pt`, `.safetensors`) and benchmark datasets.
 
-* **Licensing Goal**: Apply a clear **dual-licensing strategy** that makes both the software source code and the non-code assets (data, weights) open and reusable under appropriate legal frameworks.
-* **Legal Reality**: Standard software licenses (MIT, GPL) are written for source code and fit datasets and model parameters poorly. Datasets may attract the EU *sui generis* database right where there has been substantial investment in obtaining, verifying, or presenting their contents. Model weights are a harder case: they are neither code nor a database, and whether they attract any copyright protection in the EU is genuinely unsettled. Because of this uncertainty, applying an explicit license to weights is about setting clear terms for your users, not about relying on a settled legal right.
-* **JLA Selection Strategy**: Use JLA to select an OSI-approved open-source license for the executable code component (`Incl. Copyright` selected), while using Creative Commons licenses (e.g., `CC-BY-4.0` or `CC0`) for the dataset and weight files.
+* **Licensing Goal**: Apply a clear licensing structure, with **different licenses for different parts** of the repository, that makes both the software source code and the non-code assets (data, weights) open and reusable under appropriate legal frameworks.
+* **Legal Reality**: Standard software licenses (MIT, GPL) are written for source code and fit datasets and model parameters poorly. Datasets may attract the EU *sui generis* database right where there has been substantial investment in obtaining, verifying, or presenting their contents. Model weights are a harder case: they are the numerical values learned during training, neither code nor a database, and whether they attract any copyright protection in the EU is genuinely unsettled. Because of this uncertainty, applying an explicit license to weights is about setting clear terms for your users, not about relying on a settled legal right.
+* **JLA Selection Strategy**: Use JLA to select an OSI-approved open-source license for the executable code component (`Incl. Copyright` selected), while using Creative Commons licenses (e.g., `CC-BY-4.0` or `CC0-1.0`) for the dataset and weight files.
 
 :::{solution}
 **What to select in the JLA interface:**
@@ -712,26 +714,32 @@ You are developing research software that includes source code alongside trained
 
 * **Example JLA Matches**: `MIT`, `Apache-2.0` (for the code component)
 
-* **Code vs. Data/Weights & OpenRAIL Nuance**: Avoid applying software licenses like GPL or MIT to raw datasets or model weights — their terms reference source code, object code, and linking, which leaves users guessing about what applies. Use **CC-BY-4.0** or **CC0** for non-code assets instead. Note also that behavioral licenses (such as OpenRAIL) impose usage restrictions (e.g., prohibiting specific harmful uses), so they do **not** qualify as OSI-approved open source and will not appear in standard JLA queries.
+* **Code vs. Data/Weights**: Avoid applying software licenses like GPL or MIT to raw datasets or model weights — their terms reference source code, object code, and linking, which leaves users guessing about what applies. Use **CC-BY-4.0** or **CC0-1.0** for non-code assets instead. CC-BY-4.0 requires credit; CC0-1.0 requires nothing, which makes it easier for data that others will combine with many other datasets. Note that this pattern is sometimes called "dual-licensing", but that term usually means offering the *same* work under two licenses.
 
-* **Downstream Obligations**: Downstream users must cite your repository for the code (under your chosen software license) and give credit for the model weights and data under the corresponding Creative Commons license.
+* **You can only license what is yours**: If your dataset contains material you did not create, such as scraped text, images, or other people's data, your license covers only your own contribution; the original content keeps its own rights. If your dataset contains personal data, data protection rules apply regardless of the license.
 
-* **Allowed Inbound Assets**: You may combine permissively licensed python code with CC-BY-4.0 datasets or open-weight models, provided the attribution files clearly separate code licenses from data/weight licenses.
+* **Open weights are not always open source**: If you fine-tuned an existing model, its license still applies to what you built on it. Many models published with open weights come with their own licenses restricting, for example, commercial use or certain applications. Check the base model's license before fine-tuning and publishing.
 
-* **In-File Identification (SPDX / Dual-Licensing Structure)**: Document the dual-licensing scheme in your root repository structure and script headers:
+* **Behavioral licenses (OpenRAIL)**: Licenses such as OpenRAIL impose usage restrictions (e.g., prohibiting specific harmful uses). This can be a reasonable choice, but it means they do **not** qualify as OSI-approved open source and will not appear in standard JLA queries.
+
+* **Downstream Obligations**: Downstream users must keep your copyright notice and license text for the code (under your chosen software license) and give credit for the model weights and data as the corresponding Creative Commons license requires. For academic citation, add a `CITATION.cff` file to your repository.
+
+* **Allowed Inbound Assets**: You may combine permissively licensed Python code with CC-BY-4.0 datasets, provided the attribution files clearly separate code licenses from data/weight licenses. Models published with open weights can be included only under the terms of their own licenses (see above).
+
+* **In-File Identification (SPDX / Licensing Structure)**: Binary files such as weights and datasets cannot contain comments, so REUSE marks them with a companion `.license` file next to each one (e.g., `climate_weights.safetensors.license`) or with a single `REUSE.toml` file covering whole folders. State in your README which license covers which folder, and fill in the license fields on platforms such as Zenodo or Hugging Face. In your code, document the structure in the header:
 
 ```python
+# SPDX-FileCopyrightText: 2026 Author Name <author@institute.eu>
 # SPDX-License-Identifier: MIT
-# Copyright (c) 2026 Author Name <author@institute.eu>
 #
 # Note: Source code is licensed under MIT.
 # Model weights in /models/ and datasets in /data/ are licensed under CC-BY-4.0.
 
-import torch
+from safetensors.torch import load_file
 
 def load_pipeline():
-    model = torch.load("models/climate_weights.safetensors")
-    return model
+    weights = load_file("models/climate_weights.safetensors")
+    return weights
 ```
 :::
 ::::
