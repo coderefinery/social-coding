@@ -556,51 +556,40 @@ def solve_system(data):
 ::::
 
 
-(scenario-5)=
-::::{exercise} Scenario 5: Linking against a GPL-licensed library
-You are developing a software application that imports or links against an external software library licensed under GPL-3.0 (e.g., importing a GPL Python package or linking a C/C++ static/shared library).
+(scenario-6)=
+::::{exercise} Scenario 6: Authoring container recipes and environment specifications
+You are creating a `Dockerfile`, Apptainer `.def` file, Conda `environment.yml`, or build recipe to automate the setup of your research environment. The recipe itself contains setup instructions, shell commands, and package lists.
 
-* **Licensing Goal**: Ensure legal compliance while using copyleft libraries as core dependencies in your software project.
-* **Legal Reality**: Whether linking creates a combined work is genuinely unsettled, and often has to be decided case by case. The FSF's position is that linking a GPL library — statically or dynamically — creates a combined work; some legal scholars and Commission EUPL guidance disagree, particularly for dynamic linking through a stable API. Most Member States have no case law on this, so no firm general rule can be stated. The guidance below follows the conservative, widely-adopted reading.
-* **JLA Selection Strategy**: Under the conservative reading, linking to a GPL library means the combined program you distribute must be released under matching reciprocal terms, so configure JLA to require source code disclosure (`Disclose source`) and reciprocal licensing (`Copyleft/Share a.`).
+* **Licensing Goal**: You want **maximum adoption** and reuse of your build automation script so other researchers can freely adapt and build upon your workflow.
+* **Legal Reality**: Build recipes and configuration scripts are plain-text source code, separate from the software binaries they download at build time. The build instructions you write are your expression — but note that a very short recipe (a `FROM` line plus two `RUN` commands) may be too trivial to meet the Art. 1(3) originality threshold and may not attract copyright at all. The same applies to a plain list of package names in an `environment.yml`. Longer, non-obvious recipes clearly do attract copyright.
+* **JLA Selection Strategy**: To allow anyone to reuse or adapt your container recipe without restrictions, require that your copyright notice is kept (`Incl. Copyright`) while leaving reciprocal requirements (`Copyleft/Share a.`) unselected.
 
 :::{solution}
 **What to select in the JLA interface:**
 
 1. **Can Column**: Select `Distribute`, `Modify/merge`, and `Commercial use`
-2. **Must Column**: Select `Incl. Copyright`, `Disclose source`, and `Copyleft/Share a.`
+2. **Must Column**: Select `Incl. Copyright`
 3. **Support Column**: Select `OSI approved`
 
-* **Example JLA Matches**: `GPL-3.0`, `EUPL-1.2`
+* **Example JLA Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
 
-* **The safe default, not settled law**: On the conservative reading, your own files must be under a **GPL-compatible** license (GPL itself, or permissive licenses such as MIT or BSD), and the combined program you distribute is under GPL. `EUPL-1.2` also works for your own files through its compatibility clause, but the combined program then goes out under GPL anyway.
+* **License short recipes anyway**: Even if a recipe may fall below the originality threshold, a two-line SPDX header removes any doubt for people who want to reuse it, and tools such as `reuse lint` expect every file to be marked. For very small configuration files, some projects use `CC0-1.0`.
 
-* **What you ship matters**: *Static linking* copies the library's code into your binary, so you always distribute it. With *dynamic linking* (including a Python `import`), the library stays a separate file. If you publish only your own source and users install the GPL library themselves, the risk is much lower, although the FSF would still expect your code to be GPL-compatible. If you **bundle** the library, in an executable, a container image, or a compiled binary, GPL clearly applies to what you ship.
+* **Recipe vs. Image Nuance**: The license applied to a `Dockerfile` covers only the recipe instructions, not the software packages installed inside the container when `docker build` runs. Writing `apt-get install` for a GPL package, or `FROM ubuntu`, names the software without copying it. A permissively licensed Dockerfile can therefore install both permissive and copyleft packages without legal conflict. This applies to the **recipe only**: once you build and publish the resulting image, you are distributing every package inside it (see [Scenario 7](#scenario-7)).
 
-* **Alternatives if you want to stay permissive**:
-  * Find a permissively licensed alternative library.
-  * Use an **LGPL** library instead: with dynamic linking, your own code can stay permissive, provided you keep its notices and do not restrict users from modifying the library or reverse engineering to debug those modifications.
-  * Use an **EUPL-1.2** library through dynamic linking: Commission guidance says this does not make your program a derivative work (guidance, not case law). Static linking or copying EUPL code is treated as a combined work.
-  * Call a GPL tool as a **separate program** (e.g., via the command line) rather than importing it. This is generally treated as two programs communicating, not a combined work.
+* **Downstream Obligations**: Anyone who reuses or adapts your build recipe must preserve your original copyright notice and license text. Keeping the recipe in your repository alongside the `LICENSES/` folder covers this.
 
-* **Copyleft licenses are not compatible with each other**: Two strong copyleft licenses can each demand that the combined work use *their* terms, which makes the combination undistributable. The classic trap is `GPL-2.0-only`: without the "or later" clause you cannot upgrade to GPL-3.0 to resolve a conflict, so GPL-2.0-only code cannot be combined with GPL-3.0 or Apache-2.0 code at all. Always check the exact SPDX identifier — `GPL-2.0-only` and `GPL-2.0-or-later` behave very differently.
+* **Allowed Inbound Snippets**: Copying build steps from other people's recipes follows the same rules as source code. Steps from permissively licensed recipes or public domain code can be included freely, keeping their notices ([Scenario 3](#scenario-3)). A non-trivial block from a copyleft project's recipe falls under [Scenario 4](#scenario-4). In practice, most build commands are short and generic, so this rarely applies.
 
-* **Downstream Obligations**: Anyone to whom you **distribute** the application must receive full access to your source code under GPL-compatible terms, along with upstream copyright notices and the build scripts needed to recompile it. Running the software internally, without distributing it, creates no such obligation — though note that `AGPL-3.0` extends this to network use, such as a web application built on an AGPL library.
+* **In-File Identification (SPDX)**: Place SPDX tags as comments at the top of your Dockerfile or recipe file:
 
-* **Allowed Inbound Code & Dependencies**: Your project can import or include other **permissively licensed** packages (MIT, BSD, Apache-2.0) and public domain waivers (CC0). However, all code linked together in the final executable or runtime environment must satisfy GPL compatibility; for example, `Apache-2.0` is compatible with GPL-3.0 but not with GPL-2.0.
-
-* **Check your dependencies**: Tools such as `pip-licenses` (Python) list the license of every installed package. Most package ecosystems have an equivalent. Run one once per project.
-
-* **In-File Identification (SPDX)**: Apply standard machine-readable SPDX tags directly at the top of your main scripts:
-
-```python
+```dockerfile
 # SPDX-FileCopyrightText: 2026 Author Name <author@institute.eu>
-# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-License-Identifier: MIT
 
-import gpl_licensed_solver  # External GPL dependency: conservative reading requires GPL compatibility
-
-def solve_system(data):
-    return gpl_licensed_solver.compute(data)
+FROM ubuntu:24.04
+RUN apt-get update && apt-get install -y python3 python3-pip
+COPY solver.py /app/solver.py
 ```
 :::
 ::::
@@ -651,6 +640,7 @@ LABEL org.opencontainers.image.description="Includes Ubuntu 24.04 base layers (G
 
 COPY solver.py /app/solver.py
 ```
+
 :::
 ::::
 
@@ -659,15 +649,14 @@ COPY solver.py /app/solver.py
 
 AI-assisted development tools and machine learning models introduce unique legal challenges regarding copyright ownership, training data memorization, and behavioral restrictions. This module addresses how to license projects built with AI code generation tools and how to package research software that bundles AI models, weights, and datasets alongside source code.
 
----
 
 (scenario-8)=
 ::::{exercise} Scenario 8: AI-assisted code generation
 You used AI tools (e.g., GitHub Copilot, ChatGPT, Claude) to write functions, unit tests, or documentation for your research software repository.
 
-* **Licensing Goal**: Retain clear ownership and apply a **permissive license** (`MIT` or `Apache-2.0`) to your repository without incurring hidden copyright infringement or copyleft obligations from code embedded during model training.
-* **Legal Reality**: Unmodified AI-generated outputs lack human authorship and are generally not eligible for copyright protection under current EU and international legal standards. However, if an LLM reproduces a substantial copyrighted code snippet verbatim from its training data (memorization), that output snippet retains its original copyright and license obligations.
-* **JLA Selection Strategy**: To ensure maximum adoption and academic reuse for your overall codebase, require citation credit (`Incl. Copyright`) while avoiding share-alike constraints (leaving `Copyleft/Share a.` unselected), supported by automated compliance checks.
+* **Licensing Goal**: Apply a **permissive license** (`MIT` or `Apache-2.0`) to your repository with confidence, without incurring hidden copyright infringement or copyleft obligations from code the AI model reproduced from its training data.
+* **Legal Reality**: Unmodified AI-generated outputs lack human authorship and are generally not eligible for copyright protection under current EU and international legal standards. Most real code, however, is a mix of human and AI contribution: you prompt, select, edit, and integrate. Where the line falls between AI output and your own work is unsettled and varies between Member States; there is no percentage or line-count threshold. The more you design, choose, edit, and integrate, the stronger your claim that the result is your work. Separately, if an LLM reproduces a substantial copyrighted code snippet verbatim from its training data (memorization), that output snippet retains its original copyright and license obligations.
+* **JLA Selection Strategy**: To ensure maximum adoption and academic reuse for your overall codebase, require that your copyright notice is kept (`Incl. Copyright`) while avoiding share-alike constraints (leaving `Copyleft/Share a.` unselected), supported by automated compliance checks.
 
 :::{solution}
 **What to select in the JLA interface:**
@@ -678,16 +667,26 @@ You used AI tools (e.g., GitHub Copilot, ChatGPT, Claude) to write functions, un
 
 * **Example JLA Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
 
+* **License your repository as normal**: Your license covers everything you authored. Any purely AI-generated parts that are not protected by copyright are free to use anyway, so the license does no harm there. Many AI tools' terms state that the output belongs to you as far as any rights exist, but a contract cannot create copyright that the law does not grant.
+
+* **Checking for memorized code**: Memorization is uncommon for everyday code, but it does happen, especially for well-known code that appears many times in training data. Practical checks:
+  * Be most careful with **long, distinctive functions** and implementations of well-known algorithms. Short boilerplate and unit tests are low risk.
+  * If you use GitHub Copilot, check whether the setting that **blocks suggestions matching public code** is enabled for your account or organisation.
+  * If a suggestion looks suspiciously polished, **search for a distinctive line** of it on GitHub. If it appears in a copyleft project, treat it as that project's code ([Scenario 4](#scenario-4)).
+
 * **Marking AI-generated code**: Some projects and AI tool terms require contributors to disclose AI involvement — via a commit trailer, a PR checkbox, or an in-file comment. Even where it is optional, marking AI-assisted sections is increasingly recommended practice: it records provenance, signals to reviewers where extra scrutiny is warranted, and makes later authorship or infringement questions much easier to resolve. Check the contribution guidelines of any project you submit to.
+
+* **Use AI to write code, not to decide licensing**: As noted in the section on the limitations of AI-assisted licensing advice, AI assistants tend to apply US legal concepts. Check licensing questions against the actual license text.
+
 * **Downstream Obligations**: Downstream users must preserve your copyright notice for the repository. They are free to reuse, modify, and integrate your code into commercial or open-source projects.
 
-* **Allowed Inbound Snippets**: You can include permissively licensed code, public domain code (CC0), and AI-generated snippets that have been verified against verbatim training data duplication.
+* **Allowed Inbound Snippets**: You can include permissively licensed code, public domain code (CC0), and AI-generated snippets that you have checked for verbatim reproduction of training data, as described above.
 
-* **In-File Identification (SPDX)**: Apply standard machine-readable SPDX identifier comments directly at the top of your scripts:
+* **In-File Identification (SPDX)**: Apply standard machine-readable SPDX tags directly at the top of your scripts, and mark AI-assisted code where it appears:
 
 ```python
+# SPDX-FileCopyrightText: 2026 Author Name <author@institute.eu>
 # SPDX-License-Identifier: MIT
-# Copyright (c) 2026 Author Name <author@institute.eu>
 
 def filter_sensor_data(raw_readings: list[float]) -> list[float]:
     """Cleans raw sensor data (written with AI assistance and human review)."""
@@ -695,8 +694,6 @@ def filter_sensor_data(raw_readings: list[float]) -> list[float]:
 ```
 :::
 ::::
-
----
 
 (scenario-9)=
 ::::{exercise} Scenario 9: Packaging AI workflows, datasets, and model weights
