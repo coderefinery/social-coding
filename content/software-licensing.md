@@ -108,6 +108,7 @@ Across international frameworks (17 U.S.C. § 101 and WIPO model provisions), so
 * **AI-Assisted Code** — generated or refactored with human oversight.
 * **AI Prompt Templates** — engineered system prompts meeting the threshold of human authorship.
 
+(motivation)=
 ## Motivation: Debugging a License Compliance Failure
 
 With the three license families in mind, examine what happens when they collide inside an automated CI/CD pipeline:
@@ -453,7 +454,7 @@ def main():
 
 (scenario-4)=
 ::::{exercise} Scenario 4: Embedding copyleft third-party code
-You are building a software tool and copied a non-trivial code snippet from a third-party project licensed under a copyleft license (e.g., GPL-3.0 or EUPL-1.2) directly into one of your source files. This is the situation behind the failed build (job #142) in the [Motivation](#motivation-debugging-a-license-compliance-failure) section.
+You are building a software tool and copied a non-trivial code snippet from a third-party project licensed under a copyleft license (e.g., GPL-3.0 or EUPL-1.2) directly into one of your source files. This is the situation behind the failed build (job #142) in the [Motivation](#motivation) section.
 
 * **Licensing Goal**: Comply with legal requirements imposed by the inbound copyleft code while ensuring your overall repository remains legally compliant.
 * **Legal Reality**: Copying a non-trivial copyleft snippet into your source files creates a single combined work, so copyleft licensing generally extends to your whole project. Moving the snippet into a separate file of the same program does not change this. "Non-trivial" matters: a snippet too short or purely functional to qualify as the author's own intellectual creation (Art. 1(3)) may not carry copyright at all. There is no word count or line count that draws this line — if you are unsure, assume it is protected and either comply or reimplement.
