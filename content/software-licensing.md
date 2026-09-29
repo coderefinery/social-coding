@@ -512,7 +512,7 @@ You are developing a software application that imports or links against an exter
 
 * **Licensing Goal**: Ensure legal compliance while using copyleft libraries as core dependencies in your software project.
 * **Legal Reality**: Whether linking creates a combined work is genuinely unsettled, and often has to be decided case by case. The FSF's position is that linking a GPL library — statically or dynamically — creates a combined work; some legal scholars and Commission EUPL guidance disagree, particularly for dynamic linking through a stable API. Most Member States have no case law on this, so no firm general rule can be stated. The guidance below follows the conservative, widely-adopted reading.
-* **JLA Selection Strategy**: Because linking to a GPL library requires your distributed project to be released under matching reciprocal terms, you must configure JLA to mandate source code disclosure (`Disclose source`) and reciprocal licensing (`Copyleft/Share a.`).
+* **JLA Selection Strategy**: Under the conservative reading, linking to a GPL library means the combined program you distribute must be released under matching reciprocal terms, so configure JLA to require source code disclosure (`Disclose source`) and reciprocal licensing (`Copyleft/Share a.`).
 
 :::{solution}
 **What to select in the JLA interface:**
@@ -523,20 +523,31 @@ You are developing a software application that imports or links against an exter
 
 * **Example JLA Matches**: `GPL-3.0`, `EUPL-1.2`
 
-* **Linking Boundaries & License Selection (Legal Nuance)**: 
-  * **Why GPL forces copyleft**: Linking against a standard `GPL-3.0` library extends copyleft to your entire project. Your repository must adopt a compatible copyleft license (`GPL-3.0` or `EUPL-1.2`, which explicitly lists GPL-3.0 in its compatibility appendix).
-* **Copyleft licenses are not compatible with each other**: two strong copyleft licenses can each demand that the combined work use *their* terms, which makes the combination undistributable. The classic trap is `GPL-2.0-only`: without the "or later" clause you cannot upgrade to GPL-3.0 to resolve a conflict, so GPL-2.0-only code cannot be combined with GPL-3.0 or Apache-2.0 code at all. Always check the exact SPDX identifier — `GPL-2.0-only` and `GPL-2.0-or-later` behave very differently.
-* **Downstream Obligations**: Anyone to whom you **distribute** the application must receive full access to your source code under `GPL-3.0` (or `EUPL-1.2`), along with upstream copyright notices and the build scripts needed to recompile it. Running the software internally, without distributing it, creates no such obligation — though note that `AGPL-3.0` extends this to network use.
+* **The safe default, not settled law**: On the conservative reading, your own files must be under a **GPL-compatible** license (GPL itself, or permissive licenses such as MIT or BSD), and the combined program you distribute is under GPL. `EUPL-1.2` also works for your own files through its compatibility clause, but the combined program then goes out under GPL anyway.
 
-* **Allowed Inbound Code & Dependencies**: Your project can import or include other **permissively licensed** packages (MIT, BSD, Apache-2.0) and public domain waivers (CC0). However, all code linked together in the final executable or runtime environment must satisfy GPL compatibility.
+* **What you ship matters**: *Static linking* copies the library's code into your binary, so you always distribute it. With *dynamic linking* (including a Python `import`), the library stays a separate file. If you publish only your own source and users install the GPL library themselves, the risk is much lower, although the FSF would still expect your code to be GPL-compatible. If you **bundle** the library, in an executable, a container image, or a compiled binary, GPL clearly applies to what you ship.
 
-* **In-File Identification (SPDX)**: Apply standard machine-readable SPDX identifier comments directly at the top of your main scripts:
+* **Alternatives if you want to stay permissive**:
+  * Find a permissively licensed alternative library.
+  * Use an **LGPL** library instead: with dynamic linking, your own code can stay permissive, provided you keep its notices and do not restrict users from modifying the library or reverse engineering to debug those modifications.
+  * Use an **EUPL-1.2** library through dynamic linking: Commission guidance says this does not make your program a derivative work (guidance, not case law). Static linking or copying EUPL code is treated as a combined work.
+  * Call a GPL tool as a **separate program** (e.g., via the command line) rather than importing it. This is generally treated as two programs communicating, not a combined work.
+
+* **Copyleft licenses are not compatible with each other**: Two strong copyleft licenses can each demand that the combined work use *their* terms, which makes the combination undistributable. The classic trap is `GPL-2.0-only`: without the "or later" clause you cannot upgrade to GPL-3.0 to resolve a conflict, so GPL-2.0-only code cannot be combined with GPL-3.0 or Apache-2.0 code at all. Always check the exact SPDX identifier — `GPL-2.0-only` and `GPL-2.0-or-later` behave very differently.
+
+* **Downstream Obligations**: Anyone to whom you **distribute** the application must receive full access to your source code under GPL-compatible terms, along with upstream copyright notices and the build scripts needed to recompile it. Running the software internally, without distributing it, creates no such obligation — though note that `AGPL-3.0` extends this to network use, such as a web application built on an AGPL library.
+
+* **Allowed Inbound Code & Dependencies**: Your project can import or include other **permissively licensed** packages (MIT, BSD, Apache-2.0) and public domain waivers (CC0). However, all code linked together in the final executable or runtime environment must satisfy GPL compatibility; for example, `Apache-2.0` is compatible with GPL-3.0 but not with GPL-2.0.
+
+* **Check your dependencies**: Tools such as `pip-licenses` (Python) list the license of every installed package. Most package ecosystems have an equivalent. Run one once per project.
+
+* **In-File Identification (SPDX)**: Apply standard machine-readable SPDX tags directly at the top of your main scripts:
 
 ```python
+# SPDX-FileCopyrightText: 2026 Author Name <author@institute.eu>
 # SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (c) 2026 Author Name <author@institute.eu>
 
-import gpl_licensed_solver  # External GPL dependency forces GPL/EUPL compliance
+import gpl_licensed_solver  # External GPL dependency: conservative reading requires GPL compatibility
 
 def solve_system(data):
     return gpl_licensed_solver.compute(data)
