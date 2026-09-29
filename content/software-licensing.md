@@ -1001,3 +1001,5 @@ Weak copyleft
 
 ```
 ````
+
+End.
