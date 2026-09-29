@@ -401,13 +401,14 @@ import numpy as np
 
 Embedding third-party snippets or linking against external libraries introduces boundaries that can constrain your license choice. How far those boundaries reach depends on which license the inbound code carries.
 
+
 (scenario-3)=
 ::::{exercise} Scenario 3: Embedding permissively licensed third-party code
 You are building an RSE tool and copied a helper function or utility snippet from a third-party project licensed under a permissive license (e.g., MIT or Apache-2.0) directly into one of your source files.
 
 * **Licensing Goal**: You want to maintain a **permissive default** for your project while properly acknowledging and legally respecting the embedded third-party code.
-* **Legal Reality**: Permissive licenses explicitly grant you permission to copy, modify, and embed their code into your repository. However, embedding permissive code does not make the original third-party copyright disappear, you must preserve the original copyright attribution and license terms for that specific snippet.
-* **JLA Selection Strategy**: Because inbound permissive code gives you maximum licensing flexibility, your overall repository can remain permissively licensed. To reflect this, select citation obligations (`Incl. Copyright`) without imposing reciprocal sharing constraints (leaving `Copyleft/Share a.` unselected).
+* **Legal Reality**: Permissive licenses explicitly grant you permission to copy, modify, and embed their code into your repository. However, embedding permissive code does not make the original third-party copyright disappear: you must preserve the original copyright notice and license terms for that specific snippet.
+* **JLA Selection Strategy**: Because inbound permissive code gives you maximum licensing flexibility, your overall repository can remain permissively licensed. To reflect this, require that notices are kept (`Incl. Copyright`) without imposing reciprocal sharing constraints (leaving `Copyleft/Share a.` unselected).
 
 :::{solution}
 **What to select in the JLA interface:**
@@ -418,31 +419,38 @@ You are building an RSE tool and copied a helper function or utility snippet fro
 
 * **Example JLA Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
 
-* **Notice Preservation Nuance**: Permissive licenses are flexible, but they are not license-free. If you copy code from an Apache-2.0 or BSD-3-Clause project into your MIT-licensed repository, you must retain the original author's copyright statement and license identifier directly above the embedded code block. Your repository license covers *your* code. It does not relicense the embedded snippet — that code stays under its original license and its original copyright holder's terms. You are distributing one file containing two separately licensed contributions, which is why both notices must appear.
+* **Notice Preservation Nuance**: Permissive licenses are flexible, but they are not license-free. Your repository license covers *your* code. It does not relicense the embedded snippet — that code stays under its original license and its original copyright holder's terms. You are distributing one file containing two separately licensed contributions, which is why both notices must appear.
+
+* **What "keeping the notice" requires**: Keep the original copyright line *and* the license text. An SPDX identifier only points to a license, so the full text must also be in your repository, typically as one file per license in a `LICENSES/` folder (e.g., `LICENSES/Apache-2.0.txt`). Apache-2.0 adds two small requirements: if you modified the snippet, state that you changed it, and if the original project has a `NOTICE` file, carry its relevant content along.
+
+* **Check the source before copying**: Confirm the license in the original project's own `LICENSE` file, not in a blog post or second-hand claim. A project with no license file is *All Rights Reserved*, so its code cannot be copied. Note that **Stack Overflow content is licensed CC BY-SA**, a share-alike license, not a permissive one, so non-trivial Stack Overflow snippets belong in [Scenario 4](#scenario-4).
 
 * **Downstream Obligations**: Downstream users receive your project under your primary permissive license (e.g., MIT), but they must preserve both your overall copyright notice and the specific third-party notices attached to embedded snippets.
 
-* **Allowed Inbound Snippets**: In addition to the embedded permissive snippet, you can freely embed other permissively licensed code (MIT, BSD, Apache-2.0) or public domain waivers (CC0).Embedding **strong** copyleft code (GPL, EUPL) generally requires re-licensing your repository to match. Weak copyleft (LGPL, MPL-2.0) applies at a narrower boundary and often does not
+* **Allowed Inbound Snippets**: In addition to the embedded permissive snippet, you can freely embed other permissively licensed code (MIT, BSD, Apache-2.0) or public domain waivers (CC0). Embedding **strong** copyleft code (GPL, EUPL) generally requires re-licensing your repository to match. Weak copyleft does not stay contained when pasted either: pasted MPL-2.0 code makes that file MPL-covered, and pasted LGPL code is treated like GPL. Weak copyleft only lets your code stay permissive when used as a separate file or library.
 
-* **In-File Identification (SPDX)**: Mark both your overall file license and the specific embedded snippet using SPDX comments:
+* **In-File Identification (SPDX)**: Mark your file's own license at the top, and mark the embedded snippet with the REUSE snippet tags so its boundaries are machine-readable:
 
 ```python
+# SPDX-FileCopyrightText: 2026 Author Name <author@institute.eu>
 # SPDX-License-Identifier: MIT
-# Copyright (c) 2026 Author Name <author@institute.eu>
 
-# --- Embedded Third-Party Snippet ---
+import numpy as np
+
+# SPDX-SnippetBegin
+# SPDX-SnippetCopyrightText: 2024 External Contributor <dev@external-lib.org>
 # SPDX-License-Identifier: Apache-2.0
-# Copyright (c) 2024 External Contributor <dev@external-lib.org>
 def fast_matrix_solver(matrix):
     # Embedded algorithm implementation
     return np.linalg.solve(matrix, np.eye(len(matrix)))
-# --- End Embedded Snippet ---
+# SPDX-SnippetEnd
 
 def main():
     pass
 ```
 :::
 ::::
+
 
 (scenario-4)=
 ::::{exercise} Scenario 4: Embedding copyleft third-party code
