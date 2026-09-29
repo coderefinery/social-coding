@@ -360,6 +360,7 @@ import numpy as np
 :::
 ::::
 
+
 (scenario-2)=
 ::::{exercise} Scenario 2: Choosing reciprocity for your own implementation
 You developed a custom solver implementing algorithms from academic literature. You want any downstream improvements, extensions, or modifications to remain open-source and be shared back with the scientific community.
@@ -377,17 +378,19 @@ You developed a custom solver implementing algorithms from academic literature. 
 
 * **Example JLA Matches**: `EUPL-1.2`, `GPL-3.0`, `AGPL-3.0`
 
-* **Copyleft Mechanics (EUPL vs. GPL Nuance)**: `GPL-3.0` is the standard global copyleft license, but `EUPL-1.2` is specifically tailored for European institutions. EUPL-1.2 is officially published in 23 EU language versions (each with equal legal validity), includes built-in compatibility clauses with GPL, and explicitly defaults to EU Member State jurisdiction and courts.
-* **A caution before choosing strong copyleft**: reciprocity also limits who can combine with your code. Strong copyleft licenses are frequently incompatible with each other, so a future collaborator on a differently-licensed copyleft project may be unable to use your work at all. Scenario 5 covers this.
-* **Downstream Obligations**: Anyone who distributes your code or a modified version of it must provide complete access to the corresponding source code under the same copyleft license and preserve your original copyright notices.
+* **Copyleft Mechanics (EUPL vs. GPL Nuance)**: `GPL-3.0` is the standard global copyleft license, but `EUPL-1.2` is specifically tailored for European institutions. EUPL-1.2 is officially published in 23 EU language versions (each with equal legal validity) and sets the applicable law and courts by reference to the licensor's EU Member State. Its compatibility clause works in one direction only: EUPL code can be combined into a GPL project and distributed under GPL, but GPL code cannot be re-licensed under EUPL.
+* **AGPL and network use**: `AGPL-3.0` adds one rule to GPL-3.0: if you modify the software and let people use it over a network (for example a web portal or API), you must offer them the source code, even if you never distribute copies. Consider it if your group runs research software as an online service.
+* **The trade-offs of strong copyleft**: Reciprocity comes at a cost. Some companies and projects avoid copyleft code entirely, so you may reach fewer users than with a permissive license. Strong copyleft licenses are also frequently incompatible with each other, so a future collaborator on a differently-licensed copyleft project may be unable to use your work at all ([Scenario 5](#scenario-5) covers this). Neither choice is better: Scenario 1 optimizes for reach, this scenario for keeping improvements open.
+* **Choose deliberately, early**: Changing your license later is only possible if you hold all the rights. Once others have contributed code, you need every contributor's agreement to re-license.
+* **Downstream Obligations**: Anyone who distributes your code or a modified version of it must provide complete access to the corresponding source code under the same copyleft license and preserve your original copyright notices. Running modified code internally, without distributing it, creates no obligation (except under AGPL for network use).
 
-* **Allowed Inbound Snippets**: You can freely embed code snippets licensed under **permissive terms** (e.g., MIT, Apache-2.0, BSD) or public domain waivers (CC0). You may also embed snippets from compatible copyleft code (e.g., EUPL, GPL). However, you cannot embed closed-source or proprietary code snippets.
+* **Allowed Inbound Snippets**: You can freely embed code snippets licensed under **permissive terms** (e.g., MIT, Apache-2.0, BSD), keeping their notices, or public domain waivers (CC0). Copyleft snippets must be compatible with *your* license, and compatibility is directional: a **GPL** project can take EUPL or GPL snippets, but a GPL snippet in an **EUPL** project would require the combined work to be distributed under GPL. When in doubt, only embed copyleft code under the same license as your project. You cannot embed closed-source or proprietary code snippets.
 
-* **In-File Identification (SPDX)**: Apply standard machine-readable SPDX identifier comments directly at the top of your scripts:
+* **In-File Identification (SPDX)**: Apply standard machine-readable SPDX tags directly at the top of your scripts, following the [REUSE specification](https://reuse.software/). If you choose GPL, use `GPL-3.0-only` or `GPL-3.0-or-later` rather than plain `GPL-3.0`, since the two behave differently when a new GPL version is released:
 
 ```python
+# SPDX-FileCopyrightText: 2026 Author Name <author@institute.eu>
 # SPDX-License-Identifier: EUPL-1.2
-# Copyright (c) 2026 Author Name <author@institute.eu>
 
 import numpy as np
 ```
