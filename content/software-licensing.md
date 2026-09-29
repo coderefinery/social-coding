@@ -1002,4 +1002,3 @@ Weak copyleft
 ```
 ````
 
-End.
