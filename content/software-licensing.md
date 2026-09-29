@@ -178,18 +178,25 @@ Developers working under EU statutory frameworks face a different legal reality 
 
 So when an AI assistant tells you a snippet creates a "derivative work", treat that as a prompt to check the actual question under EU law: is this a statutory **adaptation**, or a **combined work** across a technical boundary? The rest of this lesson gives you that EU-aligned framework.
 
+
 ## Standardizing In-File Declarations: SPDX Identifiers
 
 Selecting a license is only half the job. Automated scanners and CI/CD pipelines need a machine-readable way to verify compliance per file without parsing legal text.
 
-Managed by the Linux Foundation, **SPDX identifiers** are standardized short tags (`MIT`, `Apache-2.0`, `GPL-3.0-only`, `EUPL-1.2`) placed at the top of every source file:
+Managed by the Linux Foundation, **SPDX** provides standardized short identifiers for licenses (`MIT`, `Apache-2.0`, `GPL-3.0-only`, `EUPL-1.2`). The [REUSE specification](https://reuse.software/), maintained by the FSFE, builds on SPDX to define how every file should declare its copyright and license. Each file starts with two tags:
 
 ```python
+# SPDX-FileCopyrightText: 2026 Author Name <author@institute.eu>
 # SPDX-License-Identifier: MIT
-# Copyright (c) 2026 Author Name <author@institute.eu>
 ```
 
+* **`SPDX-FileCopyrightText`** names the copyright holder and year. This may be your institution rather than you personally; check your institution's policy.
+* **`SPDX-License-Identifier`** names the license, using the exact SPDX identifier. Watch the suffix: `GPL-3.0-only` and `GPL-3.0-or-later` behave differently, so choose deliberately.
+
+The tags only *point to* a license, so the full license text must also be in your repository. REUSE places one text file per license in a `LICENSES/` folder (e.g., `LICENSES/MIT.txt`). Running `reuse lint` then checks that every file carries both tags and that every license it names has its text present.
+
 Every scenario below shows the SPDX tagging for its asset type — Python scripts, container recipes, and prompt templates each have their own conventions.
+
 
 ## License Selection Decision Matrix & Scenario Index
 
@@ -322,8 +329,8 @@ When writing original code or implementing published algorithms, no third-party 
 You wrote an original algorithm from scratch (in Python, C++, Rust, etc.). Your repository contains only your original source code and dependency specifications (`requirements.txt`, `CMakeLists.txt`, `Cargo.toml`).
 
 * **Licensing Goal**: You want **maximum adoption** and zero friction for commercial or academic reuse.
-* **Legal Reality**: External dependencies remain separate works. Because you have not bundled third-party code inside your repository, no inbound license terms constrain your choice.
-* **JLA Selection Strategy**: To ensure downstream users must acknowledge your original authorship while granting them maximum flexibility to incorporate your code into both open and proprietary software, you require citation credit (`Incl. Copyright`) without imposing share-alike conditions (leaving `Copyleft/Share a.` unselected).
+* **Legal Reality**: External dependencies remain separate works. Because you only list them and have not bundled third-party code inside your repository, no inbound license terms constrain your choice. This changes if you ship dependencies together with your code, for example in an executable or container image (see [Scenario 5](#scenario-5) and [Scenario 7](#scenario-7)).
+* **JLA Selection Strategy**: To ensure downstream users must keep your copyright notice while granting them maximum flexibility to incorporate your code into both open and proprietary software, you require `Incl. Copyright` without imposing share-alike conditions (leaving `Copyleft/Share a.` unselected).
 
 :::{solution}
 **What to select in the JLA interface:**
@@ -334,17 +341,19 @@ You wrote an original algorithm from scratch (in Python, C++, Rust, etc.). Your 
 
 * **Example JLA Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
 
-* **Permissive vs. Public Domain (EU Civil Law Nuance)**: Public domain dedications (e.g., `CC0`, `Unlicense`) attempt to give away all rights. However, under EU civil law, authors cannot legally give up their moral rights (*droit moral*). Selecting an explicit permissive license like `MIT` or `Apache-2.0` grants broad permissions globally, remains legally valid under European copyright law, and guarantees academic citation credit.
+* **Permissive vs. Public Domain (EU Civil Law Nuance)**: Public domain dedications (e.g., `CC0`, `Unlicense`) attempt to give away all rights. In many EU countries, authors cannot fully waive their rights, especially moral rights such as being named as the author. CC0 handles this with a fallback license, which makes it a good choice for data, but it explicitly grants no patent rights and is not OSI approved, so it is less suited to code. An explicit permissive license like `MIT` or `Apache-2.0` is valid across Europe and is the clearer choice for software.
+
+* **Credit vs. Citation**: Permissive licenses require users to keep your copyright notice in the code. They do not require anyone to cite you in a publication. For academic citation, add a `CITATION.cff` file to your repository.
 
 * **Downstream Obligations**: Anyone who reuses, modifies, or integrates your code into their work must preserve your copyright notice and license text. They are not required to share their modifications or open-source their downstream projects.
 
-* **Allowed Inbound Snippets**: If you want to include small third-party code snippets in your files, you can freely embed code licensed under **permissive terms** (e.g., MIT, BSD, Apache-2.0, 0BSD) or public domain waivers (CC0) without affecting your permissive license. However, embedding copyleft snippets (e.g., GPL, EUPL) might trigger reciprocal obligations requiring you to re-license. Whether it does depends on which copyleft: weak copyleft (LGPL, MPL-2.0) often lets your surrounding code stay permissive, while strong copyleft generally does not.
+* **Allowed Inbound Snippets**: You can freely embed small third-party code snippets licensed under **permissive terms** (e.g., MIT, BSD, Apache-2.0, 0BSD), keeping their notices, without affecting your permissive license. Copying copyleft code into your files is different: strong copyleft (e.g., GPL, EUPL) generally requires re-licensing your project, and pasted weak copyleft code does not stay contained either. Pasted MPL-2.0 code makes that file MPL-covered, and pasted LGPL code is treated like GPL. Weak copyleft only lets your code stay permissive when you use it as a separate file or library (see [Scenario 4](#scenario-4)).
 
-* **In-File Identification (SPDX)**: Apply standard machine-readable SPDX identifier comments directly at the top of your scripts:
+* **In-File Identification (SPDX)**: Apply standard machine-readable SPDX tags directly at the top of your scripts, following the [REUSE specification](https://reuse.software/):
 
 ```python
+# SPDX-FileCopyrightText: 2026 Author Name <author@institute.eu>
 # SPDX-License-Identifier: MIT
-# Copyright (c) 2026 Author Name <author@institute.eu>
 
 import numpy as np
 ```
