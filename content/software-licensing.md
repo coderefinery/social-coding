@@ -607,10 +607,10 @@ def solve_system(data):
 
 (scenario-7)=
 ::::{exercise} Scenario 7: Distributing pre-built container images
-You compiled and published a pre-built container image (e.g., pushing a compiled Docker image to Docker Hub, GitHub Container Registry, or an institutional registry) containing an OS layer, runtime binaries, dependencies, and your application code.
+You compiled and published a pre-built container image (e.g., pushing a compiled Docker image to Docker Hub, GitHub Container Registry, or an institutional registry, or sharing an Apptainer `.sif` file) containing an OS layer, runtime binaries, dependencies, and your application code.
 
 * **Licensing Goal**: Safely distribute compiled container images without violating the license terms of any software layer or binary included inside the image.
-* **Legal Reality**: A compiled container image is a **multi-license aggregate bundle**, not a single combined work. Distributing pre-built binaries makes you a distributor of every package inside, so source-availability obligations apply to the copyleft components (Linux base packages, coreutils, GPL libraries). But those packages sitting in the same filesystem as your application do not make your application a derivative of them, this is mere aggregation. Your own code keeps whatever license you chose; you simply also carry distributor obligations for the copyleft software you are shipping alongside it.
+* **Legal Reality**: A compiled container image is a **multi-license aggregate bundle**, not a single combined work. Distributing pre-built binaries makes you a distributor of every package inside, so source-availability obligations apply to the copyleft components (Linux base packages, coreutils, GPL libraries). But those packages sitting in the same filesystem as your application do not make your application a derivative of them: this is *mere aggregation*. Your own code keeps whatever license you chose; you simply also carry distributor obligations for the copyleft software you are shipping alongside it.
 * **JLA Selection Strategy**: Because a container image combines multiple distinct software components, JLA is used to evaluate constituent component obligations. When distributing compiled binaries containing copyleft layers, source disclosure requirements (`Disclose source`) must be fulfilled for those specific layers.
 
 :::{solution}
@@ -622,22 +622,29 @@ You compiled and published a pre-built container image (e.g., pushing a compiled
 
 * **JLA Outcome**: No single license applies. Use JLA per component to check each one's obligations, then record the aggregate in your image metadata.
 
+* **Aggregation covers independent programs only**: Mere aggregation applies to programs that simply live side by side in the image, such as your application next to `bash` or `coreutils`. If your application actually imports or links a GPL library inside the image, that relationship is a linking question, covered by [Scenario 5](#scenario-5).
+
 * **Multi-License Aggregation Nuance**: Applying a permissive license (like MIT) to your application code inside the container does not override or erase the GPL/LGPL obligations of base system packages installed in `/usr/lib` or `/usr/bin`. Distributing the built image binary makes you a distributor of all installed packages.
 
-* **Downstream Obligations**: You must ensure downstream users can obtain the corresponding source for the copyleft components you shipped. Publishing your `Dockerfile` documents the build but does not by itself satisfy this — the GPL asks for the source of the binaries actually distributed. In practice, most research images rely on unmodified upstream distribution packages, where pointing to the distributor's public source archives (as GPLv3 §6(d) permits) is the normal approach. If you modify or rebuild a copyleft component yourself, you must provide that source directly.
+* **What counts as distribution**: Pushing an image to a public registry, or sharing an image or `.sif` file with people outside your organisation, is distribution. Keeping an image in a private registry used only within your own organisation is generally not. If you are unsure, treat it as distribution.
 
-* **Allowed Inbound Packages**: Before publishing an image binary, run automated compliance scanning tools (e.g., Syft, Trivy) to generate a Software Bill of Materials (SBOM) and verify that no non-redistributable or proprietary software is packaged inside.
+* **Downstream Obligations**: You must ensure downstream users can obtain the corresponding source for the copyleft components you shipped. Publishing your `Dockerfile` documents the build but does not by itself satisfy this — the GPL asks for the source of the binaries actually distributed. In practice, most research images rely on unmodified upstream distribution packages, and pointing to the distributor's public source archives is common practice. The exact rules differ between GPL versions, however, and many distribution packages are GPL-2.0, so for images on public registries the safest option is to keep the relevant source available yourself. If you modify or rebuild a copyleft component yourself, you must provide that source directly.
 
-* **In-File Identification (Metadata Annotations)**: Document the multi-license nature of the aggregate bundle using standard OCI (Open Container Initiative) image labels inside your Dockerfile:
+* **Watch for non-redistributable software**: The bigger risk in an image is often proprietary software you are not allowed to redistribute at all, such as parts of NVIDIA CUDA, Intel's math libraries, MATLAB runtimes, or commercial solvers. Their redistribution terms are set by each vendor's license, so check them before publishing.
+
+* **Generate a Software Bill of Materials (SBOM)**: Before publishing an image, use tools such as Syft or Trivy to list every package inside it, with versions and licenses. This SBOM is the complete record of what you distribute, and it shows whether any non-redistributable software is included. Consider publishing it alongside the image.
+
+* **In-File Identification (Metadata Annotations)**: Document the multi-license nature of the aggregate bundle using standard OCI (Open Container Initiative) image labels inside your Dockerfile. The `licenses` label is a summary: a base image contains many more licenses than it lists, so the SBOM remains the complete record.
 
 ```dockerfile
+# SPDX-FileCopyrightText: 2026 Author Name <author@institute.eu>
 # SPDX-License-Identifier: MIT
-# Copyright (c) 2026 Author Name <author@institute.eu>
 
 FROM ubuntu:24.04
 LABEL org.opencontainers.image.authors="author@institute.eu"
-# OCI Standard Image Annotations for Docker Hub Compliance
+# OCI standard image annotations, displayed by registries and tools
 LABEL org.opencontainers.image.title="My Research Pipeline"
+# Summary only; see the published SBOM for the full list of licenses
 LABEL org.opencontainers.image.licenses="MIT AND GPL-3.0-or-later"
 LABEL org.opencontainers.image.vendor="My Institute Name"
 LABEL org.opencontainers.image.description="Includes Ubuntu 24.04 base layers (GPL/LGPL) and custom solver (MIT)"
@@ -646,6 +653,7 @@ COPY solver.py /app/solver.py
 ```
 :::
 ::::
+
 
 ## Module 4: Emerging Workflows & AI
 
