@@ -17,7 +17,7 @@ This lesson is designed as practical educational material for researchers and re
 * Institutional Context: Employment contracts, grant agreements, and university policies heavily influence software ownership and licensing choices.
 * This lesson covers only the general principles of open-source reuse, copyright scope, and software adaptation. 
 
-If you need formal guidance, the references below can help — and so can legal experts, especially if your host institute has a legal services office:
+If you need formal guidance, the references below can help   and so can legal experts, especially if your host institute has a legal services office:
 
 * [EUR Directive 2009/24/EC](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009L0024)
 * [Compendium of U.S. Copyright Office Practices (3rd Ed.) – Chapter 700, Section 721: Computer Programs](https://www.copyright.gov/comp3/)
@@ -81,7 +81,7 @@ Under Directive 2009/24/EC, software is protected by copyright as a **literary w
 * **Protected**: your specific source code text, binaries, container recipes, prompt text, and preparatory design material.
 * **Not protected**: mathematical algorithms, scientific models, programming logic, data structures, and interfaces.
 
-The CJEU confirmed this line in *SAS Institute v World Programming* (C-406/10): a program's functionality, its programming language, and its data file formats are ideas, not expression, and are therefore outside copyright. Someone may reimplement your algorithm from scratch; they may not copy your code. This is exactly why licenses exist — they set the terms for the expression, which is the only part copyright lets you control.
+The CJEU confirmed this line in *SAS Institute v World Programming* (C-406/10): a program's functionality, its programming language, and its data file formats are ideas, not expression, and are therefore outside copyright. Someone may reimplement your algorithm from scratch; they may not copy your code. This is exactly why licenses exist   they set the terms for the expression, which is the only part copyright lets you control.
 
 ````{admonition} Plagiarism vs. Intellectual Property Rights = Research Ethics vs. Law 
 :class: dropdown
@@ -99,14 +99,14 @@ There is no pre-defined "number of lines of code", "seconds of a song", or "pixe
 
 ### Scope of this Lesson: What Counts as *Software*?
 
-Across international frameworks (17 U.S.C. § 101 and WIPO model provisions), software is broadly defined as a set of statements or instructions used directly or indirectly in a computer to bring about a certain result. Research software goes well beyond Python scripts, so this lesson covers six asset types — find the ones matching your own project, since the scenarios later map onto them:
+Across international frameworks (17 U.S.C. § 101 and WIPO model provisions), software is broadly defined as a set of statements or instructions used directly or indirectly in a computer to bring about a certain result. Research software goes well beyond Python scripts, so this lesson covers six asset types   find the ones matching your own project, since the scenarios later map onto them:
 
-* **Source Code** — original algorithms, or implementations of published methods.
-* **Third-Party Integrations** — embedded snippets and linked libraries (static or dynamic).
-* **Infrastructure as Code** — Ansible playbooks, Terraform configs, container recipes (`Dockerfile`, Apptainer `.def`).
-* **Container Images** — built binary snapshots (`.sif` files, OCI registry images).
-* **AI-Assisted Code** — generated or refactored with human oversight.
-* **AI Prompt Templates** — engineered system prompts meeting the threshold of human authorship.
+* **Source Code**   original algorithms, or implementations of published methods.
+* **Third-Party Integrations**   embedded snippets and linked libraries (static or dynamic).
+* **Infrastructure as Code**   Ansible playbooks, Terraform configs, container recipes (`Dockerfile`, Apptainer `.def`).
+* **Container Images**   built binary snapshots (`.sif` files, OCI registry images).
+* **AI-Assisted Code**   generated or refactored with human oversight.
+* **AI Prompt Templates**   engineered system prompts meeting the threshold of human authorship.
 
 (motivation)=
 ## Motivation: Debugging a License Compliance Failure
@@ -127,9 +127,9 @@ flowchart TB
         D --> E{"Select Patch Option"}
 
         E -->|"A: Keep MIT, add comment '# Originally GPL'"| F["❌ <b>BUILD FAIL</b><br/>Comments do not override license terms"]
-        E -->|"B: Re-license repo to GPL-3.0 / EUPL-1.2"| G["✅ <b>BUILD PASS</b><br/>Your license now matches the snippet"]
+        E -->|"B: Re-license repo to match the snippet"| G["✅ <b>BUILD PASS</b><br/>Your license now matches the snippet"]
         E -->|"C: Reimplement the functionality yourself"| H["✅ <b>BUILD PASS</b><br/>Your own expression, your own license"]
-        E -->|"D: Delete LICENSE file to silence the scanner"| I["⚠️ <b>SCANNER PASSES — LEGAL TRAP</b><br/>Still infringing, and your own code reverts to All Rights Reserved"]
+        E -->|"D: Delete LICENSE file to silence the scanner"| I["⚠️ <b>SCANNER PASSES   LEGAL TRAP</b><br/>Still infringing, and your own code reverts to All Rights Reserved"]
 
         P["<b>Permissive</b><br/>MIT, Apache-2.0, 0BSD"]
         WC["<b>Weak Copyleft</b><br/>LGPL, MPL-2.0, EPL-2.0"]
@@ -138,7 +138,7 @@ flowchart TB
 
     P -.->|"What I want for my repo"| C
     CL -.->|"What the pasted snippet uses"| C
-    WC -.->|"Would often have been fine"| C
+    WC -.->|"Fine only as a separate library"| C
 
     classDef pass fill:#e6ffe6,stroke:#2b8a3e,stroke-width:2px,color:#1b4332;
     classDef copyleft fill:#fff9db,stroke:#f59f00,stroke-width:2px,color:#5c3c00;
@@ -159,7 +159,7 @@ flowchart TB
 
 * Option D : deleting the `LICENSE` file makes the scanner quiet without changing anything legally. You are still distributing someone else's copyleft code without honouring its terms, and you have now stripped your own users of any permission to use your work. A green pipeline is not a compliance result.
 
-* Option C works only if you genuinely reimplement the functionality without copying the original expression. As the idea/expression split above establishes, the algorithm is free to reuse — the specific code is not. Reading the original closely and retyping a close paraphrase is still copying.
+* Option C works only if you genuinely reimplement the functionality without copying the original expression. As the idea/expression split above establishes, the algorithm is free to reuse   the specific code is not. Reading the original closely and retyping a close paraphrase is still copying.
 
 
 ## Limitations of AI-Assisted Licensing Advice
@@ -174,8 +174,8 @@ However, using these tools for legal or licensing guidance introduces a subtle r
 Developers working under EU statutory frameworks face a different legal reality around exceptions, ownership, and code adaptation. The clearest example is the term you will hear constantly:
 
 * **US law (17 U.S.C. § 101)** formally defines *"derivative work"*, and AI assistants reach for it to describe almost any code modification.
-* **EU law (Directive 2009/24/EC, Art. 4(1)(b))** does not use that term at all. It grants exclusive rights over "the translation, adaptation, arrangement and any other alteration of a computer program" — governed collectively as an **adaptation**.
-* **Licenses vary**: `EUPL-1.2` defines "Derivative Works" in its own text as a contractual term, and `GPL-2.0` used the phrase too. `GPL-3.0` deliberately dropped it in favour of "modify" and "a work based on the Program", because its drafters recognised the term means different things in different jurisdictions — the same problem you face when an AI assistant uses it.
+* **EU law (Directive 2009/24/EC, Art. 4(1)(b))** does not use that term at all. It grants exclusive rights over "the translation, adaptation, arrangement and any other alteration of a computer program"   governed collectively as an **adaptation**.
+* **Licenses vary**: `EUPL-1.2` defines "Derivative Works" in its own text as a contractual term, and `GPL-2.0` used the phrase too. `GPL-3.0` deliberately dropped it in favour of "modify" and "a work based on the Program", because its drafters recognised the term means different things in different jurisdictions   the same problem you face when an AI assistant uses it.
 
 So when an AI assistant tells you a snippet creates a "derivative work", treat that as a prompt to check the actual question under EU law: is this a statutory **adaptation**, or a **combined work** across a technical boundary? The rest of this lesson gives you that EU-aligned framework.
 
@@ -196,7 +196,7 @@ Managed by the Linux Foundation, **SPDX** provides standardized short identifier
 
 The tags only *point to* a license, so the full license text must also be in your repository. REUSE places one text file per license in a `LICENSES/` folder (e.g., `LICENSES/MIT.txt`). Running `reuse lint` then checks that every file carries both tags and that every license it names has its text present.
 
-Every scenario below shows the SPDX tagging for its asset type — Python scripts, container recipes, and prompt templates each have their own conventions.
+Every scenario below shows the SPDX tagging for its asset type   Python scripts, container recipes, and prompt templates each have their own conventions.
 
 
 ## License Selection Decision Matrix & Scenario Index
@@ -217,10 +217,10 @@ table.wrap-table td, table.wrap-table th { white-space: normal !important; }
 | If you are... | Scenario | Typical Outcome | Example Licenses |
 | :--- | :--- | :--- | :--- |
 | Writing everything yourself | [**1. Own code**](#scenario-1) | 🟢 Free choice | `MIT`, `Apache-2.0`, `BSD-3-Clause` |
-| Implementing a published algorithm | [**2. Algorithm implementation**](#scenario-2) | 🟢 Free choice — copyleft if you want reciprocity | `EUPL-1.2`, `GPL-3.0`, `AGPL-3.0` |
+| Implementing a published algorithm | [**2. Algorithm implementation**](#scenario-2) | 🟢 Free choice   copyleft if you want reciprocity | `EUPL-1.2`, `GPL-3.0`, `AGPL-3.0` |
 | Pasting in a permissive snippet | [**3. Embed permissive**](#scenario-3) | 🟢 Stay permissive, keep notices | `MIT`, `Apache-2.0`, `EUPL-1.2`, `GPL-3.0` |
 | Pasting in a copyleft snippet | [**4. Embed copyleft**](#scenario-4) | 🟡 Strong copyleft likely required | `EUPL-1.2`, `GPL-3.0` |
-| Importing or linking a library | [**5. Link a library**](#scenario-5) | 🟡 Depends on which copyleft — see below | `GPL-3.0`, `EUPL-1.2`, or permissive if weak copyleft |
+| Importing or linking a library | [**5. Link a library**](#scenario-5) | 🟡 Depends on which copyleft   see below | `GPL-3.0`, `EUPL-1.2`, or permissive if weak copyleft |
 | Writing a Dockerfile or `.def` | [**6. Container recipe**](#scenario-6) | 🟢 Free choice | `MIT`, `Apache-2.0`, `BSD-3-Clause` |
 | Publishing a built image | [**7. Built image**](#scenario-7) | ⚠️ Multi-license bundle | Governed by each layer's own terms |
 | Using Copilot, ChatGPT or Claude | [**8. AI-assisted code**](#scenario-8) | 🟢 Free choice, verify for memorization | `MIT`, `Apache-2.0`, `EUPL-1.2`, `GPL-3.0` |
@@ -323,7 +323,7 @@ Copyright does not use a numerical threshold such as 5, 10, or 20 lines. The imp
 
 ## Module 1: Clean Slate – Authoring Original Code & Algorithms
 
-When writing original code or implementing published algorithms, no third-party license constrains your choice — but who owns the code depends on your employment contract and national rules, so check your institution's policy first.
+When writing original code or implementing published algorithms, no third-party license constrains your choice   but who owns the code depends on your employment contract and national rules, so check your institution's policy first.
 
 (scenario-1)=
 ::::{exercise} Scenario 1: Authoring original code and algorithms
@@ -367,7 +367,7 @@ import numpy as np
 You developed a custom solver implementing algorithms from academic literature. You want any downstream improvements, extensions, or modifications to remain open-source and be shared back with the scientific community.
 
 * **Licensing Goal**: You want to enforce **reciprocity** (share-alike), preventing third parties from incorporating your implementation into proprietary software without sharing their modifications.
-* **Legal Reality**: The published algorithm itself is an unprotected idea — anyone may implement it independently, as Scenario 1 and the *SAS* ruling establish. What copyright protects is *your* specific implementation. Nothing about implementing a published method forces a particular license; copyleft here is your deliberate choice to bind downstream distributors to matching terms.
+* **Legal Reality**: The published algorithm itself is an unprotected idea   anyone may implement it independently, as Scenario 1 and the *SAS* ruling establish. What copyright protects is *your* specific implementation. Nothing about implementing a published method forces a particular license; copyleft here is your deliberate choice to bind downstream distributors to matching terms.
 * **JLA Selection Strategy**: To enforce reciprocal sharing, you must mandate that downstream distributors disclose their modified source code (`Disclose source`) and license their adaptations or combined works under matching terms (`Copyleft/Share a.`).
 
 :::{solution}
@@ -420,7 +420,7 @@ You are building an RSE tool and copied a helper function or utility snippet fro
 
 * **Example JLA Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
 
-* **Notice Preservation Nuance**: Permissive licenses are flexible, but they are not license-free. Your repository license covers *your* code. It does not relicense the embedded snippet — that code stays under its original license and its original copyright holder's terms. You are distributing one file containing two separately licensed contributions, which is why both notices must appear.
+* **Notice Preservation Nuance**: Permissive licenses are flexible, but they are not license-free. Your repository license covers *your* code. It does not relicense the embedded snippet   that code stays under its original license and its original copyright holder's terms. You are distributing one file containing two separately licensed contributions, which is why both notices must appear.
 
 * **What "keeping the notice" requires**: Keep the original copyright line *and* the license text. An SPDX identifier only points to a license, so the full text must also be in your repository, typically as one file per license in a `LICENSES/` folder (e.g., `LICENSES/Apache-2.0.txt`). Apache-2.0 adds two small requirements: if you modified the snippet, state that you changed it, and if the original project has a `NOTICE` file, carry its relevant content along.
 
@@ -457,7 +457,7 @@ def main():
 You are building a software tool and copied a non-trivial code snippet from a third-party project licensed under a copyleft license (e.g., GPL-3.0 or EUPL-1.2) directly into one of your source files. This is the situation behind the failed build (job #142) in the [Motivation](#motivation) section.
 
 * **Licensing Goal**: Comply with legal requirements imposed by the inbound copyleft code while ensuring your overall repository remains legally compliant.
-* **Legal Reality**: Copying a non-trivial copyleft snippet into your source files creates a single combined work, so copyleft licensing generally extends to your whole project. Moving the snippet into a separate file of the same program does not change this. "Non-trivial" matters: a snippet too short or purely functional to qualify as the author's own intellectual creation (Art. 1(3)) may not carry copyright at all. There is no word count or line count that draws this line — if you are unsure, assume it is protected and either comply or reimplement.
+* **Legal Reality**: Copying a non-trivial copyleft snippet into your source files creates a single combined work, so copyleft licensing generally extends to your whole project. Moving the snippet into a separate file of the same program does not change this. "Non-trivial" matters: a snippet too short or purely functional to qualify as the author's own intellectual creation (Art. 1(3)) may not carry copyright at all. There is no word count or line count that draws this line   if you are unsure, assume it is protected and either comply or reimplement.
 * **JLA Selection Strategy**: If you keep the snippet, your repository must adopt reciprocal sharing terms, so configure JLA to require source code disclosure (`Disclose source`) and reciprocal licensing (`Copyleft/Share a.`).
 
 :::{solution}
@@ -511,7 +511,7 @@ When software incorporates external dependencies, whether by dynamic linking, st
 You are developing a software application that imports or links against an external software library licensed under GPL-3.0 (e.g., importing a GPL Python package or linking a C/C++ static/shared library).
 
 * **Licensing Goal**: Ensure legal compliance while using copyleft libraries as core dependencies in your software project.
-* **Legal Reality**: Whether linking creates a combined work is genuinely unsettled, and often has to be decided case by case. The FSF's position is that linking a GPL library — statically or dynamically — creates a combined work; some legal scholars and Commission EUPL guidance disagree, particularly for dynamic linking through a stable API. Most Member States have no case law on this, so no firm general rule can be stated. The guidance below follows the conservative, widely-adopted reading.
+* **Legal Reality**: Whether linking creates a combined work is genuinely unsettled, and often has to be decided case by case. The FSF's position is that linking a GPL library   statically or dynamically   creates a combined work; some legal scholars and Commission EUPL guidance disagree, particularly for dynamic linking through a stable API. Most Member States have no case law on this, so no firm general rule can be stated. The guidance below follows the conservative, widely-adopted reading.
 * **JLA Selection Strategy**: Under the conservative reading, linking to a GPL library means the combined program you distribute must be released under matching reciprocal terms, so configure JLA to require source code disclosure (`Disclose source`) and reciprocal licensing (`Copyleft/Share a.`).
 
 :::{solution}
@@ -533,9 +533,9 @@ You are developing a software application that imports or links against an exter
   * Use an **EUPL-1.2** library through dynamic linking: Commission guidance says this does not make your program a derivative work (guidance, not case law). Static linking or copying EUPL code is treated as a combined work.
   * Call a GPL tool as a **separate program** (e.g., via the command line) rather than importing it. This is generally treated as two programs communicating, not a combined work.
 
-* **Copyleft licenses are not compatible with each other**: Two strong copyleft licenses can each demand that the combined work use *their* terms, which makes the combination undistributable. The classic trap is `GPL-2.0-only`: without the "or later" clause you cannot upgrade to GPL-3.0 to resolve a conflict, so GPL-2.0-only code cannot be combined with GPL-3.0 or Apache-2.0 code at all. Always check the exact SPDX identifier — `GPL-2.0-only` and `GPL-2.0-or-later` behave very differently.
+* **Copyleft licenses are not compatible with each other**: Two strong copyleft licenses can each demand that the combined work use *their* terms, which makes the combination undistributable. The classic trap is `GPL-2.0-only`: without the "or later" clause you cannot upgrade to GPL-3.0 to resolve a conflict, so GPL-2.0-only code cannot be combined with GPL-3.0 or Apache-2.0 code at all. Always check the exact SPDX identifier   `GPL-2.0-only` and `GPL-2.0-or-later` behave very differently.
 
-* **Downstream Obligations**: Anyone to whom you **distribute** the application must receive full access to your source code under GPL-compatible terms, along with upstream copyright notices and the build scripts needed to recompile it. Running the software internally, without distributing it, creates no such obligation — though note that `AGPL-3.0` extends this to network use, such as a web application built on an AGPL library.
+* **Downstream Obligations**: Anyone to whom you **distribute** the application must receive full access to your source code under GPL-compatible terms, along with upstream copyright notices and the build scripts needed to recompile it. Running the software internally, without distributing it, creates no such obligation   though note that `AGPL-3.0` extends this to network use, such as a web application built on an AGPL library.
 
 * **Allowed Inbound Code & Dependencies**: Your project can import or include other **permissively licensed** packages (MIT, BSD, Apache-2.0) and public domain waivers (CC0). However, all code linked together in the final executable or runtime environment must satisfy GPL compatibility; for example, `Apache-2.0` is compatible with GPL-3.0 but not with GPL-2.0.
 
@@ -561,7 +561,7 @@ def solve_system(data):
 You are creating a `Dockerfile`, Apptainer `.def` file, Conda `environment.yml`, or build recipe to automate the setup of your research environment. The recipe itself contains setup instructions, shell commands, and package lists.
 
 * **Licensing Goal**: You want **maximum adoption** and reuse of your build automation script so other researchers can freely adapt and build upon your workflow.
-* **Legal Reality**: Build recipes and configuration scripts are plain-text source code, separate from the software binaries they download at build time. The build instructions you write are your expression — but note that a very short recipe (a `FROM` line plus two `RUN` commands) may be too trivial to meet the Art. 1(3) originality threshold and may not attract copyright at all. The same applies to a plain list of package names in an `environment.yml`. Longer, non-obvious recipes clearly do attract copyright.
+* **Legal Reality**: Build recipes and configuration scripts are plain-text source code, separate from the software binaries they download at build time. The build instructions you write are your expression   but note that a very short recipe (a `FROM` line plus two `RUN` commands) may be too trivial to meet the Art. 1(3) originality threshold and may not attract copyright at all. The same applies to a plain list of package names in an `environment.yml`. Longer, non-obvious recipes clearly do attract copyright.
 * **JLA Selection Strategy**: To allow anyone to reuse or adapt your container recipe without restrictions, require that your copyright notice is kept (`Incl. Copyright`) while leaving reciprocal requirements (`Copyleft/Share a.`) unselected.
 
 :::{solution}
@@ -617,7 +617,7 @@ You compiled and published a pre-built container image (e.g., pushing a compiled
 
 * **What counts as distribution**: Pushing an image to a public registry, or sharing an image or `.sif` file with people outside your organisation, is distribution. Keeping an image in a private registry used only within your own organisation is generally not. If you are unsure, treat it as distribution.
 
-* **Downstream Obligations**: You must ensure downstream users can obtain the corresponding source for the copyleft components you shipped. Publishing your `Dockerfile` documents the build but does not by itself satisfy this — the GPL asks for the source of the binaries actually distributed. In practice, most research images rely on unmodified upstream distribution packages, and pointing to the distributor's public source archives is common practice. The exact rules differ between GPL versions, however, and many distribution packages are GPL-2.0, so for images on public registries the safest option is to keep the relevant source available yourself. If you modify or rebuild a copyleft component yourself, you must provide that source directly.
+* **Downstream Obligations**: You must ensure downstream users can obtain the corresponding source for the copyleft components you shipped. Publishing your `Dockerfile` documents the build but does not by itself satisfy this   the GPL asks for the source of the binaries actually distributed. In practice, most research images rely on unmodified upstream distribution packages, and pointing to the distributor's public source archives is common practice. The exact rules differ between GPL versions, however, and many distribution packages are GPL-2.0, so for images on public registries the safest option is to keep the relevant source available yourself. If you modify or rebuild a copyleft component yourself, you must provide that source directly.
 
 * **Watch for non-redistributable software**: The bigger risk in an image is often proprietary software you are not allowed to redistribute at all, such as parts of NVIDIA CUDA, Intel's math libraries, MATLAB runtimes, or commercial solvers. Their redistribution terms are set by each vendor's license, so check them before publishing.
 
@@ -674,7 +674,7 @@ You used AI tools (e.g., GitHub Copilot, ChatGPT, Claude) to write functions, un
   * If you use GitHub Copilot, check whether the setting that **blocks suggestions matching public code** is enabled for your account or organisation.
   * If a suggestion looks suspiciously polished, **search for a distinctive line** of it on GitHub. If it appears in a copyleft project, treat it as that project's code ([Scenario 4](#scenario-4)).
 
-* **Marking AI-generated code**: Some projects and AI tool terms require contributors to disclose AI involvement — via a commit trailer, a PR checkbox, or an in-file comment. Even where it is optional, marking AI-assisted sections is increasingly recommended practice: it records provenance, signals to reviewers where extra scrutiny is warranted, and makes later authorship or infringement questions much easier to resolve. Check the contribution guidelines of any project you submit to.
+* **Marking AI-generated code**: Some projects and AI tool terms require contributors to disclose AI involvement   via a commit trailer, a PR checkbox, or an in-file comment. Even where it is optional, marking AI-assisted sections is increasingly recommended practice: it records provenance, signals to reviewers where extra scrutiny is warranted, and makes later authorship or infringement questions much easier to resolve. Check the contribution guidelines of any project you submit to.
 
 * **Use AI to write code, not to decide licensing**: As noted in the section on the limitations of AI-assisted licensing advice, AI assistants tend to apply US legal concepts. Check licensing questions against the actual license text.
 
@@ -714,7 +714,7 @@ You are developing research software that includes source code alongside trained
 
 * **Example JLA Matches**: `MIT`, `Apache-2.0` (for the code component)
 
-* **Code vs. Data/Weights**: Avoid applying software licenses like GPL or MIT to raw datasets or model weights — their terms reference source code, object code, and linking, which leaves users guessing about what applies. Use **CC-BY-4.0** or **CC0-1.0** for non-code assets instead. CC-BY-4.0 requires credit; CC0-1.0 requires nothing, which makes it easier for data that others will combine with many other datasets. Note that this pattern is sometimes called "dual-licensing", but that term usually means offering the *same* work under two licenses.
+* **Code vs. Data/Weights**: Avoid applying software licenses like GPL or MIT to raw datasets or model weights   their terms reference source code, object code, and linking, which leaves users guessing about what applies. Use **CC-BY-4.0** or **CC0-1.0** for non-code assets instead. CC-BY-4.0 requires credit; CC0-1.0 requires nothing, which makes it easier for data that others will combine with many other datasets. Note that this pattern is sometimes called "dual-licensing", but that term usually means offering the *same* work under two licenses.
 
 * **You can only license what is yours**: If your dataset contains material you did not create, such as scraped text, images, or other people's data, your license covers only your own contribution; the original content keeps its own rights. If your dataset contains personal data, data protection rules apply regardless of the license.
 
@@ -800,7 +800,7 @@ The diagram below illustrates how selecting a compatible license upfront ensures
 %%{init: {'themeVariables': { 'edgeLabelBackground': '#faf5ff', 'fontSize': '16px' }}}%%
 flowchart TB
 
-  subgraph local["① What you do differently now — before pushing"]
+  subgraph local["① What you do differently now   before pushing"]
     direction LR
     A["Paste a snippet<br/>copied from somewhere"] --> L["Identify its<br/>license family"] --> S["Choose a compatible<br/>license + add<br/>SPDX headers"]
   end
@@ -824,15 +824,15 @@ flowchart TB
    class local,ci box_fill;
 ```
 
-Compare this with the failing pipeline at the start of the lesson: the pipeline itself is identical. Nothing about the scanner changed — the only difference is two decisions made before pushing.
+Compare this with the failing pipeline at the start of the lesson: the pipeline itself is identical. Nothing about the scanner changed   the only difference is two decisions made before pushing.
 
 ### Scenario Mapping Across the Pipeline
 
-* **Choosing Your Own Terms ([Scenario 1](#scenario-1), [Scenario 2](#scenario-2) & [Scenario 3](#scenario-3))**: When you write original code, implement a published algorithm, or embed only permissive snippets, no inbound license constrains you — the choice follows your goal. Pick permissive (`MIT`, `Apache-2.0`) for maximum adoption, or copyleft (`EUPL-1.2`, `GPL-3.0`) if you want downstream improvements shared back. Either way, preserve any third-party notices attached to code you embedded.
-* **Handling Inbound Copyleft ([Scenario 4](#scenario-4) & [Scenario 5](#scenario-5))**: Copying a non-trivial copyleft snippet (e.g., CC BY-SA code from Stack Overflow, or a GPL fragment) creates a combined work. Linking against a copyleft library may do the same, depending on the license and the linking method. In both cases, selecting a compatible copyleft license upfront (`GPL-3.0` or `EUPL-1.2`) satisfies the reciprocal terms and lets the scanner pass — and checking the exact SPDX identifier first avoids the `GPL-2.0-only` incompatibility trap.
+* **Choosing Your Own Terms ([Scenario 1](#scenario-1), [Scenario 2](#scenario-2) & [Scenario 3](#scenario-3))**: When you write original code, implement a published algorithm, or embed only permissive snippets, no inbound license constrains you   the choice follows your goal. Pick permissive (`MIT`, `Apache-2.0`) for maximum adoption, or copyleft (`EUPL-1.2`, `GPL-3.0`) if you want downstream improvements shared back. Either way, preserve any third-party notices attached to code you embedded.
+* **Handling Inbound Copyleft ([Scenario 4](#scenario-4) & [Scenario 5](#scenario-5))**: Copying a non-trivial copyleft snippet (e.g., CC BY-SA code from Stack Overflow, or a GPL fragment) creates a combined work. Linking against a copyleft library may do the same, depending on the license and the linking method. In both cases, selecting a compatible copyleft license upfront (`GPL-3.0` or `EUPL-1.2`) satisfies the reciprocal terms and lets the scanner pass   and checking the exact SPDX identifier first avoids the `GPL-2.0-only` incompatibility trap.
 * **Packaging and Build Automation ([Scenario 6](#scenario-6) & [Scenario 7](#scenario-7))**: Keep plain-text build recipes (Dockerfiles) permissively licensed for maximum reuse, while annotating compiled container image binaries as multi-license aggregate bundles to satisfy embedded base-layer obligations.
 * **AI Assets and Dual-Licensing ([Scenario 8](#scenario-8) & [Scenario 9](#scenario-9))**: Run code-similarity scanners to catch LLM training memorization before releasing AI-assisted code, and apply dual-licensing to separate executable software code (`MIT`) from non-code datasets and model weights (`CC-BY-4.0`).
-* **Standardized Distribution**: Adding machine-readable **SPDX headers** across every script, Dockerfile, and prompt template lets `reuse lint` confirm that every asset has a declared, documented license. Note what this does and does not prove: the linter verifies that declarations exist and are well-formed, not that they are legally correct or mutually compatible. Automation makes your intent auditable — it does not replace the judgment calls in the scenarios above.
+* **Standardized Distribution**: Adding machine-readable **SPDX headers** across every script, Dockerfile, and prompt template lets `reuse lint` confirm that every asset has a declared, documented license. Note what this does and does not prove: the linter verifies that declarations exist and are well-formed, not that they are legally correct or mutually compatible. Automation makes your intent auditable   it does not replace the judgment calls in the scenarios above.
 
 ## Glossary
 
@@ -998,4 +998,6 @@ Viral / infectious
 
 Weak copyleft
   Reciprocity limited to a file (MPL-2.0) or library (LGPL).
+
 ```
+````
