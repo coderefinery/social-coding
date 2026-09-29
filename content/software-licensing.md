@@ -451,14 +451,13 @@ def main():
 :::
 ::::
 
-
 (scenario-4)=
 ::::{exercise} Scenario 4: Embedding copyleft third-party code
-You are building a software tool and copied a non-trivial code snippet from a third-party project licensed under a copyleft license (e.g., GPL-3.0 or EUPL-1.2) directly into one of your source files.
+You are building a software tool and copied a non-trivial code snippet from a third-party project licensed under a copyleft license (e.g., GPL-3.0 or EUPL-1.2) directly into one of your source files. This is the situation behind the failed build (job #142) in the [Motivation](#motivation-debugging-a-license-compliance-failure) section.
 
 * **Licensing Goal**: Comply with legal requirements imposed by the inbound copyleft code while ensuring your overall repository remains legally compliant.
-* **Legal Reality**: Copying a non-trivial copyleft snippet into your source files creates a single combined work, so copyleft licensing generally extends to your whole project. "Non-trivial" matters: a snippet too short or purely functional to qualify as the author's own intellectual creation (Art. 1(3)) may not carry copyright at all. There is no word count or line count that draws this line — if you are unsure, assume it is protected and either comply or reimplement.
-* **JLA Selection Strategy**: Because the inbound copyleft code forces your repository to adopt reciprocal sharing terms, you must configure JLA to require source code disclosure (`Disclose source`) and reciprocal licensing (`Copyleft/Share a.`).
+* **Legal Reality**: Copying a non-trivial copyleft snippet into your source files creates a single combined work, so copyleft licensing generally extends to your whole project. Moving the snippet into a separate file of the same program does not change this. "Non-trivial" matters: a snippet too short or purely functional to qualify as the author's own intellectual creation (Art. 1(3)) may not carry copyright at all. There is no word count or line count that draws this line — if you are unsure, assume it is protected and either comply or reimplement.
+* **JLA Selection Strategy**: If you keep the snippet, your repository must adopt reciprocal sharing terms, so configure JLA to require source code disclosure (`Disclose source`) and reciprocal licensing (`Copyleft/Share a.`).
 
 :::{solution}
 **What to select in the JLA interface:**
@@ -469,31 +468,38 @@ You are building a software tool and copied a non-trivial code snippet from a th
 
 * **Example JLA Matches**: `GPL-3.0`, `EUPL-1.2`
 
-* **Copyleft Scope & EUPL Compatibility (Legal Nuance)**: Directly copying copyleft code into your source files extends the copyleft obligation to your entire codebase. If the embedded snippet is `EUPL-1.2`, its built-in compatibility provisions allow you to license your combined project under `GPL-3.0` if your project ecosystem requires it, resolving license conflicts without violating EUPL terms.
+* **Match the snippet's license**: JLA lists both, but you do not get to choose freely. Your project must take a license compatible with the snippet: a **GPL** snippet means GPL, because GPL code cannot be re-licensed under EUPL. An **EUPL-1.2** snippet can go either way: its compatibility clause allows the combined project to be distributed under `GPL-3.0` if your ecosystem requires it.
 
-* **Downstream Obligations**: Anyone who receives, modifies, or distributes your repository must receive full access to the source code under the same copyleft license terms (`GPL-3.0` or `EUPL-1.2`) and preserve all copyright notices.
+* **Re-licensing is not the only fix**: Re-licensing your project is only possible if you hold the rights, so check with co-authors and your institution first. The alternatives are to reimplement the functionality yourself (a genuine rewrite, not a close paraphrase), to find a permissively licensed alternative, or to ask the snippet's copyright holder for permission to use it under your license, in writing.
 
-* **Allowed Inbound Snippets**: Because your overall repository is now governed by a copyleft license, you can safely embed code from **permissive sources** (MIT, BSD, Apache-2.0, CC0) as well as **compatible copyleft sources**. You cannot embed proprietary, closed-source code or snippets from incompatible copyleft licenses.
+* **Stack Overflow snippets**: Stack Overflow content is licensed **CC BY-SA** (version 2.5, 3.0, or 4.0 depending on when it was posted), a share-alike license. Credit non-trivial snippets with a link to the answer and the author's name. Creative Commons considers CC BY-SA 4.0 compatible with `GPL-3.0` in one direction, so such snippets can go into a GPL-3.0 project, but not into an MIT project.
 
-* **In-File Identification (SPDX)**: Mark your overall file license and clearly cite the embedded copyleft snippet using SPDX comments:
+* **Downstream Obligations**: Anyone to whom you distribute your repository must receive full access to the source code under the same copyleft license terms and preserve all copyright notices. Running the code internally, without distributing it, creates no obligation.
+
+* **Allowed Inbound Snippets**: Because your overall repository is now governed by a copyleft license, you can safely embed code from **permissive sources** (MIT, BSD, CC0), keeping their notices, as well as **compatible copyleft sources**. Note that `Apache-2.0` is compatible with GPL-3.0 but not with GPL-2.0. You cannot embed proprietary, closed-source code or snippets from incompatible copyleft licenses.
+
+* **In-File Identification (SPDX)**: Mark your file's own license at the top, and mark the embedded copyleft snippet with the REUSE snippet tags so the original author remains credited:
 
 ```python
+# SPDX-FileCopyrightText: 2026 Author Name <author@institute.eu>
 # SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (c) 2026 Author Name <author@institute.eu>
 
-# --- Embedded Copyleft Snippet ---
+import numpy as np
+
+# SPDX-SnippetBegin
+# SPDX-SnippetCopyrightText: 2023 External Researcher <researcher@university.org>
 # SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (c) 2023 External Researcher <researcher@university.org>
 def optimized_fft_filter(data_signal):
     # Embedded copyleft algorithm implementation
     return np.fft.fft(data_signal)
-# --- End Embedded Snippet ---
+# SPDX-SnippetEnd
 
 def main():
     pass
 ```
 :::
 ::::
+
 
 ## Module 3: Dependency Linking & Packaging
 
