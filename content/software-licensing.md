@@ -556,43 +556,54 @@ def solve_system(data):
 ::::
 
 
-(scenario-6)=
-::::{exercise} Scenario 6: Authoring container recipes and environment specifications
-You are creating a `Dockerfile`, Conda `environment.yml`, or build recipe to automate the setup of your research environment. The recipe itself contains setup instructions, shell commands, and package lists.
+(scenario-5)=
+::::{exercise} Scenario 5: Linking against a GPL-licensed library
+You are developing a software application that imports or links against an external software library licensed under GPL-3.0 (e.g., importing a GPL Python package or linking a C/C++ static/shared library).
 
-* **Licensing Goal**: You want **maximum adoption** and reuse of your build automation script so other researchers can freely adapt and build upon your workflow.
-* **Legal Reality**: Build recipes and configuration scripts are plain-text source code, separate from the software binaries they download at build time. The build instructions you write are your expression — but note that a very short recipe (a `FROM` line plus two `RUN` commands) may be too trivial to meet the Art. 1(3) originality threshold and may not attract copyright at all. Longer, non-obvious recipes clearly do.
-* **JLA Selection Strategy**: To allow anyone to reuse or adapt your container recipe without restrictions, you require citation credit (`Incl. Copyright`) while leaving reciprocal requirements (`Copyleft/Share a.`) unselected.
+* **Licensing Goal**: Ensure legal compliance while using copyleft libraries as core dependencies in your software project.
+* **Legal Reality**: Whether linking creates a combined work is genuinely unsettled, and often has to be decided case by case. The FSF's position is that linking a GPL library — statically or dynamically — creates a combined work; some legal scholars and Commission EUPL guidance disagree, particularly for dynamic linking through a stable API. Most Member States have no case law on this, so no firm general rule can be stated. The guidance below follows the conservative, widely-adopted reading.
+* **JLA Selection Strategy**: Under the conservative reading, linking to a GPL library means the combined program you distribute must be released under matching reciprocal terms, so configure JLA to require source code disclosure (`Disclose source`) and reciprocal licensing (`Copyleft/Share a.`).
 
 :::{solution}
 **What to select in the JLA interface:**
 
 1. **Can Column**: Select `Distribute`, `Modify/merge`, and `Commercial use`
-2. **Must Column**: Select `Incl. Copyright`
+2. **Must Column**: Select `Incl. Copyright`, `Disclose source`, and `Copyleft/Share a.`
 3. **Support Column**: Select `OSI approved`
 
-* **Example JLA Matches**: `MIT`, `Apache-2.0`, `BSD-3-Clause`
+* **Example JLA Matches**: `GPL-3.0`, `EUPL-1.2`
 
-* **Recipe vs. Image Nuance**: The license applied to a `Dockerfile` covers only the recipe instructions, not the software packages installed inside the container when `docker build` runs. A permissively licensed Dockerfile can install both permissive and copyleft packages without legal conflict.
+* **The safe default, not settled law**: On the conservative reading, your own files must be under a **GPL-compatible** license (GPL itself, or permissive licenses such as MIT or BSD), and the combined program you distribute is under GPL. `EUPL-1.2` also works for your own files through its compatibility clause, but the combined program then goes out under GPL anyway.
 
-* **Downstream Obligations**: Anyone who reuses or adapts your build recipe must preserve your original copyright notice in the header of the recipe file.
+* **What you ship matters**: *Static linking* copies the library's code into your binary, so you always distribute it. With *dynamic linking* (including a Python `import`), the library stays a separate file. If you publish only your own source and users install the GPL library themselves, the risk is much lower, although the FSF would still expect your code to be GPL-compatible. If you **bundle** the library, in an executable, a container image, or a compiled binary, GPL clearly applies to what you ship.
 
-* **Allowed Inbound Snippets**: You can freely include build commands and code snippets from permissively licensed build scripts or public domain code. 
+* **Alternatives if you want to stay permissive**:
+  * Find a permissively licensed alternative library.
+  * Use an **LGPL** library instead: with dynamic linking, your own code can stay permissive, provided you keep its notices and do not restrict users from modifying the library or reverse engineering to debug those modifications.
+  * Use an **EUPL-1.2** library through dynamic linking: Commission guidance says this does not make your program a derivative work (guidance, not case law). Static linking or copying EUPL code is treated as a combined work.
+  * Call a GPL tool as a **separate program** (e.g., via the command line) rather than importing it. This is generally treated as two programs communicating, not a combined work.
 
-* **In-File Identification (SPDX)**: Place SPDX identifier comments at the top of your Dockerfile or recipe file:
+* **Copyleft licenses are not compatible with each other**: Two strong copyleft licenses can each demand that the combined work use *their* terms, which makes the combination undistributable. The classic trap is `GPL-2.0-only`: without the "or later" clause you cannot upgrade to GPL-3.0 to resolve a conflict, so GPL-2.0-only code cannot be combined with GPL-3.0 or Apache-2.0 code at all. Always check the exact SPDX identifier — `GPL-2.0-only` and `GPL-2.0-or-later` behave very differently.
 
-```dockerfile
-# SPDX-License-Identifier: MIT
-# Copyright (c) 2026 Author Name <author@institute.eu>
+* **Downstream Obligations**: Anyone to whom you **distribute** the application must receive full access to your source code under GPL-compatible terms, along with upstream copyright notices and the build scripts needed to recompile it. Running the software internally, without distributing it, creates no such obligation — though note that `AGPL-3.0` extends this to network use, such as a web application built on an AGPL library.
 
-FROM ubuntu:24.04
-RUN apt-get update && apt-get install -y python3 python3-pip
-COPY solver.py /app/solver.py
+* **Allowed Inbound Code & Dependencies**: Your project can import or include other **permissively licensed** packages (MIT, BSD, Apache-2.0) and public domain waivers (CC0). However, all code linked together in the final executable or runtime environment must satisfy GPL compatibility; for example, `Apache-2.0` is compatible with GPL-3.0 but not with GPL-2.0.
+
+* **Check your dependencies**: Tools such as `pip-licenses` (Python) list the license of every installed package. Most package ecosystems have an equivalent. Run one once per project.
+
+* **In-File Identification (SPDX)**: Apply standard machine-readable SPDX tags directly at the top of your main scripts:
+
+```python
+# SPDX-FileCopyrightText: 2026 Author Name <author@institute.eu>
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+import gpl_licensed_solver  # External GPL dependency: conservative reading requires GPL compatibility
+
+def solve_system(data):
+    return gpl_licensed_solver.compute(data)
 ```
 :::
 ::::
-
----
 
 (scenario-7)=
 ::::{exercise} Scenario 7: Distributing pre-built container images
