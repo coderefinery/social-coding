@@ -43,8 +43,10 @@ extensions = [
     "sphinx_coderefinery_branding",
     "lesson_metadata",
     "sphinxcontrib.mermaid",
+    "sphinx_bioschemas"
 ]
 
+bioschemas=["../bioschemas.yml"]
 # Settings for myst_nb:
 # https://myst-nb.readthedocs.io/en/latest/computation/execute.html#notebook-execution-modes
 #nb_execution_mode = "off"
